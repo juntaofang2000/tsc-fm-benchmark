@@ -177,7 +177,7 @@ def accuracy_text(value: float | None) -> str:
 def build_suite(
     suite: Suite,
     facts: dict[tuple[str, str, str, str], float],
-) -> tuple[list[dict], list[dict]]:
+) -> tuple[list[dict], list[dict], list[dict]]:
     values: dict[tuple[DatasetKey, str], float] = {}
     coverage_rows: list[dict] = []
     missing_rows: list[dict] = []
@@ -266,7 +266,7 @@ def build_suite(
             ["dataset", *suite.methods],
             release_rows,
         )
-    return coverage_rows, missing_rows
+    return coverage_rows, missing_rows, leaderboard_rows
 
 
 def normalized_text_sha256(path: Path) -> str:
@@ -302,6 +302,7 @@ def main() -> None:
 
     all_coverage: list[dict] = []
     all_missing: list[dict] = []
+    site_leaderboards: dict[str, dict] = {}
     for suite_id in selected_ids:
         suite = suites[suite_id]
         if args.no_release_wide and suite.release_wide_output:
@@ -314,9 +315,29 @@ def main() -> None:
                 output_prefix=suite.output_prefix,
                 release_wide_output=None,
             )
-        coverage, missing = build_suite(suite, facts)
+        coverage, missing, leaderboard = build_suite(suite, facts)
         all_coverage.extend(coverage)
         all_missing.extend(missing)
+        site_leaderboards[suite_id] = {
+            "displayName": suite.display_name,
+            "datasetCount": len(suite.datasets),
+            "rows": leaderboard,
+        }
+
+    with (GENERATED_DIR / "leaderboards.json").open(
+        "w", encoding="utf-8", newline="\n"
+    ) as handle:
+        json.dump(
+            {
+                "protocolId": suites[selected_ids[0]].protocol_id,
+                "generatedFrom": "source/results_long.csv",
+                "suites": site_leaderboards,
+            },
+            handle,
+            ensure_ascii=False,
+            indent=2,
+        )
+        handle.write("\n")
 
     write_csv(
         GENERATED_DIR / "coverage_report.csv",

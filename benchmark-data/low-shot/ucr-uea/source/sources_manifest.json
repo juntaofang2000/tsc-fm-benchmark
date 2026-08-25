@@ -1,0 +1,69 @@
+{
+  "sourceRootHint": "时序基模发布/results/few-shot",
+  "canonicalRows": 6763,
+  "files": [
+    {
+      "path": "results/few-shot/Mantisv1/portable_mantisv1_ucr_lowshot_all_heads_seed42_gpu5_20260818_results.csv",
+      "sha256": "1e89c90ca9e7864e7cfeecce19a1db97c8fc1d2b685e4979b876ef2353e68b9d",
+      "rows": 5802
+    },
+    {
+      "path": "results/few-shot/Mantisv1/portable_mantisv1_uea_lowshot_all_heads_seed42_gpu5_20260818_results.csv",
+      "sha256": "5f2c9151d7fa80c5a8504a8951948f284a7474f9f715beeb29cb9fc8b8e64d0a",
+      "rows": 1392
+    },
+    {
+      "path": "results/few-shot/Moment/moment_mvcore66_lowlabel_both_seed0_fixed_results.csv",
+      "sha256": "cacf75848d29de0b6790e5d95519e8dc68b6cc8be1d5fae96a6f1b3585ca2449",
+      "rows": 508
+    },
+    {
+      "path": "results/few-shot/Moment/moment_ucr_lowlabel_both_seed0_fixed_results.csv",
+      "sha256": "8b6df4667766bbb616ee77a2b79ed290aa0556780a9103f4ea0843b646c19e49",
+      "rows": 967
+    },
+    {
+      "path": "results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv",
+      "sha256": "a9a1e9ed73fcc9d6b8b32480c7750faad84f8e88e3b6abbb4818138ab9f00748",
+      "rows": 232
+    },
+    {
+      "path": "results/few-shot/NuTime/mvcore66_lowlabel_nutime_rf_results.csv",
+      "sha256": "4afbaac8961968e156d10452eecf0721261710d7e40db1bd9d46f293bcd84c2c",
+      "rows": 508
+    },
+    {
+      "path": "results/few-shot/NuTime/ucr_lowlabel_nutime_rf_results.csv",
+      "sha256": "d0db82b59f70509cece7f023c1ed3a2cf21020138d4ef62bf50da48b737f88c9",
+      "rows": 967
+    },
+    {
+      "path": "results/few-shot/NuTime/uea_lowlabel_nutime_rf_results.csv",
+      "sha256": "43d0ec03496bd0d1743035b21ab1d8bb7d8801585907aa52d72c831314f0cb69",
+      "rows": 232
+    }
+  ],
+  "excluded": [
+    {
+      "method": "UniShape+RF",
+      "path": "results/few-shot/Unishape/mvcore66_lowlabel_unishape_rf_seed0_setting_summary.csv",
+      "sha256": "a08d724c6081f0da95f217172cb1ab0bbee9d307dd48adec6ecf471822808a69",
+      "rows": 8,
+      "reason": "Aggregate summaries only; per-dataset results are unavailable."
+    },
+    {
+      "method": "UniShape+RF",
+      "path": "results/few-shot/Unishape/ucr_lowlabel_unishape_rf_seed0_setting_summary.csv",
+      "sha256": "fa2b718ae8c96eec358a9590482930e8d8c8264a3a9c89babf51e158b17f361d",
+      "rows": 8,
+      "reason": "Aggregate summaries only; per-dataset results are unavailable."
+    },
+    {
+      "method": "UniShape+RF",
+      "path": "results/few-shot/Unishape/uea_lowlabel_unishape_rf_seed0_moment_setting_summary.csv",
+      "sha256": "fef783dbdf06f7cf7d3462d150b98b49ab578ccadd13f661bd292ae2c738de97",
+      "rows": 8,
+      "reason": "Aggregate summaries only; per-dataset results are unavailable."
+    }
+  ]
+}

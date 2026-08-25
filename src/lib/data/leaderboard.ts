@@ -1,4 +1,11 @@
-import { officialLeaderboard, ucrLeaderboard } from "@/data/official/leaderboard";
+import {
+  allOfficialEntries,
+  lowShotLeaderboards,
+  officialLeaderboard,
+  standardLeaderboards,
+  type BenchmarkScope,
+  type LowShotSetting,
+} from "@/data/official/leaderboard";
 import type { LeaderboardEntry, Track } from "@/types";
 
 export async function getLeaderboard(options?: {
@@ -11,11 +18,21 @@ export async function getLeaderboard(options?: {
 }
 
 export async function getLeaderboardEntry(slug: string) {
-  return officialLeaderboard.find((entry) => entry.slug === slug)
-    ?? ucrLeaderboard.find((entry) => entry.slug === slug)
-    ?? null;
+  return allOfficialEntries.find((entry) => entry.slug === slug) ?? null;
 }
 
-export async function getUcrLeaderboard() {
-  return ucrLeaderboard;
+export async function getStandardLeaderboards() {
+  return standardLeaderboards;
+}
+
+export async function getLowShotLeaderboards() {
+  return lowShotLeaderboards;
+}
+
+export async function getStandardLeaderboard(scope: BenchmarkScope) {
+  return standardLeaderboards[scope];
+}
+
+export async function getLowShotLeaderboard(setting: LowShotSetting, scope: BenchmarkScope) {
+  return lowShotLeaderboards[setting][scope];
 }

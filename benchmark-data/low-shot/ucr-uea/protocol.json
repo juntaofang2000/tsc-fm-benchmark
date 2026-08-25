@@ -1,0 +1,17 @@
+{
+  "protocol_id": "low-shot-per-class-v1",
+  "description": "Class-stratified training contexts with fixed labels per class and official test splits.",
+  "settings": ["1-shot", "5-shot", "10-shot"],
+  "benchmarks": {
+    "Overall": ["UCR", "UEA"],
+    "UCR": ["UCR"],
+    "UEA": ["UEA"],
+    "MVCore66": ["MVCore66"]
+  },
+  "ranking": {
+    "primary_metric": "average_accuracy",
+    "dataset_weighting": "equal",
+    "eligibility": "complete coverage of datasets feasible for the selected shot budget",
+    "ties": "average rank"
+  }
+}

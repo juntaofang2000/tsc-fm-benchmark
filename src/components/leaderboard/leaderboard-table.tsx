@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { EmptyState } from "@/components/shared/empty-state";
 import { cn, formatMetric } from "@/lib/utils";
 import type { EvaluationType, LeaderboardEntry } from "@/types";
+import type { BenchmarkScope } from "@/data/official/leaderboard";
 
 const evaluationTypes: Array<EvaluationType | "All types"> = [
   "All types",
@@ -43,11 +44,12 @@ function ExternalIcon({ href, kind }: { href: string | null; kind: "paper" | "co
   return <a href={href} aria-label={`${kind} link`} className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"><Icon className="size-4" /></a>;
 }
 
-function getColumns(scope: "Overall" | "UCR"): ColumnDef<LeaderboardEntry>[] {
+function getColumns(scope: BenchmarkScope): ColumnDef<LeaderboardEntry>[] {
+  const averageLabel = scope === "Overall" ? "Overall Avg." : `${scope} Avg.`;
   return [
   {
     accessorKey: "rank",
-    header: ({ column }) => <SortHeader label={scope === "UCR" ? "UCR Rank" : "Rank"} column={column} />,
+    header: ({ column }) => <SortHeader label={scope === "Overall" ? "Rank" : `${scope} Rank`} column={column} />,
     cell: ({ row }) => <div className="flex items-center gap-1.5 tabular-nums">{row.original.rank <= 3 && <Medal className="size-3.5 text-primary/70" />}<span>{row.original.rank}</span></div>,
   },
   {
@@ -63,7 +65,7 @@ function getColumns(scope: "Overall" | "UCR"): ColumnDef<LeaderboardEntry>[] {
       </div>
     ),
   },
-  { accessorKey: "avgAccuracy", header: ({ column }) => <SortHeader label={scope === "UCR" ? "UCR Avg." : "Overall Avg."} column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
+  { accessorKey: "avgAccuracy", header: ({ column }) => <SortHeader label={averageLabel} column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "avgRank", header: ({ column }) => <SortHeader label="Avg. Rank" column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "ucrAccuracy", header: "UCR", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "ueaAccuracy", header: "UEA", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
@@ -74,14 +76,14 @@ function getColumns(scope: "Overall" | "UCR"): ColumnDef<LeaderboardEntry>[] {
   ];
 }
 
-function columnClass(columnId: string, scope: "Overall" | "UCR") {
+function columnClass(columnId: string, scope: BenchmarkScope) {
   switch (columnId) {
     case "rank": return "w-[70px]";
     case "model": return "w-[220px]";
     case "avgAccuracy": return "w-[125px]";
     case "avgRank": return "hidden w-[100px] lg:table-cell";
-    case "ucrAccuracy": return scope === "UCR" ? "hidden" : "hidden w-[80px] sm:table-cell";
-    case "ueaAccuracy": return scope === "UCR" ? "hidden" : "hidden w-[80px] sm:table-cell";
+    case "ucrAccuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] sm:table-cell";
+    case "ueaAccuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] sm:table-cell";
     case "coverage": return "hidden w-[105px] md:table-cell";
     case "evaluationType": return "hidden w-[140px] xl:table-cell";
     case "paper":
@@ -90,7 +92,7 @@ function columnClass(columnId: string, scope: "Overall" | "UCR") {
   }
 }
 
-export function LeaderboardTable({ data, compact = false, scope = "Overall" }: { data: LeaderboardEntry[]; compact?: boolean; scope?: "Overall" | "UCR" }) {
+export function LeaderboardTable({ data, compact = false, scope = "Overall" }: { data: LeaderboardEntry[]; compact?: boolean; scope?: BenchmarkScope }) {
   const [sorting, setSorting] = useState<SortingState>([{ id: "rank", desc: false }]);
   const [query, setQuery] = useState("");
   const [type, setType] = useState<(typeof evaluationTypes)[number]>("All types");

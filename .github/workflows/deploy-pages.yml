@@ -46,7 +46,8 @@ jobs:
       - name: Validate canonical benchmark results
         run: |
           python benchmark-data/standard/ucr-uea/scripts/build_results.py --no-release-wide
-          git diff --exit-code -- benchmark-data/standard/ucr-uea/generated
+          python benchmark-data/low-shot/ucr-uea/scripts/build_results.py
+          git diff --exit-code -- benchmark-data/standard/ucr-uea/generated benchmark-data/low-shot/ucr-uea/generated
 
       - name: Build static mirror
         run: pnpm run build:pages
