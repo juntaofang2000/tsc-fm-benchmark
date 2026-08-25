@@ -2,6 +2,198 @@
   "protocolId": "paper-standard-v1",
   "generatedFrom": "source/results_long.csv",
   "suites": {
+    "mvcore66_66": {
+      "displayName": "MVCore66-66",
+      "datasetCount": 66,
+      "rows": [
+        {
+          "method": "UniShape+RF",
+          "avg_accuracy": 0.740281223028272,
+          "avg_accuracy_pct": 74.0281223028272,
+          "avg_rank": 3.8863636363636362,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 1
+        },
+        {
+          "method": "ChorusTIC",
+          "avg_accuracy": 0.7399060362961656,
+          "avg_accuracy_pct": 73.99060362961656,
+          "avg_rank": 3.409090909090909,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 2
+        },
+        {
+          "method": "MOMENT+SVM",
+          "avg_accuracy": 0.7395089090909092,
+          "avg_accuracy_pct": 73.95089090909092,
+          "avg_rank": 4.068181818181818,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 3
+        },
+        {
+          "method": "TabICLv2",
+          "avg_accuracy": 0.7242275301853164,
+          "avg_accuracy_pct": 72.42275301853164,
+          "avg_rank": 4.325757575757576,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 4
+        },
+        {
+          "method": "MOMENT+RF",
+          "avg_accuracy": 0.7221063333333334,
+          "avg_accuracy_pct": 72.21063333333335,
+          "avg_rank": 4.757575757575758,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 5
+        },
+        {
+          "method": "TabICL",
+          "avg_accuracy": 0.6977938262462839,
+          "avg_accuracy_pct": 69.7793826246284,
+          "avg_rank": 5.204545454545454,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 6
+        },
+        {
+          "method": "MOMENT+kNN",
+          "avg_accuracy": 0.6578267878787879,
+          "avg_accuracy_pct": 65.78267878787878,
+          "avg_rank": 6.931818181818182,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 7
+        },
+        {
+          "method": "NuTime+RF",
+          "avg_accuracy": 0.6274354545454545,
+          "avg_accuracy_pct": 62.74354545454545,
+          "avg_rank": 7.363636363636363,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 8
+        },
+        {
+          "method": "MOMENT+NC",
+          "avg_accuracy": 0.6106515909090909,
+          "avg_accuracy_pct": 61.06515909090909,
+          "avg_rank": 7.803030303030303,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 9
+        },
+        {
+          "method": "MOMENT+MLP",
+          "avg_accuracy": 0.6091938939393939,
+          "avg_accuracy_pct": 60.9193893939394,
+          "avg_rank": 7.25,
+          "datasets": 66,
+          "coverage": "66 / 66",
+          "rank": 10
+        }
+      ]
+    },
+    "mvcore66_only_40": {
+      "displayName": "MVCore66-only-40",
+      "datasetCount": 40,
+      "rows": [
+        {
+          "method": "MOMENT+SVM",
+          "avg_accuracy": 0.76699535,
+          "avg_accuracy_pct": 76.699535,
+          "avg_rank": 3.9625,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 1
+        },
+        {
+          "method": "UniShape+RF",
+          "avg_accuracy": 0.7584435007185233,
+          "avg_accuracy_pct": 75.84435007185233,
+          "avg_rank": 3.875,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 2
+        },
+        {
+          "method": "ChorusTIC",
+          "avg_accuracy": 0.7492232605881323,
+          "avg_accuracy_pct": 74.92232605881323,
+          "avg_rank": 3.4375,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 3
+        },
+        {
+          "method": "MOMENT+RF",
+          "avg_accuracy": 0.744489925,
+          "avg_accuracy_pct": 74.4489925,
+          "avg_rank": 4.625,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 4
+        },
+        {
+          "method": "TabICLv2",
+          "avg_accuracy": 0.7332040458582668,
+          "avg_accuracy_pct": 73.32040458582668,
+          "avg_rank": 4.775,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 5
+        },
+        {
+          "method": "TabICL",
+          "avg_accuracy": 0.705729775809698,
+          "avg_accuracy_pct": 70.5729775809698,
+          "avg_rank": 5.6875,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 6
+        },
+        {
+          "method": "MOMENT+kNN",
+          "avg_accuracy": 0.68072885,
+          "avg_accuracy_pct": 68.07288500000001,
+          "avg_rank": 6.8,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 7
+        },
+        {
+          "method": "MOMENT+MLP",
+          "avg_accuracy": 0.679294775,
+          "avg_accuracy_pct": 67.92947749999999,
+          "avg_rank": 6.5875,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 8
+        },
+        {
+          "method": "NuTime+RF",
+          "avg_accuracy": 0.6496524,
+          "avg_accuracy_pct": 64.96524,
+          "avg_rank": 7.475,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 9
+        },
+        {
+          "method": "MOMENT+NC",
+          "avg_accuracy": 0.623243625,
+          "avg_accuracy_pct": 62.32436250000001,
+          "avg_rank": 7.775,
+          "datasets": 40,
+          "coverage": "40 / 40",
+          "rank": 10
+        }
+      ]
+    },
     "overall_158": {
       "displayName": "UCR-128 + UEA-30",
       "datasetCount": 158,
@@ -131,6 +323,102 @@
           "datasets": 158,
           "coverage": "158 / 158",
           "rank": 14
+        }
+      ]
+    },
+    "overall_198": {
+      "displayName": "UCR-128 + UEA-30 + MVCore66-only-40",
+      "datasetCount": 198,
+      "rows": [
+        {
+          "method": "ChorusTIC",
+          "avg_accuracy": 0.78555243144578,
+          "avg_accuracy_pct": 78.555243144578,
+          "avg_rank": 3.2323232323232323,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 1
+        },
+        {
+          "method": "UniShape+RF",
+          "avg_accuracy": 0.7686508610309893,
+          "avg_accuracy_pct": 76.86508610309893,
+          "avg_rank": 4.0732323232323235,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 2
+        },
+        {
+          "method": "MOMENT+SVM",
+          "avg_accuracy": 0.7623212828282828,
+          "avg_accuracy_pct": 76.23212828282828,
+          "avg_rank": 4.1313131313131315,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 3
+        },
+        {
+          "method": "TabICLv2",
+          "avg_accuracy": 0.7610379390407013,
+          "avg_accuracy_pct": 76.10379390407013,
+          "avg_rank": 3.962121212121212,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 4
+        },
+        {
+          "method": "MOMENT+RF",
+          "avg_accuracy": 0.7534859747474748,
+          "avg_accuracy_pct": 75.34859747474748,
+          "avg_rank": 4.815656565656566,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 5
+        },
+        {
+          "method": "TabICL",
+          "avg_accuracy": 0.7382899656457065,
+          "avg_accuracy_pct": 73.82899656457064,
+          "avg_rank": 4.888888888888889,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 6
+        },
+        {
+          "method": "MOMENT+kNN",
+          "avg_accuracy": 0.7201156262626263,
+          "avg_accuracy_pct": 72.01156262626263,
+          "avg_rank": 6.191919191919192,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 7
+        },
+        {
+          "method": "NuTime+RF",
+          "avg_accuracy": 0.667609691919192,
+          "avg_accuracy_pct": 66.7609691919192,
+          "avg_rank": 7.217171717171717,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 8
+        },
+        {
+          "method": "MOMENT+NC",
+          "avg_accuracy": 0.6422327373737373,
+          "avg_accuracy_pct": 64.22327373737373,
+          "avg_rank": 7.815656565656566,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 9
+        },
+        {
+          "method": "MOMENT+MLP",
+          "avg_accuracy": 0.5022985050505051,
+          "avg_accuracy_pct": 50.22985050505051,
+          "avg_rank": 8.671717171717171,
+          "datasets": 198,
+          "coverage": "198 / 198",
+          "rank": 10
         }
       ]
     },

@@ -69,6 +69,7 @@ function getColumns(scope: BenchmarkScope): ColumnDef<LeaderboardEntry>[] {
   { accessorKey: "avgRank", header: ({ column }) => <SortHeader label="Avg. Rank" column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "ucrAccuracy", header: "UCR", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "ueaAccuracy", header: "UEA", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
+  { accessorKey: "mvcore66Accuracy", header: "MV-only", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "coverage", header: "Coverage", cell: ({ getValue }) => <span className="whitespace-nowrap tabular-nums text-muted-foreground">{getValue<string>()}</span> },
   { accessorKey: "evaluationType", header: "Evaluation Type", cell: ({ getValue }) => <Badge variant="secondary" className="whitespace-nowrap">{getValue<EvaluationType>()}</Badge> },
   { id: "paper", header: "Paper", cell: ({ row }) => <ExternalIcon href={row.original.paperUrl} kind="paper" /> },
@@ -84,6 +85,7 @@ function columnClass(columnId: string, scope: BenchmarkScope) {
     case "avgRank": return "hidden w-[100px] lg:table-cell";
     case "ucrAccuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] sm:table-cell";
     case "ueaAccuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] sm:table-cell";
+    case "mvcore66Accuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] lg:table-cell";
     case "coverage": return "hidden w-[105px] md:table-cell";
     case "evaluationType": return "hidden w-[140px] xl:table-cell";
     case "paper":

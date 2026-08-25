@@ -78,14 +78,19 @@ function makeEntry(
 const standardComponentMaps = {
   UCR: new Map(standard.suites.ucr_128.rows.map((row) => [row.method, row.avg_accuracy_pct])),
   UEA: new Map(standard.suites.uea_30.rows.map((row) => [row.method, row.avg_accuracy_pct])),
+  MVCore66Only: new Map(standard.suites.mvcore66_only_40.rows.map((row) => [row.method, row.avg_accuracy_pct])),
 };
 
 export const standardLeaderboards: Record<BenchmarkScope, LeaderboardEntry[]> = {
-  Overall: standard.suites.overall_158.rows.map((row) => makeEntry(
+  Overall: standard.suites.overall_198.rows.map((row) => makeEntry(
     row,
     "Overall",
     ["Overall", "Standard", metadata(row.method).evaluationType === "In-Context" ? "Training-Free / ICL" : "Frozen-Probe"],
-    { UCR: standardComponentMaps.UCR.get(row.method), UEA: standardComponentMaps.UEA.get(row.method) },
+    {
+      UCR: standardComponentMaps.UCR.get(row.method),
+      UEA: standardComponentMaps.UEA.get(row.method),
+      MVCore66: standardComponentMaps.MVCore66Only.get(row.method),
+    },
   )),
   UCR: standard.suites.ucr_128.rows.map((row) => makeEntry(
     row,
@@ -97,7 +102,11 @@ export const standardLeaderboards: Record<BenchmarkScope, LeaderboardEntry[]> = 
     "UEA",
     ["Standard", metadata(row.method).evaluationType === "In-Context" ? "Training-Free / ICL" : "Frozen-Probe"],
   )),
-  MVCore66: [],
+  MVCore66: standard.suites.mvcore66_66.rows.map((row) => makeEntry(
+    row,
+    "MVCore66",
+    ["Standard", metadata(row.method).evaluationType === "In-Context" ? "Training-Free / ICL" : "Frozen-Probe"],
+  )),
 };
 
 export const lowShotLeaderboards: Record<LowShotSetting, Record<BenchmarkScope, LeaderboardEntry[]>> = Object.fromEntries(

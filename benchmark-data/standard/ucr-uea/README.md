@@ -1,7 +1,7 @@
 # Reproducible benchmark result pipeline
 
 This directory stores the per-dataset results used by the ChorusTIC UCR, UEA,
-and joint leaderboards. The pipeline is designed so that changing the benchmark
+MVCore66, and joint leaderboards. The pipeline is designed so that changing the benchmark
 dataset set does not require rerunning unaffected method-dataset experiments.
 
 For Chinese instructions, see [README.zh-CN.md](README.zh-CN.md).
@@ -20,7 +20,7 @@ Column definitions:
 
 | Column | Meaning |
 |---|---|
-| `archive` | Dataset namespace, such as `UCR` or `UEA`. |
+| `archive` | Dataset namespace: `UCR`, `UEA`, or `MVCore66`. |
 | `dataset` | Exact dataset identifier used in the suite list. |
 | `method` | Stable method identifier shown in generated tables. |
 | `protocol_id` | Evaluation protocol version. Never mix incompatible protocols. |
@@ -44,8 +44,11 @@ beginning with `#` are ignored.
 
 - `ucr_128.json` selects the paper UCR-128 datasets and 11 UCR methods.
 - `uea_30.json` selects the paper UEA-30 datasets and 9 UEA methods.
-- `overall_158.json` combines those suites and selects the 9 methods with joint
-  UCR+UEA coverage.
+- `mvcore66_66.json` selects all 66 verified MVCore66 tasks and 10 methods.
+- `mvcore66_only_40.json` selects the 40 MVCore66 tasks that do not overlap UEA.
+- `overall_198.json` combines UCR-128, UEA-30, and MVCore66-only-40 and selects
+  the 10 methods with complete 198/198 coverage.
+- `overall_158.json` remains an immutable historical UCR+UEA snapshot.
 
 Treat published suite IDs as immutable snapshots. For a changed benchmark,
 copy the JSON and dataset list to a new version such as `ucr_v2.json` and
@@ -105,8 +108,30 @@ row-level provenance.
 
 Domain metadata is deliberately left empty until it is manually curated. The
 builder never infers domains from names and never replaces missing results with
-zero. Low-shot, OOD, and MVCore66 are recorded as Demo-only tracks and are not
-mixed into the official UCR/UEA analysis.
+zero. The Capability Map currently remains a UCR/UEA-only analysis; the official
+MVCore66 Standard results are not mixed into it until reviewed task metadata is
+available. Low-shot and OOD also remain separate analyses.
+
+## Import verified MVCore66 results
+
+Import the six checked source exports before rebuilding the suites:
+
+```bash
+python scripts/import_mvcore66_results.py \
+  --source-root /path/to/results/standard/MVCore66 \
+  --overlap-file /path/to/benchmark_overlap_uea_mvcore66.csv
+python scripts/build_results.py --no-release-wide
+```
+
+The importer requires the same 66 datasets for all 10 method variants, validates
+every accuracy and status, and writes `source/mvcore66_sources_manifest.json`
+with source hashes and the frozen overlap policy. It replaces only existing
+`MVCore66` facts, leaving UCR and UEA provenance unchanged.
+
+The deduplicated union keeps the UEA record for every one of the 26 UEA/MVCore66
+overlaps. The Overall suite therefore contains 128 UCR + 30 UEA + 40
+MVCore66-only datasets. The separate MVCore66 leaderboard still evaluates all
+66 MVCore66 tasks.
 
 The two legacy release files remain at their original paths for compatibility:
 
@@ -159,12 +184,14 @@ For each selected dataset:
 5. `avg_accuracy` is the unweighted mean across selected datasets.
 6. The displayed leaderboard rank is ordered by `avg_accuracy` descending.
 
-The joint Overall suite therefore uses equal dataset weighting, not equal
-archive weighting. With the paper suite, it is equivalent to:
+The current joint Overall suite therefore uses equal dataset weighting, not
+equal archive weighting:
 
 ```text
-(128 × UCR mean + 30 × UEA mean) / 158
+(128 × UCR mean + 30 × UEA mean + 40 × MVCore66-only mean) / 198
 ```
+
+Only methods with complete `198 / 198` coverage are eligible for Overall.
 
 ## Protocol changes
 

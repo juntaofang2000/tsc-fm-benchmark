@@ -1,0 +1,21 @@
+{
+  "suite_id": "mvcore66_66",
+  "display_name": "MVCore66-66",
+  "protocol_id": "paper-standard-v1",
+  "dataset_files": {
+    "MVCore66": "datasets/mvcore66_66.txt"
+  },
+  "methods": [
+    "ChorusTIC",
+    "MOMENT+SVM",
+    "MOMENT+RF",
+    "MOMENT+MLP",
+    "MOMENT+kNN",
+    "MOMENT+NC",
+    "UniShape+RF",
+    "NuTime+RF",
+    "TabICL",
+    "TabICLv2"
+  ],
+  "output_prefix": "mvcore66_66"
+}

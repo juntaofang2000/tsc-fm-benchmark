@@ -94,9 +94,6 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
           missing results are excluded rather than filled with zero, and ranks are recomputed within this exact comparison set.
         </p>
       )}
-      {track === "Standard" && benchmark === "MVCore66" && (
-        <p className="mt-3 text-xs leading-5 text-muted-foreground">Standard MVCore66 has not yet been imported into the canonical per-dataset source.</p>
-      )}
       {track === "OOD" && (
         <p className="mt-3 text-xs leading-5 text-muted-foreground">OOD remains a Demo track until verified per-dataset results are available.</p>
       )}

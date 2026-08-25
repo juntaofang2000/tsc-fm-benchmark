@@ -26,9 +26,9 @@ export default async function LeaderboardPage() {
         <div className="mb-5 flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/[0.04] px-4 py-3 text-sm">
           <AlertCircle className="mt-0.5 size-4 shrink-0 text-primary" />
           <div>
-            <p>Only methods covering all 158 required datasets are eligible for the Standard Overall leaderboard.</p>
+            <p>Only methods covering all 198 unique datasets are eligible for the Standard Overall leaderboard.</p>
             <p className="mt-1 text-xs leading-5 text-muted-foreground">
-              Overall Average Accuracy is the unweighted mean over 128 UCR and 30 UEA datasets: (128 × UCR Avg. + 30 × UEA Avg.) / 158. UCR and UEA are not assigned equal 50% weights.
+              Overall Average Accuracy is the unweighted mean over 128 UCR, 30 UEA, and 40 MVCore66-only datasets: (128 × UCR Avg. + 30 × UEA Avg. + 40 × MV-only Avg.) / 198. All 26 UEA/MVCore66 overlaps retain the UEA result and are counted once.
             </p>
           </div>
         </div>

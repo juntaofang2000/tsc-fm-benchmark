@@ -1,6 +1,6 @@
 # 可复现的榜单结果流水线
 
-本目录用于管理 ChorusTIC 的 UCR、UEA 和 Overall 榜单。设计目标是：以后
+本目录用于管理 ChorusTIC 的 UCR、UEA、MVCore66 和 Overall 榜单。设计目标是：以后
 增加或移除参与榜单的数据集时，只补跑缺失的“方法 × 数据集”，不重跑已有
 实验。
 
@@ -21,7 +21,7 @@ UCR,Adiac,ChorusTIC,paper-standard-v1,run-001,0,ok,0.823529,results/run-001.json
 
 | 字段 | 说明 |
 |---|---|
-| `archive` | 数据集命名空间，例如 `UCR`、`UEA`。 |
+| `archive` | 数据集命名空间：`UCR`、`UEA` 或 `MVCore66`。 |
 | `dataset` | 必须与 suite 数据集清单中的名称完全一致。 |
 | `method` | 稳定的方法名称。 |
 | `protocol_id` | 评估协议版本；不兼容的协议不得混合。 |
@@ -70,6 +70,26 @@ python scripts/build_results.py --output-dir 临时目录 --no-release-wide
 - `ucr_128_per_dataset_accuracy.csv`
 - `uea_30_per_dataset_accuracy.csv`
 
+## 导入 MVCore66 正式结果
+
+先导入六份已核对的源结果，再重建全部 suite：
+
+```bash
+python scripts/import_mvcore66_results.py \
+  --source-root /path/to/results/standard/MVCore66 \
+  --overlap-file /path/to/benchmark_overlap_uea_mvcore66.csv
+python scripts/build_results.py --no-release-wide
+```
+
+导入脚本要求 10 个方法变体具有完全一致的 66 个数据集，校验 accuracy 和
+status，并把来源哈希及冻结的去重规则写入
+`source/mvcore66_sources_manifest.json`。脚本只替换长表中已有的 MVCore66
+记录，不修改 UCR 和 UEA 的来源记录。
+
+26 个 UEA/MVCore66 重叠任务全部保留 UEA 结果。因此总榜单包含
+`128 UCR + 30 UEA + 40 MVCore66-only = 198` 个唯一数据集；单独的
+MVCore66 榜单仍使用全部 66 个任务。
+
 ## 移除数据集
 
 1. 不要直接改变已经发布的 suite；复制出新版本，例如 `ucr_v2.json`。
@@ -109,11 +129,13 @@ python scripts/build_results.py --output-dir 临时目录 --no-release-wide
 5. Avg. Accuracy 是所有入选数据集准确率的无权平均。
 6. 榜单序号按 Avg. Accuracy 从高到低排列。
 
-Overall 因此按每个数据集等权，而不是 UCR 与 UEA 各占 50%。当前论文套件为：
+Overall 按每个数据集等权，而不是三个 archive 各占相同权重。当前正式套件为：
 
 ```text
-(128 × UCR 平均准确率 + 30 × UEA 平均准确率) / 158
+(128 × UCR 平均准确率 + 30 × UEA 平均准确率 + 40 × MVCore66-only 平均准确率) / 198
 ```
+
+只有完整覆盖 `198 / 198` 的方法才有总榜单资格。
 
 ## 协议发生变化时
 

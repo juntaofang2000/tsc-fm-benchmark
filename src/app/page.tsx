@@ -63,9 +63,9 @@ export default async function Home() {
         <div className="container-wide">
           <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">UCR-128 + UEA-30</p><VerifiedResultsBadge /></div>
+              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">UCR-128 + UEA-30 + MVCore66-only-40</p><VerifiedResultsBadge /></div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Overall Leaderboard Preview</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy across all 158 UCR and UEA datasets with equal dataset weighting.</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy across 198 unique datasets with equal dataset weighting; 26 UEA/MVCore66 overlaps are counted once using the UEA result.</p>
             </div>
             <Button variant="outline" asChild><Link href="/leaderboard">View Full Leaderboard <ArrowRight className="size-4" /></Link></Button>
           </div>

@@ -1,0 +1,61 @@
+{
+  "protocolId": "paper-standard-v1",
+  "deduplicationPolicy": {
+    "overallSuite": "UCR-128 + UEA-30 + MVCore66-only-40",
+    "overlapResolution": "Keep UEA result for all 26 UEA/MVCore66 overlaps",
+    "uniqueDatasetCount": 198,
+    "common": 26,
+    "mvcore66Only": 40,
+    "ueaOnly": 4
+  },
+  "overlapFile": {
+    "path": "benchmark_overlap_uea_mvcore66.csv",
+    "sha256": "87d1558f39ff1574e060714703423ba3d1e5ada1ee05c7e113effcff604ddd6e",
+    "rows": 70
+  },
+  "sources": [
+    {
+      "path": "results/standard/MVCore66/ChorusTIC_MV-core_66_step-6000_results.csv.csv",
+      "sha256": "094b8aab3d6a22fa2ae295190a69d0bbcc7ce590173f6b7c107afa44ea42f63e",
+      "rows": 66
+    },
+    {
+      "path": "results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv",
+      "sha256": "05bd294966717df9f0a4c20914588a481285a3f2447bdb63e689eac477911dd3",
+      "rows": 66
+    },
+    {
+      "path": "results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv",
+      "sha256": "9f9e8777223ffedd07bf104c0ebf7e1a0b5edf4649aa66a28cbb5a75144d5ec9",
+      "rows": 66
+    },
+    {
+      "path": "results/standard/MVCore66/mvcore66_zeroshot_unishape_rf200_20260821.csv",
+      "sha256": "fd465e30f56274ef1df4bdde6dae924f0d96e8a20043e6debf43737810abf42a",
+      "rows": 66
+    },
+    {
+      "path": "results/standard/MVCore66/tabicl/results.csv",
+      "sha256": "b272fa3322b98175c1e45b873182dcbebabff16058d7c3e0eccec97dc8bbce0f",
+      "rows": 66
+    },
+    {
+      "path": "results/standard/MVCore66/tabiclv2/results.csv",
+      "sha256": "a9242843534eb018bc325edabe44cfc22e0c67d631836f4e06ab5326303c6627",
+      "rows": 66
+    }
+  ],
+  "canonicalRowsAdded": 660,
+  "methods": [
+    "ChorusTIC",
+    "MOMENT+MLP",
+    "MOMENT+NC",
+    "MOMENT+RF",
+    "MOMENT+SVM",
+    "MOMENT+kNN",
+    "NuTime+RF",
+    "TabICL",
+    "TabICLv2",
+    "UniShape+RF"
+  ]
+}
