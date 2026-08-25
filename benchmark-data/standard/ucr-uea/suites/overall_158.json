@@ -1,0 +1,29 @@
+{
+  "suite_id": "overall_158",
+  "display_name": "UCR-128 + UEA-30",
+  "protocol_id": "paper-standard-v1",
+  "include_suites": [
+    "ucr_128",
+    "uea_30"
+  ],
+  "methods": [
+    "ChorusTIC",
+    "MOMENT+SVM",
+    "MOMENT+RF",
+    "MOMENT+MLP",
+    "MOMENT+kNN",
+    "MOMENT+NC",
+    "Mantis+RF",
+    "Mantis+SVM",
+    "Mantis+MLP",
+    "Mantis+kNN",
+    "Mantis+NC",
+    "MantisV2+RF",
+    "MantisV2+LR",
+    "UniShape+RF",
+    "NuTime+RF",
+    "TabICL",
+    "TabICLv2"
+  ],
+  "output_prefix": "overall_158"
+}
