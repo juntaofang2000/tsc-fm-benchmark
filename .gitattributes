@@ -1,0 +1,5 @@
+benchmark-data/standard/ucr-uea/**/*.csv text eol=lf
+benchmark-data/standard/ucr-uea/**/*.json text eol=lf
+benchmark-data/standard/ucr-uea/**/*.txt text eol=lf
+benchmark-data/standard/ucr-uea/**/*.md text eol=lf
+benchmark-data/standard/ucr-uea/**/*.py text eol=lf

@@ -160,7 +160,12 @@ def average_tie_ranks(values: dict[str, float]) -> dict[str, float]:
 def write_csv(path: Path, fieldnames: list[str], rows: Iterable[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=fieldnames,
+            extrasaction="ignore",
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(rows)
 
@@ -264,12 +269,11 @@ def build_suite(
     return coverage_rows, missing_rows
 
 
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def normalized_text_sha256(path: Path) -> str:
+    """Hash logical text content independently of platform line endings."""
+    text = path.read_text(encoding="utf-8-sig")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 
 def main() -> None:
@@ -328,7 +332,7 @@ def main() -> None:
         "# Generated results audit",
         "",
         f"- Source: `source/results_long.csv`",
-        f"- Source SHA-256: `{sha256(FACT_PATH)}`",
+        f"- Source normalized-text SHA-256: `{normalized_text_sha256(FACT_PATH)}`",
         f"- Fact rows read: {fact_rows}",
         f"- Suites built: {', '.join(selected_ids)}",
         f"- Missing method-dataset results: {len(all_missing)}",
@@ -340,9 +344,15 @@ def main() -> None:
     ]
     for suite_id in selected_ids:
         path = suite_paths[suite_id]
-        audit_lines.append(f"- `{path.relative_to(RESULTS_ROOT).as_posix()}`: `{sha256(path)}`")
+        audit_lines.append(
+            f"- `{path.relative_to(RESULTS_ROOT).as_posix()}`: "
+            f"`{normalized_text_sha256(path)}`"
+        )
     audit_lines.append("")
-    (GENERATED_DIR / "BUILD_AUDIT.md").write_text("\n".join(audit_lines), encoding="utf-8")
+    with (GENERATED_DIR / "BUILD_AUDIT.md").open(
+        "w", encoding="utf-8", newline="\n"
+    ) as handle:
+        handle.write("\n".join(audit_lines))
     print(f"Built {len(selected_ids)} suite(s); missing results: {len(all_missing)}")
 
 
