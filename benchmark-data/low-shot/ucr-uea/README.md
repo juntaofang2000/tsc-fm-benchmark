@@ -20,6 +20,7 @@ budget and archive so a partial new method cannot silently change the denominato
 
 ## Sources included
 
+- ChorusTIC in-context classification results for UCR, UEA, and MVCore66.
 - MantisV1 frozen features with LR, scaled LR, SVM, RF, kNN, and nearest-centroid heads.
 - MOMENT frozen features with LR, SVM, RF, MLP, kNN, and nearest-centroid heads.
 - NuTime frozen features with an RF head.
@@ -43,3 +44,9 @@ python benchmark-data/low-shot/ucr-uea/scripts/import_local_results.py \
 
 The importer validates identifiers, accuracy ranges, duplicate keys, and
 dataset-set agreement across independently produced method families.
+
+The checked supplement at
+`source/chorustic_insectwingbeatsubset_results.csv` preserves the supplied
+ChorusTIC `InsectWingbeatSubset` rerun summary. Its 1-, 5-, and 10-shot rows are
+imported into the official Low-shot facts. The five test-ratio rows are retained
+for provenance but are not mixed into the per-class Low-shot leaderboard.

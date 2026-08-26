@@ -15,6 +15,7 @@ RESULTS_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = RESULTS_ROOT / "source" / "results_long.csv"
 MANIFEST_PATH = RESULTS_ROOT / "source" / "sources_manifest.json"
 DATASET_MANIFEST_PATH = RESULTS_ROOT / "source" / "dataset_manifest.json"
+CHORUSTIC_SUPPLEMENT_PATH = RESULTS_ROOT / "source" / "chorustic_insectwingbeatsubset_results.csv"
 PROTOCOL_ID = "low-shot-per-class-v1"
 SETTINGS = {"1shot": "1-shot", "5shot": "5-shot", "10shot": "10-shot"}
 ARCHIVES = {"ucr": "UCR", "uea": "UEA", "mvcore66": "MVCore66"}
@@ -57,6 +58,16 @@ def accuracy(value: str, source: Path) -> float:
     return parsed
 
 
+def percentage_accuracy(value: str, source: Path) -> float:
+    stripped = value.strip()
+    if not stripped.endswith("%"):
+        raise ValueError(f"Expected percentage accuracy in {source}: {value!r}")
+    parsed = float(stripped[:-1]) / 100.0
+    if not math.isfinite(parsed) or not 0.0 <= parsed <= 1.0:
+        raise ValueError(f"Invalid percentage accuracy {value!r} in {source}")
+    return round(parsed, 12)
+
+
 def relative_source(source_root: Path, path: Path) -> str:
     return f"results/few-shot/{path.relative_to(source_root).as_posix()}"
 
@@ -76,6 +87,114 @@ def main() -> None:
                 "path": relative_source(source_root, path),
                 "sha256": file_sha256(path),
                 "rows": len(rows),
+            }
+        )
+
+    def register_repo_source(path: Path, rows: list[dict[str, str]]) -> None:
+        source_files.append(
+            {
+                "path": path.relative_to(RESULTS_ROOT).as_posix(),
+                "sha256": file_sha256(path),
+                "rows": len(rows),
+            }
+        )
+
+    chorustic_values: dict[tuple[str, str, str], float] = {}
+    for archive_key in ("ucr", "uea", "mvcore66"):
+        path = source_root / "ChorusTIC" / f"{archive_key}_sampled_results.csv"
+        rows = read_rows(path)
+        register(path, rows)
+        for row in rows:
+            if row["protocol"].strip().lower() != "fewshot":
+                continue
+            setting = normalize_setting(row["setting"])
+            if setting is None:
+                continue
+            if row.get("status", "ok").strip().lower() != "ok":
+                continue
+            archive = ARCHIVES[archive_key]
+            dataset = row["dataset"].strip()
+            value = accuracy(row["acc"], path)
+            fact_key = (archive, dataset, setting)
+            if fact_key in chorustic_values:
+                raise ValueError(f"Duplicate ChorusTIC result: {fact_key}")
+            chorustic_values[fact_key] = value
+            dataset_sets[("ChorusTIC", archive, setting)].add(dataset)
+            facts.append(
+                {
+                    "archive": archive,
+                    "dataset": dataset,
+                    "method": "ChorusTIC",
+                    "protocol_id": PROTOCOL_ID,
+                    "setting": setting,
+                    "run_id": "chorustic-lowshot-classifier-v2",
+                    "seed": f"sample={row['sample_seed']}",
+                    "status": "ok",
+                    "accuracy": value,
+                    "source": relative_source(source_root, path),
+                }
+            )
+
+    supplement_rows = read_rows(CHORUSTIC_SUPPLEMENT_PATH)
+    register_repo_source(CHORUSTIC_SUPPLEMENT_PATH, supplement_rows)
+    expected_supplement_keys = {
+        ("fewshot", "1-shot"),
+        ("fewshot", "5-shot"),
+        ("fewshot", "10-shot"),
+        ("test_ratio", "10%"),
+        ("test_ratio", "20%"),
+        ("test_ratio", "30%"),
+        ("test_ratio", "40%"),
+        ("test_ratio", "50%"),
+    }
+    supplement_keys = {
+        (row["protocol"].strip().lower(), row["setting"].strip())
+        for row in supplement_rows
+    }
+    if len(supplement_rows) != len(supplement_keys) or supplement_keys != expected_supplement_keys:
+        raise ValueError("ChorusTIC supplement must contain the exact 8 supplied protocol settings")
+    for row in supplement_rows:
+        if row["suite"].strip().lower() != "uea" or row["dataset"].strip() != "InsectWingbeatSubset":
+            raise ValueError("ChorusTIC supplement must describe UEA/InsectWingbeatSubset only")
+        if any(row[field].strip() != "1" for field in (
+            "actual_datasets", "rows", "min_seeds_per_dataset", "max_seeds_per_dataset"
+        )):
+            raise ValueError("ChorusTIC supplement must describe one dataset with one reported seed")
+        expected_pool = "TRAIN" if row["protocol"].strip().lower() == "fewshot" else "TEST"
+        if row["sample_pool"].strip().upper() != expected_pool:
+            raise ValueError(f"Unexpected ChorusTIC supplement sample pool: {row['sample_pool']!r}")
+        percentage_accuracy(row["accuracy_percent"], CHORUSTIC_SUPPLEMENT_PATH)
+    for row in supplement_rows:
+        if row["protocol"].strip().lower() != "fewshot":
+            continue
+        setting = normalize_setting(row["setting"])
+        if setting is None:
+            raise ValueError(f"Unknown ChorusTIC supplement setting: {row['setting']!r}")
+        archive_key = row["suite"].strip().lower()
+        if archive_key not in ARCHIVES:
+            raise ValueError(f"Unknown ChorusTIC supplement suite: {row['suite']!r}")
+        archive = ARCHIVES[archive_key]
+        dataset = row["dataset"].strip()
+        value = percentage_accuracy(row["accuracy_percent"], CHORUSTIC_SUPPLEMENT_PATH)
+        fact_key = (archive, dataset, setting)
+        if fact_key in chorustic_values:
+            if not math.isclose(chorustic_values[fact_key], value, rel_tol=0.0, abs_tol=1e-12):
+                raise ValueError(f"Conflicting ChorusTIC supplement result: {fact_key}")
+            continue
+        chorustic_values[fact_key] = value
+        dataset_sets[("ChorusTIC", archive, setting)].add(dataset)
+        facts.append(
+            {
+                "archive": archive,
+                "dataset": dataset,
+                "method": "ChorusTIC",
+                "protocol_id": PROTOCOL_ID,
+                "setting": setting,
+                "run_id": "chorustic-insectwingbeatsubset-supplement-20260826",
+                "seed": "reported-summary",
+                "status": "ok",
+                "accuracy": value,
+                "source": CHORUSTIC_SUPPLEMENT_PATH.relative_to(RESULTS_ROOT).as_posix(),
             }
         )
 
@@ -192,7 +311,11 @@ def main() -> None:
             )
 
     for archive in ("UCR", "UEA", "MVCore66"):
-        families = ("Mantis", "MOMENT", "NuTime") if archive != "MVCore66" else ("MOMENT", "NuTime")
+        families = (
+            ("Mantis", "MOMENT", "NuTime", "ChorusTIC")
+            if archive != "MVCore66"
+            else ("MOMENT", "NuTime", "ChorusTIC")
+        )
         for setting in SETTINGS.values():
             reference = dataset_sets[(families[0], archive, setting)]
             if not reference:

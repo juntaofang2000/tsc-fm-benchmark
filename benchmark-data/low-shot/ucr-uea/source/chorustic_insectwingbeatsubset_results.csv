@@ -1,0 +1,9 @@
+suite,dataset,protocol,setting,sample_pool,actual_datasets,rows,min_seeds_per_dataset,max_seeds_per_dataset,accuracy_percent
+uea,InsectWingbeatSubset,fewshot,10-shot,TRAIN,1,1,1,1,48.10%
+uea,InsectWingbeatSubset,fewshot,1-shot,TRAIN,1,1,1,1,19.00%
+uea,InsectWingbeatSubset,fewshot,5-shot,TRAIN,1,1,1,1,32.80%
+uea,InsectWingbeatSubset,test_ratio,10%,TEST,1,1,1,1,39.44%
+uea,InsectWingbeatSubset,test_ratio,20%,TEST,1,1,1,1,51.12%
+uea,InsectWingbeatSubset,test_ratio,30%,TEST,1,1,1,1,56.29%
+uea,InsectWingbeatSubset,test_ratio,40%,TEST,1,1,1,1,57.50%
+uea,InsectWingbeatSubset,test_ratio,50%,TEST,1,1,1,1,58.20%

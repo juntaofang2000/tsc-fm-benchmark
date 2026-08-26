@@ -1,4 +1,5 @@
 setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
+1-shot,Overall,ChorusTIC,158,158,158 / 158,true
 1-shot,Overall,MOMENT+LR,158,158,158 / 158,true
 1-shot,Overall,MOMENT+MLP,158,158,158 / 158,true
 1-shot,Overall,MOMENT+NC,158,158,158 / 158,true
@@ -12,6 +13,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 1-shot,Overall,Mantis+ScaledLR,158,158,158 / 158,true
 1-shot,Overall,Mantis+kNN,158,158,158 / 158,true
 1-shot,Overall,NuTime+RF,158,158,158 / 158,true
+1-shot,UCR,ChorusTIC,128,128,128 / 128,true
 1-shot,UCR,MOMENT+LR,128,128,128 / 128,true
 1-shot,UCR,MOMENT+MLP,128,128,128 / 128,true
 1-shot,UCR,MOMENT+NC,128,128,128 / 128,true
@@ -25,6 +27,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 1-shot,UCR,Mantis+ScaledLR,128,128,128 / 128,true
 1-shot,UCR,Mantis+kNN,128,128,128 / 128,true
 1-shot,UCR,NuTime+RF,128,128,128 / 128,true
+1-shot,UEA,ChorusTIC,30,30,30 / 30,true
 1-shot,UEA,MOMENT+LR,30,30,30 / 30,true
 1-shot,UEA,MOMENT+MLP,30,30,30 / 30,true
 1-shot,UEA,MOMENT+NC,30,30,30 / 30,true
@@ -38,6 +41,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 1-shot,UEA,Mantis+ScaledLR,30,30,30 / 30,true
 1-shot,UEA,Mantis+kNN,30,30,30 / 30,true
 1-shot,UEA,NuTime+RF,30,30,30 / 30,true
+1-shot,MVCore66,ChorusTIC,66,66,66 / 66,true
 1-shot,MVCore66,MOMENT+LR,66,66,66 / 66,true
 1-shot,MVCore66,MOMENT+MLP,66,66,66 / 66,true
 1-shot,MVCore66,MOMENT+NC,66,66,66 / 66,true
@@ -45,6 +49,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 1-shot,MVCore66,MOMENT+SVM,66,66,66 / 66,true
 1-shot,MVCore66,MOMENT+kNN,66,66,66 / 66,true
 1-shot,MVCore66,NuTime+RF,66,66,66 / 66,true
+5-shot,Overall,ChorusTIC,140,140,140 / 140,true
 5-shot,Overall,MOMENT+LR,140,140,140 / 140,true
 5-shot,Overall,MOMENT+MLP,140,140,140 / 140,true
 5-shot,Overall,MOMENT+NC,140,140,140 / 140,true
@@ -58,6 +63,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 5-shot,Overall,Mantis+ScaledLR,140,140,140 / 140,true
 5-shot,Overall,Mantis+kNN,140,140,140 / 140,true
 5-shot,Overall,NuTime+RF,140,140,140 / 140,true
+5-shot,UCR,ChorusTIC,112,112,112 / 112,true
 5-shot,UCR,MOMENT+LR,112,112,112 / 112,true
 5-shot,UCR,MOMENT+MLP,112,112,112 / 112,true
 5-shot,UCR,MOMENT+NC,112,112,112 / 112,true
@@ -71,6 +77,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 5-shot,UCR,Mantis+ScaledLR,112,112,112 / 112,true
 5-shot,UCR,Mantis+kNN,112,112,112 / 112,true
 5-shot,UCR,NuTime+RF,112,112,112 / 112,true
+5-shot,UEA,ChorusTIC,28,28,28 / 28,true
 5-shot,UEA,MOMENT+LR,28,28,28 / 28,true
 5-shot,UEA,MOMENT+MLP,28,28,28 / 28,true
 5-shot,UEA,MOMENT+NC,28,28,28 / 28,true
@@ -84,6 +91,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 5-shot,UEA,Mantis+ScaledLR,28,28,28 / 28,true
 5-shot,UEA,Mantis+kNN,28,28,28 / 28,true
 5-shot,UEA,NuTime+RF,28,28,28 / 28,true
+5-shot,MVCore66,ChorusTIC,63,63,63 / 63,true
 5-shot,MVCore66,MOMENT+LR,63,63,63 / 63,true
 5-shot,MVCore66,MOMENT+MLP,63,63,63 / 63,true
 5-shot,MVCore66,MOMENT+NC,63,63,63 / 63,true
@@ -91,6 +99,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 5-shot,MVCore66,MOMENT+SVM,63,63,63 / 63,true
 5-shot,MVCore66,MOMENT+kNN,63,63,63 / 63,true
 5-shot,MVCore66,NuTime+RF,63,63,63 / 63,true
+10-shot,Overall,ChorusTIC,121,121,121 / 121,true
 10-shot,Overall,MOMENT+LR,121,121,121 / 121,true
 10-shot,Overall,MOMENT+MLP,121,121,121 / 121,true
 10-shot,Overall,MOMENT+NC,121,121,121 / 121,true
@@ -104,6 +113,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 10-shot,Overall,Mantis+ScaledLR,121,121,121 / 121,true
 10-shot,Overall,Mantis+kNN,121,121,121 / 121,true
 10-shot,Overall,NuTime+RF,121,121,121 / 121,true
+10-shot,UCR,ChorusTIC,97,97,97 / 97,true
 10-shot,UCR,MOMENT+LR,97,97,97 / 97,true
 10-shot,UCR,MOMENT+MLP,97,97,97 / 97,true
 10-shot,UCR,MOMENT+NC,97,97,97 / 97,true
@@ -117,6 +127,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 10-shot,UCR,Mantis+ScaledLR,97,97,97 / 97,true
 10-shot,UCR,Mantis+kNN,97,97,97 / 97,true
 10-shot,UCR,NuTime+RF,97,97,97 / 97,true
+10-shot,UEA,ChorusTIC,24,24,24 / 24,true
 10-shot,UEA,MOMENT+LR,24,24,24 / 24,true
 10-shot,UEA,MOMENT+MLP,24,24,24 / 24,true
 10-shot,UEA,MOMENT+NC,24,24,24 / 24,true
@@ -130,6 +141,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 10-shot,UEA,Mantis+ScaledLR,24,24,24 / 24,true
 10-shot,UEA,Mantis+kNN,24,24,24 / 24,true
 10-shot,UEA,NuTime+RF,24,24,24 / 24,true
+10-shot,MVCore66,ChorusTIC,59,59,59 / 59,true
 10-shot,MVCore66,MOMENT+LR,59,59,59 / 59,true
 10-shot,MVCore66,MOMENT+MLP,59,59,59 / 59,true
 10-shot,MVCore66,MOMENT+NC,59,59,59 / 59,true

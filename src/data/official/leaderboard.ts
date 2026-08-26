@@ -115,7 +115,11 @@ export const lowShotLeaderboards: Record<LowShotSetting, Record<BenchmarkScope, 
     Object.fromEntries(
       (["Overall", "UCR", "UEA", "MVCore66"] as BenchmarkScope[]).map((scope) => [
         scope,
-        lowShot.benchmarks[setting][scope].rows.map((row) => makeEntry(row, scope, ["Low-shot", "Frozen-Probe"])),
+        lowShot.benchmarks[setting][scope].rows.map((row) => makeEntry(
+          row,
+          scope,
+          ["Low-shot", metadata(row.method).evaluationType === "In-Context" ? "Training-Free / ICL" : "Frozen-Probe"],
+        )),
       ]),
     ),
   ]),

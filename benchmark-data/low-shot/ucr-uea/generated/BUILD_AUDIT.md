@@ -1,49 +1,49 @@
 # Low-shot build audit
 
 - Protocol: `low-shot-per-class-v1`
-- Canonical fact rows: 6763
-- Fact-table normalized SHA-256: `6b97bf0a2aef0b79b361d37468eb42d1927176004db6016fff9da6fcdc975c2c`
+- Canonical fact rows: 7370
+- Fact-table normalized SHA-256: `a9c1b2065c76d15309d1fa8c0d757c5888b0f345a5187a2dc45dee43daac748d`
 - Dataset-manifest normalized SHA-256: `a70d80ac6921f832d925fa88148f0554c54a12ebfa4fadd46742c69424d0d7af`
 - Missing results are left blank and never replaced with zero.
 - Eligibility requires complete coverage of the selected feasible-dataset set.
 
 ## Normalized SHA-256
 
-- `generated/10shot_mvcore66_leaderboard.csv`: `6e131198eb91518e67ba49ff458e86da0e8118bfff6775e9addb1aaff0091153`
-- `generated/10shot_mvcore66_per_dataset_accuracy.csv`: `4877f0b4775b2c834fb20916ac00e50bd6d2f11b6bbaefeb641e905b57c3e044`
-- `generated/10shot_mvcore66_per_dataset_rank.csv`: `4ae11517a78a2b37fb2b3181a1e29ee872aba4c84c5f6f31074c8940698b1f2f`
-- `generated/10shot_overall_leaderboard.csv`: `939f27b0eb26f014d402e6fd094f918a685a2000e6b4241e8f015ab78183ba8c`
-- `generated/10shot_overall_per_dataset_accuracy.csv`: `58822eeecabdbee09548fa930e3832a64b0a749e5071fc9a7f72e28bfe03930e`
-- `generated/10shot_overall_per_dataset_rank.csv`: `79cfea6e378caad0249ee7bc2596a7a0f6efb057316670b170349713c2f214f2`
-- `generated/10shot_ucr_leaderboard.csv`: `237f3289b10e8f2a624ca045b5f4e571659ea6d3f426f47b590721ea21d137ba`
-- `generated/10shot_ucr_per_dataset_accuracy.csv`: `ad959b2f26c503cbbfa993e7d6112337614a941c4ed5729a5c7ed38ced581905`
-- `generated/10shot_ucr_per_dataset_rank.csv`: `f491889e1f50140c28cf4cf064d49a0f6ba47788687d0c1b8b0a655928cdbb77`
-- `generated/10shot_uea_leaderboard.csv`: `7ebf5393d3e3f7c2e6e4b069d19edb55ac6f29c585b390698e22f9432499bc41`
-- `generated/10shot_uea_per_dataset_accuracy.csv`: `5651cc67f06cdccaaa1c9b035ca7d33d4ec32656837399eb867e30f0bc2c16c1`
-- `generated/10shot_uea_per_dataset_rank.csv`: `9dad49e8cabe59fccd482f81ab75e0bf6746856e04c72e3525f291e8b8e94148`
-- `generated/1shot_mvcore66_leaderboard.csv`: `8dba8d9c36d4865ca410ceb81a6b88b447e761d2af61a4b16b3f18bec4feed55`
-- `generated/1shot_mvcore66_per_dataset_accuracy.csv`: `01c9a8be81e2c855b4fc81698fd94e8bea980c5b6894ccf79c40a660a4a9a64e`
-- `generated/1shot_mvcore66_per_dataset_rank.csv`: `5b1098f97beb29b89403e109a488e5e3fcb3fa5248f120bb436e9d37055719a0`
-- `generated/1shot_overall_leaderboard.csv`: `1392e68eb1085934d7004fba25ec0c447966fe1a49d21062cf7079957a3fa1da`
-- `generated/1shot_overall_per_dataset_accuracy.csv`: `510ab84ee877e862d46c19d82894da9a89841c9249b6a7dea40b42da740432b7`
-- `generated/1shot_overall_per_dataset_rank.csv`: `a80248b93172e00a7be88c4864370098127e5a103bad2958b498b74051f325b4`
-- `generated/1shot_ucr_leaderboard.csv`: `890b74586d837974544f54bfefbb061dbef526405973f89f61510d30e0d23a65`
-- `generated/1shot_ucr_per_dataset_accuracy.csv`: `57ac4b85c169908cbfd73b79b724e90c1a12bff30a97f05aec5f08b8d40ef2d5`
-- `generated/1shot_ucr_per_dataset_rank.csv`: `18769d1476555bd6da51d78ccadf632c1450e6b9202f5b208a31a5379d15eecf`
-- `generated/1shot_uea_leaderboard.csv`: `dff881229403f60676f5c3f170ddccd6f6fcf79acf7a2a05f2d8979694564273`
-- `generated/1shot_uea_per_dataset_accuracy.csv`: `9f141ab9b1c861f2a34d14ddc4ef62a26933609188b1237943060ebc3b6d4707`
-- `generated/1shot_uea_per_dataset_rank.csv`: `c0470c70010a92f99c98ea744da937cf801ec554bb01ace19f8842e48edc8d79`
-- `generated/5shot_mvcore66_leaderboard.csv`: `7c1616099b5b5fde57ef7ef1d2ed484ebba8f780cf7b35d64d01768f6996da8e`
-- `generated/5shot_mvcore66_per_dataset_accuracy.csv`: `19cd0a0d5366dbe871ddc58beb91abcbc9811afb8eb8f9654909e2c4e5d647cb`
-- `generated/5shot_mvcore66_per_dataset_rank.csv`: `d18e064ddb8b97d9d25911c33825b1ec005f3bcdac9ef8e05089a9c0bde4ede1`
-- `generated/5shot_overall_leaderboard.csv`: `6db62ad9fa337d47d4ed07a3c1c33a05dec5d310cd2825a86aa5c1ec852fe34f`
-- `generated/5shot_overall_per_dataset_accuracy.csv`: `f59c0dba3690d0299628e84d3bf06bf059fd508b835a28942aedcdea274478e5`
-- `generated/5shot_overall_per_dataset_rank.csv`: `b78b8676b025917f0e93730641ee7f3e21481ef15f9b976078831849bb6df54a`
-- `generated/5shot_ucr_leaderboard.csv`: `e46b8a4cfa40adf421ae94de3fb44d3da5ae5115f616d057acd7ebedac2dcc11`
-- `generated/5shot_ucr_per_dataset_accuracy.csv`: `27bb986d8854501417b07ee84713abdbfb3ee8349a4c352bf946f0985530e1c8`
-- `generated/5shot_ucr_per_dataset_rank.csv`: `8863791517ac4e20e3308b24708a3edf91d207931545a1e03f9a94097675973e`
-- `generated/5shot_uea_leaderboard.csv`: `e1d0445f87ffbbb4a925c33bc8a775b53d37066f671d1f8e8601e97af9bf0342`
-- `generated/5shot_uea_per_dataset_accuracy.csv`: `768a25a67eff57310aa6d1808c5eee5ba29a9594b40f790f8e3fa520766068fd`
-- `generated/5shot_uea_per_dataset_rank.csv`: `95d39b48fc7fec9fb5f114ad8e4b6d0d09aa8b38500a8d01e7bafc2de708d5ec`
-- `generated/coverage_report.csv`: `d17b466ea2c49e0c70619b8512a96fddfbb41afda19084723749c6591f912aae`
-- `generated/leaderboards.json`: `c220a563a00d6153cb87179e9b61128f75df76645cfd7c3b7703949e1b343ab7`
+- `generated/10shot_mvcore66_leaderboard.csv`: `108c3108027e60827dcf6d00bbbfd3d7d40679d3eb658dfdbf84ce77a8ce6b49`
+- `generated/10shot_mvcore66_per_dataset_accuracy.csv`: `5f6f5b549e6b2dfce2d0dffe06dca5b8d28709386e9c2c0a2d2259ea8a286980`
+- `generated/10shot_mvcore66_per_dataset_rank.csv`: `5ddf94d88f9c03830ba3eb493bb69413c53583507840004439a233b9d84eec81`
+- `generated/10shot_overall_leaderboard.csv`: `8b209c4392bdbbf66a4db43e425c160c66d408a2241ede74717415bb75a37e85`
+- `generated/10shot_overall_per_dataset_accuracy.csv`: `e9c2d66415a90a55a4ed9e6f65e8b768c3ef4458e039ffd7b5db4168b141fdf2`
+- `generated/10shot_overall_per_dataset_rank.csv`: `c85cd4812952c97d9096583ce4e9bc34321e9f5dbbff15de98f20435b6777b6d`
+- `generated/10shot_ucr_leaderboard.csv`: `3504e681b941ce7707a902f4daf6d2a76f88f67d13f490becddb4134060f6398`
+- `generated/10shot_ucr_per_dataset_accuracy.csv`: `56c15b9d48b4a818c9479c442286378b19c4c73fe7dcd3aead4f5b9cd7464036`
+- `generated/10shot_ucr_per_dataset_rank.csv`: `ff362571fba9405009118f89bce95e4b81781d9a61253fa955c0fa351f13b428`
+- `generated/10shot_uea_leaderboard.csv`: `96d5f334ee542c424c46f7120d815bd13620283ad8b029cc931ac95588f67f45`
+- `generated/10shot_uea_per_dataset_accuracy.csv`: `e7fcc146ad2abae472596a31d962d0586855bcc63a49eed4578ca816f4190c94`
+- `generated/10shot_uea_per_dataset_rank.csv`: `b5966b1c43b00c27287c71e4b0999d85f1d362a8f71b289d71f83092965c3fe1`
+- `generated/1shot_mvcore66_leaderboard.csv`: `c3263c9f06e808dc9f2d14cb0f8820a2ac70cae138b0b10470cfa7dfbe076234`
+- `generated/1shot_mvcore66_per_dataset_accuracy.csv`: `446966c91e9f42554d069b4bf3a129acc6ff2b0ebd0b6330593d3bb7fda09100`
+- `generated/1shot_mvcore66_per_dataset_rank.csv`: `1d8150a4abf627ab3d7461bd5b6a6068f20d4a994eaaf0c159daa78e22fbf951`
+- `generated/1shot_overall_leaderboard.csv`: `93218520da7eaf37cef8054a6f78dfecec1e62bd9899d0444dcaabafd55aa281`
+- `generated/1shot_overall_per_dataset_accuracy.csv`: `5df4d5964a4b3546d6dc65945f8f48bbf53dcad5553e8a073bb5d1c44c66d11d`
+- `generated/1shot_overall_per_dataset_rank.csv`: `49f5e86072d5ba9283cded7f8034836234df746ebfbaed8fa3e69fcfc5713daa`
+- `generated/1shot_ucr_leaderboard.csv`: `54e402d67b1ecbbce66f0e9222512a4a5ddc05b3952156690b0db3082d061889`
+- `generated/1shot_ucr_per_dataset_accuracy.csv`: `8342ff1ac53e90448e891613659378b532f07456c43486a34461ed05175f8fe4`
+- `generated/1shot_ucr_per_dataset_rank.csv`: `810bfe60992f25d212bfd936694975c67e2379905a7259e71385a2847527410a`
+- `generated/1shot_uea_leaderboard.csv`: `2fb871e97264512e3f7d9c2a7091d6e9445b67e420ab9d98bcce9849ea4018cb`
+- `generated/1shot_uea_per_dataset_accuracy.csv`: `574cc507522152c1c6b953e53ec647c2155a6bb5e6b9dad938ae9ca5d57edcbe`
+- `generated/1shot_uea_per_dataset_rank.csv`: `eedc18132cd024328d11d2b551e6ae9d98b01ae1b2d903afb3d1e1f4c88969a0`
+- `generated/5shot_mvcore66_leaderboard.csv`: `3fed9a5f5128ff12e8cf29926c7b7241546232990a12efb59cc79e0c48b2931b`
+- `generated/5shot_mvcore66_per_dataset_accuracy.csv`: `3056f3a433084ad1a3be9ee3cbc31ddcb0521432af3abe413bd861c59c007eb6`
+- `generated/5shot_mvcore66_per_dataset_rank.csv`: `e91f28b9d3b26dddce9468520d2113a334d11411f81c78a462203aefcb5e8236`
+- `generated/5shot_overall_leaderboard.csv`: `0a60aba80dd79aa93c2b2e76cf120d7783d0f4a5528e29f90f6b18d778b56e53`
+- `generated/5shot_overall_per_dataset_accuracy.csv`: `8ea35915bdba1e4aa31a32db73fcd035dc01ecbd9c61613f631a25c668d91ea9`
+- `generated/5shot_overall_per_dataset_rank.csv`: `a128dc77789e3b3861d92b0e4fc48c94eab562f4cfa31636c6d9ce691a6208b3`
+- `generated/5shot_ucr_leaderboard.csv`: `df71f78863f5a7634d066dd9532ba340b1481d7f3a99603ba9878a5eb5e4bf2f`
+- `generated/5shot_ucr_per_dataset_accuracy.csv`: `7f398db1a183ffc9b11145e3a41c41d8f4c787e3ae7257a7231317a97e6ae3da`
+- `generated/5shot_ucr_per_dataset_rank.csv`: `a228fc3098ae212767fb4651fb89d178daf47c3c93932e0e827d3d944270d0be`
+- `generated/5shot_uea_leaderboard.csv`: `3212de2a3f73ae66d66e324d683585abf4996b7c3207f0e86b60d0d360a09dcb`
+- `generated/5shot_uea_per_dataset_accuracy.csv`: `77469933a16b8c36decdec9d72d095494e622dfdf517f5a8fa9a3312e911492d`
+- `generated/5shot_uea_per_dataset_rank.csv`: `7f6ef9d652d0cfa1994d3cb07dcbc26150957de0b55d4ec475dc64c364c66d35`
+- `generated/coverage_report.csv`: `25a44b3e84810b7beb9c8483b2c3da9365576808b74bd7123e4978431648562d`
+- `generated/leaderboards.json`: `4fc6192c34bbab5491f1681cf467a4a795bb81580c908129a9d3669eb8f974ef`

@@ -195,7 +195,7 @@ python benchmark-data/low-shot/ucr-uea/scripts/import_local_results.py --source-
 python benchmark-data/low-shot/ucr-uea/scripts/build_results.py
 ```
 
-Low-shot rankings are generated independently for every shot budget and benchmark scope. The feasible dataset counts are 158/140/121 for Overall at 1/5/10-shot and 66/63/59 for MVCore66. Missing values remain blank and never become zero. UniShape summary-only files are recorded in the manifest but excluded from official rankings until per-dataset results are available.
+Low-shot rankings are generated independently for every shot budget and benchmark scope. The feasible dataset counts are 158/140/121 for Overall at 1/5/10-shot and 66/63/59 for MVCore66. Missing values remain blank and never become zero. ChorusTIC is imported from its UCR, UEA, and MVCore66 per-dataset files, with the checked `InsectWingbeatSubset` rerun supplement completing UEA coverage. UniShape summary-only files are recorded in the manifest but excluded from official rankings until per-dataset results are available.
 
 The GitHub Pages workflow reruns both Standard and Low-shot aggregation commands and rejects deployment if the checked generated tables do not match the long tables. Do not edit either `generated/` directory manually.
 
