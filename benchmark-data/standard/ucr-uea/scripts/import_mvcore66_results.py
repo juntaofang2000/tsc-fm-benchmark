@@ -46,6 +46,14 @@ def write_dataset_file(path: Path, datasets: set[str]) -> None:
     path.write_text("\n".join(sorted(datasets)) + "\n", encoding="utf-8", newline="\n")
 
 
+def normalize_dataset(value: str) -> str:
+    """Normalize loader paths such as Dataset/Dataset_eq to the suite ID."""
+    dataset = value.strip().split("/", 1)[0]
+    if not dataset:
+        raise ValueError(f"Blank dataset identifier: {value!r}")
+    return dataset
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
@@ -69,7 +77,7 @@ def main() -> None:
         *, dataset: str, method: str, accuracy: str, path: Path,
         run_id: str, seed: str,
     ) -> None:
-        dataset = dataset.strip()
+        dataset = normalize_dataset(dataset)
         if not dataset or not method:
             raise ValueError(f"Blank dataset or method in {path}")
         datasets_by_method.setdefault(method, set()).add(dataset)
@@ -145,9 +153,32 @@ def main() -> None:
                 run_id=f"{folder}-mvcore66-standard", seed="unspecified",
             )
 
+    mantisv2_files = (
+        (
+            "results_testMantisV2_MV-core_66_last_cls_LR.csv",
+            "MantisV2+LR",
+            "mantisv2-mvcore66-last-cls-logreg",
+        ),
+        (
+            "results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv",
+            "MantisV2+ScaledLR",
+            "mantisv2-mvcore66-last-cls-logreg-scaled",
+        ),
+    )
+    for filename, method, run_id in mantisv2_files:
+        path = source_root / "Mantisv2" / filename
+        rows = read_rows(path)
+        register(path, rows)
+        for row in rows:
+            add_fact(
+                dataset=row["dataset"], method=method, accuracy=row["acc"], path=path,
+                run_id=run_id, seed=row.get("seed", "unspecified"),
+            )
+
     expected_methods = {
         "ChorusTIC", "MOMENT+SVM", "MOMENT+RF", "MOMENT+MLP", "MOMENT+kNN",
         "MOMENT+NC", "NuTime+RF", "UniShape+RF", "TabICL", "TabICLv2",
+        "MantisV2+LR", "MantisV2+ScaledLR",
     }
     if set(datasets_by_method) != expected_methods:
         raise ValueError(f"Unexpected method set: {sorted(datasets_by_method)}")

@@ -51,6 +51,14 @@ def normalize_setting(value: str) -> str | None:
     return SETTINGS.get(compact)
 
 
+def normalize_dataset(value: str) -> str:
+    """Drop an experiment-directory suffix while preserving the archive ID."""
+    dataset = value.strip().split("/", 1)[0]
+    if not dataset:
+        raise ValueError(f"Blank dataset identifier: {value!r}")
+    return dataset
+
+
 def accuracy(value: str, source: Path) -> float:
     parsed = float(value)
     if not math.isfinite(parsed) or not 0.0 <= parsed <= 1.0:
@@ -113,7 +121,7 @@ def main() -> None:
             if row.get("status", "ok").strip().lower() != "ok":
                 continue
             archive = ARCHIVES[archive_key]
-            dataset = row["dataset"].strip()
+            dataset = normalize_dataset(row["dataset"])
             value = accuracy(row["acc"], path)
             fact_key = (archive, dataset, setting)
             if fact_key in chorustic_values:
@@ -174,7 +182,7 @@ def main() -> None:
         if archive_key not in ARCHIVES:
             raise ValueError(f"Unknown ChorusTIC supplement suite: {row['suite']!r}")
         archive = ARCHIVES[archive_key]
-        dataset = row["dataset"].strip()
+        dataset = normalize_dataset(row["dataset"])
         value = percentage_accuracy(row["accuracy_percent"], CHORUSTIC_SUPPLEMENT_PATH)
         fact_key = (archive, dataset, setting)
         if fact_key in chorustic_values:
@@ -220,7 +228,7 @@ def main() -> None:
             if setting is None:
                 continue
             archive = ARCHIVES[archive_key]
-            dataset = row["dataset"].strip()
+            dataset = normalize_dataset(row["dataset"])
             method = mantis_heads[row["classifier"].strip().lower()]
             dataset_sets[("Mantis", archive, setting)].add(dataset)
             facts.append(
@@ -231,6 +239,45 @@ def main() -> None:
                     "protocol_id": PROTOCOL_ID,
                     "setting": setting,
                     "run_id": "mantisv1-lowshot-20260818",
+                    "seed": f"sample={row['sample_seed']};classifier={row['classifier_seed']}",
+                    "status": "ok",
+                    "accuracy": accuracy(row["acc"], path),
+                    "source": relative_source(source_root, path),
+                }
+            )
+
+    mantisv2_heads = {
+        "logreg_scaled": "MantisV2+ScaledLR",
+        "rf": "MantisV2+RF",
+    }
+    for archive_key in ("ucr", "uea", "mvcore66"):
+        path = source_root / "Mantisv2" / (
+            f"mantisv2_{archive_key}_lowshot_logreg_scaled_rf_seed42_gpu0_"
+            "20260821_results.csv"
+        )
+        rows = read_rows(path)
+        register(path, rows)
+        for row in rows:
+            if row["protocol"].strip().lower() != "fewshot":
+                continue
+            setting = normalize_setting(row["setting"])
+            if setting is None:
+                continue
+            classifier = row["classifier"].strip().lower()
+            if classifier not in mantisv2_heads:
+                raise ValueError(f"Unknown MantisV2 classifier in {path}: {classifier!r}")
+            archive = ARCHIVES[archive_key]
+            dataset = normalize_dataset(row["dataset"])
+            method = mantisv2_heads[classifier]
+            dataset_sets[("MantisV2", archive, setting)].add(dataset)
+            facts.append(
+                {
+                    "archive": archive,
+                    "dataset": dataset,
+                    "method": method,
+                    "protocol_id": PROTOCOL_ID,
+                    "setting": setting,
+                    "run_id": "mantisv2-lowshot-20260821",
                     "seed": f"sample={row['sample_seed']};classifier={row['classifier_seed']}",
                     "status": "ok",
                     "accuracy": accuracy(row["acc"], path),
@@ -259,7 +306,7 @@ def main() -> None:
             if setting is None:
                 continue
             archive = ARCHIVES[archive_key]
-            dataset = row["dataset"].strip()
+            dataset = normalize_dataset(row["dataset"])
             dataset_sets[("MOMENT", archive, setting)].add(dataset)
             for column, method in moment_heads.items():
                 facts.append(
@@ -293,7 +340,7 @@ def main() -> None:
             if setting is None:
                 continue
             archive = ARCHIVES[archive_key]
-            dataset = row["dataset"].strip()
+            dataset = normalize_dataset(row["dataset"])
             dataset_sets[("NuTime", archive, setting)].add(dataset)
             facts.append(
                 {
@@ -309,6 +356,37 @@ def main() -> None:
                     "source": relative_source(source_root, path),
                 }
             )
+
+    for folder, method in (("tabicl", "TabICL"), ("tabiclv2", "TabICLv2")):
+        for archive_key in ("ucr", "uea", "mvcore66"):
+            path = source_root / folder / archive_key / "sampled_results.csv"
+            rows = read_rows(path)
+            register(path, rows)
+            for row in rows:
+                if row["protocol"].strip().lower() != "fewshot":
+                    continue
+                setting = normalize_setting(row["setting"])
+                if setting is None:
+                    continue
+                if row.get("status", "ok").strip().lower() != "ok":
+                    continue
+                archive = ARCHIVES[archive_key]
+                dataset = normalize_dataset(row["dataset"])
+                dataset_sets[(method, archive, setting)].add(dataset)
+                facts.append(
+                    {
+                        "archive": archive,
+                        "dataset": dataset,
+                        "method": method,
+                        "protocol_id": PROTOCOL_ID,
+                        "setting": setting,
+                        "run_id": f"{folder}-lowshot",
+                        "seed": f"sample={row['sample_seed']}",
+                        "status": "ok",
+                        "accuracy": accuracy(row["accuracy"], path),
+                        "source": relative_source(source_root, path),
+                    }
+                )
 
     for archive in ("UCR", "UEA", "MVCore66"):
         families = (
@@ -328,6 +406,19 @@ def main() -> None:
                     raise ValueError(
                         f"Dataset mismatch for {archive} {setting}: {families[0]} vs {family}; "
                         f"missing={only_reference[:5]} extra={only_candidate[:5]}"
+                    )
+
+            for family in ("MantisV2", "TabICL", "TabICLv2"):
+                candidate = dataset_sets[(family, archive, setting)]
+                extra = candidate - reference
+                if extra:
+                    raise ValueError(
+                        f"Unexpected datasets for {family} {archive} {setting}: {sorted(extra)[:5]}"
+                    )
+                if family == "MantisV2" and candidate != reference:
+                    raise ValueError(
+                        f"Incomplete MantisV2 coverage for {archive} {setting}: "
+                        f"missing={sorted(reference - candidate)[:5]}"
                     )
 
     seen: set[tuple[str, ...]] = set()

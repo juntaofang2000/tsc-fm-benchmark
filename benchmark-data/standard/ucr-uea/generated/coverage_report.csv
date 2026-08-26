@@ -7,6 +7,8 @@ mvcore66_66,MOMENT+kNN,66,66,66 / 66,true
 mvcore66_66,MOMENT+NC,66,66,66 / 66,true
 mvcore66_66,UniShape+RF,66,66,66 / 66,true
 mvcore66_66,NuTime+RF,66,66,66 / 66,true
+mvcore66_66,MantisV2+LR,66,66,66 / 66,true
+mvcore66_66,MantisV2+ScaledLR,66,66,66 / 66,true
 mvcore66_66,TabICL,66,66,66 / 66,true
 mvcore66_66,TabICLv2,66,66,66 / 66,true
 mvcore66_only_40,ChorusTIC,40,40,40 / 40,true
@@ -17,6 +19,8 @@ mvcore66_only_40,MOMENT+kNN,40,40,40 / 40,true
 mvcore66_only_40,MOMENT+NC,40,40,40 / 40,true
 mvcore66_only_40,UniShape+RF,40,40,40 / 40,true
 mvcore66_only_40,NuTime+RF,40,40,40 / 40,true
+mvcore66_only_40,MantisV2+LR,40,40,40 / 40,true
+mvcore66_only_40,MantisV2+ScaledLR,40,40,40 / 40,true
 mvcore66_only_40,TabICL,40,40,40 / 40,true
 mvcore66_only_40,TabICLv2,40,40,40 / 40,true
 overall_158,ChorusTIC,158,158,158 / 158,true
@@ -44,6 +48,7 @@ overall_198,MOMENT+kNN,198,198,198 / 198,true
 overall_198,MOMENT+NC,198,198,198 / 198,true
 overall_198,UniShape+RF,198,198,198 / 198,true
 overall_198,NuTime+RF,198,198,198 / 198,true
+overall_198,MantisV2+LR,198,198,198 / 198,true
 overall_198,TabICL,198,198,198 / 198,true
 overall_198,TabICLv2,198,198,198 / 198,true
 ucr_128,TiCT,128,128,128 / 128,true

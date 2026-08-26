@@ -1,6 +1,6 @@
 {
   "sourceRootHint": "时序基模发布/results/few-shot",
-  "canonicalRows": 7370,
+  "canonicalRows": 9792,
   "files": [
     {
       "path": "results/few-shot/ChorusTIC/mvcore66_sampled_results.csv",
@@ -26,6 +26,21 @@
       "path": "results/few-shot/Mantisv1/portable_mantisv1_uea_lowshot_all_heads_seed42_gpu5_20260818_results.csv",
       "sha256": "5f2c9151d7fa80c5a8504a8951948f284a7474f9f715beeb29cb9fc8b8e64d0a",
       "rows": 1392
+    },
+    {
+      "path": "results/few-shot/Mantisv2/mantisv2_mvcore66_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv",
+      "sha256": "435dae8d78fb31e34ef39eda29948d4c802d82248c03c72362df535201419f8d",
+      "rows": 1016
+    },
+    {
+      "path": "results/few-shot/Mantisv2/mantisv2_ucr_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv",
+      "sha256": "9838f0350f1836d32d3924b33300c303709dc0296cc156ba1b11d5499f147e73",
+      "rows": 1934
+    },
+    {
+      "path": "results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv",
+      "sha256": "0b6e6277e61eda7e08ba6f55d6b8c5f9b5e4aa34577fe8bbfc5dd4ce2d2634c5",
+      "rows": 464
     },
     {
       "path": "results/few-shot/Moment/moment_mvcore66_lowlabel_both_seed0_fixed_results.csv",
@@ -56,6 +71,36 @@
       "path": "results/few-shot/NuTime/uea_lowlabel_nutime_rf_results.csv",
       "sha256": "43d0ec03496bd0d1743035b21ab1d8bb7d8801585907aa52d72c831314f0cb69",
       "rows": 232
+    },
+    {
+      "path": "results/few-shot/tabicl/mvcore66/sampled_results.csv",
+      "sha256": "f769b8f50619d6bd865cc276f0386a697f6c677addb4c0b8edbf8f0d9dfef658",
+      "rows": 508
+    },
+    {
+      "path": "results/few-shot/tabicl/ucr/sampled_results.csv",
+      "sha256": "21e14dcde9ae2f1ac456cef7c752c98c6d85fd0e02c8c0e4e45d47ec5565c9c2",
+      "rows": 967
+    },
+    {
+      "path": "results/few-shot/tabicl/uea/sampled_results.csv",
+      "sha256": "75dfaef1f6a0f154c7a0579295e51d1b8c4af345b603d6e561029d69af5a5d0e",
+      "rows": 224
+    },
+    {
+      "path": "results/few-shot/tabiclv2/mvcore66/sampled_results.csv",
+      "sha256": "dbd4f701da1abc9fb953c82db211eef5dc550d1efa04d6553b46a90fafc3ae0a",
+      "rows": 508
+    },
+    {
+      "path": "results/few-shot/tabiclv2/ucr/sampled_results.csv",
+      "sha256": "d31f2b5bb02b54809a29b4558371ed5e9dbc43f2b02db8e7b98fba6ba8c59bed",
+      "rows": 967
+    },
+    {
+      "path": "results/few-shot/tabiclv2/uea/sampled_results.csv",
+      "sha256": "079bf2d29b0545431a3622344a107638a488edbc4a88fa1931d143add3ef2c2e",
+      "rows": 224
     },
     {
       "path": "source/chorustic_insectwingbeatsubset_results.csv",

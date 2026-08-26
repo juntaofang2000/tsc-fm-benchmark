@@ -2955,6 +2955,8 @@ MVCore66,Alzheimers,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,repo
 MVCore66,Alzheimers,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.465116,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Alzheimers,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.395349,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Alzheimers,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.488372,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Alzheimers,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.4186046511627907,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Alzheimers,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.5348837209302325,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Alzheimers,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.325581,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Alzheimers,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.4186046511627907,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Alzheimers,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.4186046511627907,results/standard/MVCore66/tabiclv2/results.csv
@@ -2965,6 +2967,8 @@ MVCore66,AppliancesEnergy_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-ze
 MVCore66,AppliancesEnergy_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.890476,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AppliancesEnergy_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.833333,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AppliancesEnergy_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.690476,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,AppliancesEnergy_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8333333333333334,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,AppliancesEnergy_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8571428571428571,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,AppliancesEnergy_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.714286,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,AppliancesEnergy_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8095238095238095,results/standard/MVCore66/tabicl/results.csv
 MVCore66,AppliancesEnergy_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7619047619047619,results/standard/MVCore66/tabiclv2/results.csv
@@ -2975,6 +2979,8 @@ MVCore66,ArticularyWordRecognition,MOMENT+NC,paper-standard-v1,moment-allchannel
 MVCore66,ArticularyWordRecognition,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.986,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,ArticularyWordRecognition,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.96,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,ArticularyWordRecognition,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.92,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,ArticularyWordRecognition,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9933333333333333,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,ArticularyWordRecognition,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9933333333333333,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,ArticularyWordRecognition,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.766667,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,ArticularyWordRecognition,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9766666666666667,results/standard/MVCore66/tabicl/results.csv
 MVCore66,ArticularyWordRecognition,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9833333333333333,results/standard/MVCore66/tabiclv2/results.csv
@@ -2985,6 +2991,8 @@ MVCore66,AsphaltObstaclesCoordinates,MOMENT+NC,paper-standard-v1,moment-allchann
 MVCore66,AsphaltObstaclesCoordinates,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.78977,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AsphaltObstaclesCoordinates,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.787724,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AsphaltObstaclesCoordinates,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.782609,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,AsphaltObstaclesCoordinates,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8081841432225064,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,AsphaltObstaclesCoordinates,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8158567774936062,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,AsphaltObstaclesCoordinates,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.636829,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,AsphaltObstaclesCoordinates,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6112531969309463,results/standard/MVCore66/tabicl/results.csv
 MVCore66,AsphaltObstaclesCoordinates,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7570332480818415,results/standard/MVCore66/tabiclv2/results.csv
@@ -2995,6 +3003,8 @@ MVCore66,AsphaltRegularityCoordinates,MOMENT+NC,paper-standard-v1,moment-allchan
 MVCore66,AsphaltRegularityCoordinates,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.920107,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AsphaltRegularityCoordinates,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.956059,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AsphaltRegularityCoordinates,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.953395,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,AsphaltRegularityCoordinates,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9933422103861518,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,AsphaltRegularityCoordinates,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9946737683089214,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,AsphaltRegularityCoordinates,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.918775,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,AsphaltRegularityCoordinates,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8268974700399467,results/standard/MVCore66/tabicl/results.csv
 MVCore66,AsphaltRegularityCoordinates,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.8135818908122503,results/standard/MVCore66/tabiclv2/results.csv
@@ -3005,6 +3015,8 @@ MVCore66,AtrialFibrillation,MOMENT+NC,paper-standard-v1,moment-allchannels-zeros
 MVCore66,AtrialFibrillation,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.24,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AtrialFibrillation,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.133333,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AtrialFibrillation,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.066667,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,AtrialFibrillation,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.13333333333333333,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,AtrialFibrillation,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.13333333333333333,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,AtrialFibrillation,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.333333,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,AtrialFibrillation,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.26666666666666666,results/standard/MVCore66/tabicl/results.csv
 MVCore66,AtrialFibrillation,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.3333333333333333,results/standard/MVCore66/tabiclv2/results.csv
@@ -3015,6 +3027,8 @@ MVCore66,AustraliaRainfall_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-z
 MVCore66,AustraliaRainfall_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.75768,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AustraliaRainfall_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.757243,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AustraliaRainfall_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.690439,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,AustraliaRainfall_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7673925251138703,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,AustraliaRainfall_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.767787691603752,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,AustraliaRainfall_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.642395,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,AustraliaRainfall_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.7722177159376885,results/standard/MVCore66/tabicl/results.csv
 MVCore66,AustraliaRainfall_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7854245959942597,results/standard/MVCore66/tabiclv2/results.csv
@@ -3025,6 +3039,8 @@ MVCore66,AutomotiveRoadTrials,MOMENT+NC,paper-standard-v1,moment-allchannels-zer
 MVCore66,AutomotiveRoadTrials,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.849351,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AutomotiveRoadTrials,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.831169,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,AutomotiveRoadTrials,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.805195,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,AutomotiveRoadTrials,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7922077922077922,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,AutomotiveRoadTrials,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7532467532467533,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,AutomotiveRoadTrials,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.766234,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,AutomotiveRoadTrials,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.7012987012987013,results/standard/MVCore66/tabicl/results.csv
 MVCore66,AutomotiveRoadTrials,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7792207792207793,results/standard/MVCore66/tabiclv2/results.csv
@@ -3035,6 +3051,8 @@ MVCore66,BIDMC32HR_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,
 MVCore66,BIDMC32HR_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.900792,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BIDMC32HR_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.923301,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BIDMC32HR_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.760734,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BIDMC32HR_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.637765735723218,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BIDMC32HR_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.6540225093789078,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BIDMC32HR_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.512714,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BIDMC32HR_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6148395164651939,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BIDMC32HR_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.49228845352230094,results/standard/MVCore66/tabiclv2/results.csv
@@ -3045,6 +3063,8 @@ MVCore66,BIDMC32SpO2_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-zerosho
 MVCore66,BIDMC32SpO2_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.665861,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BIDMC32SpO2_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.604835,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BIDMC32SpO2_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.563985,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BIDMC32SpO2_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.637765735723218,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BIDMC32SpO2_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.6227594831179658,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BIDMC32SpO2_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.699875,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BIDMC32SpO2_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6644435181325552,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BIDMC32SpO2_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.716548561900792,results/standard/MVCore66/tabiclv2/results.csv
@@ -3055,6 +3075,8 @@ MVCore66,BeijingPM10Quality_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-
 MVCore66,BeijingPM10Quality_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.740531,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BeijingPM10Quality_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.765848,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BeijingPM10Quality_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.717314,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BeijingPM10Quality_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7943740095087163,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BeijingPM10Quality_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7927892234548336,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BeijingPM10Quality_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.762084,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BeijingPM10Quality_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8425118858954042,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BeijingPM10Quality_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.8375594294770206,results/standard/MVCore66/tabiclv2/results.csv
@@ -3065,6 +3087,8 @@ MVCore66,BeijingPM25Quality_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-
 MVCore66,BeijingPM25Quality_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.777892,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BeijingPM25Quality_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.79794,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BeijingPM25Quality_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.725436,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BeijingPM25Quality_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8322107765451664,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BeijingPM25Quality_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8333993660855784,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BeijingPM25Quality_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.810222,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BeijingPM25Quality_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8801505546751188,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BeijingPM25Quality_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.8811410459587956,results/standard/MVCore66/tabiclv2/results.csv
@@ -3075,6 +3099,8 @@ MVCore66,BenzeneConcentration_disc,MOMENT+NC,paper-standard-v1,moment-allchannel
 MVCore66,BenzeneConcentration_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.597482,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BenzeneConcentration_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.778036,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BenzeneConcentration_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.651365,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BenzeneConcentration_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.5833817547937246,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BenzeneConcentration_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.5736974627154755,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BenzeneConcentration_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.573697,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BenzeneConcentration_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8547356188262638,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BenzeneConcentration_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9965136548518303,results/standard/MVCore66/tabiclv2/results.csv
@@ -3085,6 +3111,8 @@ MVCore66,Blink,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported-
 MVCore66,Blink,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.986667,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Blink,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.957778,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Blink,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.822222,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Blink,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8733333333333333,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Blink,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9244444444444444,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Blink,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.54,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Blink,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8555555555555555,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Blink,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9311111111111111,results/standard/MVCore66/tabiclv2/results.csv
@@ -3095,6 +3123,8 @@ MVCore66,BoneIntensitiesAgeGroup,MOMENT+NC,paper-standard-v1,moment-allchannels-
 MVCore66,BoneIntensitiesAgeGroup,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.779326,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BoneIntensitiesAgeGroup,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.811236,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BoneIntensitiesAgeGroup,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.667416,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BoneIntensitiesAgeGroup,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7730337078651686,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BoneIntensitiesAgeGroup,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7617977528089888,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BoneIntensitiesAgeGroup,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.539326,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BoneIntensitiesAgeGroup,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.755056179775281,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BoneIntensitiesAgeGroup,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7865168539325843,results/standard/MVCore66/tabiclv2/results.csv
@@ -3105,6 +3135,8 @@ MVCore66,BoneProbAgeGroup,MOMENT+NC,paper-standard-v1,moment-allchannels-zerosho
 MVCore66,BoneProbAgeGroup,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.59191,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BoneProbAgeGroup,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.61573,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,BoneProbAgeGroup,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.45618,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,BoneProbAgeGroup,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.701123595505618,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,BoneProbAgeGroup,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.701123595505618,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,BoneProbAgeGroup,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.323596,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,BoneProbAgeGroup,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.5662921348314607,results/standard/MVCore66/tabicl/results.csv
 MVCore66,BoneProbAgeGroup,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5573033707865168,results/standard/MVCore66/tabiclv2/results.csv
@@ -3115,6 +3147,8 @@ MVCore66,CharacterTrajectories,MOMENT+NC,paper-standard-v1,moment-allchannels-ze
 MVCore66,CharacterTrajectories,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.959331,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,CharacterTrajectories,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.973538,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,CharacterTrajectories,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.951253,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,CharacterTrajectories,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9686629526462396,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,CharacterTrajectories,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9665738161559888,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,CharacterTrajectories,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.878134,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,CharacterTrajectories,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9895543175487466,results/standard/MVCore66/tabicl/results.csv
 MVCore66,CharacterTrajectories,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9965181058495822,results/standard/MVCore66/tabiclv2/results.csv
@@ -3125,6 +3159,8 @@ MVCore66,CounterMovementJump,MOMENT+NC,paper-standard-v1,moment-allchannels-zero
 MVCore66,CounterMovementJump,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.930726,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,CounterMovementJump,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.921788,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,CounterMovementJump,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.743017,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,CounterMovementJump,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9050279329608939,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,CounterMovementJump,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9106145251396648,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,CounterMovementJump,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.497207,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,CounterMovementJump,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.659217877094972,results/standard/MVCore66/tabicl/results.csv
 MVCore66,CounterMovementJump,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5921787709497207,results/standard/MVCore66/tabiclv2/results.csv
@@ -3135,6 +3171,8 @@ MVCore66,Cricket,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reporte
 MVCore66,Cricket,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.988889,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Cricket,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.986111,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Cricket,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.986111,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Cricket,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9861111111111112,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Cricket,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9861111111111112,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Cricket,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.861111,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Cricket,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9166666666666666,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Cricket,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9444444444444444,results/standard/MVCore66/tabiclv2/results.csv
@@ -3145,6 +3183,8 @@ MVCore66,CrowdSourced,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,re
 MVCore66,CrowdSourced,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.667631,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,CrowdSourced,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.688669,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,CrowdSourced,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.726085,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,CrowdSourced,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7624426403106248,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,CrowdSourced,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7539710554182845,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,CrowdSourced,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.626897,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,CrowdSourced,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6734909989410519,results/standard/MVCore66/tabicl/results.csv
 MVCore66,CrowdSourced,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.6759618778679845,results/standard/MVCore66/tabiclv2/results.csv
@@ -3155,6 +3195,8 @@ MVCore66,DuckDuckGeese,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,r
 MVCore66,DuckDuckGeese,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.476,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,DuckDuckGeese,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.52,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,DuckDuckGeese,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.36,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,DuckDuckGeese,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.48,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,DuckDuckGeese,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.48,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,DuckDuckGeese,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.36,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,DuckDuckGeese,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.32,results/standard/MVCore66/tabicl/results.csv
 MVCore66,DuckDuckGeese,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.28,results/standard/MVCore66/tabiclv2/results.csv
@@ -3165,6 +3207,8 @@ MVCore66,ERing,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported-
 MVCore66,ERing,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.911852,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,ERing,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.918519,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,ERing,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.785185,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,ERing,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9703703703703703,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,ERing,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9703703703703703,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,ERing,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.666667,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,ERing,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9481481481481482,results/standard/MVCore66/tabicl/results.csv
 MVCore66,ERing,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9555555555555556,results/standard/MVCore66/tabiclv2/results.csv
@@ -3175,6 +3219,8 @@ MVCore66,EigenWorms,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,repo
 MVCore66,EigenWorms,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.720611,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EigenWorms,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.78626,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EigenWorms,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.641221,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,EigenWorms,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8396946564885496,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,EigenWorms,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8473282442748091,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,EigenWorms,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.526718,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,EigenWorms,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.4198473282442748,results/standard/MVCore66/tabicl/results.csv
 MVCore66,EigenWorms,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.4198473282442748,results/standard/MVCore66/tabiclv2/results.csv
@@ -3185,6 +3231,8 @@ MVCore66,EmoPain,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reporte
 MVCore66,EmoPain,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.848451,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EmoPain,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.822535,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EmoPain,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.797183,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,EmoPain,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8309859154929577,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,EmoPain,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.847887323943662,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,EmoPain,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.64507,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,EmoPain,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6845070422535211,results/standard/MVCore66/tabicl/results.csv
 MVCore66,EmoPain,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.780281690140845,results/standard/MVCore66/tabiclv2/results.csv
@@ -3195,6 +3243,8 @@ MVCore66,Epilepsy,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,report
 MVCore66,Epilepsy,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.991304,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Epilepsy,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.985507,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Epilepsy,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.971014,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Epilepsy,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,1.0,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Epilepsy,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,1.0,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Epilepsy,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.971014,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Epilepsy,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9057971014492754,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Epilepsy,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9492753623188406,results/standard/MVCore66/tabiclv2/results.csv
@@ -3205,6 +3255,8 @@ MVCore66,EthanolConcentration,MOMENT+NC,paper-standard-v1,moment-allchannels-zer
 MVCore66,EthanolConcentration,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.327757,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EthanolConcentration,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.269962,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EthanolConcentration,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.258555,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,EthanolConcentration,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.376425855513308,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,EthanolConcentration,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.41825095057034223,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,EthanolConcentration,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.395437,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,EthanolConcentration,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.38783269961977185,results/standard/MVCore66/tabicl/results.csv
 MVCore66,EthanolConcentration,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.44866920152091255,results/standard/MVCore66/tabiclv2/results.csv
@@ -3215,6 +3267,8 @@ MVCore66,EyesOpenShut,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,re
 MVCore66,EyesOpenShut,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.495238,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EyesOpenShut,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.547619,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,EyesOpenShut,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.5,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,EyesOpenShut,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.47619047619047616,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,EyesOpenShut,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.5,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,EyesOpenShut,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.619048,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,EyesOpenShut,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.30952380952380953,results/standard/MVCore66/tabicl/results.csv
 MVCore66,EyesOpenShut,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5,results/standard/MVCore66/tabiclv2/results.csv
@@ -3225,6 +3279,8 @@ MVCore66,FaceDetection,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,r
 MVCore66,FaceDetection,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.515153,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,FaceDetection,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.570658,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,FaceDetection,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.511067,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,FaceDetection,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.5314982973893303,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,FaceDetection,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.5334846765039728,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,FaceDetection,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.519864,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,FaceDetection,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.5831441543700341,results/standard/MVCore66/tabicl/results.csv
 MVCore66,FaceDetection,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5820090805902384,results/standard/MVCore66/tabiclv2/results.csv
@@ -3235,6 +3291,8 @@ MVCore66,FordChallenge,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,r
 MVCore66,FordChallenge,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.829832,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,FordChallenge,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.845602,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,FordChallenge,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.677419,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,FordChallenge,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8858560794044665,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,FordChallenge,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.883236834849738,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,FordChallenge,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.83871,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,FordChallenge,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.7637165701681831,results/standard/MVCore66/tabicl/results.csv
 MVCore66,FordChallenge,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.837055417700579,results/standard/MVCore66/tabiclv2/results.csv
@@ -3245,6 +3303,8 @@ MVCore66,HandMovementDirection,MOMENT+NC,paper-standard-v1,moment-allchannels-ze
 MVCore66,HandMovementDirection,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.283784,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,HandMovementDirection,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.337838,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,HandMovementDirection,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.27027,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,HandMovementDirection,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.24324324324324326,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,HandMovementDirection,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.2702702702702703,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,HandMovementDirection,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.310811,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,HandMovementDirection,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.40540540540540543,results/standard/MVCore66/tabicl/results.csv
 MVCore66,HandMovementDirection,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.43243243243243246,results/standard/MVCore66/tabiclv2/results.csv
@@ -3255,6 +3315,8 @@ MVCore66,Handwriting,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,rep
 MVCore66,Handwriting,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.229176,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Handwriting,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.310588,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Handwriting,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.292941,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Handwriting,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.3635294117647059,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Handwriting,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.36705882352941177,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Handwriting,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.114118,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Handwriting,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.24823529411764705,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Handwriting,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.28352941176470586,results/standard/MVCore66/tabiclv2/results.csv
@@ -3265,6 +3327,8 @@ MVCore66,Heartbeat,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,repor
 MVCore66,Heartbeat,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.734634,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Heartbeat,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.697561,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Heartbeat,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.639024,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Heartbeat,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7853658536585366,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Heartbeat,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8097560975609757,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Heartbeat,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.629268,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Heartbeat,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.7073170731707317,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Heartbeat,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.6634146341463415,results/standard/MVCore66/tabiclv2/results.csv
@@ -3275,6 +3339,8 @@ MVCore66,HouseholdPowerConsumption1_disc,MOMENT+NC,paper-standard-v1,moment-allc
 MVCore66,HouseholdPowerConsumption1_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.874927,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,HouseholdPowerConsumption1_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.873178,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,HouseholdPowerConsumption1_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.817784,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,HouseholdPowerConsumption1_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8862973760932945,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,HouseholdPowerConsumption1_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8746355685131195,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,HouseholdPowerConsumption1_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.857143,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,HouseholdPowerConsumption1_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8877551020408163,results/standard/MVCore66/tabicl/results.csv
 MVCore66,HouseholdPowerConsumption1_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9446064139941691,results/standard/MVCore66/tabiclv2/results.csv
@@ -3285,6 +3351,8 @@ MVCore66,HouseholdPowerConsumption2_disc,MOMENT+NC,paper-standard-v1,moment-allc
 MVCore66,HouseholdPowerConsumption2_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.755685,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,HouseholdPowerConsumption2_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.762391,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,HouseholdPowerConsumption2_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.712828,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,HouseholdPowerConsumption2_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7303206997084548,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,HouseholdPowerConsumption2_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7317784256559767,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,HouseholdPowerConsumption2_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.634111,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,HouseholdPowerConsumption2_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.750728862973761,results/standard/MVCore66/tabicl/results.csv
 MVCore66,HouseholdPowerConsumption2_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7653061224489796,results/standard/MVCore66/tabiclv2/results.csv
@@ -3295,6 +3363,8 @@ MVCore66,IEEEPPG_disc,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,re
 MVCore66,IEEEPPG_disc,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.580873,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,IEEEPPG_disc,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.582078,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,IEEEPPG_disc,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.514307,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,IEEEPPG_disc,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.5346385542168675,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,IEEEPPG_disc,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.49096385542168675,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,IEEEPPG_disc,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.4375,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,IEEEPPG_disc,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.32379518072289154,results/standard/MVCore66/tabicl/results.csv
 MVCore66,IEEEPPG_disc,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.3207831325301205,results/standard/MVCore66/tabiclv2/results.csv
@@ -3305,6 +3375,8 @@ MVCore66,IRDS-SFL,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,report
 MVCore66,IRDS-SFL,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.825862,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,IRDS-SFL,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.741379,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,IRDS-SFL,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.362069,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,IRDS-SFL,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8620689655172413,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,IRDS-SFL,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8793103448275862,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,IRDS-SFL,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.543103,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,IRDS-SFL,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.49137931034482757,results/standard/MVCore66/tabicl/results.csv
 MVCore66,IRDS-SFL,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.603448275862069,results/standard/MVCore66/tabiclv2/results.csv
@@ -3315,6 +3387,8 @@ MVCore66,JapaneseVowels,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,
 MVCore66,JapaneseVowels,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.786486,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,JapaneseVowels,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.797297,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,JapaneseVowels,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.648649,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,JapaneseVowels,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9783783783783784,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,JapaneseVowels,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9783783783783784,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,JapaneseVowels,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.859459,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,JapaneseVowels,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9891891891891892,results/standard/MVCore66/tabicl/results.csv
 MVCore66,JapaneseVowels,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9864864864864865,results/standard/MVCore66/tabiclv2/results.csv
@@ -3325,6 +3399,8 @@ MVCore66,KERAAL-RTK,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,repo
 MVCore66,KERAAL-RTK,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.857143,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,KERAAL-RTK,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.714286,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,KERAAL-RTK,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.714286,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,KERAAL-RTK,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8571428571428571,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,KERAAL-RTK,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7857142857142857,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,KERAAL-RTK,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.5,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,KERAAL-RTK,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.7142857142857143,results/standard/MVCore66/tabicl/results.csv
 MVCore66,KERAAL-RTK,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7142857142857143,results/standard/MVCore66/tabiclv2/results.csv
@@ -3335,6 +3411,8 @@ MVCore66,KIMORE-PR-C,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,rep
 MVCore66,KIMORE-PR-C,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.228571,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,KIMORE-PR-C,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.857143,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,KIMORE-PR-C,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.428571,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,KIMORE-PR-C,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.2857142857142857,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,KIMORE-PR-C,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.2857142857142857,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,KIMORE-PR-C,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.571429,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,KIMORE-PR-C,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.2857142857142857,results/standard/MVCore66/tabicl/results.csv
 MVCore66,KIMORE-PR-C,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5714285714285714,results/standard/MVCore66/tabiclv2/results.csv
@@ -3345,6 +3423,8 @@ MVCore66,KINECAL-QSEO,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,re
 MVCore66,KINECAL-QSEO,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.941176,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,KINECAL-QSEO,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.941176,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,KINECAL-QSEO,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.882353,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,KINECAL-QSEO,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9411764705882353,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,KINECAL-QSEO,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9411764705882353,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,KINECAL-QSEO,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.882353,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,KINECAL-QSEO,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9411764705882353,results/standard/MVCore66/tabicl/results.csv
 MVCore66,KINECAL-QSEO,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.8823529411764706,results/standard/MVCore66/tabiclv2/results.csv
@@ -3355,6 +3435,8 @@ MVCore66,LSST,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported-m
 MVCore66,LSST,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.633658,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,LSST,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.655718,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,LSST,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.559205,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,LSST,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.6228710462287105,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,LSST,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.6248986212489862,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,LSST,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.35807,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,LSST,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.5713706407137064,results/standard/MVCore66/tabicl/results.csv
 MVCore66,LSST,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.6845093268450932,results/standard/MVCore66/tabiclv2/results.csv
@@ -3365,6 +3447,8 @@ MVCore66,Libras,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported
 MVCore66,Libras,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.852222,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Libras,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.877778,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Libras,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.85,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Libras,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9222222222222223,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Libras,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9111111111111111,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Libras,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.772222,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Libras,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8833333333333333,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Libras,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.8944444444444445,results/standard/MVCore66/tabiclv2/results.csv
@@ -3375,6 +3459,8 @@ MVCore66,Locust2022,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,repo
 MVCore66,Locust2022,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.904638,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Locust2022,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.911185,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Locust2022,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.879661,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Locust2022,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9093664746892998,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Locust2022,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8999696877841771,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Locust2022,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.714762,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Locust2022,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9114883297969082,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Locust2022,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9123976962715975,results/standard/MVCore66/tabiclv2/results.csv
@@ -3385,6 +3471,8 @@ MVCore66,LowCost,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reporte
 MVCore66,LowCost,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.531,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,LowCost,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.52,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,LowCost,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.52,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,LowCost,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.565,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,LowCost,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.5516666666666666,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,LowCost,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.498333,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,LowCost,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6433333333333333,results/standard/MVCore66/tabicl/results.csv
 MVCore66,LowCost,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.645,results/standard/MVCore66/tabiclv2/results.csv
@@ -3395,6 +3483,8 @@ MVCore66,MindReading,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,rep
 MVCore66,MindReading,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.456049,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,MindReading,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.586524,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,MindReading,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.445636,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,MindReading,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.6569678407350689,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,MindReading,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.6278713629402757,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,MindReading,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.326187,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,MindReading,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.2986217457886677,results/standard/MVCore66/tabicl/results.csv
 MVCore66,MindReading,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.2894333843797856,results/standard/MVCore66/tabiclv2/results.csv
@@ -3405,6 +3495,8 @@ MVCore66,MotionSenseHAR,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,
 MVCore66,MotionSenseHAR,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.968302,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,MotionSenseHAR,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.992453,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,MotionSenseHAR,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.973585,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,MotionSenseHAR,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,1.0,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,MotionSenseHAR,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,1.0,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,MotionSenseHAR,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.94717,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,MotionSenseHAR,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9207547169811321,results/standard/MVCore66/tabicl/results.csv
 MVCore66,MotionSenseHAR,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9849056603773585,results/standard/MVCore66/tabiclv2/results.csv
@@ -3415,6 +3507,8 @@ MVCore66,MotorImagery,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,re
 MVCore66,MotorImagery,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.51,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,MotorImagery,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.53,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,MotorImagery,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.41,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,MotorImagery,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.49,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,MotorImagery,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.56,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,MotorImagery,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.52,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,MotorImagery,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.51,results/standard/MVCore66/tabicl/results.csv
 MVCore66,MotorImagery,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.48,results/standard/MVCore66/tabiclv2/results.csv
@@ -3425,6 +3519,8 @@ MVCore66,NATOPS,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported
 MVCore66,NATOPS,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.831111,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,NATOPS,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.85,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,NATOPS,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.75,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,NATOPS,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8611111111111112,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,NATOPS,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8666666666666667,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,NATOPS,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.672222,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,NATOPS,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8611111111111112,results/standard/MVCore66/tabicl/results.csv
 MVCore66,NATOPS,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9055555555555556,results/standard/MVCore66/tabiclv2/results.csv
@@ -3435,6 +3531,8 @@ MVCore66,PEMS-SF,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reporte
 MVCore66,PEMS-SF,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.981503,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PEMS-SF,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.83237,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PEMS-SF,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.734104,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,PEMS-SF,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.8439306358381503,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,PEMS-SF,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8092485549132948,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,PEMS-SF,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.433526,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,PEMS-SF,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9017341040462428,results/standard/MVCore66/tabicl/results.csv
 MVCore66,PEMS-SF,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9595375722543352,results/standard/MVCore66/tabiclv2/results.csv
@@ -3445,6 +3543,8 @@ MVCore66,PenDigits,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,repor
 MVCore66,PenDigits,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.967124,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PenDigits,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.983705,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PenDigits,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.973985,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,PenDigits,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9694110920526015,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,PenDigits,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9694110920526015,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,PenDigits,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.893082,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,PenDigits,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9842767295597484,results/standard/MVCore66/tabicl/results.csv
 MVCore66,PenDigits,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9834190966266438,results/standard/MVCore66/tabiclv2/results.csv
@@ -3455,6 +3555,8 @@ MVCore66,PhonemeSpectra,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,
 MVCore66,PhonemeSpectra,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.230659,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PhonemeSpectra,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.265434,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PhonemeSpectra,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.187593,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,PhonemeSpectra,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.298836862511184,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,PhonemeSpectra,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.30002982403817474,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,PhonemeSpectra,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.146436,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,PhonemeSpectra,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.14852371011034893,results/standard/MVCore66/tabicl/results.csv
 MVCore66,PhonemeSpectra,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.11929615269907545,results/standard/MVCore66/tabiclv2/results.csv
@@ -3465,6 +3567,8 @@ MVCore66,PhotoStimulation,MOMENT+NC,paper-standard-v1,moment-allchannels-zerosho
 MVCore66,PhotoStimulation,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.372222,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PhotoStimulation,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.305556,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,PhotoStimulation,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.222222,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,PhotoStimulation,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.2777777777777778,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,PhotoStimulation,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.25,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,PhotoStimulation,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.222222,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,PhotoStimulation,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.4166666666666667,results/standard/MVCore66/tabicl/results.csv
 MVCore66,PhotoStimulation,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.4166666666666667,results/standard/MVCore66/tabiclv2/results.csv
@@ -3475,6 +3579,8 @@ MVCore66,RacketSports,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,re
 MVCore66,RacketSports,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.796053,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,RacketSports,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.815789,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,RacketSports,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.782895,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,RacketSports,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9013157894736842,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,RacketSports,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9210526315789473,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,RacketSports,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.684211,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,RacketSports,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8486842105263158,results/standard/MVCore66/tabicl/results.csv
 MVCore66,RacketSports,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.8552631578947368,results/standard/MVCore66/tabiclv2/results.csv
@@ -3485,6 +3591,8 @@ MVCore66,STEW,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported-m
 MVCore66,STEW,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.775224,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,STEW,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.795174,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,STEW,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.70679,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,STEW,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7384960718294051,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,STEW,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7323232323232324,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,STEW,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.647727,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,STEW,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.7021604938271605,results/standard/MVCore66/tabicl/results.csv
 MVCore66,STEW,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.6888327721661055,results/standard/MVCore66/tabiclv2/results.csv
@@ -3495,6 +3603,8 @@ MVCore66,SelfRegulationSCP1,MOMENT+NC,paper-standard-v1,moment-allchannels-zeros
 MVCore66,SelfRegulationSCP1,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.686007,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,SelfRegulationSCP1,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.771331,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,SelfRegulationSCP1,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.614334,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,SelfRegulationSCP1,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7815699658703071,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,SelfRegulationSCP1,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7918088737201365,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,SelfRegulationSCP1,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.788396,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,SelfRegulationSCP1,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8668941979522184,results/standard/MVCore66/tabicl/results.csv
 MVCore66,SelfRegulationSCP1,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9044368600682594,results/standard/MVCore66/tabiclv2/results.csv
@@ -3505,6 +3615,8 @@ MVCore66,Skoda,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported-
 MVCore66,Skoda,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.849381,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Skoda,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.91758,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Skoda,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.910506,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Skoda,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9494163424124513,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Skoda,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9419879731163778,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Skoda,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.809339,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Skoda,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.939158118146445,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Skoda,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9561372479660417,results/standard/MVCore66/tabiclv2/results.csv
@@ -3515,6 +3627,8 @@ MVCore66,SpokenArabicDigits,MOMENT+NC,paper-standard-v1,moment-allchannels-zeros
 MVCore66,SpokenArabicDigits,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.944065,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,SpokenArabicDigits,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.98181,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,SpokenArabicDigits,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.893133,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,SpokenArabicDigits,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9622555707139608,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,SpokenArabicDigits,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9613460663938154,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,SpokenArabicDigits,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.782628,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,SpokenArabicDigits,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9827194179172352,results/standard/MVCore66/tabicl/results.csv
 MVCore66,SpokenArabicDigits,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9890859481582538,results/standard/MVCore66/tabiclv2/results.csv
@@ -3525,6 +3639,8 @@ MVCore66,StandWalkJump,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,r
 MVCore66,StandWalkJump,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.466667,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,StandWalkJump,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.466667,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,StandWalkJump,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.333333,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,StandWalkJump,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.4,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,StandWalkJump,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.4,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,StandWalkJump,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.4,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,StandWalkJump,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.3333333333333333,results/standard/MVCore66/tabicl/results.csv
 MVCore66,StandWalkJump,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5333333333333333,results/standard/MVCore66/tabiclv2/results.csv
@@ -3535,6 +3651,8 @@ MVCore66,TactileTextureRecognition,MOMENT+NC,paper-standard-v1,moment-allchannel
 MVCore66,TactileTextureRecognition,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.980617,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,TactileTextureRecognition,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.992658,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,TactileTextureRecognition,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.977974,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,TactileTextureRecognition,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,1.0,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,TactileTextureRecognition,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,1.0,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,TactileTextureRecognition,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.994126,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,TactileTextureRecognition,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9691629955947136,results/standard/MVCore66/tabicl/results.csv
 MVCore66,TactileTextureRecognition,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9970631424375918,results/standard/MVCore66/tabiclv2/results.csv
@@ -3545,6 +3663,8 @@ MVCore66,Tiselac,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reporte
 MVCore66,Tiselac,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.527088,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Tiselac,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.585642,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,Tiselac,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.515672,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,Tiselac,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7935793731041456,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,Tiselac,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.799494438827098,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,Tiselac,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.790495,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,Tiselac,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8086450960566228,results/standard/MVCore66/tabicl/results.csv
 MVCore66,Tiselac,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7977755308392316,results/standard/MVCore66/tabiclv2/results.csv
@@ -3555,6 +3675,8 @@ MVCore66,UCDHE-Rowing-MC,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot
 MVCore66,UCDHE-Rowing-MC,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.659545,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UCDHE-Rowing-MC,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.615909,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UCDHE-Rowing-MC,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.434091,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,UCDHE-Rowing-MC,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.7431818181818182,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,UCDHE-Rowing-MC,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.7568181818181818,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,UCDHE-Rowing-MC,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.472727,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,UCDHE-Rowing-MC,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.5909090909090909,results/standard/MVCore66/tabicl/results.csv
 MVCore66,UCDHE-Rowing-MC,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.5613636363636364,results/standard/MVCore66/tabiclv2/results.csv
@@ -3565,6 +3687,8 @@ MVCore66,UCIActivity,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,rep
 MVCore66,UCIActivity,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.828655,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UCIActivity,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.890462,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UCIActivity,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.788005,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,UCIActivity,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.9870887130362349,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,UCIActivity,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9854227405247813,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,UCIActivity,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.860058,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,UCIActivity,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.9304456476468138,results/standard/MVCore66/tabicl/results.csv
 MVCore66,UCIActivity,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.9450229071220325,results/standard/MVCore66/tabiclv2/results.csv
@@ -3575,6 +3699,8 @@ MVCore66,UIPRMD-DS-C,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,rep
 MVCore66,UIPRMD-DS-C,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.922222,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UIPRMD-DS-C,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.972222,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UIPRMD-DS-C,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.861111,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,UIPRMD-DS-C,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.75,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,UIPRMD-DS-C,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.9166666666666666,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,UIPRMD-DS-C,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.916667,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,UIPRMD-DS-C,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,1.0,results/standard/MVCore66/tabicl/results.csv
 MVCore66,UIPRMD-DS-C,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,1.0,results/standard/MVCore66/tabiclv2/results.csv
@@ -3585,6 +3711,8 @@ MVCore66,USCActivity,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,rep
 MVCore66,USCActivity,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.598982,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,USCActivity,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.604648,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,USCActivity,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.525592,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,USCActivity,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.6912970838396112,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,USCActivity,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.6950941676792224,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,USCActivity,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.620368,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,USCActivity,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.6275060753341434,results/standard/MVCore66/tabicl/results.csv
 MVCore66,USCActivity,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.6638821385176185,results/standard/MVCore66/tabiclv2/results.csv
@@ -3595,6 +3723,8 @@ MVCore66,UWaveGestureLibrary,MOMENT+NC,paper-standard-v1,moment-allchannels-zero
 MVCore66,UWaveGestureLibrary,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.829375,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UWaveGestureLibrary,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.85,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,UWaveGestureLibrary,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.796875,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,UWaveGestureLibrary,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.778125,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,UWaveGestureLibrary,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.79375,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,UWaveGestureLibrary,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.78125,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,UWaveGestureLibrary,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.86875,results/standard/MVCore66/tabicl/results.csv
 MVCore66,UWaveGestureLibrary,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.903125,results/standard/MVCore66/tabiclv2/results.csv
@@ -3605,6 +3735,8 @@ MVCore66,WISDM,MOMENT+NC,paper-standard-v1,moment-allchannels-zeroshot,reported-
 MVCore66,WISDM,MOMENT+RF,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.856596,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,WISDM,MOMENT+SVM,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.876376,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
 MVCore66,WISDM,MOMENT+kNN,paper-standard-v1,moment-allchannels-zeroshot,reported-mean,ok,0.817269,results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv
+MVCore66,WISDM,MantisV2+LR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg,42,ok,0.840834460112034,results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv
+MVCore66,WISDM,MantisV2+ScaledLR,paper-standard-v1,mantisv2-mvcore66-last-cls-logreg-scaled,42,ok,0.8253814950743674,results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv
 MVCore66,WISDM,NuTime+RF,paper-standard-v1,nutime-mvcore66-frozen-rf,0,ok,0.74773,results/standard/MVCore66/MVcore66_NuTime_merged_ok.csv
 MVCore66,WISDM,TabICL,paper-standard-v1,tabicl-mvcore66-standard,unspecified,ok,0.8116669886034383,results/standard/MVCore66/tabicl/results.csv
 MVCore66,WISDM,TabICLv2,paper-standard-v1,tabiclv2-mvcore66-standard,unspecified,ok,0.7672397141201468,results/standard/MVCore66/tabiclv2/results.csv

@@ -24,6 +24,12 @@ budget and archive so a partial new method cannot silently change the denominato
 - MantisV1 frozen features with LR, scaled LR, SVM, RF, kNN, and nearest-centroid heads.
 - MOMENT frozen features with LR, SVM, RF, MLP, kNN, and nearest-centroid heads.
 - NuTime frozen features with an RF head.
+- MantisV2 last-layer CLS features with scaled-LR and RF heads.
+- TabICL and TabICLv2 in-context classification results.
+
+TabICL and TabICLv2 currently lack `InsectWingbeatSubset` in UEA. They remain
+visible for benchmark scopes where coverage is complete, while the missing UEA
+result remains blank and is never imputed.
 
 UniShape Low-shot files currently contain aggregate summaries only. They are
 recorded in `source/sources_manifest.json`, but excluded from official ranking

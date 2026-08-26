@@ -14,6 +14,8 @@
     "MOMENT+NC",
     "UniShape+RF",
     "NuTime+RF",
+    "MantisV2+LR",
+    "MantisV2+ScaledLR",
     "TabICL",
     "TabICLv2"
   ],
