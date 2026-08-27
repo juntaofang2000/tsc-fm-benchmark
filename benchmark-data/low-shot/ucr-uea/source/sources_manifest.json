@@ -1,6 +1,6 @@
 {
   "sourceRootHint": "时序基模发布/results/few-shot",
-  "canonicalRows": 9792,
+  "canonicalRows": 9798,
   "files": [
     {
       "path": "results/few-shot/ChorusTIC/mvcore66_sampled_results.csv",
@@ -78,6 +78,11 @@
       "rows": 508
     },
     {
+      "path": "results/few-shot/tabicl/tabicl_InsectWingbeatSubset_lowshot.csv",
+      "sha256": "ad9d2c108d97ca596dac46e3d63ff63a1b8e1737068c78c84ead53be4cd61d76",
+      "rows": 8
+    },
+    {
       "path": "results/few-shot/tabicl/ucr/sampled_results.csv",
       "sha256": "21e14dcde9ae2f1ac456cef7c752c98c6d85fd0e02c8c0e4e45d47ec5565c9c2",
       "rows": 967
@@ -91,6 +96,11 @@
       "path": "results/few-shot/tabiclv2/mvcore66/sampled_results.csv",
       "sha256": "dbd4f701da1abc9fb953c82db211eef5dc550d1efa04d6553b46a90fafc3ae0a",
       "rows": 508
+    },
+    {
+      "path": "results/few-shot/tabiclv2/tabicl2_InsectWingbeatSubset_lowshot.csv",
+      "sha256": "df7362e908ce7ebf33b309c41e3e8401b28d98133d3799432d8bcd8ca1683786",
+      "rows": 8
     },
     {
       "path": "results/few-shot/tabiclv2/ucr/sampled_results.csv",

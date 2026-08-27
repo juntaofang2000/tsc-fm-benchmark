@@ -2589,6 +2589,8 @@ UEA,InsectWingbeatSubset,Mantis+kNN,low-shot-per-class-v1,1-shot,mantisv1-lowsho
 UEA,InsectWingbeatSubset,MantisV2+RF,low-shot-per-class-v1,1-shot,mantisv2-lowshot-20260821,sample=0;classifier=42,ok,0.128,results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv
 UEA,InsectWingbeatSubset,MantisV2+ScaledLR,low-shot-per-class-v1,1-shot,mantisv2-lowshot-20260821,sample=0;classifier=42,ok,0.163,results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv
 UEA,InsectWingbeatSubset,NuTime+RF,low-shot-per-class-v1,1-shot,nutime-lowshot-rf,sample=0,ok,0.15,results/few-shot/NuTime/uea_lowlabel_nutime_rf_results.csv
+UEA,InsectWingbeatSubset,TabICL,low-shot-per-class-v1,1-shot,tabicl-insectwingbeatsubset-supplement-20260827,sample=0,ok,0.145,results/few-shot/tabicl/tabicl_InsectWingbeatSubset_lowshot.csv
+UEA,InsectWingbeatSubset,TabICLv2,low-shot-per-class-v1,1-shot,tabiclv2-insectwingbeatsubset-supplement-20260827,sample=0,ok,0.134,results/few-shot/tabiclv2/tabicl2_InsectWingbeatSubset_lowshot.csv
 UEA,JapaneseVowels,ChorusTIC,low-shot-per-class-v1,1-shot,chorustic-lowshot-classifier-v2,sample=0,ok,0.49189189,results/few-shot/ChorusTIC/uea_sampled_results.csv
 UEA,JapaneseVowels,MOMENT+LR,low-shot-per-class-v1,1-shot,moment-lowshot-fixed,sample=0,ok,0.351351,results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv
 UEA,JapaneseVowels,MOMENT+MLP,low-shot-per-class-v1,1-shot,moment-lowshot-fixed,sample=0,ok,0.27027,results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv
@@ -5917,6 +5919,8 @@ UEA,InsectWingbeatSubset,Mantis+kNN,low-shot-per-class-v1,5-shot,mantisv1-lowsho
 UEA,InsectWingbeatSubset,MantisV2+RF,low-shot-per-class-v1,5-shot,mantisv2-lowshot-20260821,sample=0;classifier=42,ok,0.214,results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv
 UEA,InsectWingbeatSubset,MantisV2+ScaledLR,low-shot-per-class-v1,5-shot,mantisv2-lowshot-20260821,sample=0;classifier=42,ok,0.226,results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv
 UEA,InsectWingbeatSubset,NuTime+RF,low-shot-per-class-v1,5-shot,nutime-lowshot-rf,sample=0,ok,0.15,results/few-shot/NuTime/uea_lowlabel_nutime_rf_results.csv
+UEA,InsectWingbeatSubset,TabICL,low-shot-per-class-v1,5-shot,tabicl-insectwingbeatsubset-supplement-20260827,sample=0,ok,0.222,results/few-shot/tabicl/tabicl_InsectWingbeatSubset_lowshot.csv
+UEA,InsectWingbeatSubset,TabICLv2,low-shot-per-class-v1,5-shot,tabiclv2-insectwingbeatsubset-supplement-20260827,sample=0,ok,0.301,results/few-shot/tabiclv2/tabicl2_InsectWingbeatSubset_lowshot.csv
 UEA,JapaneseVowels,ChorusTIC,low-shot-per-class-v1,5-shot,chorustic-lowshot-classifier-v2,sample=0,ok,0.93243243,results/few-shot/ChorusTIC/uea_sampled_results.csv
 UEA,JapaneseVowels,MOMENT+LR,low-shot-per-class-v1,5-shot,moment-lowshot-fixed,sample=0,ok,0.524324,results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv
 UEA,JapaneseVowels,MOMENT+MLP,low-shot-per-class-v1,5-shot,moment-lowshot-fixed,sample=0,ok,0.481081,results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv
@@ -8867,6 +8871,8 @@ UEA,InsectWingbeatSubset,Mantis+kNN,low-shot-per-class-v1,10-shot,mantisv1-lowsh
 UEA,InsectWingbeatSubset,MantisV2+RF,low-shot-per-class-v1,10-shot,mantisv2-lowshot-20260821,sample=0;classifier=42,ok,0.293,results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv
 UEA,InsectWingbeatSubset,MantisV2+ScaledLR,low-shot-per-class-v1,10-shot,mantisv2-lowshot-20260821,sample=0;classifier=42,ok,0.265,results/few-shot/Mantisv2/mantisv2_uea_lowshot_logreg_scaled_rf_seed42_gpu0_20260821_results.csv
 UEA,InsectWingbeatSubset,NuTime+RF,low-shot-per-class-v1,10-shot,nutime-lowshot-rf,sample=0,ok,0.137,results/few-shot/NuTime/uea_lowlabel_nutime_rf_results.csv
+UEA,InsectWingbeatSubset,TabICL,low-shot-per-class-v1,10-shot,tabicl-insectwingbeatsubset-supplement-20260827,sample=0,ok,0.387,results/few-shot/tabicl/tabicl_InsectWingbeatSubset_lowshot.csv
+UEA,InsectWingbeatSubset,TabICLv2,low-shot-per-class-v1,10-shot,tabiclv2-insectwingbeatsubset-supplement-20260827,sample=0,ok,0.423,results/few-shot/tabiclv2/tabicl2_InsectWingbeatSubset_lowshot.csv
 UEA,JapaneseVowels,ChorusTIC,low-shot-per-class-v1,10-shot,chorustic-lowshot-classifier-v2,sample=0,ok,0.94594595,results/few-shot/ChorusTIC/uea_sampled_results.csv
 UEA,JapaneseVowels,MOMENT+LR,low-shot-per-class-v1,10-shot,moment-lowshot-fixed,sample=0,ok,0.683784,results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv
 UEA,JapaneseVowels,MOMENT+MLP,low-shot-per-class-v1,10-shot,moment-lowshot-fixed,sample=0,ok,0.564865,results/few-shot/Moment/moment_uea_lowlabel_both_seed0_fixed_results.csv

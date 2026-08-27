@@ -27,9 +27,9 @@ budget and archive so a partial new method cannot silently change the denominato
 - MantisV2 last-layer CLS features with scaled-LR and RF heads.
 - TabICL and TabICLv2 in-context classification results.
 
-TabICL and TabICLv2 currently lack `InsectWingbeatSubset` in UEA. They remain
-visible for benchmark scopes where coverage is complete, while the missing UEA
-result remains blank and is never imputed.
+The checked `InsectWingbeatSubset` supplements complete TabICL and TabICLv2
+coverage for UEA 1-, 5-, and 10-shot. Their test-ratio rows are retained in the
+source manifest but are not mixed into the per-class Low-shot leaderboards.
 
 UniShape Low-shot files currently contain aggregate summaries only. They are
 recorded in `source/sources_manifest.json`, but excluded from official ranking

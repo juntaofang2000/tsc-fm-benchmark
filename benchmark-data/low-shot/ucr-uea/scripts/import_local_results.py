@@ -388,6 +388,46 @@ def main() -> None:
                     }
                 )
 
+    tabicl_supplements = (
+        ("tabicl", "TabICL", "tabicl_InsectWingbeatSubset_lowshot.csv"),
+        ("tabiclv2", "TabICLv2", "tabicl2_InsectWingbeatSubset_lowshot.csv"),
+    )
+    for folder, method, filename in tabicl_supplements:
+        path = source_root / folder / filename
+        rows = read_rows(path)
+        register(path, rows)
+        if len(rows) != 8:
+            raise ValueError(f"Expected 8 {method} supplement rows, found {len(rows)}")
+        for row in rows:
+            if (
+                row["suite"].strip().lower() != "uea"
+                or normalize_dataset(row["dataset"]) != "InsectWingbeatSubset"
+                or row["model"].strip().lower() != folder
+                or row.get("status", "ok").strip().lower() != "ok"
+            ):
+                raise ValueError(f"Unexpected {method} supplement row in {path}")
+            if row["protocol"].strip().lower() != "fewshot":
+                continue
+            setting = normalize_setting(row["setting"])
+            if setting is None:
+                raise ValueError(f"Unknown {method} supplement setting: {row['setting']!r}")
+            dataset = "InsectWingbeatSubset"
+            dataset_sets[(method, "UEA", setting)].add(dataset)
+            facts.append(
+                {
+                    "archive": "UEA",
+                    "dataset": dataset,
+                    "method": method,
+                    "protocol_id": PROTOCOL_ID,
+                    "setting": setting,
+                    "run_id": f"{folder}-insectwingbeatsubset-supplement-20260827",
+                    "seed": f"sample={row['sample_seed']}",
+                    "status": "ok",
+                    "accuracy": accuracy(row["accuracy"], path),
+                    "source": relative_source(source_root, path),
+                }
+            )
+
     for archive in ("UCR", "UEA", "MVCore66"):
         families = (
             ("Mantis", "MOMENT", "NuTime", "ChorusTIC")
