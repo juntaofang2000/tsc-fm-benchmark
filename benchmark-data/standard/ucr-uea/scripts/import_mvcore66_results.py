@@ -153,32 +153,42 @@ def main() -> None:
                 run_id=f"{folder}-mvcore66-standard", seed="unspecified",
             )
 
-    mantisv2_files = (
-        (
-            "results_testMantisV2_MV-core_66_last_cls_LR.csv",
-            "MantisV2+LR",
-            "mantisv2-mvcore66-last-cls-logreg",
-        ),
-        (
-            "results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv",
-            "MantisV2+ScaledLR",
-            "mantisv2-mvcore66-last-cls-logreg-scaled",
-        ),
+    mantisv2_methods = {
+        "logreg": "MantisV2+LR",
+        "logreg_scaled": "MantisV2+ScaledLR",
+        "rf": "MantisV2+RF",
+    }
+    path = source_root / "Mantisv2" / (
+        "mantisv2_mvcore66_fulltrain_logreg_scaled_rf_lr_cls_seed42_"
+        "20260826_results.csv"
     )
-    for filename, method, run_id in mantisv2_files:
-        path = source_root / "Mantisv2" / filename
-        rows = read_rows(path)
-        register(path, rows)
-        for row in rows:
-            add_fact(
-                dataset=row["dataset"], method=method, accuracy=row["acc"], path=path,
-                run_id=run_id, seed=row.get("seed", "unspecified"),
-            )
+    rows = read_rows(path)
+    register(path, rows)
+    if len(rows) != 66 * len(mantisv2_methods):
+        raise ValueError(f"Expected 198 MantisV2 rows, found {len(rows)}")
+    if {row["classifier"].strip().lower() for row in rows} != set(mantisv2_methods):
+        raise ValueError("Unexpected MantisV2 classifier set")
+    for row in rows:
+        if (
+            row["model_version"].strip().lower() != "v2"
+            or row["return_transf_layer"].strip() != "-1"
+            or row["output_token"].strip() != "cls_token"
+            or row["protocol"].strip().lower() != "fulltrain"
+            or row["setting"].strip().lower() != "full"
+        ):
+            raise ValueError(f"Unexpected MantisV2 protocol row: {row['dataset']}")
+        classifier = row["classifier"].strip().lower()
+        add_fact(
+            dataset=row["dataset"], method=mantisv2_methods[classifier],
+            accuracy=row["acc"], path=path,
+            run_id="mantisv2-mvcore66-fulltrain-last-cls-20260826",
+            seed=row.get("classifier_seed", "unspecified"),
+        )
 
     expected_methods = {
         "ChorusTIC", "MOMENT+SVM", "MOMENT+RF", "MOMENT+MLP", "MOMENT+kNN",
         "MOMENT+NC", "NuTime+RF", "UniShape+RF", "TabICL", "TabICLv2",
-        "MantisV2+LR", "MantisV2+ScaledLR",
+        "MantisV2+LR", "MantisV2+ScaledLR", "MantisV2+RF",
     }
     if set(datasets_by_method) != expected_methods:
         raise ValueError(f"Unexpected method set: {sorted(datasets_by_method)}")

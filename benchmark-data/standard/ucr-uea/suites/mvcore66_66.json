@@ -16,6 +16,7 @@
     "NuTime+RF",
     "MantisV2+LR",
     "MantisV2+ScaledLR",
+    "MantisV2+RF",
     "TabICL",
     "TabICLv2"
   ],

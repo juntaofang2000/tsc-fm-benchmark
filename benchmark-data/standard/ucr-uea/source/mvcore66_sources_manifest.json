@@ -25,14 +25,9 @@
       "rows": 66
     },
     {
-      "path": "results/standard/MVCore66/Mantisv2/results_testMantisV2_MV-core_66_last_cls_LR.csv",
-      "sha256": "7a4a9bcfabcc86d20776e5fda44a2c11d1fcbbec2a35c5b4ba7c612f7e8f30eb",
-      "rows": 66
-    },
-    {
-      "path": "results/standard/MVCore66/Mantisv2/results_testMantisV2_MVCORE66_last_cls_logreg_scaled.csv",
-      "sha256": "e6096ac84f99b76da14b3ca87bb455d41b4f3d352be7c42fdf205c294aaf0d39",
-      "rows": 66
+      "path": "results/standard/MVCore66/Mantisv2/mantisv2_mvcore66_fulltrain_logreg_scaled_rf_lr_cls_seed42_20260826_results.csv",
+      "sha256": "ab31d317c3e7cc8ea3eca9d4395143ad5ff32fe79a903e76b4cd4a18fe7b5b7d",
+      "rows": 198
     },
     {
       "path": "results/standard/MVCore66/mvcore66_moment_allchannels_zeroshot_results.csv",
@@ -55,7 +50,7 @@
       "rows": 66
     }
   ],
-  "canonicalRowsAdded": 792,
+  "canonicalRowsAdded": 858,
   "methods": [
     "ChorusTIC",
     "MOMENT+MLP",
@@ -64,6 +59,7 @@
     "MOMENT+SVM",
     "MOMENT+kNN",
     "MantisV2+LR",
+    "MantisV2+RF",
     "MantisV2+ScaledLR",
     "NuTime+RF",
     "TabICL",

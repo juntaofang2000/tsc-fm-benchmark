@@ -44,10 +44,10 @@ beginning with `#` are ignored.
 
 - `ucr_128.json` selects the paper UCR-128 datasets and 11 UCR methods.
 - `uea_30.json` selects the paper UEA-30 datasets and 9 UEA methods.
-- `mvcore66_66.json` selects all 66 verified MVCore66 tasks and 12 methods.
+- `mvcore66_66.json` selects all 66 verified MVCore66 tasks and 13 methods.
 - `mvcore66_only_40.json` selects the 40 MVCore66 tasks that do not overlap UEA.
 - `overall_198.json` combines UCR-128, UEA-30, and MVCore66-only-40 and selects
-  the 11 methods with complete 198/198 coverage.
+  the 12 methods with complete 198/198 coverage.
 - `overall_158.json` remains an immutable historical UCR+UEA snapshot.
 
 Treat published suite IDs as immutable snapshots. For a changed benchmark,
@@ -123,7 +123,7 @@ python scripts/import_mvcore66_results.py \
 python scripts/build_results.py --no-release-wide
 ```
 
-The importer requires the same 66 datasets for all 12 method variants, validates
+The importer requires the same 66 datasets for all 13 method variants, validates
 every accuracy and status, and writes `source/mvcore66_sources_manifest.json`
 with source hashes and the frozen overlap policy. It replaces only existing
 `MVCore66` facts, leaving UCR and UEA provenance unchanged.
