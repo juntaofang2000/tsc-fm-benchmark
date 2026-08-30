@@ -1,4 +1,4 @@
-import { createSubmission } from "@/lib/supabase/submissions";
+import { createSubmission, SubmissionInsertError } from "@/lib/supabase/submissions";
 import { validateSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
@@ -29,6 +29,15 @@ export async function POST(request: Request) {
       return Response.json(
         { error: "The submission database has not been connected yet. Please contact the benchmark maintainer." },
         { status: 503 },
+      );
+    }
+    if (error instanceof SubmissionInsertError) {
+      return Response.json(
+        {
+          error: "The submission could not be saved. Please try again later.",
+          diagnosticCode: `SUPABASE_HTTP_${error.upstreamStatus}`,
+        },
+        { status: 502 },
       );
     }
     return Response.json({ error: "The submission could not be saved. Please try again later." }, { status: 502 });

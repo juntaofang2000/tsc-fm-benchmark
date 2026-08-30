@@ -6,6 +6,13 @@ type StoredSubmission = {
   status: "pending";
 };
 
+export class SubmissionInsertError extends Error {
+  constructor(readonly upstreamStatus: number) {
+    super("SUBMISSION_INSERT_FAILED");
+    this.name = "SubmissionInsertError";
+  }
+}
+
 function referenceCode() {
   const date = new Date().toISOString().slice(0, 10).replaceAll("-", "");
   const suffix = crypto.randomUUID().replaceAll("-", "").slice(0, 8).toUpperCase();
@@ -50,7 +57,7 @@ export async function createSubmission(data: ValidSubmission): Promise<StoredSub
 
   if (!response.ok) {
     console.error("Supabase submission insert failed", response.status, await response.text());
-    throw new Error("SUBMISSION_INSERT_FAILED");
+    throw new SubmissionInsertError(response.status);
   }
   return { reference_code: reference, status: "pending" };
 }
