@@ -22,7 +22,6 @@ export async function createSubmission(data: ValidSubmission): Promise<StoredSub
     method: "POST",
     headers: {
       apikey: publishableKey,
-      Authorization: `Bearer ${publishableKey}`,
       "Content-Type": "application/json",
       Prefer: "return=minimal",
     },
