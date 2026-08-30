@@ -48,7 +48,7 @@ export async function POST(request: Request) {
       return Response.json(
         {
           error: "The submission could not be saved. Please try again later.",
-          diagnosticCode: "SUPABASE_FETCH_FAILED",
+          diagnosticCode: error.diagnosticCode,
         },
         { status: 502 },
       );

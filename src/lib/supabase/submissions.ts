@@ -14,10 +14,21 @@ export class SubmissionInsertError extends Error {
 }
 
 export class SubmissionConnectionError extends Error {
-  constructor() {
+  constructor(readonly diagnosticCode: string) {
     super("SUBMISSION_CONNECTION_FAILED");
     this.name = "SubmissionConnectionError";
   }
+}
+
+function connectionDiagnostic(error: unknown) {
+  if (!(error instanceof Error)) return "SUPABASE_FETCH_FAILED";
+
+  const cause = error.cause;
+  if (!cause || typeof cause !== "object" || !("code" in cause)) return "SUPABASE_FETCH_FAILED";
+
+  const code = String(cause.code);
+  const allowedCodes = new Set(["ENOTFOUND", "ECONNREFUSED", "ECONNRESET", "ETIMEDOUT"]);
+  return allowedCodes.has(code) ? `SUPABASE_FETCH_FAILED_${code}` : "SUPABASE_FETCH_FAILED";
 }
 
 function referenceCode() {
@@ -31,10 +42,18 @@ export async function createSubmission(data: ValidSubmission): Promise<StoredSub
   const publishableKey = process.env.SUPABASE_PUBLISHABLE_KEY;
   if (!url || !publishableKey) throw new Error("SUBMISSION_BACKEND_NOT_CONFIGURED");
 
+  let endpoint: URL;
+  try {
+    endpoint = new URL("/rest/v1/model_submissions", url);
+    if (endpoint.protocol !== "https:") throw new TypeError("Invalid protocol");
+  } catch {
+    throw new SubmissionConnectionError("SUPABASE_URL_INVALID");
+  }
+
   const reference = referenceCode();
   let response: Response;
   try {
-    response = await fetch(`${url.replace(/\/$/, "")}/rest/v1/model_submissions`, {
+    response = await fetch(endpoint, {
       method: "POST",
       headers: {
         apikey: publishableKey,
@@ -64,8 +83,9 @@ export async function createSubmission(data: ValidSubmission): Promise<StoredSub
       cache: "no-store",
     });
   } catch (error) {
-    console.error("Supabase submission connection failed", error instanceof Error ? error.name : "UnknownError");
-    throw new SubmissionConnectionError();
+    const diagnosticCode = connectionDiagnostic(error);
+    console.error("Supabase submission connection failed", diagnosticCode);
+    throw new SubmissionConnectionError(diagnosticCode);
   }
 
   if (!response.ok) {
