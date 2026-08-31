@@ -23,7 +23,9 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
     if (track === "Low-shot") return lowShotEntries[lowShotSetting];
     if (track === "Overall") return standardEntries.Overall;
     if (track === "OOD") return [];
-    return standardEntries.Overall.filter((entry) => entry.tracks.includes(track));
+    return standardEntries.Overall
+      .filter((entry) => entry.tracks.includes(track))
+      .map((entry, index) => ({ ...entry, rank: index + 1 }));
   }, [benchmark, lowShotEntries, lowShotSetting, standardEntries, track]);
 
   const showBenchmarkSelector = track === "Standard";
@@ -98,7 +100,11 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
       )}
 
       <div className="mt-4">
-        <LeaderboardTable data={filtered} scope={showBenchmarkSelector ? benchmark : "Overall"} />
+        <LeaderboardTable
+          data={filtered}
+          scope={showBenchmarkSelector ? benchmark : "Overall"}
+          rankLabel={track === "Training-Free / ICL" || track === "Frozen-Probe" ? "Track Rank" : undefined}
+        />
       </div>
     </div>
   );

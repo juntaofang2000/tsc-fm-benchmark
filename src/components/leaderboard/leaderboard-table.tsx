@@ -43,12 +43,12 @@ function ExternalIcon({ href, kind }: { href: string | null; kind: "paper" | "co
   return <a href={href} aria-label={`${kind} link`} className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"><Icon className="size-4" /></a>;
 }
 
-function getColumns(scope: BenchmarkScope): ColumnDef<LeaderboardEntry>[] {
+function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<LeaderboardEntry>[] {
   const averageLabel = scope === "Overall" ? "Overall Avg." : `${scope} Avg.`;
   return [
   {
     accessorKey: "rank",
-    header: ({ column }) => <SortHeader label={scope === "Overall" ? "Rank" : `${scope} Rank`} column={column} />,
+    header: ({ column }) => <SortHeader label={rankLabel ?? (scope === "Overall" ? "Rank" : `${scope} Rank`)} column={column} />,
     cell: ({ row }) => <div className="flex items-center gap-1.5 tabular-nums">{row.original.rank <= 3 && <Medal className="size-3.5 text-primary/70" />}<span>{row.original.rank}</span></div>,
   },
   {
@@ -91,12 +91,12 @@ function columnClass(columnId: string, scope: BenchmarkScope, compact: boolean) 
   }
 }
 
-export function LeaderboardTable({ data, compact = false, scope = "Overall" }: { data: LeaderboardEntry[]; compact?: boolean; scope?: BenchmarkScope }) {
+export function LeaderboardTable({ data, compact = false, scope = "Overall", rankLabel }: { data: LeaderboardEntry[]; compact?: boolean; scope?: BenchmarkScope; rankLabel?: string }) {
   const [sorting, setSorting] = useState<SortingState>([{ id: "rank", desc: false }]);
   const [query, setQuery] = useState("");
   const [type, setType] = useState<(typeof evaluationTypes)[number]>("All types");
   const filtered = useMemo(() => data.filter((entry) => type === "All types" || entry.evaluationType === type), [data, type]);
-  const columns = useMemo(() => getColumns(scope), [scope]);
+  const columns = useMemo(() => getColumns(scope, rankLabel), [rankLabel, scope]);
   // TanStack Table intentionally owns mutable table state; React Compiler skips this hook.
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
