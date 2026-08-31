@@ -80,21 +80,9 @@ The Standard Overall leaderboard uses verified per-dataset UCR-128, UEA-30, and 
 5. Configure the Supabase submission variables described below.
 6. Deploy using the default build command (`next build`).
 
-## GitHub Pages Static Mirror
+## Public Static Mirror
 
-The repository includes an independent, read-only GitHub Pages deployment. Every push to `main` runs `.github/workflows/deploy-pages.yml`, exports the public Next.js routes, and publishes the generated `out/` directory.
-
-The mirror includes Home, Leaderboard, Capability Map, Benchmarks, Methods, Evaluation, and every statically generated benchmark and method route. GitHub Pages does not run a Next.js server, so `/api/submissions` is intentionally absent and the mirror submission page links to the interactive Vercel site. Vercel Web Analytics is also disabled in the mirror.
-
-### First-time GitHub setup
-
-1. Push this project to the public `juntaofang2000/tsc-fm-benchmark` repository using the `main` branch.
-2. Open **Repository Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Open the repository **Actions** tab and wait for **Deploy GitHub Pages mirror** to finish.
-5. Visit `https://juntaofang2000.github.io/tsc-fm-benchmark/`.
-
-No custom domain is required. The build determines the repository subpath automatically, so internal navigation and static assets work below `/tsc-fm-benchmark/`.
+GitHub Pages for this source repository is retired. The sanitized, read-only export is published from the separate `tsc-fm-benchmark-public` repository, which contains generated static artifacts only and has an independent Git history.
 
 To verify the mirror locally:
 
@@ -102,7 +90,7 @@ To verify the mirror locally:
 pnpm run build:pages
 ```
 
-The static files are written to `out/`. The normal `pnpm build` command remains unchanged for Vercel.
+The static files are written to `out/`. The normal `pnpm build` command remains unchanged for Vercel. The mirror has no submission API, and Vercel Web Analytics is disabled there.
 
 ## Analytics
 

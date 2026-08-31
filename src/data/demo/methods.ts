@@ -52,12 +52,12 @@ export const demoMethods: Method[] = [
   },
   {
     id: "tic-fm", name: "TIC-FM", slug: "tic-fm", organization: "—",
-    category: "In-Context Learning", description: "A training-free in-context classifier evaluated across the complete UCR-128 archive.",
+    category: "In-Context Learning", description: "A training-free in-context classifier evaluated across the complete unified benchmark.",
     paperUrl: null, codeUrl: null, checkpointUrl: null, parameterCount: "—", inputType: "Univariate time series", inferenceParadigm: "Training-free in-context classification", evaluationStatus: "Complete",
   },
   {
     id: "tict", name: "TiCT", slug: "tict", organization: "—",
-    category: "In-Context Learning", description: "A synthetically pretrained in-context time series classifier evaluated across the complete UCR-128 archive.",
+    category: "In-Context Learning", description: "A synthetically pretrained in-context time series classifier evaluated across the complete unified benchmark.",
     paperUrl: null, codeUrl: null, checkpointUrl: null, parameterCount: "—", inputType: "Univariate time series", inferenceParadigm: "Training-free in-context classification", evaluationStatus: "Complete",
   },
 ];

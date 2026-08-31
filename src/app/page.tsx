@@ -1,22 +1,23 @@
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
-import { BenchmarkCard } from "@/components/benchmark/benchmark-card";
 import { LeaderboardTable } from "@/components/leaderboard/leaderboard-table";
 import { VerifiedResultsBadge } from "@/components/shared/verified-results-badge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { benchmarkCoverage, evaluationTracks } from "@/data/demo/benchmarks";
-import { getBenchmarks } from "@/lib/data/benchmarks";
+import { benchmarkProfile, evaluationTracks } from "@/data/demo/benchmarks";
 import { getLeaderboard } from "@/lib/data/leaderboard";
 
-const scope = ["UCR-128", "UEA-30", "MVCore66", "Low-shot", "OOD", "Training-Free / ICL", "Frozen-Probe"];
+const scope = ["198 datasets", "Univariate", "Multivariate", "Low-shot", "OOD", "Training-Free / ICL", "Frozen-Probe"];
 
 export default async function Home() {
-  const [benchmarks, leaders] = await Promise.all([
-    getBenchmarks(),
-    getLeaderboard({ track: "Overall", limit: 5 }),
-  ]);
+  const leaders = await getLeaderboard({ track: "Overall", limit: 5 });
+  const stats = [
+    ["Total", benchmarkProfile.totalDatasetCount],
+    ["Univariate", benchmarkProfile.univariateCount],
+    ["Multivariate", benchmarkProfile.multivariateCount],
+    ["Tracks", benchmarkProfile.trackCount],
+  ] as const;
 
   return (
     <>
@@ -28,28 +29,34 @@ export default async function Home() {
               Benchmarking Foundation Models for <span className="text-primary">Time Series Classification</span>
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
-              A unified benchmark for evaluating time series classification foundation models across standard classification, low-shot adaptation, out-of-distribution generalization, in-context learning, and frozen representation transfer.
+              A unified benchmark spanning 198 unique time series classification datasets, five evaluation tracks, and comparable dataset-level reporting.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild><Link href="/leaderboard">Explore Leaderboard <ArrowRight className="size-4" /></Link></Button>
-              <Button variant="outline" asChild><Link href="/evaluation">Evaluation Protocol</Link></Button>
+              <Button variant="outline" asChild><Link href="/benchmarks">Dataset Profile</Link></Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">{scope.map((item) => <Badge key={item} variant="secondary">{item}</Badge>)}</div>
           </div>
           <div className="hidden lg:block">
             <Card className="overflow-hidden">
-              <div className="border-b border-border bg-muted/50 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">Evaluation surface</div>
+              <div className="border-b border-border bg-muted/50 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">Benchmark composition</div>
               <CardContent className="pt-4">
                 <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border">
-                  {[["Benchmarks", benchmarkCoverage.benchmarkCount.toString()], ["Unique datasets", benchmarkCoverage.uniqueDatasetCount.toString()], ["Tracks", "5"], ["Primary metric", "Accuracy"]].map(([label, value]) => (
+                  {stats.map(([label, value]) => (
                     <div key={label} className="bg-card p-3.5"><p className="text-xs text-muted-foreground">{label}</p><p className="mt-1.5 text-xl font-semibold tabular-nums">{value}</p></div>
                   ))}
                 </div>
-                <p className="mt-3 text-xs leading-5 text-muted-foreground">
-                  {benchmarkCoverage.uniqueDatasetCount} unique datasets across {benchmarkCoverage.suiteMembershipCount} suite memberships; overlaps are counted once.
-                </p>
+                <div className="mt-4 overflow-hidden rounded-full bg-muted" aria-label="Dataset modality composition">
+                  <div className="flex h-2.5">
+                    <div className="bg-primary" style={{ width: `${benchmarkProfile.univariateShare}%` }} />
+                    <div className="bg-primary/35" style={{ width: `${benchmarkProfile.multivariateShare}%` }} />
+                  </div>
+                </div>
+                <div className="mt-2 flex justify-between text-xs text-muted-foreground">
+                  <span>Univariate {benchmarkProfile.univariateShare}%</span><span>Multivariate {benchmarkProfile.multivariateShare}%</span>
+                </div>
                 <div className="mt-4 space-y-2.5">
-                  {["Equal dataset weighting", "Protocol-specific leaderboards", "Reproducible result records"].map((item) => (
+                  {["Equal dataset weighting", "Repeated tasks counted once", "Primary metric: Accuracy"].map((item) => (
                     <div key={item} className="flex items-center gap-3 text-sm"><span className="flex size-6 items-center justify-center rounded-full bg-primary/10 text-primary"><Check className="size-3.5" /></span>{item}</div>
                   ))}
                 </div>
@@ -63,9 +70,9 @@ export default async function Home() {
         <div className="container-wide">
           <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">UCR-128 + UEA-30 + MVCore66-only-40</p><VerifiedResultsBadge /></div>
+              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">198 unique datasets</p><VerifiedResultsBadge /></div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Overall Leaderboard Preview</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy across 198 unique datasets with equal dataset weighting; 26 UEA/MVCore66 overlaps are counted once using the UEA result.</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy with equal dataset weighting; repeated tasks are counted once.</p>
             </div>
             <Button variant="outline" asChild><Link href="/leaderboard">View Full Leaderboard <ArrowRight className="size-4" /></Link></Button>
           </div>
@@ -76,11 +83,13 @@ export default async function Home() {
       <section className="border-y border-border bg-muted/25">
         <div className="container-wide py-10 md:py-12">
           <div className="mb-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Coverage</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Benchmark Overview</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Major archives and a curated multivariate core, evaluated through one consistent data and reporting layer.</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Dataset profile</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Benchmark Composition</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">A high-level view of the benchmark without publishing individual dataset or suite identities.</p>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">{benchmarks.map((benchmark) => <BenchmarkCard key={benchmark.id} benchmark={benchmark} />)}</div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map(([label, value]) => <Card key={label}><CardContent className="pt-5"><p className="text-sm text-muted-foreground">{label}</p><p className="mt-2 text-3xl font-semibold tabular-nums">{value}</p></CardContent></Card>)}
+          </div>
         </div>
       </section>
 

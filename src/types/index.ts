@@ -22,9 +22,8 @@ export interface LeaderboardEntry {
   category: string;
   avgAccuracy: number | null;
   avgRank: number | null;
-  ucrAccuracy: number | null;
-  ueaAccuracy: number | null;
-  mvcore66Accuracy: number | null;
+  univariateAccuracy: number | null;
+  multivariateAccuracy: number | null;
   coverage: string;
   evaluationType: EvaluationType;
   paperUrl: string | null;
@@ -33,6 +32,10 @@ export interface LeaderboardEntry {
   isFeatured: boolean;
   tracks: Track[];
 }
+
+export type BenchmarkScope = "Overall" | "Univariate" | "Multivariate";
+
+export type LowShotSetting = "1-shot" | "5-shot" | "10-shot";
 
 export interface Method {
   id: string;
@@ -48,16 +51,6 @@ export interface Method {
   inputType: string;
   inferenceParadigm: string;
   evaluationStatus: "Complete" | "Partial" | "Planned";
-}
-
-export interface Benchmark {
-  id: string;
-  name: string;
-  slug: "ucr" | "uea" | "mvcore66";
-  datasetCount: number;
-  modality: string;
-  description: string;
-  metric: string;
 }
 
 export interface BenchmarkDataset {

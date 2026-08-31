@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:public-data": "node scripts/build-public-leaderboards.mjs",
     "build:pages": "node scripts/build-github-pages.mjs",
     "start": "next start",
     "lint": "eslint"

@@ -28,7 +28,7 @@ export default async function LeaderboardPage() {
           <div>
             <p>Only methods covering all 198 unique datasets are eligible for the Standard Overall leaderboard.</p>
             <p className="mt-1 text-xs leading-5 text-muted-foreground">
-              Overall Average Accuracy is the unweighted mean over 128 UCR, 30 UEA, and 40 MVCore66-only datasets: (128 × UCR Avg. + 30 × UEA Avg. + 40 × MV-only Avg.) / 198. All 26 UEA/MVCore66 overlaps retain the UEA result and are counted once.
+              Overall Average Accuracy is the unweighted mean across 198 unique datasets. Every dataset receives equal weight, and repeated tasks are counted once.
             </p>
           </div>
         </div>

@@ -1,17 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { LeaderboardEntry, Track } from "@/types";
-import type { BenchmarkScope, LowShotSetting } from "@/data/official/leaderboard";
+import type { BenchmarkScope, LeaderboardEntry, LowShotSetting, Track } from "@/types";
 import { LeaderboardTable } from "./leaderboard-table";
 
 const tracks: Track[] = ["Overall", "Standard", "Low-shot", "OOD", "Training-Free / ICL", "Frozen-Probe"];
-const benchmarkOptions = ["Overall", "UCR", "UEA", "MVCore66"] as const;
+const benchmarkOptions = ["Overall", "Univariate", "Multivariate"] as const;
 const lowShotSettings = ["1-shot", "5-shot", "10-shot"] as const;
 
 type Props = {
   standardEntries: Record<BenchmarkScope, LeaderboardEntry[]>;
-  lowShotEntries: Record<LowShotSetting, Record<BenchmarkScope, LeaderboardEntry[]>>;
+  lowShotEntries: Record<LowShotSetting, LeaderboardEntry[]>;
 };
 
 export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
@@ -21,13 +20,13 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
 
   const filtered = useMemo(() => {
     if (track === "Standard") return standardEntries[benchmark];
-    if (track === "Low-shot") return lowShotEntries[lowShotSetting][benchmark];
+    if (track === "Low-shot") return lowShotEntries[lowShotSetting];
     if (track === "Overall") return standardEntries.Overall;
     if (track === "OOD") return [];
     return standardEntries.Overall.filter((entry) => entry.tracks.includes(track));
   }, [benchmark, lowShotEntries, lowShotSetting, standardEntries, track]);
 
-  const showBenchmarkSelector = track === "Standard" || track === "Low-shot";
+  const showBenchmarkSelector = track === "Standard";
   const requiredDatasets = filtered[0]?.coverage.split("/")[1]?.trim();
 
   return (
@@ -50,7 +49,7 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
 
       {showBenchmarkSelector && (
         <div className="my-4 flex flex-wrap items-center gap-2">
-          <span className="mr-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Benchmark</span>
+          <span className="mr-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">View</span>
           {benchmarkOptions.map((item) => (
             <button
               key={item}
@@ -84,13 +83,13 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
 
       {track === "Standard" && filtered.length > 0 && (
         <p className="mt-3 text-xs leading-5 text-muted-foreground">
-          Ranking is recomputed per dataset across all {filtered.length} methods with complete {benchmark} coverage
+          Ranking is recomputed per dataset across all {filtered.length} eligible methods with complete {benchmark.toLowerCase()} coverage
           {requiredDatasets ? ` (${requiredDatasets} datasets)` : ""}; exact ties receive average ranks.
         </p>
       )}
       {track === "Low-shot" && filtered.length > 0 && (
         <p className="mt-3 text-xs leading-5 text-muted-foreground">
-          {lowShotSetting} uses a fixed number of training labels per class. This ranking covers {requiredDatasets} feasible datasets;
+          {lowShotSetting} uses a fixed number of training labels per class. The Overall ranking covers {requiredDatasets} feasible datasets;
           missing results are excluded rather than filled with zero, and ranks are recomputed within this exact comparison set.
         </p>
       )}

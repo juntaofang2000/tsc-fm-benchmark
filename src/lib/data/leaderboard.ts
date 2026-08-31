@@ -3,10 +3,8 @@ import {
   lowShotLeaderboards,
   officialLeaderboard,
   standardLeaderboards,
-  type BenchmarkScope,
-  type LowShotSetting,
 } from "@/data/official/leaderboard";
-import type { LeaderboardEntry, Track } from "@/types";
+import type { BenchmarkScope, LeaderboardEntry, LowShotSetting, Track } from "@/types";
 
 export async function getLeaderboard(options?: {
   track?: Track;
@@ -33,6 +31,6 @@ export async function getStandardLeaderboard(scope: BenchmarkScope) {
   return standardLeaderboards[scope];
 }
 
-export async function getLowShotLeaderboard(setting: LowShotSetting, scope: BenchmarkScope) {
-  return lowShotLeaderboards[setting][scope];
+export async function getLowShotLeaderboard(setting: LowShotSetting) {
+  return lowShotLeaderboards[setting];
 }

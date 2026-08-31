@@ -12,7 +12,7 @@ export function VerifiedResultsBadge() {
         </Badge>
       </TooltipTrigger>
       <TooltipContent>
-        Recomputed from per-dataset records for 128 UCR, 30 UEA, and 66 MVCore66 tasks. Overall keeps UEA for the 26 overlaps and adds 40 MVCore66-only tasks.
+        Recomputed from verified records across 198 unique datasets. Every dataset receives equal weight, and repeated tasks are counted once.
       </TooltipContent>
     </Tooltip>
   );

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Boxes, GitBranch, Menu, X } from "lucide-react";
+import { Boxes, Menu, X } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -22,12 +22,6 @@ function Brand() {
 function ExternalLinks() {
   return (
     <div className="flex items-center">
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="ghost" size="icon" asChild><a href={siteConfig.links.github} target="_blank" rel="noreferrer" aria-label="GitHub"><GitBranch className="size-4" /></a></Button>
-        </TooltipTrigger>
-        <TooltipContent>GitHub</TooltipContent>
-      </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="ghost" size="icon" asChild><a href={siteConfig.links.huggingFace} target="_blank" rel="noreferrer" aria-label="Hugging Face"><Boxes className="size-4" /></a></Button>

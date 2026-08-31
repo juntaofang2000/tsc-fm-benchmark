@@ -12,7 +12,6 @@ export const siteConfig = {
   isStaticMirror:
     process.env.NEXT_PUBLIC_DEPLOYMENT_TARGET === "github-pages",
   links: {
-    github: "https://github.com/juntaofang2000/tsc-fm-benchmark",
     huggingFace: "https://huggingface.co/",
   },
   maintainer: {
@@ -23,8 +22,7 @@ export const siteConfig = {
   nav: [
     { label: "Home", href: "/" },
     { label: "Leaderboard", href: "/leaderboard" },
-    { label: "Capability Map", href: "/capability-map" },
-    { label: "Benchmarks", href: "/benchmarks" },
+    { label: "Dataset Profile", href: "/benchmarks" },
     { label: "Methods", href: "/methods" },
     { label: "Evaluation", href: "/evaluation" },
     { label: "Submit", href: "/submit" },

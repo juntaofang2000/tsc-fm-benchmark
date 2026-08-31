@@ -18,8 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EmptyState } from "@/components/shared/empty-state";
 import { cn, formatMetric } from "@/lib/utils";
-import type { EvaluationType, LeaderboardEntry } from "@/types";
-import type { BenchmarkScope } from "@/data/official/leaderboard";
+import type { BenchmarkScope, EvaluationType, LeaderboardEntry } from "@/types";
 
 const evaluationTypes: Array<EvaluationType | "All types"> = [
   "All types",
@@ -67,9 +66,8 @@ function getColumns(scope: BenchmarkScope): ColumnDef<LeaderboardEntry>[] {
   },
   { accessorKey: "avgAccuracy", header: ({ column }) => <SortHeader label={averageLabel} column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "avgRank", header: ({ column }) => <SortHeader label="Avg. Rank" column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
-  { accessorKey: "ucrAccuracy", header: "UCR", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
-  { accessorKey: "ueaAccuracy", header: "UEA", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
-  { accessorKey: "mvcore66Accuracy", header: "MV-only", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
+  { accessorKey: "univariateAccuracy", header: "Univariate", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
+  { accessorKey: "multivariateAccuracy", header: "Multivariate", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "coverage", header: "Coverage", cell: ({ getValue }) => <span className="whitespace-nowrap tabular-nums text-muted-foreground">{getValue<string>()}</span> },
   { accessorKey: "evaluationType", header: "Evaluation Type", cell: ({ getValue }) => <Badge variant="secondary" className="whitespace-nowrap">{getValue<EvaluationType>()}</Badge> },
   { id: "paper", header: "Paper", cell: ({ row }) => <ExternalIcon href={row.original.paperUrl} kind="paper" /> },
@@ -77,15 +75,14 @@ function getColumns(scope: BenchmarkScope): ColumnDef<LeaderboardEntry>[] {
   ];
 }
 
-function columnClass(columnId: string, scope: BenchmarkScope) {
+function columnClass(columnId: string, scope: BenchmarkScope, compact: boolean) {
   switch (columnId) {
     case "rank": return "w-[70px]";
     case "model": return "w-[220px]";
     case "avgAccuracy": return "w-[125px]";
     case "avgRank": return "hidden w-[100px] lg:table-cell";
-    case "ucrAccuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] sm:table-cell";
-    case "ueaAccuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] sm:table-cell";
-    case "mvcore66Accuracy": return scope !== "Overall" ? "hidden" : "hidden w-[80px] lg:table-cell";
+    case "univariateAccuracy": return scope !== "Overall" || compact ? "hidden" : "hidden w-[110px] lg:table-cell";
+    case "multivariateAccuracy": return scope !== "Overall" || compact ? "hidden" : "hidden w-[120px] lg:table-cell";
     case "coverage": return "hidden w-[105px] md:table-cell";
     case "evaluationType": return "hidden w-[140px] xl:table-cell";
     case "paper":
@@ -127,12 +124,12 @@ export function LeaderboardTable({ data, compact = false, scope = "Overall" }: {
         <table data-testid="leaderboard-table" className="w-full min-w-[470px] table-fixed border-collapse text-sm">
           <thead className="bg-muted/95">
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>{headerGroup.headers.map((header) => <th key={header.id} className={cn("h-11 border-b border-border px-3 text-left text-xs font-medium text-muted-foreground", columnClass(header.column.id, scope))}>{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}</th>)}</tr>
+              <tr key={headerGroup.id}>{headerGroup.headers.map((header) => <th key={header.id} className={cn("h-11 border-b border-border px-3 text-left text-xs font-medium text-muted-foreground", columnClass(header.column.id, scope, compact))}>{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}</th>)}</tr>
             ))}
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className={cn("border-b border-border/70 last:border-0 hover:bg-muted/35", row.original.isFeatured && "bg-primary/[0.035]")}>{row.getVisibleCells().map((cell) => <td key={cell.id} className={cn("h-14 px-3 align-middle", columnClass(cell.column.id, scope))}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>)}</tr>
+              <tr key={row.id} className={cn("border-b border-border/70 last:border-0 hover:bg-muted/35", row.original.isFeatured && "bg-primary/[0.035]")}>{row.getVisibleCells().map((cell) => <td key={cell.id} className={cn("h-14 px-3 align-middle", columnClass(cell.column.id, scope, compact))}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>)}</tr>
             ))}
           </tbody>
         </table>
