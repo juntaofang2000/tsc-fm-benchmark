@@ -16,6 +16,14 @@ const publicDataResult = spawnSync(
 
 if (publicDataResult.status !== 0) process.exit(publicDataResult.status ?? 1);
 
+const publicCapabilityResult = spawnSync(
+  process.execPath,
+  ["scripts/build-public-capability.mjs"],
+  { stdio: "inherit", env: process.env },
+);
+
+if (publicCapabilityResult.status !== 0) process.exit(publicCapabilityResult.status ?? 1);
+
 const result = spawnSync(
   process.execPath,
   ["node_modules/next/dist/bin/next", "build"],

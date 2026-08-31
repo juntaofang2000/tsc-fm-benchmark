@@ -23,6 +23,7 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "Leaderboard", href: "/leaderboard" },
     { label: "Dataset Profile", href: "/benchmarks" },
+    { label: "Capability Map", href: "/capability-map" },
     { label: "Methods", href: "/methods" },
     { label: "Evaluation", href: "/evaluation" },
     { label: "Submit", href: "/submit" },

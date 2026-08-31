@@ -13,6 +13,7 @@ export function Footer() {
         <div className="flex flex-wrap content-start gap-x-6 gap-y-3 text-sm text-muted-foreground">
           <Link href="/leaderboard" className="hover:text-foreground">Leaderboard</Link>
           <Link href="/benchmarks" className="hover:text-foreground">Dataset Profile</Link>
+          <Link href="/capability-map" className="hover:text-foreground">Capability Map</Link>
           <Link href="/evaluation" className="hover:text-foreground">Evaluation</Link>
           <a href={siteConfig.links.huggingFace} target="_blank" rel="noreferrer" className="hover:text-foreground">Hugging Face</a>
         </div>

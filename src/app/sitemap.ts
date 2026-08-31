@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 
 export const dynamic = "force-static";
 
-const publicRoutes = ["", "/leaderboard", "/benchmarks", "/methods", "/evaluation", "/submit"];
+const publicRoutes = ["", "/leaderboard", "/benchmarks", "/capability-map", "/methods", "/evaluation", "/submit"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return publicRoutes.map((route, index) => ({

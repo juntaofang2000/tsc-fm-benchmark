@@ -1,0 +1,1173 @@
+{
+  "schemaVersion": 2,
+  "dataVersion": "capability-public-92f29c1e9e05",
+  "totalDatasetCount": 198,
+  "methodCount": 11,
+  "paradigms": [
+    "In-Context Learning",
+    "Frozen Probe",
+    "Classification-native TSFM",
+    "General TSFM",
+    "Tabular / cross-modal adaptation"
+  ],
+  "properties": [
+    {
+      "key": "modality",
+      "label": "Modality",
+      "bins": [
+        {
+          "key": "univariate",
+          "label": "Univariate",
+          "description": "1 channel"
+        },
+        {
+          "key": "multivariate",
+          "label": "Multivariate",
+          "description": "2 or more channels"
+        }
+      ]
+    },
+    {
+      "key": "trainSize",
+      "label": "Training set size",
+      "bins": [
+        {
+          "key": "small",
+          "label": "Small",
+          "description": "≤100 train instances"
+        },
+        {
+          "key": "medium",
+          "label": "Medium",
+          "description": "101–500 train instances"
+        },
+        {
+          "key": "large",
+          "label": "Large",
+          "description": ">500 train instances"
+        }
+      ]
+    },
+    {
+      "key": "classCount",
+      "label": "Class count",
+      "bins": [
+        {
+          "key": "binary",
+          "label": "Binary",
+          "description": "2 classes"
+        },
+        {
+          "key": "3-10",
+          "label": "3–10",
+          "description": "3 to 10 classes"
+        },
+        {
+          "key": ">10",
+          "label": ">10",
+          "description": "More than 10 classes"
+        }
+      ]
+    },
+    {
+      "key": "length",
+      "label": "Sequence length",
+      "bins": [
+        {
+          "key": "short",
+          "label": "Short",
+          "description": "≤200 time steps"
+        },
+        {
+          "key": "medium",
+          "label": "Medium",
+          "description": "201–500 time steps"
+        },
+        {
+          "key": "long",
+          "label": "Long",
+          "description": ">500 time steps"
+        }
+      ]
+    },
+    {
+      "key": "channels",
+      "label": "Channel count",
+      "bins": [
+        {
+          "key": "univariate",
+          "label": "Univariate",
+          "description": "1 channel"
+        },
+        {
+          "key": "low-mv",
+          "label": "Low-dimensional MV",
+          "description": "2–10 channels"
+        },
+        {
+          "key": "high-mv",
+          "label": "High-dimensional MV",
+          "description": ">10 channels"
+        }
+      ]
+    },
+    {
+      "key": "imbalance",
+      "label": "Class imbalance",
+      "bins": [
+        {
+          "key": "balanced",
+          "label": "Balanced",
+          "description": "max/min train class count ≤1.5"
+        },
+        {
+          "key": "moderate",
+          "label": "Moderate",
+          "description": "ratio >1.5 and ≤3"
+        },
+        {
+          "key": "severe",
+          "label": "Severe",
+          "description": "ratio >3"
+        }
+      ]
+    }
+  ],
+  "metadataCoverage": {
+    "modality": 198,
+    "trainSize": 158,
+    "classCount": 158,
+    "length": 158,
+    "channels": 158,
+    "imbalance": 158
+  },
+  "cells": [
+    {
+      "property": "modality",
+      "bin": "univariate",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8011402462675499,
+      "meanRank": 4.854166666666667,
+      "coverage": 128,
+      "methodObservations": 384,
+      "wins": 49,
+      "ties": 3,
+      "losses": 76
+    },
+    {
+      "property": "modality",
+      "bin": "univariate",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7728731701073106,
+      "meanRank": 6.65234375,
+      "coverage": 128,
+      "methodObservations": 768,
+      "wins": 6,
+      "ties": 1,
+      "losses": 121
+    },
+    {
+      "property": "modality",
+      "bin": "univariate",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.795281311617359,
+      "meanRank": 5.545758928571429,
+      "coverage": 128,
+      "methodObservations": 896,
+      "wins": 14,
+      "ties": 3,
+      "losses": 111
+    },
+    {
+      "property": "modality",
+      "bin": "univariate",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7368452890625,
+      "meanRank": 7.828125,
+      "coverage": 128,
+      "methodObservations": 256,
+      "wins": 4,
+      "ties": 1,
+      "losses": 123
+    },
+    {
+      "property": "modality",
+      "bin": "univariate",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7785972071853983,
+      "meanRank": 5.76171875,
+      "coverage": 128,
+      "methodObservations": 256,
+      "wins": 52,
+      "ties": 1,
+      "losses": 75
+    },
+    {
+      "property": "trainSize",
+      "bin": "small",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8272750591888934,
+      "meanRank": 4.907051282051282,
+      "coverage": 52,
+      "methodObservations": 146,
+      "wins": 21,
+      "ties": 3,
+      "losses": 28
+    },
+    {
+      "property": "trainSize",
+      "bin": "small",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7967261562833904,
+      "meanRank": 6.3589743589743595,
+      "coverage": 52,
+      "methodObservations": 312,
+      "wins": 2,
+      "ties": 2,
+      "losses": 48
+    },
+    {
+      "property": "trainSize",
+      "bin": "small",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8208159015887363,
+      "meanRank": 5.350824175824176,
+      "coverage": 52,
+      "methodObservations": 354,
+      "wins": 7,
+      "ties": 3,
+      "losses": 42
+    },
+    {
+      "property": "trainSize",
+      "bin": "small",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7548360288461539,
+      "meanRank": 7.75,
+      "coverage": 52,
+      "methodObservations": 104,
+      "wins": 0,
+      "ties": 2,
+      "losses": 50
+    },
+    {
+      "property": "trainSize",
+      "bin": "small",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8048538257051727,
+      "meanRank": 5.9375,
+      "coverage": 52,
+      "methodObservations": 104,
+      "wins": 19,
+      "ties": 1,
+      "losses": 32
+    },
+    {
+      "property": "trainSize",
+      "bin": "medium",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7513622179376218,
+      "meanRank": 4.375555555555556,
+      "coverage": 75,
+      "methodObservations": 189,
+      "wins": 28,
+      "ties": 2,
+      "losses": 45
+    },
+    {
+      "property": "trainSize",
+      "bin": "medium",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7206474196626402,
+      "meanRank": 6.31,
+      "coverage": 75,
+      "methodObservations": 450,
+      "wins": 4,
+      "ties": 0,
+      "losses": 71
+    },
+    {
+      "property": "trainSize",
+      "bin": "medium",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7445804763915933,
+      "meanRank": 5.158476190476191,
+      "coverage": 75,
+      "methodObservations": 489,
+      "wins": 9,
+      "ties": 1,
+      "losses": 65
+    },
+    {
+      "property": "trainSize",
+      "bin": "medium",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.68093798,
+      "meanRank": 7.566666666666666,
+      "coverage": 75,
+      "methodObservations": 150,
+      "wins": 5,
+      "ties": 0,
+      "losses": 70
+    },
+    {
+      "property": "trainSize",
+      "bin": "medium",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7005659984907857,
+      "meanRank": 5.886666666666667,
+      "coverage": 75,
+      "methodObservations": 150,
+      "wins": 27,
+      "ties": 1,
+      "losses": 47
+    },
+    {
+      "property": "trainSize",
+      "bin": "large",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8017928559710414,
+      "meanRank": 4.629032258064516,
+      "coverage": 31,
+      "methodObservations": 79,
+      "wins": 12,
+      "ties": 0,
+      "losses": 19
+    },
+    {
+      "property": "trainSize",
+      "bin": "large",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7648232233169313,
+      "meanRank": 6.682795698924731,
+      "coverage": 31,
+      "methodObservations": 186,
+      "wins": 0,
+      "ties": 0,
+      "losses": 31
+    },
+    {
+      "property": "trainSize",
+      "bin": "large",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.78556592460859,
+      "meanRank": 5.765437788018433,
+      "coverage": 31,
+      "methodObservations": 203,
+      "wins": 2,
+      "ties": 0,
+      "losses": 29
+    },
+    {
+      "property": "trainSize",
+      "bin": "large",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7389803064516128,
+      "meanRank": 7.354838709677419,
+      "coverage": 31,
+      "methodObservations": 62,
+      "wins": 1,
+      "ties": 0,
+      "losses": 30
+    },
+    {
+      "property": "trainSize",
+      "bin": "large",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8148366873263604,
+      "meanRank": 4.217741935483871,
+      "coverage": 31,
+      "methodObservations": 62,
+      "wins": 16,
+      "ties": 0,
+      "losses": 15
+    },
+    {
+      "property": "classCount",
+      "bin": "binary",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8425825172225708,
+      "meanRank": 5.204861111111112,
+      "coverage": 48,
+      "methodObservations": 132,
+      "wins": 16,
+      "ties": 0,
+      "losses": 32
+    },
+    {
+      "property": "classCount",
+      "bin": "binary",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.822075633303048,
+      "meanRank": 6.347222222222222,
+      "coverage": 48,
+      "methodObservations": 288,
+      "wins": 2,
+      "ties": 0,
+      "losses": 46
+    },
+    {
+      "property": "classCount",
+      "bin": "binary",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8377080858807179,
+      "meanRank": 5.590476190476191,
+      "coverage": 48,
+      "methodObservations": 324,
+      "wins": 5,
+      "ties": 0,
+      "losses": 43
+    },
+    {
+      "property": "classCount",
+      "bin": "binary",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7985125833333333,
+      "meanRank": 7.317708333333333,
+      "coverage": 48,
+      "methodObservations": 96,
+      "wins": 4,
+      "ties": 0,
+      "losses": 44
+    },
+    {
+      "property": "classCount",
+      "bin": "binary",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8170112728597179,
+      "meanRank": 5.421875,
+      "coverage": 48,
+      "methodObservations": 96,
+      "wins": 21,
+      "ties": 0,
+      "losses": 27
+    },
+    {
+      "property": "classCount",
+      "bin": "3-10",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7874755646548344,
+      "meanRank": 4.22008547008547,
+      "coverage": 78,
+      "methodObservations": 200,
+      "wins": 33,
+      "ties": 5,
+      "losses": 40
+    },
+    {
+      "property": "classCount",
+      "bin": "3-10",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7488620333176117,
+      "meanRank": 6.5085470085470085,
+      "coverage": 78,
+      "methodObservations": 468,
+      "wins": 2,
+      "ties": 2,
+      "losses": 74
+    },
+    {
+      "property": "classCount",
+      "bin": "3-10",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7741571611795351,
+      "meanRank": 5.2615384615384615,
+      "coverage": 78,
+      "methodObservations": 512,
+      "wins": 7,
+      "ties": 4,
+      "losses": 67
+    },
+    {
+      "property": "classCount",
+      "bin": "3-10",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7121376987179487,
+      "meanRank": 7.6826923076923075,
+      "coverage": 78,
+      "methodObservations": 156,
+      "wins": 2,
+      "ties": 2,
+      "losses": 74
+    },
+    {
+      "property": "classCount",
+      "bin": "3-10",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7654983224250131,
+      "meanRank": 5.592948717948718,
+      "coverage": 78,
+      "methodObservations": 156,
+      "wins": 29,
+      "ties": 2,
+      "losses": 47
+    },
+    {
+      "property": "classCount",
+      "bin": ">10",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.6987185340151845,
+      "meanRank": 4.619791666666667,
+      "coverage": 32,
+      "methodObservations": 82,
+      "wins": 12,
+      "ties": 0,
+      "losses": 20
+    },
+    {
+      "property": "classCount",
+      "bin": ">10",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.6661552352168492,
+      "meanRank": 6.2109375,
+      "coverage": 32,
+      "methodObservations": 192,
+      "wins": 2,
+      "ties": 0,
+      "losses": 30
+    },
+    {
+      "property": "classCount",
+      "bin": ">10",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.6963831118928709,
+      "meanRank": 5.159821428571429,
+      "coverage": 32,
+      "methodObservations": 210,
+      "wins": 6,
+      "ties": 0,
+      "losses": 26
+    },
+    {
+      "property": "classCount",
+      "bin": ">10",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.60483959375,
+      "meanRank": 7.75,
+      "coverage": 32,
+      "methodObservations": 64,
+      "wins": 0,
+      "ties": 0,
+      "losses": 32
+    },
+    {
+      "property": "classCount",
+      "bin": ">10",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.6477929963805498,
+      "meanRank": 5.765625,
+      "coverage": 32,
+      "methodObservations": 64,
+      "wins": 12,
+      "ties": 0,
+      "losses": 20
+    },
+    {
+      "property": "length",
+      "bin": "short",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8496305662780359,
+      "meanRank": 4.812865497076023,
+      "coverage": 57,
+      "methodObservations": 139,
+      "wins": 16,
+      "ties": 3,
+      "losses": 38
+    },
+    {
+      "property": "length",
+      "bin": "short",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.8183306670175399,
+      "meanRank": 6.590643274853801,
+      "coverage": 57,
+      "methodObservations": 342,
+      "wins": 0,
+      "ties": 1,
+      "losses": 56
+    },
+    {
+      "property": "length",
+      "bin": "short",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8427375354621602,
+      "meanRank": 5.594987468671679,
+      "coverage": 57,
+      "methodObservations": 367,
+      "wins": 6,
+      "ties": 2,
+      "losses": 49
+    },
+    {
+      "property": "length",
+      "bin": "short",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7774714561403508,
+      "meanRank": 7.62280701754386,
+      "coverage": 57,
+      "methodObservations": 114,
+      "wins": 0,
+      "ties": 1,
+      "losses": 56
+    },
+    {
+      "property": "length",
+      "bin": "short",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8535831808700493,
+      "meanRank": 4.131578947368421,
+      "coverage": 57,
+      "methodObservations": 114,
+      "wins": 32,
+      "ties": 1,
+      "losses": 24
+    },
+    {
+      "property": "length",
+      "bin": "medium",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7751696021993782,
+      "meanRank": 4.385620915032679,
+      "coverage": 51,
+      "methodObservations": 141,
+      "wins": 26,
+      "ties": 1,
+      "losses": 24
+    },
+    {
+      "property": "length",
+      "bin": "medium",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7394167907205343,
+      "meanRank": 6.42483660130719,
+      "coverage": 51,
+      "methodObservations": 306,
+      "wins": 3,
+      "ties": 0,
+      "losses": 48
+    },
+    {
+      "property": "length",
+      "bin": "medium",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7641368633610529,
+      "meanRank": 5.2030812324929965,
+      "coverage": 51,
+      "methodObservations": 345,
+      "wins": 5,
+      "ties": 1,
+      "losses": 45
+    },
+    {
+      "property": "length",
+      "bin": "medium",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7037029411764706,
+      "meanRank": 7.8088235294117645,
+      "coverage": 51,
+      "methodObservations": 102,
+      "wins": 1,
+      "ties": 0,
+      "losses": 50
+    },
+    {
+      "property": "length",
+      "bin": "medium",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7325689957170646,
+      "meanRank": 6.215686274509804,
+      "coverage": 51,
+      "methodObservations": 102,
+      "wins": 15,
+      "ties": 0,
+      "losses": 36
+    },
+    {
+      "property": "length",
+      "bin": "long",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7252691193646009,
+      "meanRank": 4.576666666666667,
+      "coverage": 50,
+      "methodObservations": 134,
+      "wins": 19,
+      "ties": 1,
+      "losses": 30
+    },
+    {
+      "property": "length",
+      "bin": "long",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.6966546435502433,
+      "meanRank": 6.155,
+      "coverage": 50,
+      "methodObservations": 300,
+      "wins": 3,
+      "ties": 1,
+      "losses": 46
+    },
+    {
+      "property": "length",
+      "bin": "long",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7174297344418649,
+      "meanRank": 5.191714285714286,
+      "coverage": 50,
+      "methodObservations": 334,
+      "wins": 7,
+      "ties": 1,
+      "losses": 42
+    },
+    {
+      "property": "length",
+      "bin": "long",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.66050977,
+      "meanRank": 7.315,
+      "coverage": 50,
+      "methodObservations": 100,
+      "wins": 5,
+      "ties": 1,
+      "losses": 44
+    },
+    {
+      "property": "length",
+      "bin": "long",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.6727905207886395,
+      "meanRank": 6.57,
+      "coverage": 50,
+      "methodObservations": 100,
+      "wins": 15,
+      "ties": 1,
+      "losses": 34
+    },
+    {
+      "property": "channels",
+      "bin": "univariate",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8011402462675499,
+      "meanRank": 4.854166666666667,
+      "coverage": 128,
+      "methodObservations": 384,
+      "wins": 49,
+      "ties": 3,
+      "losses": 76
+    },
+    {
+      "property": "channels",
+      "bin": "univariate",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7728731701073106,
+      "meanRank": 6.65234375,
+      "coverage": 128,
+      "methodObservations": 768,
+      "wins": 6,
+      "ties": 1,
+      "losses": 121
+    },
+    {
+      "property": "channels",
+      "bin": "univariate",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.795281311617359,
+      "meanRank": 5.545758928571429,
+      "coverage": 128,
+      "methodObservations": 896,
+      "wins": 14,
+      "ties": 3,
+      "losses": 111
+    },
+    {
+      "property": "channels",
+      "bin": "univariate",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7368452890625,
+      "meanRank": 7.828125,
+      "coverage": 128,
+      "methodObservations": 256,
+      "wins": 4,
+      "ties": 1,
+      "losses": 123
+    },
+    {
+      "property": "channels",
+      "bin": "univariate",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7785972071853983,
+      "meanRank": 5.76171875,
+      "coverage": 128,
+      "methodObservations": 256,
+      "wins": 52,
+      "ties": 1,
+      "losses": 75
+    },
+    {
+      "property": "channels",
+      "bin": "low-mv",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7521391472631579,
+      "meanRank": 3.3684210526315788,
+      "coverage": 19,
+      "methodObservations": 19,
+      "wins": 8,
+      "ties": 1,
+      "losses": 10
+    },
+    {
+      "property": "channels",
+      "bin": "low-mv",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7013419179595511,
+      "meanRank": 5.385964912280701,
+      "coverage": 19,
+      "methodObservations": 114,
+      "wins": 0,
+      "ties": 1,
+      "losses": 18
+    },
+    {
+      "property": "channels",
+      "bin": "low-mv",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.724154531004093,
+      "meanRank": 4.536842105263158,
+      "coverage": 19,
+      "methodObservations": 95,
+      "wins": 3,
+      "ties": 1,
+      "losses": 15
+    },
+    {
+      "property": "channels",
+      "bin": "low-mv",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.669709,
+      "meanRank": 6.5,
+      "coverage": 19,
+      "methodObservations": 38,
+      "wins": 1,
+      "ties": 1,
+      "losses": 17
+    },
+    {
+      "property": "channels",
+      "bin": "low-mv",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7203762485770225,
+      "meanRank": 4.657894736842105,
+      "coverage": 19,
+      "methodObservations": 38,
+      "wins": 6,
+      "ties": 0,
+      "losses": 13
+    },
+    {
+      "property": "channels",
+      "bin": "high-mv",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.6717684216363636,
+      "meanRank": 3.772727272727273,
+      "coverage": 11,
+      "methodObservations": 11,
+      "wins": 4,
+      "ties": 1,
+      "losses": 6
+    },
+    {
+      "property": "channels",
+      "bin": "high-mv",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.6304158462992686,
+      "meanRank": 5.204545454545454,
+      "coverage": 11,
+      "methodObservations": 66,
+      "wins": 0,
+      "ties": 0,
+      "losses": 11
+    },
+    {
+      "property": "channels",
+      "bin": "high-mv",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.6657783907954858,
+      "meanRank": 4.345454545454545,
+      "coverage": 11,
+      "methodObservations": 55,
+      "wins": 1,
+      "ties": 0,
+      "losses": 10
+    },
+    {
+      "property": "channels",
+      "bin": "high-mv",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.5626857727272727,
+      "meanRank": 6.636363636363637,
+      "coverage": 11,
+      "methodObservations": 22,
+      "wins": 1,
+      "ties": 0,
+      "losses": 10
+    },
+    {
+      "property": "channels",
+      "bin": "high-mv",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.5733813534455151,
+      "meanRank": 5,
+      "coverage": 11,
+      "methodObservations": 22,
+      "wins": 4,
+      "ties": 1,
+      "losses": 6
+    },
+    {
+      "property": "imbalance",
+      "bin": "balanced",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.785979093983831,
+      "meanRank": 4.514563106796117,
+      "coverage": 103,
+      "methodObservations": 259,
+      "wins": 42,
+      "ties": 3,
+      "losses": 58
+    },
+    {
+      "property": "imbalance",
+      "bin": "balanced",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7571428453616802,
+      "meanRank": 6.2200647249190935,
+      "coverage": 103,
+      "methodObservations": 618,
+      "wins": 6,
+      "ties": 1,
+      "losses": 96
+    },
+    {
+      "property": "imbalance",
+      "bin": "balanced",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7785059663621714,
+      "meanRank": 5.20873786407767,
+      "coverage": 103,
+      "methodObservations": 671,
+      "wins": 13,
+      "ties": 2,
+      "losses": 88
+    },
+    {
+      "property": "imbalance",
+      "bin": "balanced",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7218654466019417,
+      "meanRank": 7.361650485436893,
+      "coverage": 103,
+      "methodObservations": 206,
+      "wins": 5,
+      "ties": 1,
+      "losses": 97
+    },
+    {
+      "property": "imbalance",
+      "bin": "balanced",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.744809788332298,
+      "meanRank": 5.966019417475728,
+      "coverage": 103,
+      "methodObservations": 206,
+      "wins": 34,
+      "ties": 1,
+      "losses": 68
+    },
+    {
+      "property": "imbalance",
+      "bin": "moderate",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8262996942321017,
+      "meanRank": 5.155172413793103,
+      "coverage": 29,
+      "methodObservations": 83,
+      "wins": 9,
+      "ties": 2,
+      "losses": 18
+    },
+    {
+      "property": "imbalance",
+      "bin": "moderate",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7926863719215711,
+      "meanRank": 6.681034482758621,
+      "coverage": 29,
+      "methodObservations": 174,
+      "wins": 0,
+      "ties": 1,
+      "losses": 28
+    },
+    {
+      "property": "imbalance",
+      "bin": "moderate",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8178378251935828,
+      "meanRank": 5.566009852216749,
+      "coverage": 29,
+      "methodObservations": 199,
+      "wins": 3,
+      "ties": 2,
+      "losses": 24
+    },
+    {
+      "property": "imbalance",
+      "bin": "moderate",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7540328275862069,
+      "meanRank": 8.439655172413794,
+      "coverage": 29,
+      "methodObservations": 58,
+      "wins": 0,
+      "ties": 1,
+      "losses": 28
+    },
+    {
+      "property": "imbalance",
+      "bin": "moderate",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8377912346589521,
+      "meanRank": 4.637931034482759,
+      "coverage": 29,
+      "methodObservations": 58,
+      "wins": 15,
+      "ties": 1,
+      "losses": 13
+    },
+    {
+      "property": "imbalance",
+      "bin": "severe",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7425965440454166,
+      "meanRank": 4.32051282051282,
+      "coverage": 26,
+      "methodObservations": 72,
+      "wins": 10,
+      "ties": 0,
+      "losses": 16
+    },
+    {
+      "property": "imbalance",
+      "bin": "severe",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7005468717800217,
+      "meanRank": 6.794871794871795,
+      "coverage": 26,
+      "methodObservations": 156,
+      "wins": 0,
+      "ties": 0,
+      "losses": 26
+    },
+    {
+      "property": "imbalance",
+      "bin": "severe",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7298113388050969,
+      "meanRank": 5.613186813186814,
+      "coverage": 26,
+      "methodObservations": 176,
+      "wins": 2,
+      "ties": 0,
+      "losses": 24
+    },
+    {
+      "property": "imbalance",
+      "bin": "severe",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.6542737884615384,
+      "meanRank": 7.519230769230769,
+      "coverage": 26,
+      "methodObservations": 52,
+      "wins": 1,
+      "ties": 0,
+      "losses": 25
+    },
+    {
+      "property": "imbalance",
+      "bin": "severe",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7170550818176447,
+      "meanRank": 5.076923076923077,
+      "coverage": 26,
+      "methodObservations": 52,
+      "wins": 13,
+      "ties": 0,
+      "losses": 13
+    },
+    {
+      "property": "modality",
+      "bin": "multivariate",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7378432408503616,
+      "meanRank": 3.4642857142857144,
+      "coverage": 70,
+      "methodObservations": 70,
+      "wins": 29,
+      "ties": 1,
+      "losses": 40
+    },
+    {
+      "property": "modality",
+      "bin": "multivariate",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7103163340895943,
+      "meanRank": 4.894523809523809,
+      "coverage": 70,
+      "methodObservations": 380,
+      "wins": 1,
+      "ties": 1,
+      "losses": 68
+    },
+    {
+      "property": "modality",
+      "bin": "multivariate",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7319406326913522,
+      "meanRank": 4.060357142857143,
+      "coverage": 70,
+      "methodObservations": 310,
+      "wins": 11,
+      "ties": 1,
+      "losses": 58
+    },
+    {
+      "property": "modality",
+      "bin": "multivariate",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.6749567071428569,
+      "meanRank": 6.0285714285714285,
+      "coverage": 70,
+      "methodObservations": 140,
+      "wins": 6,
+      "ties": 1,
+      "losses": 63
+    },
+    {
+      "property": "modality",
+      "bin": "multivariate",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.6967574292031913,
+      "meanRank": 4.821428571428571,
+      "coverage": 70,
+      "methodObservations": 140,
+      "wins": 22,
+      "ties": 0,
+      "losses": 48
+    }
+  ],
+  "methodology": {
+    "unit": "Dataset",
+    "missingness": "Missing method–dataset results are excluded and are never replaced with zero.",
+    "weighting": "Each contributing dataset receives equal weight within its selected condition bin.",
+    "taxonomy": "Decision-interface groups are mutually exclusive; model-origin lenses may overlap and are descriptive only.",
+    "privacy": "Only aggregate condition-level statistics are published. Dataset identities and source mappings are excluded."
+  }
+}
