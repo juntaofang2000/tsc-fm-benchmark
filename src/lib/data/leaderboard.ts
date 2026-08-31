@@ -31,6 +31,6 @@ export async function getStandardLeaderboard(scope: BenchmarkScope) {
   return standardLeaderboards[scope];
 }
 
-export async function getLowShotLeaderboard(setting: LowShotSetting) {
-  return lowShotLeaderboards[setting];
+export async function getLowShotLeaderboard(setting: LowShotSetting, scope: BenchmarkScope = "Overall") {
+  return lowShotLeaderboards[setting][scope];
 }

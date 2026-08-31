@@ -20,6 +20,14 @@ function publicRow(row) {
   };
 }
 
+function publicLowShotRow(row) {
+  return {
+    ...publicRow(row),
+    univariateAccuracy: row.ucr_accuracy_pct ?? null,
+    multivariateAccuracy: row.uea_accuracy_pct ?? null,
+  };
+}
+
 function readAccuracyCsv(filename) {
   const [headerLine, ...lines] = fs.readFileSync(path.join(standardDir, filename), "utf8").trim().split(/\r?\n/);
   const headers = headerLine.split(",");
@@ -98,9 +106,13 @@ const output = {
     Multivariate: multivariate,
   },
   lowShot: Object.fromEntries(
-    ["1-shot", "5-shot", "10-shot"].map((setting) => [
+    ["5-shot", "10-shot"].map((setting) => [
       setting,
-      lowShot.benchmarks[setting].Overall.rows.map(publicRow),
+      {
+        Overall: lowShot.benchmarks[setting].Overall.rows.map(publicLowShotRow),
+        Univariate: lowShot.benchmarks[setting].UCR.rows.map(publicRow),
+        Multivariate: lowShot.benchmarks[setting].UEA.rows.map(publicRow),
+      },
     ]),
   ),
 };

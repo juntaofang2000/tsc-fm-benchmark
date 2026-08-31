@@ -9,9 +9,6 @@ export const demoDatasetResults: DatasetResult[] = [
 ];
 
 export const demoLowShot = [
-  { shot: "1-shot", accuracy: 54.2 },
-  { shot: "2-shot", accuracy: 59.8 },
   { shot: "5-shot", accuracy: 67.7 },
   { shot: "10-shot", accuracy: 72.9 },
-  { shot: "20-shot", accuracy: 76.8 },
 ];

@@ -77,7 +77,7 @@ function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<Leader
 
 function columnClass(columnId: string, scope: BenchmarkScope, compact: boolean) {
   switch (columnId) {
-    case "rank": return "w-[70px]";
+    case "rank": return scope === "Overall" ? "w-[70px]" : "w-[130px]";
     case "model": return "w-[220px]";
     case "avgAccuracy": return "w-[125px]";
     case "avgRank": return "hidden w-[100px] lg:table-cell";

@@ -21,7 +21,7 @@ type PublicRow = {
 
 type PublicData = {
   standard: Record<BenchmarkScope, PublicRow[]>;
-  lowShot: Record<LowShotSetting, PublicRow[]>;
+  lowShot: Record<LowShotSetting, Record<BenchmarkScope, PublicRow[]>>;
 };
 
 const generated = publicGenerated as PublicData;
@@ -79,19 +79,24 @@ export const standardLeaderboards: Record<BenchmarkScope, LeaderboardEntry[]> = 
   ]),
 ) as Record<BenchmarkScope, LeaderboardEntry[]>;
 
-export const lowShotLeaderboards: Record<LowShotSetting, LeaderboardEntry[]> = Object.fromEntries(
-  (["1-shot", "5-shot", "10-shot"] as LowShotSetting[]).map((setting) => [
+export const lowShotLeaderboards: Record<LowShotSetting, Record<BenchmarkScope, LeaderboardEntry[]>> = Object.fromEntries(
+  (["5-shot", "10-shot"] as LowShotSetting[]).map((setting) => [
     setting,
-    generated.lowShot[setting].map((row) => makeEntry(row, [
-      "Low-shot",
-      metadata(row.method).evaluationType === "In-Context" ? "Training-Free / ICL" : "Frozen-Probe",
-    ], "Low-shot")),
+    Object.fromEntries(
+      (["Overall", "Univariate", "Multivariate"] as BenchmarkScope[]).map((scope) => [
+        scope,
+        generated.lowShot[setting][scope].map((row) => makeEntry(row, [
+          "Low-shot",
+          metadata(row.method).evaluationType === "In-Context" ? "Training-Free / ICL" : "Frozen-Probe",
+        ], scope)),
+      ]),
+    ),
   ]),
-) as Record<LowShotSetting, LeaderboardEntry[]>;
+) as Record<LowShotSetting, Record<BenchmarkScope, LeaderboardEntry[]>>;
 
 export const officialLeaderboard = standardLeaderboards.Overall;
 
 export const allOfficialEntries = [
   ...Object.values(standardLeaderboards).flat(),
-  ...Object.values(lowShotLeaderboards).flat(),
+  ...Object.values(lowShotLeaderboards).flatMap((scopes) => Object.values(scopes).flat()),
 ];

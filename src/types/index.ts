@@ -35,7 +35,7 @@ export interface LeaderboardEntry {
 
 export type BenchmarkScope = "Overall" | "Univariate" | "Multivariate";
 
-export type LowShotSetting = "1-shot" | "5-shot" | "10-shot";
+export type LowShotSetting = "5-shot" | "10-shot";
 
 export interface Method {
   id: string;
