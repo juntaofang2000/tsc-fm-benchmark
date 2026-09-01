@@ -10,6 +10,8 @@ import { EVALUATION_TRACKS, MODEL_CATEGORIES, type SubmissionPayload } from "@/l
 type SubmissionResult = {
   reference: string;
   status: "pending";
+  githubCommit: string;
+  huggingfaceRevision: string;
   message: string;
 };
 
@@ -84,6 +86,8 @@ export function SubmissionForm() {
             <dl className="mt-5 grid gap-3 rounded-lg border border-emerald-500/20 bg-background/70 p-4 text-sm sm:grid-cols-2">
               <div><dt className="text-xs text-muted-foreground">Reference</dt><dd className="mt-1 font-mono font-medium">{result.reference}</dd></div>
               <div><dt className="text-xs text-muted-foreground">Status</dt><dd className="mt-1 font-medium">Pending review</dd></div>
+              <div className="sm:col-span-2"><dt className="text-xs text-muted-foreground">Locked GitHub revision</dt><dd className="mt-1 break-all font-mono text-xs font-medium">{result.githubCommit}</dd></div>
+              <div className="sm:col-span-2"><dt className="text-xs text-muted-foreground">Locked Hugging Face revision</dt><dd className="mt-1 break-all font-mono text-xs font-medium">{result.huggingfaceRevision}</dd></div>
             </dl>
             <p className="mt-4 text-xs leading-5 text-muted-foreground">Keep the reference code for future correspondence. The maintainer will use the contact email supplied in the form.</p>
             <Button type="button" variant="outline" className="mt-5" onClick={() => setResult(null)}>Submit another model</Button>
@@ -97,7 +101,7 @@ export function SubmissionForm() {
     <form onSubmit={submit} className="rounded-xl border border-border bg-card p-5 md:p-7">
       <div className="mb-6 flex gap-3 rounded-lg border border-primary/20 bg-primary/[0.04] p-4 text-sm leading-6 text-muted-foreground">
         <LockKeyhole className="mt-1 size-4 shrink-0 text-primary" />
-        <p>No files are uploaded. Both repositories must be public, and each 40-character commit SHA permanently identifies the version that will be reviewed.</p>
+        <p>No files are uploaded. Both repositories must be public. You may provide immutable commit SHAs, or leave them blank to lock the current main revisions automatically.</p>
       </div>
 
       <div className="grid gap-5 md:grid-cols-2">
@@ -116,18 +120,18 @@ export function SubmissionForm() {
           <Input name="github" type="url" required maxLength={500} placeholder="https://github.com/owner/repository" />
           <span className={helpClass}>Repository root URL, not a branch or file URL.</span>
         </label>
-        <label className={fieldClass}>GitHub Commit SHA *
-          <Input name="githubCommit" required minLength={40} maxLength={40} pattern="[0-9a-fA-F]{40}" className="font-mono" placeholder="40 hexadecimal characters" spellCheck={false} />
-          <span className={helpClass}>Use the full commit hash shown by GitHub.</span>
+        <label className={fieldClass}>GitHub Commit SHA <span className={helpClass}>Optional</span>
+          <Input name="githubCommit" maxLength={40} pattern="[0-9a-fA-F]{40}" className="font-mono" placeholder="Leave blank to lock main automatically" spellCheck={false} />
+          <span className={helpClass}>If supplied, use the full 40-character hash shown by GitHub.</span>
         </label>
 
         <label className={fieldClass}>Hugging Face Model *
           <Input name="checkpoint" type="url" required maxLength={500} placeholder="https://huggingface.co/owner/model" />
           <span className={helpClass}>Public model repository containing the checkpoint.</span>
         </label>
-        <label className={fieldClass}>Hugging Face Revision *
-          <Input name="checkpointRevision" required minLength={40} maxLength={40} pattern="[0-9a-fA-F]{40}" className="font-mono" placeholder="40-character commit SHA" spellCheck={false} />
-          <span className={helpClass}>Branches such as main are not accepted because they can change.</span>
+        <label className={fieldClass}>Hugging Face Revision <span className={helpClass}>Optional</span>
+          <Input name="checkpointRevision" maxLength={40} pattern="[0-9a-fA-F]{40}" className="font-mono" placeholder="Leave blank to lock main automatically" spellCheck={false} />
+          <span className={helpClass}>If left blank, the server resolves main once and stores the resulting immutable SHA.</span>
         </label>
 
         <label className={fieldClass}>Contact Email *<Input name="email" type="email" required maxLength={254} autoComplete="email" /></label>

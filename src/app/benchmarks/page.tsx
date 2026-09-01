@@ -19,7 +19,7 @@ const stats = [
 
 const principles = [
   { icon: Scale, title: "Equal weighting", body: "Every dataset contributes equally to aggregate accuracy, regardless of sample count or sequence length." },
-  { icon: CheckCircle2, title: "Unique-task counting", body: "Repeated tasks are resolved before aggregation and contribute exactly once to the Overall score." },
+  { icon: CheckCircle2, title: "Reviewed metadata", body: "Modality, domain, size, class count, sequence length, channels, and imbalance are reviewed for all 198 datasets." },
   { icon: Layers3, title: "Modality views", body: "Overall, Univariate, and Multivariate rankings are computed as distinct, auditable views." },
   { icon: BarChart3, title: "Primary metric", body: "Accuracy is the primary metric; Average Rank and Coverage provide complementary context." },
 ];

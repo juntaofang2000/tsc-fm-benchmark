@@ -5,7 +5,7 @@ import type { CapabilityBundle } from "@/types/capability";
 
 export const metadata = {
   title: "Capability Map",
-  description: "Aggregate capability analysis across benchmark modality and five reviewed dataset attributes.",
+  description: "Aggregate capability analysis across seven fully reviewed dataset attributes, including an eight-domain taxonomy.",
 };
 
 export default function CapabilityMapPage() {

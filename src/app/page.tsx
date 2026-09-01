@@ -56,7 +56,7 @@ export default async function Home() {
                   <span>Univariate {benchmarkProfile.univariateShare}%</span><span>Multivariate {benchmarkProfile.multivariateShare}%</span>
                 </div>
                 <div className="mt-4 space-y-2.5">
-                  {["Equal dataset weighting", "Repeated tasks counted once", "Primary metric: Accuracy"].map((item) => (
+                  {["Equal dataset weighting", "Reviewed metadata coverage", "Primary metric: Accuracy"].map((item) => (
                     <div key={item} className="flex items-center gap-3 text-sm"><span className="flex size-6 items-center justify-center rounded-full bg-primary/10 text-primary"><Check className="size-3.5" /></span>{item}</div>
                   ))}
                 </div>
@@ -72,7 +72,7 @@ export default async function Home() {
             <div>
               <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">198 unique datasets</p><VerifiedResultsBadge /></div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Overall Leaderboard Preview</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy with equal dataset weighting; repeated tasks are counted once.</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy with equal weighting across 198 unique datasets.</p>
             </div>
             <Button variant="outline" asChild><Link href="/leaderboard">View Full Leaderboard <ArrowRight className="size-4" /></Link></Button>
           </div>

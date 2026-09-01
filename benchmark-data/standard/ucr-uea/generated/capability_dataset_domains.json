@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "taxonomy": "TSC-FM eight-domain taxonomy",
+  "domains": {
+    "Healthcare & Biomedical": [
+      "MVCore66::Alzheimers", "MVCore66::BIDMC32HR_disc", "MVCore66::BIDMC32SpO2_disc", "MVCore66::Blink", "MVCore66::BoneIntensitiesAgeGroup", "MVCore66::BoneProbAgeGroup", "MVCore66::CrowdSourced", "MVCore66::EmoPain", "MVCore66::EyesOpenShut", "MVCore66::IEEEPPG_disc", "MVCore66::LowCost", "MVCore66::MindReading", "MVCore66::PhotoStimulation", "MVCore66::STEW",
+      "UCR::CinCECGTorso", "UCR::DistalPhalanxOutlineAgeGroup", "UCR::DistalPhalanxOutlineCorrect", "UCR::DistalPhalanxTW", "UCR::ECG200", "UCR::ECG5000", "UCR::ECGFiveDays", "UCR::EOGHorizontalSignal", "UCR::EOGVerticalSignal", "UCR::MedicalImages", "UCR::MiddlePhalanxOutlineAgeGroup", "UCR::MiddlePhalanxOutlineCorrect", "UCR::MiddlePhalanxTW", "UCR::NonInvasiveFetalECGThorax1", "UCR::NonInvasiveFetalECGThorax2", "UCR::PhalangesOutlinesCorrect", "UCR::PigAirwayPressure", "UCR::PigArtPressure", "UCR::PigCVP", "UCR::ProximalPhalanxOutlineAgeGroup", "UCR::ProximalPhalanxOutlineCorrect", "UCR::ProximalPhalanxTW", "UCR::SemgHandGenderCh2", "UCR::SemgHandMovementCh2", "UCR::SemgHandSubjectCh2", "UCR::TwoLeadECG",
+      "UEA::AtrialFibrillation", "UEA::Epilepsy", "UEA::FaceDetection", "UEA::FingerMovements", "UEA::HandMovementDirection", "UEA::Heartbeat", "UEA::MotorImagery", "UEA::SelfRegulationSCP1", "UEA::SelfRegulationSCP2", "UEA::StandWalkJump"
+    ],
+    "Human Activity & Motion": [
+      "MVCore66::CounterMovementJump", "MVCore66::IRDS-SFL", "MVCore66::KERAAL-RTK", "MVCore66::KIMORE-PR-C", "MVCore66::KINECAL-QSEO", "MVCore66::MotionSenseHAR", "MVCore66::Skoda", "MVCore66::UCDHE-Rowing-MC", "MVCore66::UCIActivity", "MVCore66::UIPRMD-DS-C", "MVCore66::USCActivity", "MVCore66::WISDM",
+      "UCR::AllGestureWiimoteX", "UCR::AllGestureWiimoteY", "UCR::AllGestureWiimoteZ", "UCR::CricketX", "UCR::CricketY", "UCR::CricketZ", "UCR::GestureMidAirD1", "UCR::GestureMidAirD2", "UCR::GestureMidAirD3", "UCR::GesturePebbleZ1", "UCR::GesturePebbleZ2", "UCR::GunPoint", "UCR::GunPointAgeSpan", "UCR::GunPointMaleVersusFemale", "UCR::GunPointOldVersusYoung", "UCR::Haptics", "UCR::InlineSkate", "UCR::PickupGestureWiimoteZ", "UCR::ShakeGestureWiimoteZ", "UCR::ToeSegmentation1", "UCR::ToeSegmentation2", "UCR::UWaveGestureLibraryAll", "UCR::UWaveGestureLibraryX", "UCR::UWaveGestureLibraryY", "UCR::UWaveGestureLibraryZ",
+      "UEA::BasicMotions", "UEA::Cricket", "UEA::ERing", "UEA::Libras", "UEA::NATOPS", "UEA::RacketSports", "UEA::UWaveGestureLibrary"
+    ],
+    "Industrial & Engineering": [
+      "MVCore66::TactileTextureRecognition", "UCR::Beef", "UCR::Coffee", "UCR::EthanolLevel", "UCR::Ham", "UCR::Meat", "UCR::OliveOil", "UCR::SonyAIBORobotSurface1", "UCR::SonyAIBORobotSurface2", "UCR::Strawberry", "UCR::Wafer", "UCR::Wine", "UEA::EthanolConcentration"
+    ],
+    "Environment & Energy": [
+      "MVCore66::AppliancesEnergy_disc", "MVCore66::AustraliaRainfall_disc", "MVCore66::BeijingPM10Quality_disc", "MVCore66::BeijingPM25Quality_disc", "MVCore66::BenzeneConcentration_disc", "MVCore66::HouseholdPowerConsumption1_disc", "MVCore66::HouseholdPowerConsumption2_disc", "MVCore66::Locust2022", "MVCore66::Tiselac",
+      "UCR::ACSF1", "UCR::Computers", "UCR::Crop", "UCR::Earthquakes", "UCR::ElectricDevices", "UCR::FreezerRegularTrain", "UCR::FreezerSmallTrain", "UCR::Fungi", "UCR::HouseTwenty", "UCR::InsectEPGRegularTrain", "UCR::InsectEPGSmallTrain", "UCR::ItalyPowerDemand", "UCR::LargeKitchenAppliances", "UCR::Lightning2", "UCR::Lightning7", "UCR::MoteStrain", "UCR::PLAID", "UCR::PowerCons", "UCR::RefrigerationDevices", "UCR::Rock", "UCR::ScreenType", "UCR::SmallKitchenAppliances", "UCR::StarLightCurves",
+      "UEA::LSST"
+    ],
+    "Audio & Speech": [
+      "UCR::InsectWingbeatSound", "UCR::Phoneme", "UEA::ArticularyWordRecognition", "UEA::DuckDuckGeese", "UEA::InsectWingbeatSubset", "UEA::JapaneseVowels", "UEA::PhonemeSpectra", "UEA::SpokenArabicDigits"
+    ],
+    "Image, Shape & Trajectory": [
+      "UCR::Adiac", "UCR::ArrowHead", "UCR::BeetleFly", "UCR::BirdChicken", "UCR::Car", "UCR::DiatomSizeReduction", "UCR::FaceAll", "UCR::FaceFour", "UCR::FacesUCR", "UCR::FiftyWords", "UCR::Fish", "UCR::HandOutlines", "UCR::Herring", "UCR::MixedShapesRegularTrain", "UCR::MixedShapesSmallTrain", "UCR::OSULeaf", "UCR::Plane", "UCR::ShapesAll", "UCR::SwedishLeaf", "UCR::Symbols", "UCR::WordSynonyms", "UCR::Yoga", "UEA::CharacterTrajectories", "UEA::Handwriting", "UEA::PenDigits"
+    ],
+    "Transportation & Mobility": [
+      "MVCore66::AsphaltObstaclesCoordinates", "MVCore66::AsphaltRegularityCoordinates", "MVCore66::AutomotiveRoadTrials", "MVCore66::FordChallenge", "UCR::Chinatown", "UCR::DodgerLoopDay", "UCR::DodgerLoopGame", "UCR::DodgerLoopWeekend", "UCR::FordA", "UCR::FordB", "UCR::MelbournePedestrian", "UEA::PEMS-SF"
+    ],
+    "Synthetic & Other": [
+      "UCR::BME", "UCR::CBF", "UCR::ChlorineConcentration", "UCR::Mallat", "UCR::ShapeletSim", "UCR::SmoothSubspace", "UCR::SyntheticControl", "UCR::Trace", "UCR::TwoPatterns", "UCR::UMD", "UCR::Worms", "UCR::WormsTwoClass", "UEA::EigenWorms"
+    ]
+  }
+}

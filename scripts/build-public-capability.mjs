@@ -9,10 +9,24 @@ const generatedDir = path.join(root, "benchmark-data", "standard", "ucr-uea", "g
 const sourcePath = path.join(officialDir, "capability-map.json");
 const outputPath = path.join(officialDir, "public-capability-map.json");
 const metadataPath = path.join(generatedDir, "capability_dataset_metadata.csv");
+const domainPath = path.join(generatedDir, "capability_dataset_domains.json");
 
 const sourceText = fs.readFileSync(sourcePath, "utf8");
 const source = JSON.parse(sourceText);
-const allowedProperties = new Set(["modality", "trainSize", "classCount", "length", "channels", "imbalance"]);
+const allowedProperties = new Set(["modality", "trainSize", "classCount", "length", "channels", "imbalance", "domain"]);
+const domainSourceText = fs.readFileSync(domainPath, "utf8");
+const domainSource = JSON.parse(domainSourceText);
+const domainBins = [
+  { key: "healthcare-biomedical", label: "Healthcare & Biomedical", description: "Clinical, physiological and biomedical tasks" },
+  { key: "human-activity-motion", label: "Human Activity & Motion", description: "Human actions, gestures, sports and rehabilitation" },
+  { key: "industrial-engineering", label: "Industrial & Engineering", description: "Machines, manufacturing, devices and robotics" },
+  { key: "environment-energy", label: "Environment & Energy", description: "Weather, ecology, land cover and power" },
+  { key: "audio-speech", label: "Audio & Speech", description: "Speech, acoustics and wingbeat sound" },
+  { key: "image-shape-trajectory", label: "Image, Shape & Trajectory", description: "Visual outlines, shapes and writing trajectories" },
+  { key: "transportation-mobility", label: "Transportation & Mobility", description: "Traffic, vehicles, driving and road condition" },
+  { key: "synthetic-other", label: "Synthetic & Other", description: "Simulations and uncategorized real-world tasks" },
+];
+const domainKeyByLabel = new Map(domainBins.map((bin) => [bin.label, bin.key]));
 
 function readCsv(filePath) {
   const text = fs.readFileSync(filePath, "utf8").trim();
@@ -87,6 +101,7 @@ function propertyBin(metadata, property) {
     case "length": return length <= 200 ? "short" : length <= 500 ? "medium" : "long";
     case "channels": return channels === 1 ? "univariate" : channels <= 10 ? "low-mv" : "high-mv";
     case "imbalance": return imbalance <= 1.5 ? "balanced" : imbalance <= 3 ? "moderate" : "severe";
+    case "domain": return domainKeyByLabel.get(metadata.domain) ?? null;
     default: throw new Error(`Unsupported capability property: ${property}`);
   }
 }
@@ -102,8 +117,22 @@ const metadataRows = readCsv(metadataPath);
 const metadataByDataset = new Map(metadataRows.map((row) => [`${row.archive}::${row.dataset}`, row]));
 if (metadataByDataset.size !== 198) throw new Error(`Expected 198 unique metadata rows, received ${metadataByDataset.size}.`);
 
+const domainByDataset = new Map();
+for (const [domain, datasetKeys] of Object.entries(domainSource.domains)) {
+  if (!domainKeyByLabel.has(domain)) throw new Error(`Unsupported curated domain: ${domain}.`);
+  for (const datasetKey of datasetKeys) {
+    if (domainByDataset.has(datasetKey)) throw new Error(`Duplicate curated domain mapping for ${datasetKey}.`);
+    domainByDataset.set(datasetKey, domain);
+  }
+}
+if (domainByDataset.size !== 198) throw new Error(`Expected 198 curated domain mappings, received ${domainByDataset.size}.`);
+for (const datasetKey of metadataByDataset.keys()) {
+  if (!domainByDataset.has(datasetKey)) throw new Error(`Missing curated domain mapping for ${datasetKey}.`);
+}
+
 const datasets = accuracyRows.map((row) => {
-  const metadata = metadataByDataset.get(`${row.archive}::${row.dataset}`);
+  const datasetKey = `${row.archive}::${row.dataset}`;
+  const metadata = metadataByDataset.get(datasetKey);
   if (!metadata) throw new Error(`Missing metadata for ${row.archive}::${row.dataset}.`);
   const scores = new Map();
   for (const method of methodNames) {
@@ -112,10 +141,12 @@ const datasets = accuracyRows.map((row) => {
     const score = Number(rawScore);
     if (Number.isFinite(score)) scores.set(method, score);
   }
-  return { metadata, scores, ranks: averageRanks(scores) };
+  return { metadata: { ...metadata, domain: domainByDataset.get(datasetKey) }, scores, ranks: averageRanks(scores) };
 });
 
-const publicProperties = source.properties.filter((property) => allowedProperties.has(property.key));
+const publicProperties = source.properties
+  .filter((property) => allowedProperties.has(property.key))
+  .map((property) => property.key === "domain" ? { ...property, bins: domainBins } : property);
 const computedCells = publicProperties.flatMap((property) => property.bins.flatMap((bin) => {
   const selected = datasets.filter((dataset) => propertyBin(dataset.metadata, property.key) === bin.key);
   return source.paradigms.map((paradigm) => {
@@ -169,6 +200,7 @@ const digest = crypto
   .createHash("sha256")
   .update(sourceText)
   .update(fs.readFileSync(metadataPath))
+  .update(domainSourceText)
   .update(fs.readFileSync(path.join(generatedDir, "ucr_128_per_dataset_accuracy.csv")))
   .update(fs.readFileSync(path.join(generatedDir, "uea_30_per_dataset_accuracy.csv")))
   .update(fs.readFileSync(path.join(generatedDir, "mvcore66_only_40_per_dataset_accuracy.csv")))

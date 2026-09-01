@@ -19,9 +19,9 @@ export type SubmissionPayload = {
   category: string;
   paper?: string;
   github: string;
-  githubCommit: string;
+  githubCommit?: string;
   checkpoint: string;
-  checkpointRevision: string;
+  checkpointRevision?: string;
   email: string;
   track: string;
   license?: string;
@@ -49,8 +49,16 @@ export type ValidSubmission = {
   description: string | null;
 };
 
+export type ValidSubmissionDraft = Omit<
+  ValidSubmission,
+  "githubCommit" | "githubSnapshotUrl" | "huggingfaceRevision" | "huggingfaceSnapshotUrl"
+> & {
+  githubCommit: string | null;
+  huggingfaceRevision: string | null;
+};
+
 type ValidationResult =
-  | { ok: true; data: ValidSubmission }
+  | { ok: true; data: ValidSubmissionDraft }
   | { ok: false; error: string };
 
 const COMMIT_SHA = /^[0-9a-f]{40}$/i;
@@ -136,16 +144,18 @@ export function validateSubmission(input: unknown): ValidationResult {
     return { ok: false, error: "Select a valid evaluation track." };
   }
   if (!email.value || !EMAIL.test(email.value)) return { ok: false, error: "Enter a valid contact email." };
-  if (!payload.githubCommit || !COMMIT_SHA.test(payload.githubCommit.trim())) {
-    return { ok: false, error: "GitHub commit SHA must contain exactly 40 hexadecimal characters." };
+  const githubCommitInput = typeof payload.githubCommit === "string" ? payload.githubCommit.trim() : "";
+  const checkpointRevisionInput = typeof payload.checkpointRevision === "string" ? payload.checkpointRevision.trim() : "";
+  if (githubCommitInput && !COMMIT_SHA.test(githubCommitInput)) {
+    return { ok: false, error: "GitHub commit SHA must contain exactly 40 hexadecimal characters when provided." };
   }
-  if (!payload.checkpointRevision || !COMMIT_SHA.test(payload.checkpointRevision.trim())) {
-    return { ok: false, error: "Hugging Face revision must be an immutable 40-character commit SHA." };
+  if (checkpointRevisionInput && !COMMIT_SHA.test(checkpointRevisionInput)) {
+    return { ok: false, error: "Hugging Face revision must contain exactly 40 hexadecimal characters when provided." };
   }
   if (payload.confirmed !== true) return { ok: false, error: "Protocol confirmation is required." };
 
-  const githubCommit = payload.githubCommit.trim().toLowerCase();
-  const huggingfaceRevision = payload.checkpointRevision.trim().toLowerCase();
+  const githubCommit = githubCommitInput ? githubCommitInput.toLowerCase() : null;
+  const huggingfaceRevision = checkpointRevisionInput ? checkpointRevisionInput.toLowerCase() : null;
   return {
     ok: true,
     data: {
@@ -155,10 +165,8 @@ export function validateSubmission(input: unknown): ValidationResult {
       paperUrl: paper.value ?? null,
       githubRepository: github.value!,
       githubCommit,
-      githubSnapshotUrl: `${github.value}/tree/${githubCommit}`,
       huggingfaceRepository: huggingface.value!,
       huggingfaceRevision,
-      huggingfaceSnapshotUrl: `${huggingface.value}/tree/${huggingfaceRevision}`,
       contactEmail: email.value,
       evaluationTrack: track.value as ValidSubmission["evaluationTrack"],
       license: license.value,

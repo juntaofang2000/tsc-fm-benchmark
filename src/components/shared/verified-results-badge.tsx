@@ -12,7 +12,7 @@ export function VerifiedResultsBadge() {
         </Badge>
       </TooltipTrigger>
       <TooltipContent>
-        Recomputed from verified records across 198 unique datasets. Every dataset receives equal weight, and repeated tasks are counted once.
+        Recomputed from verified records across 198 unique datasets with equal dataset weighting.
       </TooltipContent>
     </Tooltip>
   );

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "dataVersion": "capability-public-493447cd87d4",
+  "dataVersion": "capability-public-83478cb59a9f",
   "totalDatasetCount": 198,
   "methodCount": 11,
   "paradigms": [
@@ -131,6 +131,52 @@
           "description": "ratio >3"
         }
       ]
+    },
+    {
+      "key": "domain",
+      "label": "Data domain",
+      "bins": [
+        {
+          "key": "healthcare-biomedical",
+          "label": "Healthcare & Biomedical",
+          "description": "Clinical, physiological and biomedical tasks"
+        },
+        {
+          "key": "human-activity-motion",
+          "label": "Human Activity & Motion",
+          "description": "Human actions, gestures, sports and rehabilitation"
+        },
+        {
+          "key": "industrial-engineering",
+          "label": "Industrial & Engineering",
+          "description": "Machines, manufacturing, devices and robotics"
+        },
+        {
+          "key": "environment-energy",
+          "label": "Environment & Energy",
+          "description": "Weather, ecology, land cover and power"
+        },
+        {
+          "key": "audio-speech",
+          "label": "Audio & Speech",
+          "description": "Speech, acoustics and wingbeat sound"
+        },
+        {
+          "key": "image-shape-trajectory",
+          "label": "Image, Shape & Trajectory",
+          "description": "Visual outlines, shapes and writing trajectories"
+        },
+        {
+          "key": "transportation-mobility",
+          "label": "Transportation & Mobility",
+          "description": "Traffic, vehicles, driving and road condition"
+        },
+        {
+          "key": "synthetic-other",
+          "label": "Synthetic & Other",
+          "description": "Simulations and uncategorized real-world tasks"
+        }
+      ]
     }
   ],
   "metadataCoverage": {
@@ -139,7 +185,8 @@
     "classCount": 198,
     "length": 198,
     "channels": 198,
-    "imbalance": 198
+    "imbalance": 198,
+    "domain": 198
   },
   "cells": [
     {
@@ -1161,6 +1208,486 @@
       "wins": 20,
       "ties": 0,
       "losses": 25
+    },
+    {
+      "property": "domain",
+      "bin": "healthcare-biomedical",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.6852354080137553,
+      "meanRank": 4.62,
+      "coverage": 50,
+      "methodObservations": 102,
+      "wins": 16,
+      "ties": 0,
+      "losses": 34
+    },
+    {
+      "property": "domain",
+      "bin": "healthcare-biomedical",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.6633819476016894,
+      "meanRank": 5.884333333333333,
+      "coverage": 50,
+      "methodObservations": 286,
+      "wins": 2,
+      "ties": 0,
+      "losses": 48
+    },
+    {
+      "property": "domain",
+      "bin": "healthcare-biomedical",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.6832370858697645,
+      "meanRank": 5.108357142857142,
+      "coverage": 50,
+      "methodObservations": 288,
+      "wins": 3,
+      "ties": 0,
+      "losses": 47
+    },
+    {
+      "property": "domain",
+      "bin": "healthcare-biomedical",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.6295897299999998,
+      "meanRank": 6.77,
+      "coverage": 50,
+      "methodObservations": 100,
+      "wins": 5,
+      "ties": 0,
+      "losses": 45
+    },
+    {
+      "property": "domain",
+      "bin": "healthcare-biomedical",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.660376488770222,
+      "meanRank": 4.65,
+      "coverage": 50,
+      "methodObservations": 100,
+      "wins": 24,
+      "ties": 0,
+      "losses": 26
+    },
+    {
+      "property": "domain",
+      "bin": "human-activity-motion",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8083833088033612,
+      "meanRank": 3.7689393939393936,
+      "coverage": 44,
+      "methodObservations": 94,
+      "wins": 22,
+      "ties": 1,
+      "losses": 21
+    },
+    {
+      "property": "domain",
+      "bin": "human-activity-motion",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7834137885200151,
+      "meanRank": 5.747727272727274,
+      "coverage": 44,
+      "methodObservations": 252,
+      "wins": 2,
+      "ties": 1,
+      "losses": 41
+    },
+    {
+      "property": "domain",
+      "bin": "human-activity-motion",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8040265839789572,
+      "meanRank": 4.499025974025973,
+      "coverage": 44,
+      "methodObservations": 258,
+      "wins": 11,
+      "ties": 1,
+      "losses": 32
+    },
+    {
+      "property": "domain",
+      "bin": "human-activity-motion",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7532508863636364,
+      "meanRank": 7.176136363636363,
+      "coverage": 44,
+      "methodObservations": 88,
+      "wins": 1,
+      "ties": 1,
+      "losses": 42
+    },
+    {
+      "property": "domain",
+      "bin": "human-activity-motion",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7579181674225826,
+      "meanRank": 6.3977272727272725,
+      "coverage": 44,
+      "methodObservations": 88,
+      "wins": 7,
+      "ties": 0,
+      "losses": 37
+    },
+    {
+      "property": "domain",
+      "bin": "industrial-engineering",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.7637517671592166,
+      "meanRank": 5.333333333333334,
+      "coverage": 13,
+      "methodObservations": 35,
+      "wins": 4,
+      "ties": 0,
+      "losses": 9
+    },
+    {
+      "property": "domain",
+      "bin": "industrial-engineering",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7399636870971358,
+      "meanRank": 6.651282051282052,
+      "coverage": 13,
+      "methodObservations": 77,
+      "wins": 0,
+      "ties": 0,
+      "losses": 13
+    },
+    {
+      "property": "domain",
+      "bin": "industrial-engineering",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7615949613834633,
+      "meanRank": 5.6912087912087905,
+      "coverage": 13,
+      "methodObservations": 86,
+      "wins": 0,
+      "ties": 0,
+      "losses": 13
+    },
+    {
+      "property": "domain",
+      "bin": "industrial-engineering",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.6989588076923077,
+      "meanRank": 8.057692307692308,
+      "coverage": 13,
+      "methodObservations": 26,
+      "wins": 0,
+      "ties": 0,
+      "losses": 13
+    },
+    {
+      "property": "domain",
+      "bin": "industrial-engineering",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8310051750889256,
+      "meanRank": 3.75,
+      "coverage": 13,
+      "methodObservations": 26,
+      "wins": 9,
+      "ties": 0,
+      "losses": 4
+    },
+    {
+      "property": "domain",
+      "bin": "environment-energy",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8096889347409418,
+      "meanRank": 4.247474747474748,
+      "coverage": 33,
+      "methodObservations": 79,
+      "wins": 13,
+      "ties": 1,
+      "losses": 19
+    },
+    {
+      "property": "domain",
+      "bin": "environment-energy",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.7825250689780778,
+      "meanRank": 6.125252525252526,
+      "coverage": 33,
+      "methodObservations": 189,
+      "wins": 0,
+      "ties": 1,
+      "losses": 32
+    },
+    {
+      "property": "domain",
+      "bin": "environment-energy",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.7988068970927338,
+      "meanRank": 5.168614718614719,
+      "coverage": 33,
+      "methodObservations": 202,
+      "wins": 3,
+      "ties": 1,
+      "losses": 29
+    },
+    {
+      "property": "domain",
+      "bin": "environment-energy",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7606153636363636,
+      "meanRank": 7.0227272727272725,
+      "coverage": 33,
+      "methodObservations": 66,
+      "wins": 2,
+      "ties": 1,
+      "losses": 30
+    },
+    {
+      "property": "domain",
+      "bin": "environment-energy",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.800128892353717,
+      "meanRank": 5.46969696969697,
+      "coverage": 33,
+      "methodObservations": 66,
+      "wins": 14,
+      "ties": 1,
+      "losses": 18
+    },
+    {
+      "property": "domain",
+      "bin": "audio-speech",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.6421027809262563,
+      "meanRank": 3.8958333333333335,
+      "coverage": 8,
+      "methodObservations": 12,
+      "wins": 4,
+      "ties": 0,
+      "losses": 4
+    },
+    {
+      "property": "domain",
+      "bin": "audio-speech",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.5856952380216214,
+      "meanRank": 5.427083333333333,
+      "coverage": 8,
+      "methodObservations": 48,
+      "wins": 0,
+      "ties": 0,
+      "losses": 8
+    },
+    {
+      "property": "domain",
+      "bin": "audio-speech",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.6220079827212012,
+      "meanRank": 4.425,
+      "coverage": 8,
+      "methodObservations": 44,
+      "wins": 2,
+      "ties": 0,
+      "losses": 6
+    },
+    {
+      "property": "domain",
+      "bin": "audio-speech",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.522192,
+      "meanRank": 7.25,
+      "coverage": 8,
+      "methodObservations": 16,
+      "wins": 0,
+      "ties": 0,
+      "losses": 8
+    },
+    {
+      "property": "domain",
+      "bin": "audio-speech",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.5705381644202064,
+      "meanRank": 5.4375,
+      "coverage": 8,
+      "methodObservations": 16,
+      "wins": 2,
+      "ties": 0,
+      "losses": 6
+    },
+    {
+      "property": "domain",
+      "bin": "image-shape-trajectory",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8287609358153724,
+      "meanRank": 4.653333333333333,
+      "coverage": 25,
+      "methodObservations": 69,
+      "wins": 10,
+      "ties": 1,
+      "losses": 14
+    },
+    {
+      "property": "domain",
+      "bin": "image-shape-trajectory",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.797765144355047,
+      "meanRank": 6.5166666666666675,
+      "coverage": 25,
+      "methodObservations": 150,
+      "wins": 2,
+      "ties": 0,
+      "losses": 23
+    },
+    {
+      "property": "domain",
+      "bin": "image-shape-trajectory",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8251654902831861,
+      "meanRank": 5.3919999999999995,
+      "coverage": 25,
+      "methodObservations": 169,
+      "wins": 3,
+      "ties": 1,
+      "losses": 21
+    },
+    {
+      "property": "domain",
+      "bin": "image-shape-trajectory",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.74529556,
+      "meanRank": 7.93,
+      "coverage": 25,
+      "methodObservations": 50,
+      "wins": 0,
+      "ties": 0,
+      "losses": 25
+    },
+    {
+      "property": "domain",
+      "bin": "image-shape-trajectory",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8123233898929838,
+      "meanRank": 5.53,
+      "coverage": 25,
+      "methodObservations": 50,
+      "wins": 9,
+      "ties": 0,
+      "losses": 16
+    },
+    {
+      "property": "domain",
+      "bin": "transportation-mobility",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.853204602414337,
+      "meanRank": 4.638888888888888,
+      "coverage": 12,
+      "methodObservations": 26,
+      "wins": 4,
+      "ties": 0,
+      "losses": 8
+    },
+    {
+      "property": "domain",
+      "bin": "transportation-mobility",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.8164170801522174,
+      "meanRank": 5.630555555555556,
+      "coverage": 12,
+      "methodObservations": 68,
+      "wins": 1,
+      "ties": 0,
+      "losses": 11
+    },
+    {
+      "property": "domain",
+      "bin": "transportation-mobility",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8484227328326285,
+      "meanRank": 4.720238095238095,
+      "coverage": 12,
+      "methodObservations": 70,
+      "wins": 2,
+      "ties": 0,
+      "losses": 10
+    },
+    {
+      "property": "domain",
+      "bin": "transportation-mobility",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.7701089999999998,
+      "meanRank": 6.833333333333333,
+      "coverage": 12,
+      "methodObservations": 24,
+      "wins": 1,
+      "ties": 0,
+      "losses": 11
+    },
+    {
+      "property": "domain",
+      "bin": "transportation-mobility",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.7656641969134905,
+      "meanRank": 5.458333333333333,
+      "coverage": 12,
+      "methodObservations": 24,
+      "wins": 4,
+      "ties": 0,
+      "losses": 8
+    },
+    {
+      "property": "domain",
+      "bin": "synthetic-other",
+      "paradigm": "In-Context Learning",
+      "meanAccuracy": 0.8939641309575926,
+      "meanRank": 4.17948717948718,
+      "coverage": 13,
+      "methodObservations": 37,
+      "wins": 5,
+      "ties": 1,
+      "losses": 7
+    },
+    {
+      "property": "domain",
+      "bin": "synthetic-other",
+      "paradigm": "Frozen Probe",
+      "meanAccuracy": 0.8570041847405505,
+      "meanRank": 6.5,
+      "coverage": 13,
+      "methodObservations": 78,
+      "wins": 0,
+      "ties": 0,
+      "losses": 13
+    },
+    {
+      "property": "domain",
+      "bin": "synthetic-other",
+      "paradigm": "Classification-native TSFM",
+      "meanAccuracy": 0.8803993978437112,
+      "meanRank": 5.3318681318681325,
+      "coverage": 13,
+      "methodObservations": 89,
+      "wins": 1,
+      "ties": 1,
+      "losses": 11
+    },
+    {
+      "property": "domain",
+      "bin": "synthetic-other",
+      "paradigm": "General TSFM",
+      "meanAccuracy": 0.8232797307692307,
+      "meanRank": 7.3076923076923075,
+      "coverage": 13,
+      "methodObservations": 26,
+      "wins": 1,
+      "ties": 0,
+      "losses": 12
+    },
+    {
+      "property": "domain",
+      "bin": "synthetic-other",
+      "paradigm": "Tabular / cross-modal adaptation",
+      "meanAccuracy": 0.8306582776440623,
+      "meanRank": 6.5,
+      "coverage": 13,
+      "methodObservations": 26,
+      "wins": 5,
+      "ties": 0,
+      "losses": 8
     }
   ],
   "methodology": {

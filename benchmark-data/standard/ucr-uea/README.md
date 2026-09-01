@@ -106,11 +106,13 @@ bins, mean accuracy, mean rank, win/tie/loss, actual coverage, dataset-level
 bootstrap intervals, conservative supported-difference summaries, and complete
 row-level provenance.
 
-Domain metadata is deliberately left empty until it is manually curated. The
-builder never infers domains from names and never replaces missing results with
-zero. The Capability Map currently remains a UCR/UEA-only analysis; the official
-MVCore66 Standard results are not mixed into it until reviewed task metadata is
-available. Low-shot and OOD also remain separate analyses.
+The manually curated eight-domain mapping is stored in
+`generated/capability_dataset_domains.json`. It covers all 198 Standard datasets
+and is joined to the reviewed task metadata only while generating the public
+aggregate. The public Capability Map includes 128 univariate and 70 multivariate
+datasets but never publishes dataset identities, suite membership, or row-level
+source mappings. The builder never infers domains from names and never replaces
+missing results with zero. Low-shot and OOD remain separate analyses.
 
 ## Import verified MVCore66 results
 

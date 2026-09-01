@@ -38,7 +38,7 @@ export function CapabilityMapView({ data }: { data: CapabilityBundle }) {
             <ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" />
             <div>
               <h2 className="font-semibold">Aggregate capability analysis</h2>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">All six reviewed attributes cover the complete 198-dataset benchmark. Every property view now uses full-benchmark metadata.</p>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">All seven reviewed attributes, including the curated eight-domain taxonomy, cover the complete 198-dataset benchmark.</p>
               <p className="mt-2 text-xs leading-5 text-muted-foreground">Only condition-level aggregates are public. Dataset identities, suite membership, source mappings, and per-dataset rows are not included.</p>
             </div>
           </div>
@@ -89,7 +89,7 @@ export function CapabilityMapView({ data }: { data: CapabilityBundle }) {
           <span className="rounded-full border border-border bg-muted/30 px-3 py-1.5 text-xs text-muted-foreground">Coverage {coverage} / {data.totalDatasetCount} · {((coverage / data.totalDatasetCount) * 100).toFixed(1)}%</span>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border" data-testid="capability-heatmap">
-          <table className="w-full min-w-[820px] border-collapse text-sm">
+          <table className="w-full border-collapse text-sm" style={{ minWidth: Math.max(820, 260 + property.bins.length * 150) }}>
             <thead><tr className="bg-muted/50"><th className="w-64 border-b border-r border-border px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">Paradigm / lens</th>{property.bins.map((bin) => <th key={bin.key} className="border-b border-border px-3 py-3 text-left"><span className="block font-medium">{bin.label}</span><span className="mt-0.5 block text-xs font-normal text-muted-foreground">{bin.description}</span></th>)}</tr></thead>
             <tbody>{data.paradigms.map((paradigm) => <tr key={paradigm} className="border-b border-border last:border-b-0"><th className="border-r border-border px-4 py-4 text-left font-medium">{paradigm}</th>{property.bins.map((bin) => { const cell = cells.find((item) => item.bin === bin.key && item.paradigm === paradigm); return <td key={bin.key} className="px-3 py-3"><div className="rounded-lg border border-primary/10 px-3 py-3" style={heatStyle(cell, metric)}><p className="font-mono text-base font-semibold tabular-nums">{formatMetric(metric === "meanAccuracy" ? cell?.meanAccuracy : cell?.meanRank, metric)}</p><p className="mt-1 text-xs text-muted-foreground">N={cell?.coverage ?? 0}</p></div></td>; })}</tr>)}</tbody>
           </table>
