@@ -102,11 +102,11 @@ To enable collection after deployment, open the project in the Vercel dashboard,
 
 The `/submit` form stores metadata only. It does not upload or execute third-party files. Every submission must identify:
 
-- a public GitHub repository and its full 40-character commit SHA;
-- a public Hugging Face model repository and its full 40-character revision SHA;
+- a public GitHub repository, with an optional full 40-character commit SHA;
+- a public Hugging Face model repository, with an optional full 40-character revision SHA;
 - contact, license, environment, and evaluation-track metadata.
 
-The fixed revisions make later review and evaluation reproducible even if a repository's default branch changes.
+When a revision is omitted, the server resolves the repository's current `main` revision and stores the resulting full SHA. The fixed revisions make later review and evaluation reproducible even if a repository's default branch changes.
 
 ### Supabase setup
 
@@ -139,6 +139,20 @@ pending → under_review → approved → published
 Use `review_notes` for private maintainer notes. The submission reference code has the form `TSCFM-YYYYMMDD-XXXXXXXX`.
 
 The evaluation server should fetch the exact values stored in `github_repository`, `github_commit`, `huggingface_repository`, and `huggingface_revision`. It must run submitted code in an isolated environment; the Vercel application only accepts and records submissions.
+
+### Submission email notifications
+
+After Supabase accepts a submission, the route schedules a Resend notification without delaying the success response. Notification failures are logged on the server and never roll back the stored submission or turn the user's successful submission into an error.
+
+Configure these server-only variables locally and in Vercel:
+
+```bash
+RESEND_API_KEY=YOUR_RESEND_API_KEY
+RESEND_FROM_EMAIL=TSC-FM Benchmark <submissions@YOUR_VERIFIED_DOMAIN>
+SUBMISSION_NOTIFICATION_EMAIL=benchmark-owner@example.com
+```
+
+`RESEND_FROM_EMAIL` must be an address permitted by the associated Resend account. Keep all three variables unprefixed so they are never included in the browser bundle. The notification contains the submission reference, contact details, evaluation track, repository URLs, and both immutable revisions. Supabase remains the source of truth if delivery fails.
 
 ## Updating Leaderboard Data
 

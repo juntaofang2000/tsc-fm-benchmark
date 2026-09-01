@@ -1,9 +1,11 @@
+import { after } from "next/server";
 import {
   createSubmission,
   SubmissionConnectionError,
   SubmissionInsertError,
 } from "@/lib/supabase/submissions";
 import { resolveSubmissionRevisions, RevisionResolutionError } from "@/lib/repository-revisions";
+import { sendSubmissionNotification } from "@/lib/submission-notifications";
 import { validateSubmission } from "@/lib/submissions";
 
 export const runtime = "nodejs";
@@ -22,6 +24,10 @@ export async function POST(request: Request) {
   try {
     const resolved = await resolveSubmissionRevisions(validation.data);
     const submission = await createSubmission(resolved);
+    after(() => sendSubmissionNotification({
+      referenceCode: submission.reference_code,
+      submission: resolved,
+    }));
     return Response.json(
       {
         reference: submission.reference_code,
