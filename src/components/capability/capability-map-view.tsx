@@ -38,13 +38,13 @@ export function CapabilityMapView({ data }: { data: CapabilityBundle }) {
             <ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" />
             <div>
               <h2 className="font-semibold">Aggregate capability analysis</h2>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">Modality covers all 198 datasets. Five reviewed attributes cover 158 datasets (79.8%); the remaining 40 are excluded only from those attribute views.</p>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">All six reviewed attributes cover the complete 198-dataset benchmark. Every property view now uses full-benchmark metadata.</p>
               <p className="mt-2 text-xs leading-5 text-muted-foreground">Only condition-level aggregates are public. Dataset identities, suite membership, source mappings, and per-dataset rows are not included.</p>
             </div>
           </div>
         </div>
         <div className="grid grid-cols-2 rounded-xl border border-border bg-card sm:grid-cols-4 xl:grid-cols-2" data-testid="capability-coverage">
-          {[["198", "total datasets"], [String(data.methodCount), "methods"], ["198 / 198", "modality coverage"], ["158 / 198", "attribute coverage"]].map(([value, label]) => (
+          {[["198", "total datasets"], [String(data.methodCount), "methods"], ["198 / 198", "modality coverage"], ["198 / 198", "attribute coverage"]].map(([value, label]) => (
             <div key={label} className="border-b border-r border-border px-4 py-4 sm:border-b-0 xl:border-b xl:[&:nth-last-child(-n+2)]:border-b-0">
               <p className="text-xl font-semibold tabular-nums">{value}</p><p className="mt-1 text-xs text-muted-foreground">{label}</p>
             </div>
@@ -57,7 +57,7 @@ export function CapabilityMapView({ data }: { data: CapabilityBundle }) {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Property coverage</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight">Choose a benchmark attribute</h2>
-            <p className="mt-1 max-w-3xl text-sm leading-6 text-muted-foreground">Coverage is stated separately for every property so partial metadata is never presented as full-benchmark evidence.</p>
+            <p className="mt-1 max-w-3xl text-sm leading-6 text-muted-foreground">Every property has reviewed metadata for all 198 datasets; coverage remains visible for audit transparency.</p>
           </div>
           <div className="inline-flex w-fit rounded-lg border border-border bg-muted/30 p-1" aria-label="Metric">
             {(["meanAccuracy", "meanRank"] as Metric[]).map((item) => (

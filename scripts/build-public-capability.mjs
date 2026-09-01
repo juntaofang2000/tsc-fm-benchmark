@@ -8,19 +8,24 @@ const officialDir = path.join(root, "src", "data", "official");
 const generatedDir = path.join(root, "benchmark-data", "standard", "ucr-uea", "generated");
 const sourcePath = path.join(officialDir, "capability-map.json");
 const outputPath = path.join(officialDir, "public-capability-map.json");
+const metadataPath = path.join(generatedDir, "capability_dataset_metadata.csv");
 
 const sourceText = fs.readFileSync(sourcePath, "utf8");
 const source = JSON.parse(sourceText);
 const allowedProperties = new Set(["modality", "trainSize", "classCount", "length", "channels", "imbalance"]);
 
-function readAccuracyCsv(filename) {
-  const text = fs.readFileSync(path.join(generatedDir, filename), "utf8").trim();
+function readCsv(filePath) {
+  const text = fs.readFileSync(filePath, "utf8").trim();
   const [headerLine, ...lines] = text.split(/\r?\n/);
   const headers = headerLine.split(",");
   return lines.map((line) => {
     const values = line.split(",");
     return Object.fromEntries(headers.map((header, index) => [header, values[index]]));
   });
+}
+
+function readAccuracyCsv(filename) {
+  return readCsv(path.join(generatedDir, filename));
 }
 
 function approximatelyEqual(a, b) {
@@ -69,16 +74,37 @@ function publicCell(cell) {
   };
 }
 
-const multivariateRows = [
+function propertyBin(metadata, property) {
+  const trainSize = Number(metadata.trainSize);
+  const classes = Number(metadata.classes);
+  const length = Number(metadata.length);
+  const channels = Number(metadata.channels);
+  const imbalance = Number(metadata.imbalanceRatio);
+  switch (property) {
+    case "modality": return channels === 1 ? "univariate" : "multivariate";
+    case "trainSize": return trainSize <= 100 ? "small" : trainSize <= 500 ? "medium" : "large";
+    case "classCount": return classes === 2 ? "binary" : classes <= 10 ? "3-10" : ">10";
+    case "length": return length <= 200 ? "short" : length <= 500 ? "medium" : "long";
+    case "channels": return channels === 1 ? "univariate" : channels <= 10 ? "low-mv" : "high-mv";
+    case "imbalance": return imbalance <= 1.5 ? "balanced" : imbalance <= 3 ? "moderate" : "severe";
+    default: throw new Error(`Unsupported capability property: ${property}`);
+  }
+}
+
+const accuracyRows = [
+  ...readAccuracyCsv("ucr_128_per_dataset_accuracy.csv"),
   ...readAccuracyCsv("uea_30_per_dataset_accuracy.csv"),
   ...readAccuracyCsv("mvcore66_only_40_per_dataset_accuracy.csv"),
 ];
+if (accuracyRows.length !== 198) throw new Error(`Expected 198 accuracy rows, received ${accuracyRows.length}.`);
 
-if (multivariateRows.length !== 70) {
-  throw new Error(`Expected 70 multivariate datasets, received ${multivariateRows.length}.`);
-}
+const metadataRows = readCsv(metadataPath);
+const metadataByDataset = new Map(metadataRows.map((row) => [`${row.archive}::${row.dataset}`, row]));
+if (metadataByDataset.size !== 198) throw new Error(`Expected 198 unique metadata rows, received ${metadataByDataset.size}.`);
 
-const multivariateDatasets = multivariateRows.map((row) => {
+const datasets = accuracyRows.map((row) => {
+  const metadata = metadataByDataset.get(`${row.archive}::${row.dataset}`);
+  if (!metadata) throw new Error(`Missing metadata for ${row.archive}::${row.dataset}.`);
   const scores = new Map();
   for (const method of methodNames) {
     const rawScore = row[method];
@@ -86,55 +112,65 @@ const multivariateDatasets = multivariateRows.map((row) => {
     const score = Number(rawScore);
     if (Number.isFinite(score)) scores.set(method, score);
   }
-  return { scores, ranks: averageRanks(scores) };
+  return { metadata, scores, ranks: averageRanks(scores) };
 });
 
-const multivariateCells = source.paradigms.map((paradigm) => {
-  const methods = lensMethods(paradigm);
-  const accuracies = [];
-  const ranks = [];
-  const outcomes = [];
-  let methodObservations = 0;
+const publicProperties = source.properties.filter((property) => allowedProperties.has(property.key));
+const computedCells = publicProperties.flatMap((property) => property.bins.flatMap((bin) => {
+  const selected = datasets.filter((dataset) => propertyBin(dataset.metadata, property.key) === bin.key);
+  return source.paradigms.map((paradigm) => {
+    const methods = lensMethods(paradigm);
+    const accuracies = [];
+    const ranks = [];
+    const outcomes = [];
+    let methodObservations = 0;
 
-  for (const dataset of multivariateDatasets) {
-    const value = groupScore(dataset, methods);
-    const rankValues = methods.map((method) => dataset.ranks.get(method)).filter(Number.isFinite);
-    methodObservations += methods.filter((method) => dataset.scores.has(method)).length;
-    if (value !== null) accuracies.push(value);
-    if (rankValues.length) ranks.push(average(rankValues));
+    for (const dataset of selected) {
+      const value = groupScore(dataset, methods);
+      const rankValues = methods.map((method) => dataset.ranks.get(method)).filter(Number.isFinite);
+      methodObservations += methods.filter((method) => dataset.scores.has(method)).length;
+      if (value !== null) accuracies.push(value);
+      if (rankValues.length) ranks.push(average(rankValues));
 
-    const lensScores = source.paradigms
-      .map((lens) => [lens, groupScore(dataset, lensMethods(lens))])
-      .filter(([, score]) => score !== null);
-    if (value !== null && lensScores.length) {
-      const top = Math.max(...lensScores.map(([, score]) => score));
-      const tied = lensScores.filter(([, score]) => approximatelyEqual(score, top)).length > 1;
-      outcomes.push(approximatelyEqual(value, top) ? (tied ? "tie" : "win") : "loss");
+      const lensScores = source.paradigms
+        .map((lens) => [lens, groupScore(dataset, lensMethods(lens))])
+        .filter(([, score]) => score !== null);
+      if (value !== null && lensScores.length) {
+        const top = Math.max(...lensScores.map(([, score]) => score));
+        const tied = lensScores.filter(([, score]) => approximatelyEqual(score, top)).length > 1;
+        outcomes.push(approximatelyEqual(value, top) ? (tied ? "tie" : "win") : "loss");
+      }
     }
-  }
 
-  return {
-    property: "modality",
-    bin: "multivariate",
-    paradigm,
-    meanAccuracy: accuracies.length ? average(accuracies) : null,
-    meanRank: ranks.length ? average(ranks) : null,
-    coverage: accuracies.length,
-    methodObservations,
-    wins: outcomes.filter((value) => value === "win").length,
-    ties: outcomes.filter((value) => value === "tie").length,
-    losses: outcomes.filter((value) => value === "loss").length,
-  };
-});
+    return publicCell({
+      property: property.key,
+      bin: bin.key,
+      paradigm,
+      meanAccuracy: accuracies.length ? average(accuracies) : null,
+      meanRank: ranks.length ? average(ranks) : null,
+      coverage: accuracies.length,
+      methodObservations,
+      wins: outcomes.filter((value) => value === "win").length,
+      ties: outcomes.filter((value) => value === "tie").length,
+      losses: outcomes.filter((value) => value === "loss").length,
+    });
+  });
+}));
 
-const retainedCells = source.cells
-  .filter((cell) => cell.scope === "Overall" && allowedProperties.has(cell.property))
-  .filter((cell) => cell.property !== "modality" || cell.bin === "univariate")
-  .map(publicCell);
+const metadataCoverage = Object.fromEntries(publicProperties.map((property) => [
+  property.key,
+  datasets.filter((dataset) => propertyBin(dataset.metadata, property.key) !== null).length,
+]));
+for (const [property, coverage] of Object.entries(metadataCoverage)) {
+  if (coverage !== 198) throw new Error(`Expected complete ${property} metadata, received ${coverage}/198.`);
+}
 
 const digest = crypto
   .createHash("sha256")
   .update(sourceText)
+  .update(fs.readFileSync(metadataPath))
+  .update(fs.readFileSync(path.join(generatedDir, "ucr_128_per_dataset_accuracy.csv")))
+  .update(fs.readFileSync(path.join(generatedDir, "uea_30_per_dataset_accuracy.csv")))
   .update(fs.readFileSync(path.join(generatedDir, "mvcore66_only_40_per_dataset_accuracy.csv")))
   .digest("hex")
   .slice(0, 12);
@@ -145,16 +181,9 @@ const output = {
   totalDatasetCount: 198,
   methodCount: source.methodCount,
   paradigms: source.paradigms,
-  properties: source.properties.filter((property) => allowedProperties.has(property.key)),
-  metadataCoverage: {
-    modality: 198,
-    trainSize: 158,
-    classCount: 158,
-    length: 158,
-    channels: 158,
-    imbalance: 158,
-  },
-  cells: [...retainedCells, ...multivariateCells],
+  properties: publicProperties,
+  metadataCoverage,
+  cells: computedCells,
   methodology: {
     unit: "Dataset",
     missingness: "Missing method–dataset results are excluded and are never replaced with zero.",

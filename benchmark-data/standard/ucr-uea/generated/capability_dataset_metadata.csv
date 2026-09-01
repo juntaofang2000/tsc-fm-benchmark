@@ -1,16 +1,56 @@
 archive,dataset,trainSize,testSize,classes,length,channels,imbalanceRatio,domain,metadataSource
+MVCore66,Alzheimers,45,43,3,15000,19,1.5,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,AppliancesEnergy_disc,95,42,2,144,24,2.064516129032258,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,AsphaltObstaclesCoordinates,390,391,4,298,3,1.3875,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,AsphaltRegularityCoordinates,751,751,2,384,3,1.0297297297297296,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,AustraliaRainfall_disc,112186,48081,4,24,3,914.75,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,AutomotiveRoadTrials,153,77,2,300,8,3.78125,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BIDMC32HR_disc,5550,2399,3,4000,2,3.524,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BIDMC32SpO2_disc,5550,2399,2,4000,2,4.457227138643068,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BeijingPM10Quality_disc,11918,5048,2,24,9,3.87244480784955,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BeijingPM25Quality_disc,11918,5048,2,24,9,3.1338883107873743,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BenzeneConcentration_disc,3349,5163,2,240,8,3.001194743130227,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,Blink,500,450,2,510,4,1.0,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BoneIntensitiesAgeGroup,600,445,3,270,8,1.5442176870748299,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,BoneProbAgeGroup,600,445,3,256,8,1.5442176870748299,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,CounterMovementJump,419,179,3,3000,3,1.0071942446043165,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,CrowdSourced,9456,2833,2,256,14,1.0004231013327691,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,EmoPain,968,355,3,200,30,7.670103092783505,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,EyesOpenShut,56,42,2,128,14,1.434782608695652,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,FordChallenge,29003,7254,2,40,30,1.762190476190476,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,HouseholdPowerConsumption1_disc,745,686,3,1440,5,4.961165048543689,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,HouseholdPowerConsumption2_disc,745,686,3,1440,5,5.454545454545454,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,IEEEPPG_disc,1768,1328,3,1000,5,5.378531073446328,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,IRDS-SFL,253,116,2,111,75,3.685185185185185,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,KERAAL-RTK,256,14,2,264,77,1.6391752577319587,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,KIMORE-PR-C,64,7,2,847,54,2.2,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,KINECAL-QSEO,68,17,2,593,75,16.0,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,Locust2022,6597,3299,2,96,13,10.238500851788757,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,LowCost,600,600,2,375,15,1.0,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,MindReading,727,653,5,200,204,1.7075471698113207,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,MotionSenseHAR,966,265,6,1000,12,3.0602409638554215,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,PhotoStimulation,37,36,3,9000,19,1.6,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,STEW,21384,7128,2,256,14,1.0,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,Skoda,11290,2827,11,100,60,5.69017094017094,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,TactileTextureRecognition,1586,681,21,2000,6,1.3174603174603174,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,Tiselac,79907,19780,9,23,10,13.322443181818182,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,UCDHE-Rowing-MC,1992,440,5,161,16,1.0789473684210527,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,UCIActivity,7898,2401,6,128,9,1.3702677746999077,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,UIPRMD-DS-C,144,36,2,81,66,1.0,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,USCActivity,43060,13168,12,100,6,3.700801974090068,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
+MVCore66,WISDM,11989,5177,6,100,3,51.75,,MVCore66 evaluation .ts headers and train/test labels; independently checked against the full-train evaluation manifest
 UCR,ACSF1,100,100,10,1460,1,1.0,,UCR Archive 2018 train/test files
 UCR,Adiac,390,391,37,176,1,3.75,,UCR Archive 2018 train/test files
 UCR,AllGestureWiimoteX,300,700,10,500,1,1.0,,UCR Archive 2018 train/test files
 UCR,AllGestureWiimoteY,300,700,10,500,1,1.0,,UCR Archive 2018 train/test files
 UCR,AllGestureWiimoteZ,300,700,10,500,1,1.0,,UCR Archive 2018 train/test files
 UCR,ArrowHead,36,175,3,251,1,1.0,,UCR Archive 2018 train/test files
+UCR,BME,30,150,3,128,1,1.0,,UCR Archive 2018 train/test files
 UCR,Beef,30,30,5,470,1,1.0,,UCR Archive 2018 train/test files
 UCR,BeetleFly,20,20,2,512,1,1.0,,UCR Archive 2018 train/test files
 UCR,BirdChicken,20,20,2,512,1,1.0,,UCR Archive 2018 train/test files
-UCR,BME,30,150,3,128,1,1.0,,UCR Archive 2018 train/test files
-UCR,Car,60,60,4,577,1,1.5454545454545454,,UCR Archive 2018 train/test files
 UCR,CBF,30,900,3,128,1,1.5,,UCR Archive 2018 train/test files
+UCR,Car,60,60,4,577,1,1.5454545454545454,,UCR Archive 2018 train/test files
 UCR,Chinatown,20,343,2,24,1,1.0,,UCR Archive 2018 train/test files
 UCR,ChlorineConcentration,467,3840,3,166,1,2.879120879120879,,UCR Archive 2018 train/test files
 UCR,CinCECGTorso,40,1380,4,1639,1,2.6,,UCR Archive 2018 train/test files
@@ -27,13 +67,13 @@ UCR,DistalPhalanxTW,400,139,6,80,1,11.833333333333334,,UCR Archive 2018 train/te
 UCR,DodgerLoopDay,78,80,7,288,1,1.2,,UCR Archive 2018 train/test files
 UCR,DodgerLoopGame,20,138,2,288,1,1.0,,UCR Archive 2018 train/test files
 UCR,DodgerLoopWeekend,20,138,2,288,1,1.0,,UCR Archive 2018 train/test files
-UCR,Earthquakes,322,139,2,512,1,4.551724137931035,,UCR Archive 2018 train/test files
 UCR,ECG200,100,100,2,96,1,2.225806451612903,,UCR Archive 2018 train/test files
 UCR,ECG5000,500,4500,5,140,1,146.0,,UCR Archive 2018 train/test files
 UCR,ECGFiveDays,23,861,2,136,1,1.5555555555555556,,UCR Archive 2018 train/test files
-UCR,ElectricDevices,8926,7711,7,96,1,4.726915520628683,,UCR Archive 2018 train/test files
 UCR,EOGHorizontalSignal,362,362,12,1250,1,1.0333333333333334,,UCR Archive 2018 train/test files
 UCR,EOGVerticalSignal,362,362,12,1250,1,1.0333333333333334,,UCR Archive 2018 train/test files
+UCR,Earthquakes,322,139,2,512,1,4.551724137931035,,UCR Archive 2018 train/test files
+UCR,ElectricDevices,8926,7711,7,96,1,4.726915520628683,,UCR Archive 2018 train/test files
 UCR,EthanolLevel,504,500,4,1751,1,1.0,,UCR Archive 2018 train/test files
 UCR,FaceAll,560,1690,14,131,1,1.0,,UCR Archive 2018 train/test files
 UCR,FaceFour,24,88,4,350,1,2.6666666666666665,,UCR Archive 2018 train/test files
@@ -79,15 +119,15 @@ UCR,MixedShapesSmallTrain,100,2425,5,1024,1,1.0,,UCR Archive 2018 train/test fil
 UCR,MoteStrain,20,1252,2,84,1,1.0,,UCR Archive 2018 train/test files
 UCR,NonInvasiveFetalECGThorax1,1800,1965,42,750,1,1.6,,UCR Archive 2018 train/test files
 UCR,NonInvasiveFetalECGThorax2,1800,1965,42,750,1,1.6,,UCR Archive 2018 train/test files
-UCR,OliveOil,30,30,4,570,1,3.25,,UCR Archive 2018 train/test files
 UCR,OSULeaf,200,242,6,427,1,3.533333333333333,,UCR Archive 2018 train/test files
+UCR,OliveOil,30,30,4,570,1,3.25,,UCR Archive 2018 train/test files
+UCR,PLAID,537,537,11,1344,1,6.769230769230769,,UCR Archive 2018 train/test files
 UCR,PhalangesOutlinesCorrect,1800,858,2,80,1,1.8662420382165605,,UCR Archive 2018 train/test files
 UCR,Phoneme,214,1896,39,1024,1,24.0,,UCR Archive 2018 train/test files
 UCR,PickupGestureWiimoteZ,50,50,10,361,1,1.0,,UCR Archive 2018 train/test files
 UCR,PigAirwayPressure,104,208,52,2000,1,1.0,,UCR Archive 2018 train/test files
 UCR,PigArtPressure,104,208,52,2000,1,1.0,,UCR Archive 2018 train/test files
 UCR,PigCVP,104,208,52,2000,1,1.0,,UCR Archive 2018 train/test files
-UCR,PLAID,537,537,11,1344,1,6.769230769230769,,UCR Archive 2018 train/test files
 UCR,Plane,105,105,7,144,1,2.2222222222222223,,UCR Archive 2018 train/test files
 UCR,PowerCons,180,180,2,144,1,1.0,,UCR Archive 2018 train/test files
 UCR,ProximalPhalanxOutlineAgeGroup,400,205,3,80,1,2.625,,UCR Archive 2018 train/test files
@@ -133,9 +173,9 @@ UEA,BasicMotions,40,40,4,100,6,1.0,,UEA multivariate archive .ts headers and tra
 UEA,CharacterTrajectories,1422,1436,20,122,3,1.576271186440678,,UEA multivariate archive .ts headers and train/test files
 UEA,Cricket,108,72,12,1197,6,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,DuckDuckGeese,50,50,5,270,1345,1.0,,UEA multivariate archive .ts headers and train/test files
+UEA,ERing,30,270,6,65,4,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,EigenWorms,128,131,5,17984,6,4.583333333333333,,UEA multivariate archive .ts headers and train/test files
 UEA,Epilepsy,137,138,4,206,3,1.2333333333333334,,UEA multivariate archive .ts headers and train/test files
-UEA,ERing,30,270,6,65,4,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,EthanolConcentration,261,263,4,1751,3,1.0153846153846153,,UEA multivariate archive .ts headers and train/test files
 UEA,FaceDetection,5890,3524,2,62,144,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,FingerMovements,316,100,2,50,28,1.0127388535031847,,UEA multivariate archive .ts headers and train/test files
@@ -144,8 +184,8 @@ UEA,Handwriting,150,850,26,152,3,5.5,,UEA multivariate archive .ts headers and t
 UEA,Heartbeat,204,205,2,405,61,2.5789473684210527,,UEA multivariate archive .ts headers and train/test files
 UEA,InsectWingbeatSubset,1000,1000,10,200,22,1.3370786516853932,,Local UEA-compatible NumPy train/test arrays
 UEA,JapaneseVowels,270,370,9,15,12,1.0,,UEA multivariate archive .ts headers and train/test files
-UEA,Libras,180,180,15,45,2,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,LSST,2459,2466,14,36,6,111.0,,UEA multivariate archive .ts headers and train/test files
+UEA,Libras,180,180,15,45,2,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,MotorImagery,278,100,2,3000,64,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,NATOPS,180,180,6,51,24,1.0,,UEA multivariate archive .ts headers and train/test files
 UEA,PEMS-SF,267,173,7,144,963,1.375,,UEA multivariate archive .ts headers and train/test files
