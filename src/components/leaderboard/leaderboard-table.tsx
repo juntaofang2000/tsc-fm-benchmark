@@ -58,7 +58,6 @@ function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<Leader
       <div className="min-w-0">
         <div className="flex min-w-0 items-center gap-2">
           <Link href={`/methods/${row.original.slug}`} className="truncate font-medium hover:text-primary">{row.original.model}</Link>
-          {row.original.isFeatured && <Badge className="shrink-0">Featured</Badge>}
         </div>
         {row.original.organization !== "—" && <p className="mt-0.5 truncate text-xs text-muted-foreground">{row.original.organization}</p>}
       </div>
@@ -129,7 +128,7 @@ export function LeaderboardTable({ data, compact = false, scope = "Overall", ran
           </thead>
           <tbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className={cn("border-b border-border/70 last:border-0 hover:bg-muted/35", row.original.isFeatured && "bg-primary/[0.035]")}>{row.getVisibleCells().map((cell) => <td key={cell.id} className={cn("h-14 px-3 align-middle", columnClass(cell.column.id, scope, compact))}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>)}</tr>
+              <tr key={row.id} className="border-b border-border/70 last:border-0 hover:bg-muted/35">{row.getVisibleCells().map((cell) => <td key={cell.id} className={cn("h-14 px-3 align-middle", columnClass(cell.column.id, scope, compact))}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>)}</tr>
             ))}
           </tbody>
         </table>

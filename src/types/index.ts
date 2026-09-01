@@ -29,7 +29,6 @@ export interface LeaderboardEntry {
   paperUrl: string | null;
   codeUrl: string | null;
   checkpointUrl: string | null;
-  isFeatured: boolean;
   tracks: Track[];
 }
 

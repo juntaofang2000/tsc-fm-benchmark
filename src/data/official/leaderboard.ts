@@ -63,7 +63,6 @@ function makeEntry(row: PublicRow, tracks: Track[], scope: BenchmarkScope | "Low
     paperUrl: null,
     codeUrl: null,
     checkpointUrl: null,
-    isFeatured: row.method === "ChorusTIC",
     tracks,
   };
 }
