@@ -5,7 +5,7 @@ import type { CapabilityBundle } from "@/types/capability";
 
 export const metadata = {
   title: "Capability Map",
-  description: "Aggregate capability analysis across seven fully reviewed dataset attributes, including an eight-domain taxonomy.",
+  description: "Hierarchical capability analysis across a fixed 198-dataset core, 12 complete configurations, and 7 model backbones.",
 };
 
 export default function CapabilityMapPage() {
@@ -14,7 +14,7 @@ export default function CapabilityMapPage() {
       <PageHeader
         eyebrow="Aggregate analysis"
         title="Capability Map"
-        description="Explore paradigm performance by modality and reviewed dataset attributes, with property-specific coverage and no dataset-level identities."
+        description="Explore a fixed full-coverage core through separate Evaluation Paradigm and Model Origin taxonomies, with backbone- and dataset-equal aggregation."
       />
       <CapabilityMapView data={capabilityData as CapabilityBundle} />
     </>

@@ -10,34 +10,55 @@ export interface CapabilityProperty {
   bins: CapabilityBin[];
 }
 
+export interface CapabilityGroup {
+  key: string;
+  label: string;
+  description: string;
+  backboneCount: number;
+  configurationCount: number;
+}
+
+export interface CapabilityTaxonomy {
+  key: string;
+  label: string;
+  description: string;
+  groups: CapabilityGroup[];
+}
+
 export interface CapabilityCell {
   property: string;
   bin: string;
-  paradigm: string;
+  taxonomy: string;
+  group: string;
   meanAccuracy: number | null;
   meanRank: number | null;
   coverage: number;
-  methodObservations: number;
-  wins: number;
-  ties: number;
-  losses: number;
+  backboneCount: number;
+  configurationCount: number;
+  bestCount: number;
+  tiedBestCount: number;
+  otherCount: number;
 }
 
 export interface CapabilityBundle {
   schemaVersion: number;
   dataVersion: string;
+  scope: "Overall";
   totalDatasetCount: number;
-  methodCount: number;
-  paradigms: string[];
+  configurationCount: number;
+  backboneCount: number;
+  taxonomies: CapabilityTaxonomy[];
   properties: CapabilityProperty[];
   metadataCoverage: Record<string, number>;
   cells: CapabilityCell[];
   methodology: {
     unit: string;
-    missingness: string;
+    resultUniverse: string;
+    configurationAggregation: string;
+    backboneAggregation: string;
     weighting: string;
-    accuracyAggregation: string;
-    wtlDefinition: string;
+    rankDefinition: string;
+    outcomeDefinition: string;
     taxonomy: string;
     privacy: string;
   };

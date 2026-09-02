@@ -71,6 +71,23 @@ python scripts/build_results.py --output-dir 临时目录 --no-release-wide
 - `ucr_128_per_dataset_accuracy.csv`
 - `uea_30_per_dataset_accuracy.csv`
 
+## Capability Map 固定核心
+
+公开网站的 Overall Capability Map 使用单独声明的固定核心集合，配置文件为
+`capability_taxonomy.json`。当前固定为 `12 configurations / 7 backbones`，
+每个 configuration 都必须完整覆盖 198 个数据集。任何部分覆盖方法都不会混入
+主 198 Capability Map。网站构建时还会核对该固定集合与 Standard Overall
+榜单中所有 `198 / 198` 方法是否完全一致；集合不一致会直接构建失败。
+
+聚合采用三层等权规则：先在同一 backbone 内平均不同分类头或 configuration，
+再在 taxonomy group 内对 backbone 等权平均，最后对数据集等权汇总。这样，拥有
+多个分类头的 backbone 不会因为 configuration 更多而获得额外权重。
+
+`Evaluation Paradigm` 与 `Model Origin` 是两个相互独立的 taxonomy。网站只在
+当前选中的 taxonomy 内重新计算 Average Group Rank，以及 Best / Tied Best /
+Other 的数据集计数；两个 taxonomy 的分组名次不能直接互相比较。Univariate
+分析将使用独立的 128 数据集完整覆盖方法集合，不复用或污染 Overall 固定核心。
+
 ## 导入 MVCore66 正式结果
 
 先导入六份已核对的源结果，再重建全部 suite：

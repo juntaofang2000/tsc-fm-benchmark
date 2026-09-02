@@ -5,17 +5,26 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const officialDir = path.join(root, "src", "data", "official");
-const generatedDir = path.join(root, "benchmark-data", "standard", "ucr-uea", "generated");
+const benchmarkDir = path.join(root, "benchmark-data", "standard", "ucr-uea");
+const generatedDir = path.join(benchmarkDir, "generated");
 const sourcePath = path.join(officialDir, "capability-map.json");
+const leaderboardPath = path.join(generatedDir, "leaderboards.json");
+const taxonomyPath = path.join(benchmarkDir, "capability_taxonomy.json");
 const outputPath = path.join(officialDir, "public-capability-map.json");
 const metadataPath = path.join(generatedDir, "capability_dataset_metadata.csv");
 const domainPath = path.join(generatedDir, "capability_dataset_domains.json");
+const overallAccuracyPath = path.join(generatedDir, "overall_198_per_dataset_accuracy.csv");
 
 const sourceText = fs.readFileSync(sourcePath, "utf8");
 const source = JSON.parse(sourceText);
-const allowedProperties = new Set(["modality", "trainSize", "classCount", "length", "channels", "imbalance", "domain"]);
+const leaderboardText = fs.readFileSync(leaderboardPath, "utf8");
+const leaderboard = JSON.parse(leaderboardText);
+const taxonomyText = fs.readFileSync(taxonomyPath, "utf8");
+const taxonomySource = JSON.parse(taxonomyText);
 const domainSourceText = fs.readFileSync(domainPath, "utf8");
 const domainSource = JSON.parse(domainSourceText);
+
+const allowedProperties = new Set(["modality", "trainSize", "classCount", "length", "channels", "imbalance", "domain"]);
 const domainBins = [
   { key: "healthcare-biomedical", label: "Healthcare & Biomedical", description: "Clinical, physiological and biomedical tasks" },
   { key: "human-activity-motion", label: "Human Activity & Motion", description: "Human actions, gestures, sports and rehabilitation" },
@@ -36,10 +45,6 @@ function readCsv(filePath) {
     const values = line.split(",");
     return Object.fromEntries(headers.map((header, index) => [header, values[index]]));
   });
-}
-
-function readAccuracyCsv(filename) {
-  return readCsv(path.join(generatedDir, filename));
 }
 
 function approximatelyEqual(a, b) {
@@ -64,28 +69,14 @@ function averageRanks(scores) {
   return ranks;
 }
 
-const methodNames = source.methods.map((method) => method.name);
-const methodsByName = new Map(source.methods.map((method) => [method.name, method]));
-const lensMethods = (lens) => methodNames.filter((method) => methodsByName.get(method)?.lenses.includes(lens));
-
-function groupScore(dataset, methods) {
-  const values = methods.map((method) => dataset.scores.get(method)).filter(Number.isFinite);
-  return values.length ? average(values) : null;
-}
-
-function publicCell(cell) {
-  return {
-    property: cell.property,
-    bin: cell.bin,
-    paradigm: cell.paradigm,
-    meanAccuracy: cell.meanAccuracy,
-    meanRank: cell.meanRank,
-    coverage: cell.coverage,
-    methodObservations: cell.methodObservations,
-    wins: cell.wins,
-    ties: cell.ties,
-    losses: cell.losses,
-  };
+function assertSameSet(actual, expected, label) {
+  const actualSet = new Set(actual);
+  const expectedSet = new Set(expected);
+  const missing = expected.filter((value) => !actualSet.has(value));
+  const unexpected = actual.filter((value) => !expectedSet.has(value));
+  if (actualSet.size !== actual.length || expectedSet.size !== expected.length || missing.length || unexpected.length) {
+    throw new Error(`${label} mismatch; missing: ${missing.join(", ") || "none"}; unexpected: ${unexpected.join(", ") || "none"}.`);
+  }
 }
 
 function propertyBin(metadata, property) {
@@ -106,12 +97,40 @@ function propertyBin(metadata, property) {
   }
 }
 
-const accuracyRows = [
-  ...readAccuracyCsv("ucr_128_per_dataset_accuracy.csv"),
-  ...readAccuracyCsv("uea_30_per_dataset_accuracy.csv"),
-  ...readAccuracyCsv("mvcore66_only_40_per_dataset_accuracy.csv"),
-];
-if (accuracyRows.length !== 198) throw new Error(`Expected 198 accuracy rows, received ${accuracyRows.length}.`);
+if (taxonomySource.scope !== "Overall" || taxonomySource.requiredDatasets !== 198) {
+  throw new Error("Capability taxonomy must define the fixed Overall 198 scope.");
+}
+if (taxonomySource.backbones.length !== 7) {
+  throw new Error(`Expected 7 fixed backbones, received ${taxonomySource.backbones.length}.`);
+}
+const configurationNames = taxonomySource.backbones.flatMap((backbone) => backbone.configurations);
+if (configurationNames.length !== 12) {
+  throw new Error(`Expected 12 fixed configurations, received ${configurationNames.length}.`);
+}
+
+const overallRows = leaderboard.suites.overall_198.rows;
+const eligibleMethods = overallRows.map((row) => row.method);
+if (overallRows.length !== 12 || overallRows.some((row) => row.coverage !== "198 / 198")) {
+  throw new Error("Standard Overall must contain exactly 12 configurations with 198 / 198 coverage.");
+}
+assertSameSet(configurationNames, eligibleMethods, "Capability and Standard Overall method universe");
+
+for (const taxonomy of taxonomySource.taxonomies) {
+  const groupKeys = taxonomy.groups.map((group) => group.key);
+  if (new Set(groupKeys).size !== groupKeys.length) throw new Error(`Duplicate group in taxonomy ${taxonomy.key}.`);
+  for (const backbone of taxonomySource.backbones) {
+    const group = backbone.groups[taxonomy.key];
+    if (!groupKeys.includes(group)) throw new Error(`Backbone ${backbone.key} has no valid ${taxonomy.key} group.`);
+  }
+  for (const group of groupKeys) {
+    if (!taxonomySource.backbones.some((backbone) => backbone.groups[taxonomy.key] === group)) {
+      throw new Error(`Taxonomy group ${taxonomy.key}/${group} has no backbone.`);
+    }
+  }
+}
+
+const accuracyRows = readCsv(overallAccuracyPath);
+if (accuracyRows.length !== 198) throw new Error(`Expected 198 Overall accuracy rows, received ${accuracyRows.length}.`);
 
 const metadataRows = readCsv(metadataPath);
 const metadataByDataset = new Map(metadataRows.map((row) => [`${row.archive}::${row.dataset}`, row]));
@@ -133,59 +152,92 @@ for (const datasetKey of metadataByDataset.keys()) {
 const datasets = accuracyRows.map((row) => {
   const datasetKey = `${row.archive}::${row.dataset}`;
   const metadata = metadataByDataset.get(datasetKey);
-  if (!metadata) throw new Error(`Missing metadata for ${row.archive}::${row.dataset}.`);
-  const scores = new Map();
-  for (const method of methodNames) {
-    const rawScore = row[method];
-    if (rawScore === undefined || rawScore === "") continue;
-    const score = Number(rawScore);
-    if (Number.isFinite(score)) scores.set(method, score);
+  if (!metadata) throw new Error(`Missing metadata for ${datasetKey}.`);
+
+  const configurationScores = new Map(configurationNames.map((configuration) => {
+    const score = Number(row[configuration]);
+    if (!Number.isFinite(score)) throw new Error(`Missing fixed-core score for ${datasetKey}/${configuration}.`);
+    return [configuration, score];
+  }));
+  const backboneScores = new Map(taxonomySource.backbones.map((backbone) => [
+    backbone.key,
+    average(backbone.configurations.map((configuration) => configurationScores.get(configuration))),
+  ]));
+  const taxonomyScores = new Map();
+  const taxonomyRanks = new Map();
+  for (const taxonomy of taxonomySource.taxonomies) {
+    const scores = new Map(taxonomy.groups.map((group) => {
+      const backbones = taxonomySource.backbones
+        .filter((backbone) => backbone.groups[taxonomy.key] === group.key)
+        .map((backbone) => backboneScores.get(backbone.key));
+      return [group.key, average(backbones)];
+    }));
+    taxonomyScores.set(taxonomy.key, scores);
+    taxonomyRanks.set(taxonomy.key, averageRanks(scores));
   }
-  return { metadata: { ...metadata, domain: domainByDataset.get(datasetKey) }, scores, ranks: averageRanks(scores) };
+
+  return {
+    metadata: { ...metadata, domain: domainByDataset.get(datasetKey) },
+    taxonomyScores,
+    taxonomyRanks,
+  };
 });
 
 const publicProperties = source.properties
   .filter((property) => allowedProperties.has(property.key))
   .map((property) => property.key === "domain" ? { ...property, bins: domainBins } : property);
+
+const publicTaxonomies = taxonomySource.taxonomies.map((taxonomy) => ({
+  key: taxonomy.key,
+  label: taxonomy.label,
+  description: taxonomy.description,
+  groups: taxonomy.groups.map((group) => {
+    const backbones = taxonomySource.backbones.filter((backbone) => backbone.groups[taxonomy.key] === group.key);
+    return {
+      ...group,
+      backboneCount: backbones.length,
+      configurationCount: backbones.reduce((sum, backbone) => sum + backbone.configurations.length, 0),
+    };
+  }),
+}));
+
 const computedCells = publicProperties.flatMap((property) => property.bins.flatMap((bin) => {
   const selected = datasets.filter((dataset) => propertyBin(dataset.metadata, property.key) === bin.key);
-  return source.paradigms.map((paradigm) => {
-    const methods = lensMethods(paradigm);
+  return publicTaxonomies.flatMap((taxonomy) => taxonomy.groups.map((group) => {
     const accuracies = [];
     const ranks = [];
     const outcomes = [];
-    let methodObservations = 0;
-
     for (const dataset of selected) {
-      const value = groupScore(dataset, methods);
-      const rankValues = methods.map((method) => dataset.ranks.get(method)).filter(Number.isFinite);
-      methodObservations += methods.filter((method) => dataset.scores.has(method)).length;
-      if (value !== null) accuracies.push(value);
-      if (rankValues.length) ranks.push(average(rankValues));
-
-      const lensScores = source.paradigms
-        .map((lens) => [lens, groupScore(dataset, lensMethods(lens))])
-        .filter(([, score]) => score !== null);
-      if (value !== null && lensScores.length) {
-        const top = Math.max(...lensScores.map(([, score]) => score));
-        const tied = lensScores.filter(([, score]) => approximatelyEqual(score, top)).length > 1;
-        outcomes.push(approximatelyEqual(value, top) ? (tied ? "tie" : "win") : "loss");
-      }
+      const scores = dataset.taxonomyScores.get(taxonomy.key);
+      const ranksByGroup = dataset.taxonomyRanks.get(taxonomy.key);
+      const value = scores.get(group.key);
+      const top = Math.max(...scores.values());
+      const tiedTop = [...scores.values()].filter((score) => approximatelyEqual(score, top)).length > 1;
+      accuracies.push(value);
+      ranks.push(ranksByGroup.get(group.key));
+      outcomes.push(approximatelyEqual(value, top) ? (tiedTop ? "tied-best" : "best") : "other");
     }
-
-    return publicCell({
+    const bestCount = outcomes.filter((value) => value === "best").length;
+    const tiedBestCount = outcomes.filter((value) => value === "tied-best").length;
+    const otherCount = outcomes.filter((value) => value === "other").length;
+    if (bestCount + tiedBestCount + otherCount !== selected.length) {
+      throw new Error(`Outcome count mismatch for ${property.key}/${bin.key}/${taxonomy.key}/${group.key}.`);
+    }
+    return {
       property: property.key,
       bin: bin.key,
-      paradigm,
+      taxonomy: taxonomy.key,
+      group: group.key,
       meanAccuracy: accuracies.length ? average(accuracies) : null,
       meanRank: ranks.length ? average(ranks) : null,
       coverage: accuracies.length,
-      methodObservations,
-      wins: outcomes.filter((value) => value === "win").length,
-      ties: outcomes.filter((value) => value === "tie").length,
-      losses: outcomes.filter((value) => value === "loss").length,
-    });
-  });
+      backboneCount: group.backboneCount,
+      configurationCount: group.configurationCount,
+      bestCount,
+      tiedBestCount,
+      otherCount,
+    };
+  }));
 }));
 
 const metadataCoverage = Object.fromEntries(publicProperties.map((property) => [
@@ -199,31 +251,35 @@ for (const [property, coverage] of Object.entries(metadataCoverage)) {
 const digest = crypto
   .createHash("sha256")
   .update(sourceText)
+  .update(leaderboardText)
+  .update(taxonomyText)
   .update(fs.readFileSync(metadataPath))
   .update(domainSourceText)
-  .update(fs.readFileSync(path.join(generatedDir, "ucr_128_per_dataset_accuracy.csv")))
-  .update(fs.readFileSync(path.join(generatedDir, "uea_30_per_dataset_accuracy.csv")))
-  .update(fs.readFileSync(path.join(generatedDir, "mvcore66_only_40_per_dataset_accuracy.csv")))
+  .update(fs.readFileSync(overallAccuracyPath))
   .digest("hex")
   .slice(0, 12);
 
 const output = {
-  schemaVersion: 2,
-  dataVersion: `capability-public-${digest}`,
+  schemaVersion: 3,
+  dataVersion: `capability-overall-${digest}`,
+  scope: "Overall",
   totalDatasetCount: 198,
-  methodCount: source.methodCount,
-  paradigms: source.paradigms,
+  configurationCount: configurationNames.length,
+  backboneCount: taxonomySource.backbones.length,
+  taxonomies: publicTaxonomies,
   properties: publicProperties,
   metadataCoverage,
   cells: computedCells,
   methodology: {
     unit: "Dataset",
-    missingness: "Missing method–dataset results are excluded and are never replaced with zero.",
-    weighting: "Each contributing dataset receives equal weight within its selected condition bin.",
-    accuracyAggregation: "For each dataset, Accuracy first averages all available method accuracies assigned to the paradigm or lens. These dataset-level scores are then averaged with equal dataset weight within the selected condition.",
-    wtlDefinition: "W / T / L counts datasets where the paradigm- or lens-level score is uniquely best / tied for best / below the best among all displayed paradigms and lenses on that dataset. It is not a pairwise comparison against ChorusTIC or any fixed baseline; ties use a 1e-12 numerical tolerance.",
-    taxonomy: "Decision-interface groups are mutually exclusive; model-origin lenses may overlap and are descriptive only.",
-    privacy: "Only aggregate condition-level statistics are published. Dataset identities and source mappings are excluded.",
+    resultUniverse: "The fixed core matches the Standard Overall leaderboard: 12 configurations across 7 backbones, each with complete 198 / 198 coverage.",
+    configurationAggregation: "For each dataset, configuration accuracies are averaged within their shared backbone.",
+    backboneAggregation: "Backbone scores are then averaged with equal backbone weight within each taxonomy group.",
+    weighting: "The resulting group scores are averaged with equal dataset weight within the selected condition.",
+    rankDefinition: "Average Rank ranks the mutually exclusive groups within the active taxonomy on each dataset, using average ranks for exact ties.",
+    outcomeDefinition: "Best / Tied Best / Other counts whether a group is uniquely highest / tied for highest / below the highest within the active taxonomy on each dataset.",
+    taxonomy: "Evaluation Paradigm and Model Origin are separate taxonomies. Groups are mutually exclusive within each taxonomy and are never ranked across taxonomies.",
+    privacy: "Only aggregate condition-level statistics are published. Dataset identities, source mappings, backbone names, and configuration names are excluded.",
   },
 };
 

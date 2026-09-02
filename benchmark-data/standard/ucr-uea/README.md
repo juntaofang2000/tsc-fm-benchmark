@@ -92,7 +92,7 @@ The generated outputs are:
 
 ## Capability Map data
 
-The website capability analysis is built from these generated per-dataset
+The source-side capability audit is built from these generated per-dataset
 tables plus dataset attributes extracted from the official archives:
 
 ```bash
@@ -105,7 +105,7 @@ python scripts/build_capability_map.py \
 The archive arguments refresh `generated/capability_dataset_metadata.csv`.
 Once that cache exists, they may be omitted for later result-only rebuilds.
 The script writes `generated/capability_map.json`, including task-condition
-bins, mean accuracy, mean rank, win/tie/loss, actual coverage, dataset-level
+bins, mean accuracy, mean rank, dataset-level comparisons, actual coverage,
 bootstrap intervals, conservative supported-difference summaries, and complete
 row-level provenance.
 
@@ -116,6 +116,22 @@ aggregate. The public Capability Map includes 128 univariate and 70 multivariate
 datasets but never publishes dataset identities, suite membership, or row-level
 source mappings. The builder never infers domains from names and never replaces
 missing results with zero. Low-shot and OOD remain separate analyses.
+
+The public Overall Capability Map is a stricter, fixed-core analysis. Its
+membership is declared in `capability_taxonomy.json` and currently contains 12
+complete configurations grouped into 7 backbones. Every configuration must have
+valid results on all 198 datasets; partial-coverage methods are rejected rather
+than mixed into the public aggregate. The web builder also checks exact set
+equality between this fixed core and the eligible Standard Overall leaderboard,
+so a completed method cannot silently enter or disappear from only one view.
+
+Aggregation is hierarchical: configurations are averaged within a backbone,
+then backbones are averaged with equal weight within each taxonomy group, and
+finally datasets are summarized with equal weight. This prevents a backbone
+with several classifier heads from receiving more influence than a backbone
+with one configuration. `Evaluation Paradigm` and `Model Origin` are independent
+taxonomies; group ranks and Best / Tied Best / Other counts are recomputed within
+the selected taxonomy and must not be compared across taxonomies.
 
 ## Import verified MVCore66 results
 

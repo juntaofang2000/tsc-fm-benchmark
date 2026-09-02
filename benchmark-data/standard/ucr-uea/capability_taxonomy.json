@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "scope": "Overall",
+  "requiredDatasets": 198,
+  "backbones": [
+    {
+      "key": "chorustic",
+      "configurations": ["ChorusTIC"],
+      "groups": {
+        "evaluation-paradigm": "native-time-series-icl",
+        "model-origin": "classification-native-tsfm"
+      }
+    },
+    {
+      "key": "mantisv2",
+      "configurations": ["MantisV2+LR", "MantisV2+RF"],
+      "groups": {
+        "evaluation-paradigm": "frozen-representation",
+        "model-origin": "classification-native-tsfm"
+      }
+    },
+    {
+      "key": "moment",
+      "configurations": ["MOMENT+kNN", "MOMENT+MLP", "MOMENT+NC", "MOMENT+RF", "MOMENT+SVM"],
+      "groups": {
+        "evaluation-paradigm": "frozen-representation",
+        "model-origin": "general-purpose-tsfm"
+      }
+    },
+    {
+      "key": "nutime",
+      "configurations": ["NuTime+RF"],
+      "groups": {
+        "evaluation-paradigm": "frozen-representation",
+        "model-origin": "general-purpose-tsfm"
+      }
+    },
+    {
+      "key": "unishape",
+      "configurations": ["UniShape+RF"],
+      "groups": {
+        "evaluation-paradigm": "frozen-representation",
+        "model-origin": "classification-native-tsfm"
+      }
+    },
+    {
+      "key": "tabicl",
+      "configurations": ["TabICL"],
+      "groups": {
+        "evaluation-paradigm": "tabular-icl-adaptation",
+        "model-origin": "tabular-cross-modal-fm"
+      }
+    },
+    {
+      "key": "tabiclv2",
+      "configurations": ["TabICLv2"],
+      "groups": {
+        "evaluation-paradigm": "tabular-icl-adaptation",
+        "model-origin": "tabular-cross-modal-fm"
+      }
+    }
+  ],
+  "taxonomies": [
+    {
+      "key": "evaluation-paradigm",
+      "label": "Evaluation Paradigm",
+      "description": "How a backbone produces task predictions during evaluation.",
+      "groups": [
+        {
+          "key": "native-time-series-icl",
+          "label": "Native time-series ICL",
+          "description": "Training-free in-context prediction designed for time series"
+        },
+        {
+          "key": "frozen-representation",
+          "label": "Frozen representation + classifier",
+          "description": "Frozen embeddings followed by a fitted classifier"
+        },
+        {
+          "key": "tabular-icl-adaptation",
+          "label": "Tabular ICL adaptation",
+          "description": "Tabular in-context models adapted to vectorized time series"
+        }
+      ]
+    },
+    {
+      "key": "model-origin",
+      "label": "Model Origin",
+      "description": "The model family and pretraining objective from which a backbone originates.",
+      "groups": [
+        {
+          "key": "classification-native-tsfm",
+          "label": "Classification-native TSFM",
+          "description": "Time-series models pretrained with classification-oriented objectives"
+        },
+        {
+          "key": "general-purpose-tsfm",
+          "label": "General-purpose TSFM",
+          "description": "General time-series foundation models reused for classification"
+        },
+        {
+          "key": "tabular-cross-modal-fm",
+          "label": "Tabular / cross-modal FM",
+          "description": "Foundation models originating outside native time-series classification"
+        }
+      ]
+    }
+  ]
+}
