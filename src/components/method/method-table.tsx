@@ -10,8 +10,8 @@ import type { Method } from "@/types";
 
 const categories = ["All", "Representation Learning", "In-Context Learning"];
 
-function ResourceLink({ href, label, icon: Icon }: { href: string | null; label: string; icon: typeof Code2 }) {
-  if (!href) return <span className="whitespace-nowrap text-xs text-muted-foreground">Not released</span>;
+function ResourceLink({ href, label, icon: Icon, unavailable = "Not available" }: { href: string | null; label: string; icon: typeof Code2; unavailable?: string }) {
+  if (!href) return <span className="whitespace-nowrap text-xs text-muted-foreground">{unavailable}</span>;
   return <a href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 whitespace-nowrap text-xs font-medium text-primary hover:underline"><Icon className="size-3.5" />{label}</a>;
 }
 
@@ -41,7 +41,7 @@ export function MethodTable({ methods }: { methods: Method[] }) {
           <td className="max-w-[260px] px-4 py-4 align-top"><p className="text-xs font-medium">{method.checkpointName}</p><div className="mt-2 flex flex-wrap gap-1.5">{method.evaluatedConfigurations.map((item) => <Badge key={item} variant="outline">{item}</Badge>)}</div></td>
           <td className="px-4 py-4 align-top"><ResourceLink href={method.paperUrl} label="Paper" icon={FileText} /></td>
           <td className="px-4 py-4 align-top"><ResourceLink href={method.codeUrl} label="Code" icon={Code2} /></td>
-          <td className="px-4 py-4 align-top"><ResourceLink href={method.checkpointUrl} label="Weights" icon={Package} /></td>
+          <td className="max-w-[190px] px-4 py-4 align-top"><ResourceLink href={method.checkpointUrl} label="Weights" icon={Package} unavailable={method.checkpointName} /></td>
         </tr>)}</tbody>
       </table>
       {filtered.length === 0 && <EmptyState />}

@@ -87,7 +87,7 @@ export const officialMethods: Method[] = [
     id: "tict", name: "TiCT", slug: "tict", organization: "Visa Research", category: "In-Context Learning",
     description: "A synthetically pretrained time series in-context classifier with scalable label encoding.",
     paperUrl: "https://arxiv.org/abs/2511.19694", codeUrl: "https://sites.google.com/view/tsicl",
-    checkpointUrl: null, checkpointName: "Not publicly released", parameterCount: "47M (TiCT-Large, ResNet)",
+    checkpointUrl: null, checkpointName: "No standalone checkpoint link found", parameterCount: "47M (TiCT-Large, ResNet)",
     evaluatedConfigurations: ["Native in-context inference"], inputType: "Univariate time series",
     inferenceParadigm: "Training-free in-context classification", evaluationStatus: "Complete",
   },
