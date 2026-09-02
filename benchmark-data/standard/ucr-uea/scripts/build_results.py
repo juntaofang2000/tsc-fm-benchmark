@@ -8,7 +8,7 @@ import hashlib
 import json
 import math
 from collections import defaultdict
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Iterable
 
@@ -37,6 +37,7 @@ class Suite:
     protocol_id: str
     datasets: list[DatasetKey]
     methods: list[str]
+    auto_discover_methods: bool
     output_prefix: str
     release_wide_output: str | None
 
@@ -87,14 +88,22 @@ def load_suites() -> tuple[dict[str, Suite], dict[str, Path]]:
         if len(datasets) != len(set(datasets)):
             raise ValueError(f"Suite {suite_id} selects a dataset more than once")
         methods = payload.get("methods", [])
-        if not methods or len(methods) != len(set(methods)):
+        auto_discover_methods = payload.get("auto_discover_methods", False)
+        if not isinstance(auto_discover_methods, bool):
+            raise ValueError(f"Suite {suite_id} auto_discover_methods must be boolean")
+        if len(methods) != len(set(methods)):
             raise ValueError(f"Suite {suite_id} must list unique methods")
+        if not methods and not auto_discover_methods:
+            raise ValueError(
+                f"Suite {suite_id} must list methods or enable auto_discover_methods"
+            )
         suite = Suite(
             suite_id=suite_id,
             display_name=payload["display_name"],
             protocol_id=payload["protocol_id"],
             datasets=datasets,
             methods=methods,
+            auto_discover_methods=auto_discover_methods,
             output_prefix=payload["output_prefix"],
             release_wide_output=payload.get("release_wide_output"),
         )
@@ -155,6 +164,71 @@ def average_tie_ranks(values: dict[str, float]) -> dict[str, float]:
             ranks[method] = average_rank
         index = end
     return ranks
+
+
+def observed_methods_for_suite(
+    suite: Suite,
+    facts: dict[tuple[str, str, str, str], float],
+) -> list[str]:
+    """Return every method with at least one valid fact in this suite."""
+    dataset_ids = {(key.archive, key.dataset) for key in suite.datasets}
+    return sorted({
+        method
+        for archive, dataset, method, protocol_id in facts
+        if protocol_id == suite.protocol_id and (archive, dataset) in dataset_ids
+    })
+
+
+def complete_methods_for_suite(
+    suite: Suite,
+    facts: dict[tuple[str, str, str, str], float],
+) -> set[str]:
+    """Discover methods with valid results for every selected dataset."""
+    return {
+        method
+        for method in observed_methods_for_suite(suite, facts)
+        if all(
+            (key.archive, key.dataset, method, suite.protocol_id) in facts
+            for key in suite.datasets
+        )
+    }
+
+
+def resolve_auto_discovered_methods(
+    suite: Suite,
+    facts: dict[tuple[str, str, str, str], float],
+) -> Suite:
+    if not suite.auto_discover_methods:
+        return suite
+    discovered = observed_methods_for_suite(suite, facts)
+    methods = list(dict.fromkeys([*suite.methods, *discovered]))
+    if not methods:
+        raise ValueError(f"Suite {suite.suite_id} discovered no methods")
+    return replace(suite, methods=methods)
+
+
+def assert_complete_methods_are_ranked(
+    suite: Suite,
+    facts: dict[tuple[str, str, str, str], float],
+    leaderboard_rows: list[dict],
+) -> None:
+    """Fail the build if a complete method is absent from the leaderboard."""
+    if not suite.auto_discover_methods:
+        return
+    complete = complete_methods_for_suite(suite, facts)
+    ranked = {row["method"] for row in leaderboard_rows}
+    omitted = sorted(complete - ranked)
+    unexpected = sorted(ranked - complete)
+    if omitted or unexpected:
+        details = []
+        if omitted:
+            details.append(f"complete but omitted: {', '.join(omitted)}")
+        if unexpected:
+            details.append(f"ranked without complete coverage: {', '.join(unexpected)}")
+        raise ValueError(
+            f"Suite {suite.suite_id} leaderboard completeness check failed; "
+            + "; ".join(details)
+        )
 
 
 def write_csv(path: Path, fieldnames: list[str], rows: Iterable[dict]) -> None:
@@ -304,18 +378,11 @@ def main() -> None:
     all_missing: list[dict] = []
     site_leaderboards: dict[str, dict] = {}
     for suite_id in selected_ids:
-        suite = suites[suite_id]
+        suite = resolve_auto_discovered_methods(suites[suite_id], facts)
         if args.no_release_wide and suite.release_wide_output:
-            suite = Suite(
-                suite_id=suite.suite_id,
-                display_name=suite.display_name,
-                protocol_id=suite.protocol_id,
-                datasets=suite.datasets,
-                methods=suite.methods,
-                output_prefix=suite.output_prefix,
-                release_wide_output=None,
-            )
+            suite = replace(suite, release_wide_output=None)
         coverage, missing, leaderboard = build_suite(suite, facts)
+        assert_complete_methods_are_ranked(suite, facts, leaderboard)
         all_coverage.extend(coverage)
         all_missing.extend(missing)
         site_leaderboards[suite_id] = {

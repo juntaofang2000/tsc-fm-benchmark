@@ -11,6 +11,9 @@ For Chinese instructions, see [README.zh-CN.md](README.zh-CN.md).
 `source/results_long.csv` is the only editable result source. Each row is one
 observed accuracy for one method, dataset, protocol, run, and seed.
 
+Suite files select datasets and protocols. Most suites list methods explicitly;
+`overall_198` discovers every observed Standard method automatically.
+
 ```text
 archive,dataset,method,protocol_id,run_id,seed,status,accuracy,source
 UCR,Adiac,ChorusTIC,paper-standard-v1,run-001,0,ok,0.823529,results/run-001.json
@@ -167,9 +170,15 @@ Existing method-dataset results are reused unchanged.
 
 ## Add a method
 
-1. Add the stable method name to the suite's `methods` array.
-2. Append available per-dataset facts to `source/results_long.csv`.
+1. Append available per-dataset facts to `source/results_long.csv`.
+2. For manually managed suites, add the stable method name to the suite's
+   `methods` array. Do not edit a method allowlist for `overall_198`.
 3. Run the builder and use `missing_results.csv` as the remaining work queue.
+
+`overall_198` sets `auto_discover_methods: true`. The builder scans every valid
+Standard fact under the suite protocol, reports coverage for every observed
+method, and automatically ranks each method that reaches `198 / 198`. The build
+fails if any complete method is absent from the generated Overall leaderboard.
 
 Adding an eligible method changes every method's average rank because ranks are
 recomputed within each dataset, but it does not require rerunning existing

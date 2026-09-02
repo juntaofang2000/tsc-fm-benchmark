@@ -37,6 +37,29 @@ function readAccuracyCsv(filename) {
   });
 }
 
+function assertOverallLeaderboardIsComplete(rows, leaderboardMethods) {
+  if (rows.length !== 198) {
+    throw new Error(`Expected 198 Overall accuracy rows, received ${rows.length}.`);
+  }
+  const ignoredColumns = new Set(["archive", "dataset"]);
+  const completeMethods = Object.keys(rows[0])
+    .filter((method) => !ignoredColumns.has(method))
+    .filter((method) => rows.every((row) => row[method] !== undefined
+      && row[method] !== ""
+      && Number.isFinite(Number(row[method]))));
+  const completeSet = new Set(completeMethods);
+  const leaderboardSet = new Set(leaderboardMethods);
+  const omitted = completeMethods.filter((method) => !leaderboardSet.has(method));
+  const unexpected = leaderboardMethods.filter((method) => !completeSet.has(method));
+  if (omitted.length || unexpected.length) {
+    const details = [
+      omitted.length ? `complete but omitted: ${omitted.join(", ")}` : "",
+      unexpected.length ? `ranked without complete coverage: ${unexpected.join(", ")}` : "",
+    ].filter(Boolean).join("; ");
+    throw new Error(`Overall leaderboard completeness check failed; ${details}`);
+  }
+}
+
 function average(values) {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
@@ -57,6 +80,10 @@ function averageRanks(scores) {
 
 const overallRows = standard.suites.overall_198.rows;
 const eligibleMethods = overallRows.map((row) => row.method);
+assertOverallLeaderboardIsComplete(
+  readAccuracyCsv("overall_198_per_dataset_accuracy.csv"),
+  eligibleMethods,
+);
 const multivariateDatasets = [
   ...readAccuracyCsv("uea_30_per_dataset_accuracy.csv"),
   ...readAccuracyCsv("mvcore66_only_40_per_dataset_accuracy.csv"),

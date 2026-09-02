@@ -7,19 +7,6 @@
     "uea_30",
     "mvcore66_only_40"
   ],
-  "methods": [
-    "ChorusTIC",
-    "MOMENT+SVM",
-    "MOMENT+RF",
-    "MOMENT+MLP",
-    "MOMENT+kNN",
-    "MOMENT+NC",
-    "UniShape+RF",
-    "NuTime+RF",
-    "MantisV2+LR",
-    "MantisV2+RF",
-    "TabICL",
-    "TabICLv2"
-  ],
+  "auto_discover_methods": true,
   "output_prefix": "overall_198"
 }
