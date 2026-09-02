@@ -98,9 +98,25 @@ export function CapabilityMapView({ data }: { data: CapabilityBundle }) {
 
       <section className="border-t border-border py-9">
         <div className="mb-5"><p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Aggregate evidence</p><h2 className="mt-1 text-2xl font-semibold tracking-tight">Condition-level detail</h2><p className="mt-1 text-sm text-muted-foreground">Every row is an aggregate; no dataset-level record is exposed or downloadable.</p></div>
+        <div className="mb-5 grid gap-4 rounded-xl border border-primary/20 bg-primary/[0.04] p-5 md:grid-cols-2" data-testid="capability-metric-definitions">
+          <div className="flex gap-3">
+            <Info className="mt-0.5 size-5 shrink-0 text-primary" />
+            <div>
+              <h3 className="font-semibold">How Paradigm Accuracy is aggregated</h3>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">{data.methodology.accuracyAggregation}</p>
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <Info className="mt-0.5 size-5 shrink-0 text-primary" />
+            <div>
+              <h3 className="font-semibold">What W / T / L is relative to</h3>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">{data.methodology.wtlDefinition}</p>
+            </div>
+          </div>
+        </div>
         <div className="overflow-x-auto rounded-xl border border-border" data-testid="capability-table">
           <table className="w-full min-w-[860px] text-sm">
-            <thead><tr className="border-b border-border bg-muted/50 text-xs text-muted-foreground"><th className="px-4 py-3 text-left">Condition</th><th className="px-4 py-3 text-left">Paradigm</th><th className="px-3 py-3 text-right">Accuracy</th><th className="px-3 py-3 text-right">Avg. Rank</th><th className="px-3 py-3 text-right">W / T / L</th><th className="px-3 py-3 text-right">Datasets</th><th className="px-4 py-3 text-right">Observations</th></tr></thead>
+            <thead><tr className="border-b border-border bg-muted/50 text-xs text-muted-foreground"><th className="px-4 py-3 text-left">Condition</th><th className="px-4 py-3 text-left">Paradigm</th><th className="px-3 py-3 text-right">Accuracy</th><th className="px-3 py-3 text-right">Avg. Rank</th><th className="px-3 py-3 text-right">W / T / L vs. displayed best</th><th className="px-3 py-3 text-right">Datasets</th><th className="px-4 py-3 text-right">Observations</th></tr></thead>
             <tbody>{cells.map((cell) => <tr key={`${cell.bin}-${cell.paradigm}`} className="border-b border-border last:border-0"><td className="px-4 py-3 font-medium">{property.bins.find((bin) => bin.key === cell.bin)?.label}</td><td className="px-4 py-3 text-muted-foreground">{cell.paradigm}</td><td className="px-3 py-3 text-right font-mono tabular-nums">{formatMetric(cell.meanAccuracy, "meanAccuracy")}</td><td className="px-3 py-3 text-right font-mono tabular-nums">{formatMetric(cell.meanRank, "meanRank")}</td><td className="px-3 py-3 text-right font-mono tabular-nums">{cell.wins} / {cell.ties} / {cell.losses}</td><td className="px-3 py-3 text-right font-mono tabular-nums">{cell.coverage}</td><td className="px-4 py-3 text-right font-mono tabular-nums">{cell.methodObservations}</td></tr>)}</tbody>
           </table>
         </div>

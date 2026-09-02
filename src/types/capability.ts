@@ -36,6 +36,8 @@ export interface CapabilityBundle {
     unit: string;
     missingness: string;
     weighting: string;
+    accuracyAggregation: string;
+    wtlDefinition: string;
     taxonomy: string;
     privacy: string;
   };

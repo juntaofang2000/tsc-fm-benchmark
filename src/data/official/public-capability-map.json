@@ -1694,6 +1694,8 @@
     "unit": "Dataset",
     "missingness": "Missing method–dataset results are excluded and are never replaced with zero.",
     "weighting": "Each contributing dataset receives equal weight within its selected condition bin.",
+    "accuracyAggregation": "For each dataset, Accuracy first averages all available method accuracies assigned to the paradigm or lens. These dataset-level scores are then averaged with equal dataset weight within the selected condition.",
+    "wtlDefinition": "W / T / L counts datasets where the paradigm- or lens-level score is uniquely best / tied for best / below the best among all displayed paradigms and lenses on that dataset. It is not a pairwise comparison against ChorusTIC or any fixed baseline; ties use a 1e-12 numerical tolerance.",
     "taxonomy": "Decision-interface groups are mutually exclusive; model-origin lenses may overlap and are descriptive only.",
     "privacy": "Only aggregate condition-level statistics are published. Dataset identities and source mappings are excluded."
   }
