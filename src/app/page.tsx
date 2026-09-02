@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { benchmarkProfile, evaluationTracks } from "@/data/demo/benchmarks";
 import { getLeaderboard } from "@/lib/data/leaderboard";
 
-const scope = ["198 datasets", "Univariate", "Multivariate", "Low-shot", "OOD", "Training-Free / ICL", "Frozen-Probe"];
+const scope = ["198 datasets", "Univariate", "Multivariate", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
 
 export default async function Home() {
   const leaders = await getLeaderboard({ track: "Overall", limit: 5 });
@@ -29,7 +29,7 @@ export default async function Home() {
               Benchmarking Foundation Models for <span className="text-primary">Time Series Classification</span>
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
-              A unified benchmark spanning 198 unique time series classification datasets, five evaluation tracks, and comparable dataset-level reporting.
+              A unified benchmark spanning 198 unique time series classification datasets, four evaluation tracks, and comparable dataset-level reporting.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild><Link href="/leaderboard">Explore Leaderboard <ArrowRight className="size-4" /></Link></Button>

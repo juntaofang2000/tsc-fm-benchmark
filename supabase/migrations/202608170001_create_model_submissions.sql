@@ -12,7 +12,7 @@ create table if not exists public.model_submissions (
   huggingface_revision text not null check (huggingface_revision ~ '^[0-9a-f]{40}$'),
   huggingface_snapshot_url text not null,
   contact_email text not null,
-  evaluation_track text not null check (evaluation_track in ('Standard', 'Low-shot', 'OOD', 'Training-Free / ICL', 'Frozen-Probe')),
+  evaluation_track text not null check (evaluation_track in ('Standard', 'Low-shot', 'Training-Free / ICL', 'Frozen-Probe')),
   license text,
   environment_requirements text,
   model_description text,

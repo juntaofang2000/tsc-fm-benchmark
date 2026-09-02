@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import type { BenchmarkScope, LeaderboardEntry, LowShotSetting, Track } from "@/types";
 import { LeaderboardTable } from "./leaderboard-table";
 
-const tracks: Track[] = ["Overall", "Standard", "Low-shot", "OOD", "Training-Free / ICL", "Frozen-Probe"];
+const tracks: Track[] = ["Overall", "Standard", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
 const benchmarkOptions = ["Overall", "Univariate", "Multivariate"] as const;
 const lowShotSettings = ["5-shot", "10-shot"] as const;
 
@@ -23,7 +23,6 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
     if (track === "Standard") return standardEntries[benchmark];
     if (track === "Low-shot") return lowShotEntries[lowShotSetting][lowShotBenchmark];
     if (track === "Overall") return standardEntries.Overall;
-    if (track === "OOD") return [];
     return standardEntries.Overall
       .filter((entry) => entry.tracks.includes(track))
       .map((entry, index) => ({ ...entry, rank: index + 1 }));
@@ -113,10 +112,6 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
           every displayed rank is recomputed within this exact modality view, and missing results are never filled with zero.
         </p>
       )}
-      {track === "OOD" && (
-        <p className="mt-3 text-xs leading-5 text-muted-foreground">OOD remains a Demo track until verified per-dataset results are available.</p>
-      )}
-
       <div className="mt-4">
         <LeaderboardTable
           data={filtered}

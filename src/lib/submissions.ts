@@ -8,7 +8,6 @@ export const MODEL_CATEGORIES = [
 export const EVALUATION_TRACKS = [
   "Standard",
   "Low-shot",
-  "OOD",
   "Training-Free / ICL",
   "Frozen-Probe",
 ] as const;

@@ -2,7 +2,6 @@ export type Track =
   | "Overall"
   | "Standard"
   | "Low-shot"
-  | "OOD"
   | "Training-Free / ICL"
   | "Frozen-Probe";
 
