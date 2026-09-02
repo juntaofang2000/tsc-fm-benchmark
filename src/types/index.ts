@@ -45,7 +45,9 @@ export interface Method {
   paperUrl: string | null;
   codeUrl: string | null;
   checkpointUrl: string | null;
+  checkpointName: string;
   parameterCount: string | null;
+  evaluatedConfigurations: string[];
   inputType: string;
   inferenceParadigm: string;
   evaluationStatus: "Complete" | "Partial" | "Planned";

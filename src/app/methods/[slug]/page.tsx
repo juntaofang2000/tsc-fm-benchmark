@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { MethodDetailTabs } from "@/components/method/method-detail-tabs";
 import { MethodHeader } from "@/components/method/method-header";
 import { getLeaderboardEntry } from "@/lib/data/leaderboard";
-import { getMethod, getMethods } from "@/lib/data/methods";
+import { getMethod, getMethodStaticSlugs } from "@/lib/data/methods";
 
-export async function generateStaticParams() { return (await getMethods()).map((method) => ({ slug: method.slug })); }
+export async function generateStaticParams() { return (await getMethodStaticSlugs()).map((slug) => ({ slug })); }
 
 export default async function MethodPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

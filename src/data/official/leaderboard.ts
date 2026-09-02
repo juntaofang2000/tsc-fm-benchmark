@@ -1,6 +1,7 @@
 import "server-only";
 
 import publicGenerated from "./public-leaderboards.json";
+import { methodForModelName } from "./methods";
 import type {
   BenchmarkScope,
   EvaluationType,
@@ -47,12 +48,13 @@ function metadata(method: string): { category: string; evaluationType: Evaluatio
 function makeEntry(row: PublicRow, tracks: Track[], scope: BenchmarkScope | "Low-shot"): LeaderboardEntry {
   const slug = methodSlug(row.method);
   const methodMetadata = metadata(row.method);
+  const catalogMethod = methodForModelName(row.method);
   return {
     id: slug,
     rank: row.rank,
     model: row.method,
     slug,
-    organization: "—",
+    organization: catalogMethod?.organization ?? "—",
     category: methodMetadata.category,
     avgAccuracy: row.avgAccuracy,
     avgRank: row.avgRank,
@@ -60,9 +62,9 @@ function makeEntry(row: PublicRow, tracks: Track[], scope: BenchmarkScope | "Low
     multivariateAccuracy: scope === "Multivariate" ? row.avgAccuracy : (row.multivariateAccuracy ?? null),
     coverage: row.coverage,
     evaluationType: methodMetadata.evaluationType,
-    paperUrl: null,
-    codeUrl: null,
-    checkpointUrl: null,
+    paperUrl: catalogMethod?.paperUrl ?? null,
+    codeUrl: catalogMethod?.codeUrl ?? null,
+    checkpointUrl: catalogMethod?.checkpointUrl ?? null,
     tracks,
   };
 }
