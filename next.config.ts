@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import methodAliases from "./src/config/method-aliases.json";
 
 const isGitHubPages = process.env.BUILD_TARGET === "github-pages";
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
@@ -9,6 +10,7 @@ const basePath =
     : "";
 
 const nextConfig: NextConfig = {
+  ...(!isGitHubPages ? { redirects: async () => Object.entries(methodAliases).map(([alias, canonical]) => ({ source: `/methods/${alias}`, destination: `/methods/${canonical}`, permanent: true })) } : {}),
   ...(isGitHubPages
     ? {
         output: "export" as const,

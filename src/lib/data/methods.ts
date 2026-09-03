@@ -1,4 +1,4 @@
-import { canonicalMethodSlug, methodAliases, officialMethods } from "@/data/official/methods";
+import { canonicalMethodSlug, officialMethods } from "@/data/official/methods";
 
 export async function getMethods() {
   return officialMethods;
@@ -10,5 +10,5 @@ export async function getMethod(slug: string) {
 }
 
 export async function getMethodStaticSlugs() {
-  return [...officialMethods.map((method) => method.slug), ...Object.keys(methodAliases)];
+  return officialMethods.map((method) => method.slug);
 }

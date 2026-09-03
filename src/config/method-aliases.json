@@ -1,0 +1,7 @@
+{
+  "mantis-knn": "mantis", "mantis-lr": "mantis", "mantis-mlp": "mantis", "mantis-nc": "mantis",
+  "mantis-rf": "mantis", "mantis-scaledlr": "mantis", "mantis-svm": "mantis",
+  "mantisv2-lr": "mantisv2", "mantisv2-rf": "mantisv2", "mantisv2-scaledlr": "mantisv2",
+  "moment-knn": "moment", "moment-lr": "moment", "moment-mlp": "moment", "moment-nc": "moment",
+  "moment-rf": "moment", "moment-svm": "moment", "nutime-rf": "nutime", "unishape-rf": "unishape"
+}

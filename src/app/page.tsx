@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { benchmarkProfile, evaluationTracks } from "@/data/demo/benchmarks";
 import { getLeaderboard } from "@/lib/data/leaderboard";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/");
 
 const scope = ["198 datasets", "Univariate", "Multivariate", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
 

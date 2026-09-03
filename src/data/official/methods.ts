@@ -1,4 +1,5 @@
 import type { Method } from "@/types";
+import aliases from "@/config/method-aliases.json";
 
 // One catalog entry represents one pretrained model. Classifier heads remain
 // separate on the leaderboard because they are distinct evaluated settings.
@@ -102,13 +103,7 @@ export const officialMethods: Method[] = [
   },
 ];
 
-export const methodAliases: Record<string, string> = {
-  "mantis-knn": "mantis", "mantis-lr": "mantis", "mantis-mlp": "mantis", "mantis-nc": "mantis",
-  "mantis-rf": "mantis", "mantis-scaledlr": "mantis", "mantis-svm": "mantis",
-  "mantisv2-lr": "mantisv2", "mantisv2-rf": "mantisv2", "mantisv2-scaledlr": "mantisv2",
-  "moment-knn": "moment", "moment-lr": "moment", "moment-mlp": "moment", "moment-nc": "moment",
-  "moment-rf": "moment", "moment-svm": "moment", "nutime-rf": "nutime", "unishape-rf": "unishape",
-};
+export const methodAliases: Record<string, string> = aliases;
 
 export function canonicalMethodSlug(slug: string) { return methodAliases[slug] ?? slug; }
 

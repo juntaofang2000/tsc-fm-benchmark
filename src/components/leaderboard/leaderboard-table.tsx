@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import { EmptyState } from "@/components/shared/empty-state";
 import { cn, formatMetric } from "@/lib/utils";
 import type { BenchmarkScope, EvaluationType, LeaderboardEntry } from "@/types";
+import { canonicalMethodSlug } from "@/data/official/methods";
 
 const evaluationTypes: Array<EvaluationType | "All types"> = [
   "All types",
@@ -57,7 +58,7 @@ function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<Leader
     cell: ({ row }) => (
       <div className="min-w-0">
         <div className="flex min-w-0 items-center gap-2">
-          <Link href={`/methods/${row.original.slug}`} className="truncate font-medium hover:text-primary">{row.original.model}</Link>
+          <Link href={`/methods/${canonicalMethodSlug(row.original.slug)}`} className="truncate font-medium hover:text-primary">{row.original.model}</Link>
         </div>
         {row.original.organization !== "—" && <p className="mt-0.5 truncate text-xs text-muted-foreground">{row.original.organization}</p>}
       </div>

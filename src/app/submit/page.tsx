@@ -6,7 +6,9 @@ import { siteConfig } from "@/config/site";
 
 const steps = ["Revision locking", "Administrator review", "Evaluation server download", "Official benchmark execution", "Result verification and publication"];
 
-export const metadata = { title: "Submit a Model" };
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata("/submit");
 
 export default function SubmitPage() {
   if (siteConfig.isStaticMirror) {

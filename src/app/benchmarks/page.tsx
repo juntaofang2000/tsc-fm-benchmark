@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { benchmarkProfile } from "@/data/demo/benchmarks";
 
-export const metadata = {
-  title: "Dataset Profile",
-  description: "Aggregate composition and evaluation principles for the 198-dataset TSC-FM Benchmark.",
-};
+import { pageMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/shared/breadcrumbs";
+
+export const metadata = pageMetadata("/benchmarks");
 
 const stats = [
   { label: "Total datasets", value: 198, detail: "100% of the benchmark" },
   { label: "Univariate", value: 128, detail: "64.6% of datasets" },
   { label: "Multivariate", value: 70, detail: "35.4% of datasets" },
-  { label: "Evaluation tracks", value: 5, detail: "Protocol-separated reporting" },
+  { label: "Evaluation tracks", value: benchmarkProfile.trackCount, detail: "Protocol-separated reporting" },
 ];
 
 const principles = [
@@ -27,6 +27,7 @@ const principles = [
 export default function DatasetProfilePage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Dataset Profile", path: "/benchmarks" }]} />
       <PageHeader
         eyebrow="Dataset profile"
         title="Benchmark Composition"

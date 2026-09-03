@@ -1,0 +1,7 @@
+{
+  "name": "TSC-FM Benchmark",
+  "shortName": "TSC-FM",
+  "primaryUrl": "https://tsc-fm-benchmark.vercel.app",
+  "title": "Time Series Classification Foundation Model Benchmark",
+  "description": "Compare time series classification foundation models across 198 datasets, with univariate, multivariate and low-shot results, capability analysis and model submissions."
+}

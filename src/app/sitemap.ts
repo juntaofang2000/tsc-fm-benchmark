@@ -1,14 +1,12 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/config/site";
+import { seoPages } from "@/config/seo-pages";
+import { officialMethods } from "@/data/official/methods";
+import { canonicalUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
-const publicRoutes = ["", "/leaderboard", "/benchmarks", "/capability-map", "/methods", "/evaluation", "/submit"];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return publicRoutes.map((route, index) => ({
-    url: `${siteConfig.primaryUrl}${route}`,
-    changeFrequency: index === 0 ? "weekly" : "monthly",
-    priority: index === 0 ? 1 : 0.8,
-  }));
+  // Only canonical, indexable pages. Do not invent lastmod dates at build time.
+  return [...seoPages.map((page) => page.path), ...officialMethods.map((method) => `/methods/${method.slug}`)]
+    .map((path) => ({ url: canonicalUrl(path) }));
 }

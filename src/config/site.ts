@@ -1,13 +1,14 @@
+import identity from "./site-identity.json";
+
+const primary = new URL(process.env.NEXT_PUBLIC_PRIMARY_SITE_URL || identity.primaryUrl);
+if (primary.protocol !== "https:" || primary.pathname !== "/" || primary.search || primary.hash || primary.username || primary.password) {
+  throw new Error("The primary SEO URL must be an HTTPS origin, without a path, query or credentials.");
+}
+
 export const siteConfig = {
-  name: "TSC-FM Benchmark",
-  shortName: "TSC-FM",
-  title: "TSC-FM Benchmark",
-  description:
-    "A unified benchmark and leaderboard for time series classification foundation models.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  primaryUrl:
-    process.env.NEXT_PUBLIC_PRIMARY_SITE_URL ||
-    "https://tsc-fm-benchmark.vercel.app",
+  ...identity,
+  url: primary.origin,
+  primaryUrl: primary.origin,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   isStaticMirror:
     process.env.NEXT_PUBLIC_DEPLOYMENT_TARGET === "github-pages",

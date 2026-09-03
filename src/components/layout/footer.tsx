@@ -15,6 +15,8 @@ export function Footer() {
           <Link href="/benchmarks" className="hover:text-foreground">Dataset Profile</Link>
           <Link href="/capability-map" className="hover:text-foreground">Capability Map</Link>
           <Link href="/evaluation" className="hover:text-foreground">Evaluation</Link>
+          <Link href="/methods" className="hover:text-foreground">Methods</Link>
+          <Link href="/submit" className="hover:text-foreground">Submit a Model</Link>
           <a href={siteConfig.links.huggingFace} target="_blank" rel="noreferrer" className="hover:text-foreground">Hugging Face</a>
         </div>
       </div>

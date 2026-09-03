@@ -4,7 +4,10 @@ import { PageHeader } from "@/components/shared/page-header";
 import { VerifiedResultsBadge } from "@/components/shared/verified-results-badge";
 import { getLowShotLeaderboards, getStandardLeaderboards } from "@/lib/data/leaderboard";
 
-export const metadata = { title: "Leaderboard" };
+import { pageMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/shared/breadcrumbs";
+
+export const metadata = pageMetadata("/leaderboard");
 
 export default async function LeaderboardPage() {
   const [standardEntries, lowShotEntries] = await Promise.all([
@@ -13,6 +16,7 @@ export default async function LeaderboardPage() {
   ]);
   return (
     <>
+      <Breadcrumbs items={[{ name: "Leaderboard", path: "/leaderboard" }]} />
       <PageHeader
         compact
         eyebrow="Unified ranking"

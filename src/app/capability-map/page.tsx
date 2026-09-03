@@ -3,14 +3,15 @@ import { CapabilityMapView } from "@/components/capability/capability-map-view";
 import capabilityData from "@/data/official/public-capability-map.json";
 import type { CapabilityBundle } from "@/types/capability";
 
-export const metadata = {
-  title: "Capability Map",
-  description: "Hierarchical capability analysis across a fixed 198-dataset core, 12 complete configurations, and 7 model backbones.",
-};
+import { pageMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/shared/breadcrumbs";
+
+export const metadata = pageMetadata("/capability-map");
 
 export default function CapabilityMapPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Capability Map", path: "/capability-map" }]} />
       <PageHeader
         eyebrow="Aggregate analysis"
         title="Capability Map"
