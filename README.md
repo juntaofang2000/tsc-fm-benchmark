@@ -76,7 +76,7 @@ The Standard Overall leaderboard uses verified per-dataset accuracy records. Its
 1. Push this directory to a Git repository.
 2. Import the repository in Vercel.
 3. Keep the detected framework as Next.js.
-4. Set `NEXT_PUBLIC_SITE_URL` to the production URL.
+4. The production canonical origin is `https://tsc-fm.dmirlab.com`, configured in `src/config/site-identity.json`. Use `NEXT_PUBLIC_PRIMARY_SITE_URL` only when intentionally overriding it; `NEXT_PUBLIC_SITE_URL` is used for the static mirror's asset origin.
 5. Configure the Supabase submission variables described below.
 6. Deploy using the default build command (`next build`).
 

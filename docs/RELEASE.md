@@ -24,6 +24,10 @@ Research data, calculations, copy, model catalog and SEO metadata must remain co
 
 ## SEO configuration and future domain change
 
+The primary canonical origin is `https://tsc-fm.dmirlab.com`. The previous `tsc-fm-benchmark.vercel.app` host stays attached to the same Vercel project and serves host-specific HTTP 301 redirects to matching new URLs, including direct alias-to-canonical redirects. Query parameters are preserved. Keep these redirects for at least one year after the September 3, 2026 migration, preferably longer.
+
+The old host's `/robots.txt` and `/google97f75c01e0f4500a.html` remain directly accessible for crawling and ownership checks. `/api` paths are excluded so existing submission clients preserve their request methods and bodies. Do not replace this configuration with a blanket Vercel domain redirect, which would also redirect verification and API paths. GitHub Pages stays a content mirror with canonical URLs pointing to the new primary.
+
 `src/config/site-identity.json` is the default canonical origin; `NEXT_PUBLIC_PRIMARY_SITE_URL` can override it. Do not set a future domain until DNS, TLS and primary hosting are verified. Then redirect the old primary, update the shared origin, rebuild/redeploy both sites and rerun the live check.
 
 `src/config/seo-pages.ts` defines public page metadata; `src/config/method-aliases.json` defines consolidated method routes. The sitemap includes canonical model pages and omits demo/alias pages. Share cards are generated at build time, not fetched from an external image service.
