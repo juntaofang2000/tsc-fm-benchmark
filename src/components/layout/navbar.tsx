@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Boxes, Menu, X } from "lucide-react";
@@ -12,9 +13,9 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 
 function Brand() {
   return (
-    <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-      <span className="flex size-7 items-center justify-center rounded-md bg-primary text-xs font-bold text-primary-foreground">CT</span>
-      <span className="whitespace-nowrap">TSC-FM <span className="hidden text-muted-foreground lg:inline">Benchmark</span></span>
+    <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-tight sm:text-base">
+      <Image src={`${siteConfig.basePath}/tsc-fm-mark.svg`} width={32} height={32} alt="" aria-hidden="true" unoptimized loading="eager" className="size-8 shrink-0" />
+      <span className="whitespace-nowrap">TSC-FM <span className="font-normal text-muted-foreground">Benchmark</span></span>
     </Link>
   );
 }
