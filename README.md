@@ -253,4 +253,6 @@ The first Supabase integration is limited to submission intake and manual review
 
 ## License
 
+The browser tab icon uses the original DMIR laboratory mark from the [laboratory website](https://dmir.gdut.edu.cn/), stored locally as `public/dmir-lab-icon.png` so it is available on both the primary site and the static mirror without a third-party image request. [Original image](https://dmir.gdut.edu.cn/g_d_g_y_d_x_s_j_w_j_y_x_x_j_s_s_y_s__files/images/dmirlogo.png).
+
 TODO: Select and add an explicit project license before public release.

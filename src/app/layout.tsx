@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: "TSC-FM Benchmark",
   verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
-  icons: { icon: `${siteConfig.basePath}/favicon.svg` },
+  icons: { icon: { url: `${siteConfig.basePath}/dmir-lab-icon.png`, type: "image/png" } },
 };
 
 export const viewport: Viewport = { colorScheme: "light dark", themeColor: [{ media: "(prefers-color-scheme: light)", color: "#ffffff" }, { media: "(prefers-color-scheme: dark)", color: "#09090b" }] };
