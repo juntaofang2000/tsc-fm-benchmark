@@ -1,8 +1,8 @@
-# ChorusTIC Benchmark
+# TSC-FM Benchmark
 
 ## Overview
 
-ChorusTIC Benchmark is a professional research benchmark and leaderboard demo for Time Series Classification Foundation Models (TSC-FMs). The current release is a static, presentation-ready frontend. Its architecture separates page components from data access so the future evaluation backend can be introduced without rebuilding the product interface.
+TSC-FM Benchmark is a research benchmark and leaderboard for Time Series Classification Foundation Models (TSC-FMs). The canonical site publishes verified Standard and Low-shot results, aggregate dataset and capability analysis, method pages, an evaluation protocol, and a live model-submission intake. ChorusTIC is one of the evaluated models; it is not the name of the benchmark.
 
 ## Features
 
@@ -10,10 +10,10 @@ ChorusTIC Benchmark is a professional research benchmark and leaderboard demo fo
 - Sortable, searchable, filterable, paginated TanStack tables
 - Aggregate benchmark-composition and capability-map pages
 - Method registry and dynamic method detail pages
-- Scientific evaluation protocol and planned pipeline
+- Scientific evaluation protocol with an explicit boundary between active review and planned automated execution
 - Persistent model submission form with immutable GitHub and Hugging Face revisions
 - Responsive navigation, mobile tables, and Light / Dark / System themes
-- Explicit Demo Data labelling and null-safe metric display
+- Null-safe metric display and a separate noindex form demo for interface testing
 
 ## Tech Stack
 
@@ -48,7 +48,7 @@ Open `http://localhost:3000`.
 src/
   app/                       Next.js routes
     leaderboard/
-    benchmarks/[slug]/
+    benchmarks/
     methods/[slug]/
     evaluation/
     submit/
@@ -62,14 +62,15 @@ src/
     shared/
     ui/
   config/site.ts             External links and site configuration
-  data/demo/                 Illustrative demo records
+  data/official/             Published benchmark profiles, methods, leaderboards, and capability aggregates
+  data/demo/                 Illustrative records used only by explicitly marked demo surfaces
   lib/data/                  Replaceable data-access functions
   types/                     Strict benchmark domain types
 ```
 
 ## Official and Demo Data
 
-The Standard Overall leaderboard uses verified per-dataset accuracy records. Its deduplicated union contains 198 datasets, with each unique dataset counted once and receiving equal weight. Only methods with complete 198/198 coverage are ranked. Low-shot remains a separate official track with 5- and 10-labels-per-class settings.
+The Standard Overall leaderboard uses verified per-dataset accuracy records. Its deduplicated union contains 198 datasets, with each unique dataset counted once and receiving equal weight. Only methods with complete 198/198 coverage are ranked. The public Low-shot leaderboard is a separate official track with 5- and 10-labels-per-class settings. The source pipeline also generates 1-shot audit tables, but they are not published in the site-facing leaderboard bundle.
 
 ## Deployment
 
@@ -100,11 +101,13 @@ To enable collection after deployment, open the project in the Vercel dashboard,
 
 ## Model Submission Backend
 
-The `/submit` form stores metadata only. It does not upload or execute third-party files. Every submission must identify:
+The `/submit` form stores metadata only. It does not upload or execute third-party files. Every initial submission must identify:
 
 - a public GitHub repository, with an optional full 40-character commit SHA;
 - a public Hugging Face model repository, with an optional full 40-character revision SHA;
-- contact, license, environment, and evaluation-track metadata.
+- a contact email and requested evaluation track.
+
+License and environment details are optional during initial intake and can be required during review before publication.
 
 When a revision is omitted, the server resolves the repository's current `main` revision and stores the resulting full SHA. The fixed revisions make later review and evaluation reproducible even if a repository's default branch changes.
 
@@ -197,21 +200,21 @@ python benchmark-data/low-shot/ucr-uea/scripts/import_local_results.py --source-
 python benchmark-data/low-shot/ucr-uea/scripts/build_results.py
 ```
 
-Low-shot rankings are generated independently for every shot budget and benchmark scope. The feasible dataset counts are 158/140/121 for Overall at 1/5/10-shot and 66/63/59 for MVCore66. Missing values remain blank and never become zero. ChorusTIC is imported from its UCR, UEA, and MVCore66 per-dataset files, with the checked `InsectWingbeatSubset` rerun supplement completing UEA coverage. UniShape summary-only files are recorded in the manifest but excluded from official rankings until per-dataset results are available.
+Low-shot audit rankings are generated independently for every shot budget and benchmark scope. The feasible dataset counts are 158/140/121 for Overall at 1/5/10-shot and 66/63/59 for MVCore66. The public adapter intentionally publishes only 5- and 10-shot results. Missing values remain blank and never become zero. ChorusTIC is imported from its UCR, UEA, and MVCore66 per-dataset files, with the checked `InsectWingbeatSubset` rerun supplement completing UEA coverage. UniShape summary-only files are recorded in the manifest but excluded from official rankings until per-dataset results are available.
 
 The GitHub Pages workflow reruns both Standard and Low-shot aggregation commands and rejects deployment if the checked generated tables do not match the long tables. Do not edit either `generated/` directory manually.
 
-The site-facing adapter at `src/data/official/leaderboard.ts` imports the generated JSON reports directly; there is no separate hand-maintained method list or score snapshot. Remaining illustrative interface data is under:
+The site-facing adapter at `src/data/official/leaderboard.ts` imports the generated JSON reports directly; there is no separate hand-maintained score snapshot. Remaining illustrative interface data is under:
 
 ```text
 src/data/demo/
 ```
 
-Pages read data through `src/lib/data/leaderboard.ts`, `benchmarks.ts`, and `methods.ts`. When the backend arrives, replace the implementations of those functions rather than rewriting page components.
+Pages read leaderboard and method data through the adapters in `src/lib/data/`. Benchmark-wide published counts and track descriptions live in `src/data/official/benchmark-profile.ts`.
 
 ## Capability Map
 
-`/capability-map` analyses the verified per-dataset UCR/UEA accuracy facts by task condition. It reports mean accuracy, mean rank, dataset-level 95% bootstrap confidence intervals, win/tie/loss counts, and actual coverage. Missing method-dataset results are excluded and are never converted to zero.
+`/capability-map` analyses the verified per-dataset UCR/UEA accuracy facts by task condition. The public page exposes only fixed-core aggregates: mean accuracy, mean group rank, best/tied-best/other counts, and actual coverage. It does not ship dataset names, source paths, or dataset-level result rows. Missing method-dataset results are excluded and are never converted to zero.
 
 The static page bundle is generated by:
 
@@ -219,34 +222,25 @@ The static page bundle is generated by:
 ../时序基模发布/release/ChorusTIC/UCR_UEA_per_dataset_results/scripts/build_capability_map.py
 ```
 
-On the first run, pass the UCR and UEA archive roots so the script can create `generated/capability_dataset_metadata.csv`. Later result-only updates can reuse that metadata cache and only regenerate the aggregate JSON. The website copy is stored at `src/data/official/capability-map.json`.
+On the first run, pass the UCR and UEA archive roots so the script can create `generated/capability_dataset_metadata.csv`. Later result-only updates can reuse that metadata cache and only regenerate the aggregate JSON. The sanitized website copy is stored at `src/data/official/public-capability-map.json`.
 
 The current task buckets and reviewed domain taxonomy are documented in the generated bundle. Standard and Low-shot results remain separate from this analysis.
 
 Directional “advantage” summaries require at least 10 paired datasets, a paired-bootstrap 95% interval above zero, and a two-sided exact sign test with Holm correction below 0.05. Model-origin lenses can overlap, so significance claims are restricted to the mutually exclusive decision-interface paradigms.
 
-## Future Architecture
+## Architecture Status
 
-- Frontend: Vercel + Next.js
-- Database: Supabase PostgreSQL
-- Authentication: Supabase Auth
-- Submission metadata: Supabase
-- Artifacts: Object Storage / Hugging Face
-- Evaluation API: FastAPI
-- Evaluation Queue: Redis-based queue
-- Evaluation Worker: Independent GPU Server
-- Sandbox: Docker
+- Active frontend: Vercel + Next.js
+- Active submission metadata and manual review: Supabase PostgreSQL
+- Active immutable source resolution: GitHub commits and Hugging Face revisions
+- Planned public accounts and status lookup: Supabase Auth
+- Planned evaluation API: FastAPI
+- Planned evaluation queue and GPU worker
+- Planned sandboxed execution: Docker
 
 ```text
-Browser
-  -> Next.js
-  -> Supabase
-  -> Evaluation Queue
-  -> GPU Worker
-  -> Official Evaluation Script
-  -> Results
-  -> Supabase
-  -> Leaderboard
+Active:  Browser -> Next.js -> Supabase intake -> Manual review
+Planned: Manual review -> Evaluation queue -> GPU worker -> Verified result publication
 ```
 
 The first Supabase integration is limited to submission intake and manual review. Public accounts, status lookup, artifact uploads, automatic queues, and GPU execution remain future work.

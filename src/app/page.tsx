@@ -5,7 +5,7 @@ import { VerifiedResultsBadge } from "@/components/shared/verified-results-badge
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { benchmarkProfile, evaluationTracks } from "@/data/demo/benchmarks";
+import { benchmarkProfile, evaluationTracks } from "@/data/official/benchmark-profile";
 import { getLeaderboard } from "@/lib/data/leaderboard";
 import { pageMetadata } from "@/lib/seo";
 

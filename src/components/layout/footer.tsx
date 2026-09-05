@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <p className="font-semibold">TSC-FM Benchmark</p>
           <p className="mt-1 max-w-md text-sm text-muted-foreground">Time Series Classification Foundation Model Benchmark</p>
-          <p className="mt-3 text-xs text-muted-foreground">Maintained by <a href={siteConfig.maintainer.url} target="_blank" rel="noreferrer" className="font-medium text-foreground hover:text-primary">{siteConfig.maintainer.name}</a> · <a href={`mailto:${siteConfig.maintainer.email}`} className="hover:text-foreground">{siteConfig.maintainer.email}</a></p>
+          <p className="mt-3 text-xs text-muted-foreground">Maintained by <a href={siteConfig.maintainer.url} target="_blank" rel="noreferrer" className="font-medium text-foreground hover:text-primary">{siteConfig.maintainer.name}</a> · Contact <a href={siteConfig.maintainer.contactUrl} target="_blank" rel="noreferrer" className="hover:text-foreground">{siteConfig.maintainer.contactName}</a> · <a href={`mailto:${siteConfig.maintainer.email}`} className="hover:text-foreground">{siteConfig.maintainer.email}</a></p>
         </div>
         <div className="flex flex-wrap content-start gap-x-6 gap-y-3 text-sm text-muted-foreground">
           <Link href="/leaderboard" className="hover:text-foreground">Leaderboard</Link>

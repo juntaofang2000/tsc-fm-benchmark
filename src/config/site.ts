@@ -16,8 +16,10 @@ export const siteConfig = {
     huggingFace: "https://huggingface.co/TSC-FM",
   },
   maintainer: {
-    name: "Juntao Fang",
-    url: "https://juntaofang2000.github.io/",
+    name: "DMIR Lab",
+    url: "https://dmir.gdut.edu.cn/",
+    contactName: "Juntao Fang",
+    contactUrl: "https://juntaofang2000.github.io/",
     email: "fangjuntao1@mails.gdut.edu.cn",
   },
   nav: [

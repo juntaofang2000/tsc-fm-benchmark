@@ -1,7 +1,7 @@
 import release from "../../../../../public/release.json";
 import { siteConfig } from "@/config/site";
 import capabilityData from "@/data/official/public-capability-map.json";
-import { benchmarkProfile, evaluationTracks } from "@/data/demo/benchmarks";
+import { benchmarkProfile, evaluationTracks } from "@/data/official/benchmark-profile";
 import { getLeaderboard } from "@/lib/data/leaderboard";
 
 export const dynamic = "force-static";

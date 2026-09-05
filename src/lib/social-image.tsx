@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/config/site";
-import { benchmarkProfile } from "@/data/demo/benchmarks";
+import { benchmarkProfile } from "@/data/official/benchmark-profile";
 
 export function socialImage({ title, description }: { title: string; description: string }) {
   return new ImageResponse(

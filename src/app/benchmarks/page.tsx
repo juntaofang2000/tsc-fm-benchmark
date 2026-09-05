@@ -3,7 +3,7 @@ import { ArrowRight, BarChart3, CheckCircle2, Layers3, Scale } from "lucide-reac
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { benchmarkProfile } from "@/data/demo/benchmarks";
+import { benchmarkProfile } from "@/data/official/benchmark-profile";
 
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";

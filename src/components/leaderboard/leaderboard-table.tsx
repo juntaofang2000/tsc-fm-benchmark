@@ -41,7 +41,7 @@ function Metric({ value }: { value: number | null }) {
 function ExternalIcon({ href, kind }: { href: string | null; kind: "paper" | "code" }) {
   if (!href) return <span className="text-muted-foreground">—</span>;
   const Icon = kind === "paper" ? FileText : Code2;
-  return <a href={href} aria-label={`${kind} link`} className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"><Icon className="size-4" /></a>;
+  return <a href={href} target="_blank" rel="noreferrer" aria-label={`${kind} link`} className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"><Icon className="size-4" /></a>;
 }
 
 function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<LeaderboardEntry>[] {

@@ -5,6 +5,13 @@ import type { BenchmarkScope, LeaderboardEntry, LowShotSetting, Track } from "@/
 import { LeaderboardTable } from "./leaderboard-table";
 
 const tracks: Track[] = ["Overall", "Standard", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
+const trackLabels: Record<Track, string> = {
+  Overall: "Overall Summary",
+  Standard: "Standard",
+  "Low-shot": "Low-shot",
+  "Training-Free / ICL": "Training-Free / ICL",
+  "Frozen-Probe": "Frozen-Probe",
+};
 const benchmarkOptions = ["Overall", "Univariate", "Multivariate"] as const;
 const lowShotSettings = ["5-shot", "10-shot"] as const;
 
@@ -34,7 +41,7 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
 
   return (
     <div>
-      <div className="no-scrollbar flex gap-1 overflow-x-auto border-b border-border" role="tablist" aria-label="Leaderboard track">
+      <div className="no-scrollbar flex gap-1 overflow-x-auto border-b border-border" role="tablist" aria-label="Leaderboard view">
         {tracks.map((item) => (
           <button
             key={item}
@@ -45,7 +52,7 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
               ? "border-b-2 border-primary px-3 py-3 text-sm font-medium text-foreground"
               : "border-b-2 border-transparent px-3 py-3 text-sm text-muted-foreground hover:text-foreground"}
           >
-            {item}
+            {trackLabels[item]}
           </button>
         ))}
       </div>
