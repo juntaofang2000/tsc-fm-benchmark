@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TSC-FM: Time Series Classification Foundation Model Benchmark</title>
+    <meta name="description" content="A live overview of TSC-FM, a benchmark for time series classification foundation models." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tsc-fm.dmirlab.com/" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="https://tsc-fm.dmirlab.com/" target="_blank" rel="noreferrer">
+        <img src="./tsc-fm-mark.svg" alt="" width="42" height="42" />
+        <span><strong>TSC-FM</strong><small>Benchmark</small></span>
+      </a>
+      <a class="text-link" href="https://tsc-fm.dmirlab.com/" target="_blank" rel="noreferrer">Official site ↗</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live benchmark snapshot</div>
+        <h1>Evaluate foundation models for time series classification.</h1>
+        <p class="lede">A compact view of the official TSC-FM benchmark, with results fetched directly from the canonical site on every visit.</p>
+        <div class="actions">
+          <a class="button primary" href="https://tsc-fm.dmirlab.com/leaderboard" target="_blank" rel="noreferrer">Explore full leaderboard</a>
+          <a class="button secondary" href="https://tsc-fm.dmirlab.com/submit" target="_blank" rel="noreferrer">Submit results</a>
+        </div>
+      </section>
+
+      <div id="load-status" class="status" role="status" aria-live="polite">Connecting to the official benchmark…</div>
+      <div id="error-state" class="error-panel is-hidden" role="alert">
+        <strong>Live benchmark data is temporarily unavailable.</strong>
+        <span>No stored results are shown, so this Space cannot drift from the official leaderboard.</span>
+        <a href="https://tsc-fm.dmirlab.com/leaderboard" target="_blank" rel="noreferrer">Open the official leaderboard ↗</a>
+      </div>
+
+      <div id="live-content" class="is-hidden">
+        <section class="stats" aria-label="Benchmark statistics">
+          <article><strong id="datasets-total">—</strong><span>datasets</span></article>
+          <article><strong id="datasets-univariate">—</strong><span>univariate</span></article>
+          <article><strong id="datasets-multivariate">—</strong><span>multivariate</span></article>
+          <article><strong id="track-count">—</strong><span>evaluation tracks</span></article>
+        </section>
+
+        <section class="panel leaderboard-panel">
+          <div class="section-heading">
+            <div><span class="kicker">Overall · Accuracy</span><h2>Top models</h2></div>
+            <p>Equal weight per dataset</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Rank</th><th>Model</th><th>Avg. accuracy</th><th>Avg. rank</th><th>Coverage</th></tr></thead>
+              <tbody id="leaderboard-body"></tbody>
+            </table>
+          </div>
+          <a class="panel-link" href="https://tsc-fm.dmirlab.com/leaderboard" target="_blank" rel="noreferrer">View all results and methodology ↗</a>
+        </section>
+
+        <section class="grid-two">
+          <article class="panel">
+            <span class="kicker">Evaluation</span>
+            <h2>Four complementary tracks</h2>
+            <div id="track-list" class="item-list"></div>
+            <a class="panel-link" href="https://tsc-fm.dmirlab.com/evaluation" target="_blank" rel="noreferrer">Read the protocol ↗</a>
+          </article>
+          <article class="panel">
+            <span class="kicker">Capability analysis</span>
+            <h2>Compare where models excel</h2>
+            <div class="capability-numbers">
+              <div><strong id="configuration-count">—</strong><span>configurations</span></div>
+              <div><strong id="backbone-count">—</strong><span>backbones</span></div>
+            </div>
+            <p id="taxonomy-summary" class="muted"></p>
+            <a class="panel-link" href="https://tsc-fm.dmirlab.com/capability-map" target="_blank" rel="noreferrer">Open capability map ↗</a>
+          </article>
+        </section>
+      </div>
+
+      <noscript><p class="error-panel">JavaScript is required to verify and display the live benchmark summary. <a href="https://tsc-fm.dmirlab.com/">Visit the official site.</a></p></noscript>
+    </main>
+
+    <footer>
+      <span>Maintained by <a href="https://dmir.gdut.edu.cn/" target="_blank" rel="noreferrer">DMIR Lab</a></span>
+      <span id="revision"></span>
+    </footer>
+  </body>
+</html>

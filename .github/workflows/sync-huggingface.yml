@@ -1,0 +1,42 @@
+name: Sync Hugging Face entry points
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "hf-space/**"
+      - "hf-organization-card/**"
+      - ".github/workflows/sync-huggingface.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sync-space:
+    if: ${{ vars.HF_SYNC_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: huggingface/hub-sync@v0.1.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: TSC-FM/benchmark
+          repo_type: space
+          space_sdk: static
+          subdirectory: hf-space
+          hf_token: ${{ secrets.HF_TOKEN }}
+
+  sync-organization-card:
+    if: ${{ vars.HF_SYNC_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: huggingface/hub-sync@v0.1.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: TSC-FM/README
+          repo_type: space
+          space_sdk: static
+          subdirectory: hf-organization-card
+          hf_token: ${{ secrets.HF_TOKEN }}
