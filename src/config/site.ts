@@ -13,7 +13,7 @@ export const siteConfig = {
   isStaticMirror:
     process.env.NEXT_PUBLIC_DEPLOYMENT_TARGET === "github-pages",
   links: {
-    huggingFace: "https://huggingface.co/",
+    huggingFace: "https://huggingface.co/TSC-FM",
   },
   maintainer: {
     name: "Juntao Fang",

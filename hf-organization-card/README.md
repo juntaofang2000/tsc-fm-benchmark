@@ -8,7 +8,7 @@ pinned: false
 ---
 
 <div align="center">
-  <img src="assets/tsc-fm-mark.svg" width="72" height="72" alt="TSC-FM logo" />
+  <img src="tsc-fm-mark.svg" width="72" height="72" alt="TSC-FM logo" />
   <h1>TSC-FM Benchmark</h1>
   <p>Evaluation resources for foundation models in time series classification.</p>
 </div>

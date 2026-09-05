@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: green
 sdk: static
 pinned: true
-short_description: Live overview of the TSC-FM time-series classification benchmark
+short_description: Live TSC-FM benchmark overview for time-series models
 ---
 
 # TSC-FM Benchmark
