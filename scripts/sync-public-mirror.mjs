@@ -17,7 +17,7 @@ assert.equal(status.trim(), "", "Mirror has uncommitted changes; review them bef
 const check = spawnSync(process.execPath, ["scripts/verify-release.mjs", "--export"], { stdio: "inherit" });
 assert.equal(check.status, 0, "Export verification failed; nothing was moved");
 const incoming = readdirSync(output);
-const allowed = new Set([...incoming, "_next", "_not-found", "404", "benchmarks", "capability-map", "evaluation", "leaderboard", "methods", "submissions", "submit", "__next.__PAGE__.txt", "__next._full.txt", "__next._tree.txt", ".nojekyll", "404.html", "favicon.ico", "favicon.svg", "file.svg", "globe.svg", "index.html", "index.txt", "next.svg", "robots.txt", "sitemap.xml", "vercel.svg", "window.svg"]);
+const allowed = new Set([...incoming, "_next", "_not-found", "404", "benchmarks", "capability-map", "evaluation", "leaderboard", "methods", "submissions", "submit", "__next.__PAGE__.txt", "__next._full.txt", "__next._index.txt", "__next._tree.txt", ".nojekyll", "404.html", "favicon.ico", "favicon.svg", "file.svg", "globe.svg", "index.html", "index.txt", "next.svg", "robots.txt", "sitemap.xml", "vercel.svg", "window.svg"]);
 const old = readdirSync(mirror).filter((name) => name !== ".git" && name !== "README.md");
 for (const name of old) assert.ok(allowed.has(name), `Unrecognized mirror item: ${name}; review before moving`);
 for (const name of incoming) assert.ok(!name.startsWith(".env") && ![".git", "README.md", "node_modules", "benchmark-data", "src"].includes(name), `Disallowed public export item: ${name}`);
