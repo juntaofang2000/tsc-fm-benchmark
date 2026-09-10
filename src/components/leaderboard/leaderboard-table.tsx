@@ -21,15 +21,6 @@ import { cn, formatMetric } from "@/lib/utils";
 import type { BenchmarkScope, EvaluationType, LeaderboardEntry } from "@/types";
 import { canonicalMethodSlug } from "@/data/official/methods";
 
-const evaluationTypes: Array<EvaluationType | "All types"> = [
-  "All types",
-  "Foundation Model",
-  "Representation Model",
-  "Supervised Baseline",
-  "In-Context",
-  "Frozen Probe",
-];
-
 function SortHeader({ label, column }: { label: string; column: { toggleSorting: (desc?: boolean) => void; getIsSorted: () => false | "asc" | "desc" } }) {
   return <button className="inline-flex items-center gap-1.5 whitespace-nowrap font-medium" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>{label}<ArrowUpDown className="size-3.5 text-muted-foreground" /></button>;
 }
@@ -44,7 +35,7 @@ function ExternalIcon({ href, kind }: { href: string | null; kind: "paper" | "co
   return <a href={href} target="_blank" rel="noreferrer" aria-label={`${kind} link`} className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"><Icon className="size-4" /></a>;
 }
 
-function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<LeaderboardEntry>[] {
+function getColumns(scope: BenchmarkScope, rankLabel?: string, averageRankLabel = "Avg. Rank"): ColumnDef<LeaderboardEntry>[] {
   const averageLabel = scope === "Overall" ? "Overall Avg." : `${scope} Avg.`;
   return [
   {
@@ -65,7 +56,7 @@ function getColumns(scope: BenchmarkScope, rankLabel?: string): ColumnDef<Leader
     ),
   },
   { accessorKey: "avgAccuracy", header: ({ column }) => <SortHeader label={averageLabel} column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
-  { accessorKey: "avgRank", header: ({ column }) => <SortHeader label="Avg. Rank" column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
+  { accessorKey: "avgRank", header: ({ column }) => <SortHeader label={averageRankLabel} column={column} />, cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "univariateAccuracy", header: "Univariate", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "multivariateAccuracy", header: "Multivariate", cell: ({ getValue }) => <Metric value={getValue<number | null>()} /> },
   { accessorKey: "coverage", header: "Coverage", cell: ({ getValue }) => <span className="whitespace-nowrap tabular-nums text-muted-foreground">{getValue<string>()}</span> },
@@ -80,7 +71,7 @@ function columnClass(columnId: string, scope: BenchmarkScope, compact: boolean) 
     case "rank": return scope === "Overall" ? "w-[70px]" : "w-[130px]";
     case "model": return "w-[220px]";
     case "avgAccuracy": return "w-[125px]";
-    case "avgRank": return "hidden w-[100px] lg:table-cell";
+    case "avgRank": return "hidden w-[155px] lg:table-cell";
     case "univariateAccuracy": return scope !== "Overall" || compact ? "hidden" : "hidden w-[110px] lg:table-cell";
     case "multivariateAccuracy": return scope !== "Overall" || compact ? "hidden" : "hidden w-[120px] lg:table-cell";
     case "coverage": return "hidden w-[105px] md:table-cell";
@@ -91,12 +82,13 @@ function columnClass(columnId: string, scope: BenchmarkScope, compact: boolean) 
   }
 }
 
-export function LeaderboardTable({ data, compact = false, scope = "Overall", rankLabel }: { data: LeaderboardEntry[]; compact?: boolean; scope?: BenchmarkScope; rankLabel?: string }) {
+export function LeaderboardTable({ data, compact = false, scope = "Overall", rankLabel, averageRankLabel }: { data: LeaderboardEntry[]; compact?: boolean; scope?: BenchmarkScope; rankLabel?: string; averageRankLabel?: string }) {
   const [sorting, setSorting] = useState<SortingState>([{ id: "rank", desc: false }]);
   const [query, setQuery] = useState("");
-  const [type, setType] = useState<(typeof evaluationTypes)[number]>("All types");
+  const [type, setType] = useState<EvaluationType | "All types">("All types");
+  const evaluationTypes = useMemo(() => ["All types", ...new Set(data.map((entry) => entry.evaluationType))], [data]);
   const filtered = useMemo(() => data.filter((entry) => type === "All types" || entry.evaluationType === type), [data, type]);
-  const columns = useMemo(() => getColumns(scope, rankLabel), [rankLabel, scope]);
+  const columns = useMemo(() => getColumns(scope, rankLabel, averageRankLabel), [rankLabel, scope, averageRankLabel]);
   // TanStack Table intentionally owns mutable table state; React Compiler skips this hook.
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({

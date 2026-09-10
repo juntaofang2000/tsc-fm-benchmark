@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/");
 
-const scope = ["198 datasets", "Univariate", "Multivariate", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
+const scope = [`${benchmarkProfile.totalDatasetCount} datasets`, "Univariate", "Multivariate", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
 
 export default async function Home() {
   const leaders = await getLeaderboard({ track: "Overall", limit: 5 });
@@ -32,7 +32,7 @@ export default async function Home() {
               Benchmarking Foundation Models for <span className="text-primary">Time Series Classification</span>
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
-              A unified benchmark spanning 198 unique time series classification datasets, four evaluation tracks, and comparable dataset-level reporting.
+              A unified benchmark spanning {benchmarkProfile.totalDatasetCount} unique time series classification datasets, with Standard and Low-shot settings, in-context and frozen-probe approaches, and comparable dataset-level reporting.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild><Link href="/leaderboard">Explore Leaderboard <ArrowRight className="size-4" /></Link></Button>
@@ -73,9 +73,9 @@ export default async function Home() {
         <div className="container-wide">
           <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">198 unique datasets</p><VerifiedResultsBadge /></div>
+              <div className="flex items-center gap-3"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{benchmarkProfile.totalDatasetCount} unique datasets</p><VerifiedResultsBadge /></div>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Overall Leaderboard Preview</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy with equal weighting across 198 unique datasets.</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">Ranked by mean accuracy with equal weighting across {benchmarkProfile.totalDatasetCount} unique datasets.</p>
             </div>
             <Button variant="outline" asChild><Link href="/leaderboard">View Full Leaderboard <ArrowRight className="size-4" /></Link></Button>
           </div>
@@ -101,7 +101,7 @@ export default async function Home() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Protocol</p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Evaluation Tracks</h2>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">Results remain separated by adaptation setting so each score has a clear scientific meaning.</p>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Standard and Low-shot define the label budget. ICL and Frozen-Probe describe how predictions are produced; these approaches can appear in either budget setting. Results remain separated by budget and dataset scope.</p>
           </div>
           <div className="overflow-hidden rounded-lg border border-border bg-card">
             {evaluationTracks.map((track, index) => (

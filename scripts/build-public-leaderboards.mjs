@@ -70,7 +70,8 @@ function averageRanks(scores) {
   let index = 0;
   while (index < ordered.length) {
     let end = index + 1;
-    while (end < ordered.length && ordered[end][1] === ordered[index][1]) end += 1;
+    // Match the Standard/Low-shot source generators on the 0–1 accuracy scale.
+    while (end < ordered.length && Math.abs(ordered[end][1] - ordered[index][1]) <= 1e-12) end += 1;
     const rank = (index + 1 + end) / 2;
     for (let cursor = index; cursor < end; cursor += 1) ranks.set(ordered[cursor][0], rank);
     index = end;

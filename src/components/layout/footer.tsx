@@ -8,6 +8,7 @@ export function Footer() {
         <div>
           <p className="font-semibold">TSC-FM Benchmark</p>
           <p className="mt-1 max-w-md text-sm text-muted-foreground">Time Series Classification Foundation Model Benchmark</p>
+          <p className="mt-3 text-xs text-muted-foreground">Jointly released by {siteConfig.publishers.map((publisher, index) => <span key={publisher.name}>{index > 0 && " and "}{"url" in publisher ? <a href={publisher.url} target="_blank" rel="noreferrer" className="font-medium text-foreground hover:text-primary">{publisher.name}</a> : <span className="font-medium text-foreground">{publisher.name}</span>}</span>)}.</p>
           <p className="mt-3 text-xs text-muted-foreground">Maintained by <a href={siteConfig.maintainer.url} target="_blank" rel="noreferrer" className="font-medium text-foreground hover:text-primary">{siteConfig.maintainer.name}</a> · <a href={`mailto:${siteConfig.maintainer.email}`} className="hover:text-foreground">{siteConfig.maintainer.email}</a></p>
         </div>
         <div className="flex flex-wrap content-start gap-x-6 gap-y-3 text-sm text-muted-foreground">

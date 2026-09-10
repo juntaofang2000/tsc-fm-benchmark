@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { BenchmarkScope, LeaderboardEntry, LowShotSetting, Track } from "@/types";
 import { LeaderboardTable } from "./leaderboard-table";
+import { VerifiedResultsBadge } from "@/components/shared/verified-results-badge";
 
 const tracks: Track[] = ["Overall", "Standard", "Low-shot", "Training-Free / ICL", "Frozen-Probe"];
 const trackLabels: Record<Track, string> = {
@@ -38,9 +39,14 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
   const showBenchmarkSelector = track === "Standard";
   const activeScope = track === "Standard" ? benchmark : track === "Low-shot" ? lowShotBenchmark : "Overall";
   const requiredDatasets = filtered[0]?.coverage.split("/")[1]?.trim();
+  const paradigmView = track === "Training-Free / ICL" || track === "Frozen-Probe";
 
   return (
     <div>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-xs text-muted-foreground">Standard and Low-shot specify the label budget; ICL and Frozen-Probe filter the Standard Overall results by prediction approach.</p>
+        <VerifiedResultsBadge label={track === "Low-shot" ? `Verified ${lowShotSetting}` : "Verified Standard"} datasetCount={Number(requiredDatasets ?? 0)} scope={`${track === "Low-shot" ? lowShotSetting : "Standard"} · ${activeScope}`} />
+      </div>
       <div className="no-scrollbar flex gap-1 overflow-x-auto border-b border-border" role="tablist" aria-label="Leaderboard view">
         {tracks.map((item) => (
           <button
@@ -110,20 +116,24 @@ export function LeaderboardView({ standardEntries, lowShotEntries }: Props) {
       {track === "Standard" && filtered.length > 0 && (
         <p className="mt-3 text-xs leading-5 text-muted-foreground">
           Ranking is recomputed per dataset across all {filtered.length} eligible methods with complete {benchmark.toLowerCase()} coverage
-          {requiredDatasets ? ` (${requiredDatasets} datasets)` : ""}; exact ties receive average ranks.
+          {requiredDatasets ? ` (${requiredDatasets} datasets)` : ""}; accuracies within 1e-12 on the 0–1 scale are treated as ties and receive average ranks.
         </p>
       )}
       {track === "Low-shot" && filtered.length > 0 && (
         <p className="mt-3 text-xs leading-5 text-muted-foreground">
           {lowShotSetting} uses a fixed number of training labels per class. The {lowShotBenchmark} ranking covers {requiredDatasets} feasible datasets;
           every displayed rank is recomputed within this exact modality view, and missing results are never filled with zero.
+          {" "}Low-shot uses a separately evaluated dataset subset, filtered by the label budget; its coverage is not the full Standard benchmark. Accuracies within 1e-12 on the 0–1 scale receive average tie ranks.
         </p>
       )}
+      {paradigmView && <p className="mt-3 text-xs leading-5 text-muted-foreground">Track Rank orders the {filtered.length} displayed configurations by accuracy. Overall Avg. Rank retains the per-dataset comparison against all {standardEntries.Overall.length} configurations in Standard Overall; it is not recomputed within this filtered group.</p>}
       <div className="mt-4">
         <LeaderboardTable
+          key={`${track}-${activeScope}-${lowShotSetting}`}
           data={filtered}
           scope={activeScope}
           rankLabel={track === "Training-Free / ICL" || track === "Frozen-Probe" ? "Track Rank" : undefined}
+          averageRankLabel={paradigmView ? "Overall Avg. Rank" : undefined}
         />
       </div>
     </div>

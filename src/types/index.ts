@@ -35,6 +35,13 @@ export type BenchmarkScope = "Overall" | "Univariate" | "Multivariate";
 
 export type LowShotSetting = "5-shot" | "10-shot";
 
+export interface MethodResultGroup {
+  setting: "Standard" | LowShotSetting;
+  scope: BenchmarkScope;
+  comparisonCount: number;
+  entries: LeaderboardEntry[];
+}
+
 export interface Method {
   id: string;
   name: string;

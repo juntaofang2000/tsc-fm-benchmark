@@ -21,8 +21,10 @@ TSC-FM provides an official leaderboard, dataset profile, capability analysis, e
 - **[Open the live Hugging Face overview](https://huggingface.co/spaces/TSC-FM/benchmark)**
 - [Explore the full leaderboard](https://tsc-fm.dmirlab.com/leaderboard)
 - [Read the evaluation protocol](https://tsc-fm.dmirlab.com/evaluation)
-- [Submit benchmark results](https://tsc-fm.dmirlab.com/submit)
+- [Submit a model for evaluation](https://tsc-fm.dmirlab.com/submit)
 
-## Maintainers
+## Release and maintenance
 
-TSC-FM is maintained by [DMIR Lab](https://dmir.gdut.edu.cn/). For benchmark questions, contact [Juntao Fang](mailto:fangjuntao1@mails.gdut.edu.cn).
+TSC-FM is jointly released by [DMIR Lab](https://dmir.gdut.edu.cn/) and Huawei Noah’s Ark Lab.
+
+Maintained by [Juntao Fang](https://juntaofang2000.github.io/). For benchmark questions, contact [fangjuntao1@mails.gdut.edu.cn](mailto:fangjuntao1@mails.gdut.edu.cn).

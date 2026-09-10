@@ -20,6 +20,10 @@ export const siteConfig = {
     url: "https://juntaofang2000.github.io/",
     email: "fangjuntao1@mails.gdut.edu.cn",
   },
+  publishers: [
+    { name: "DMIR Lab", url: "https://dmir.gdut.edu.cn/" },
+    { name: "Huawei Noah’s Ark Lab" },
+  ],
   nav: [
     { label: "Home", href: "/" },
     { label: "Leaderboard", href: "/leaderboard" },

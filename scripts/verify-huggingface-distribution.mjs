@@ -15,6 +15,11 @@ const app = read("hf-space/app.js");
 const route = read("src/app/api/public/space-summary/route.ts");
 const workflow = read(".github/workflows/sync-huggingface.yml");
 const leaderboard = JSON.parse(read("src/data/official/public-leaderboards.json"));
+for (const [label, content] of [["Space", html], ["Organization Card", cardReadme]]) {
+  assert.ok(content.includes("DMIR Lab") && content.includes("Huawei Noah’s Ark Lab"), `${label}: joint release attribution is missing`);
+  assert.match(content, /[Mm]aintained by[\s\S]{0,150}Juntao Fang/, `${label}: maintainer must be Juntao Fang`);
+  assert.ok(!/Submit (?:benchmark )?results/.test(content), `${label}: submission link should describe submitting a model`);
+}
 
 assert.match(spaceReadme, /^---[\s\S]*?sdk: static[\s\S]*?---/, "Space README must configure the static SDK");
 assert.match(cardReadme, /^---[\s\S]*?title: README[\s\S]*?sdk: static[\s\S]*?---/, "Organization Card must be a README Static Space");

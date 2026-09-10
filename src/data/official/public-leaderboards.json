@@ -264,7 +264,7 @@
         "rank": 3,
         "method": "UniShape+RF",
         "avgAccuracy": 73.22011448825664,
-        "avgRank": 5.042857142857143,
+        "avgRank": 5.035714285714286,
         "coverage": "70 / 70"
       },
       {
@@ -278,7 +278,7 @@
         "rank": 5,
         "method": "MantisV2+RF",
         "avgAccuracy": 72.6627348609758,
-        "avgRank": 4.935714285714286,
+        "avgRank": 4.942857142857143,
         "coverage": "70 / 70"
       },
       {
