@@ -15,6 +15,7 @@ const app = read("hf-space/app.js");
 const route = read("src/app/api/public/space-summary/route.ts");
 const workflow = read(".github/workflows/sync-huggingface.yml");
 const leaderboard = JSON.parse(read("src/data/official/public-leaderboards.json"));
+const identity = JSON.parse(read("src/config/site-identity.json"));
 for (const [label, content] of [["Space", html], ["Organization Card", cardReadme]]) {
   assert.ok(content.includes("DMIR Lab") && content.includes("Huawei Noah’s Ark Lab"), `${label}: joint release attribution is missing`);
   assert.match(content, /[Mm]aintained by[\s\S]{0,150}Juntao Fang/, `${label}: maintainer must be Juntao Fang`);
@@ -23,7 +24,11 @@ for (const [label, content] of [["Space", html], ["Organization Card", cardReadm
 
 assert.match(spaceReadme, /^---[\s\S]*?sdk: static[\s\S]*?---/, "Space README must configure the static SDK");
 assert.match(cardReadme, /^---[\s\S]*?title: README[\s\S]*?sdk: static[\s\S]*?---/, "Organization Card must be a README Static Space");
-assert.match(html, /<title>TSC-FM: Time Series Classification Foundation Model Benchmark<\/title>/, "Space title is incomplete");
+assert.ok(html.includes(`<title>${identity.title}</title>`), "Space title must match the official full title");
+for (const [label, content] of [["Space", html], ["Space README", spaceReadme], ["Organization Card", cardReadme]]) {
+  assert.ok(content.includes(identity.subtitle), `${label}: shared subtitle is missing`);
+  assert.ok(!/Submit (?:benchmark )?results/.test(content), `${label}: submission link should describe submitting a model`);
+}
 assert.match(html, /rel="canonical" href="https:\/\/tsc-fm\.dmirlab\.com\/"/, "Space canonical URL must point to the official site");
 assert.match(app, /https:\/\/tsc-fm\.dmirlab\.com\/api\/public\/space-summary/, "Space must read the official summary endpoint");
 assert.match(app, /cache: "no-store"/, "Space must bypass browser cache for benchmark data");

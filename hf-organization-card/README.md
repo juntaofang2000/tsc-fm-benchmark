@@ -10,7 +10,7 @@ pinned: false
 <div align="center">
   <img src="tsc-fm-mark.svg" width="72" height="72" alt="TSC-FM logo" />
   <h1>TSC-FM Benchmark</h1>
-  <p>Evaluation resources for foundation models in time series classification.</p>
+  <p>Benchmarking Foundation Models for Time Series Classification</p>
 </div>
 
 TSC-FM provides an official leaderboard, dataset profile, capability analysis, evaluation protocol, and a maintained submission workflow. The Hugging Face organization is the public model-community entry point; the canonical benchmark and its submissions remain on the official site.
