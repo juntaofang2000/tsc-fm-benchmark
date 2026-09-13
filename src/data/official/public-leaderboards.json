@@ -501,128 +501,135 @@
       "Univariate": [
         {
           "rank": 1,
-          "method": "MantisV2+ScaledLR",
-          "avgAccuracy": 67.54040957142857,
-          "avgRank": 7.290178571428571,
+          "method": "TIC-FM",
+          "avgAccuracy": 68.08200323214285,
+          "avgRank": 7.566964285714286,
           "coverage": "112 / 112"
         },
         {
           "rank": 2,
-          "method": "Mantis+ScaledLR",
-          "avgAccuracy": 67.43630282142858,
-          "avgRank": 7.285714285714286,
+          "method": "MantisV2+ScaledLR",
+          "avgAccuracy": 67.54040957142857,
+          "avgRank": 7.84375,
           "coverage": "112 / 112"
         },
         {
           "rank": 3,
-          "method": "Mantis+SVM",
-          "avgAccuracy": 67.3900085982143,
-          "avgRank": 7.058035714285714,
+          "method": "Mantis+ScaledLR",
+          "avgAccuracy": 67.43630282142858,
+          "avgRank": 7.785714285714286,
           "coverage": "112 / 112"
         },
         {
           "rank": 4,
-          "method": "Mantis+LR",
-          "avgAccuracy": 67.26758533928572,
-          "avgRank": 7.392857142857143,
+          "method": "Mantis+SVM",
+          "avgAccuracy": 67.3900085982143,
+          "avgRank": 7.602678571428571,
           "coverage": "112 / 112"
         },
         {
           "rank": 5,
-          "method": "ChorusTIC",
-          "avgAccuracy": 66.74881283035714,
-          "avgRank": 8.142857142857142,
+          "method": "Mantis+LR",
+          "avgAccuracy": 67.26758533928572,
+          "avgRank": 7.883928571428571,
           "coverage": "112 / 112"
         },
         {
           "rank": 6,
-          "method": "MantisV2+RF",
-          "avgAccuracy": 66.08694936607142,
-          "avgRank": 8.883928571428571,
+          "method": "ChorusTIC",
+          "avgAccuracy": 66.74881283035714,
+          "avgRank": 8.71875,
           "coverage": "112 / 112"
         },
         {
           "rank": 7,
-          "method": "Mantis+RF",
-          "avgAccuracy": 65.14122979464285,
-          "avgRank": 8.892857142857142,
+          "method": "MantisV2+RF",
+          "avgAccuracy": 66.08694936607142,
+          "avgRank": 9.571428571428571,
           "coverage": "112 / 112"
         },
         {
           "rank": 8,
-          "method": "MOMENT+RF",
-          "avgAccuracy": 65.0610017857143,
-          "avgRank": 9.138392857142858,
+          "method": "Mantis+RF",
+          "avgAccuracy": 65.14122979464285,
+          "avgRank": 9.504464285714286,
           "coverage": "112 / 112"
         },
         {
           "rank": 9,
-          "method": "Mantis+kNN",
-          "avgAccuracy": 65.05818330357143,
-          "avgRank": 9.34375,
+          "method": "MOMENT+RF",
+          "avgAccuracy": 65.0610017857143,
+          "avgRank": 9.772321428571429,
           "coverage": "112 / 112"
         },
         {
           "rank": 10,
-          "method": "NuTime+RF",
-          "avgAccuracy": 64.96910309821429,
-          "avgRank": 8.897321428571429,
+          "method": "Mantis+kNN",
+          "avgAccuracy": 65.05818330357143,
+          "avgRank": 9.941964285714286,
           "coverage": "112 / 112"
         },
         {
           "rank": 11,
-          "method": "MOMENT+SVM",
-          "avgAccuracy": 64.96356428571428,
-          "avgRank": 8.848214285714286,
+          "method": "NuTime+RF",
+          "avgAccuracy": 64.96910309821429,
+          "avgRank": 9.558035714285714,
           "coverage": "112 / 112"
         },
         {
           "rank": 12,
-          "method": "MOMENT+kNN",
-          "avgAccuracy": 64.17304464285715,
-          "avgRank": 9.915178571428571,
+          "method": "MOMENT+SVM",
+          "avgAccuracy": 64.96356428571428,
+          "avgRank": 9.459821428571429,
           "coverage": "112 / 112"
         },
         {
           "rank": 13,
-          "method": "Mantis+NC",
-          "avgAccuracy": 62.8861969375,
-          "avgRank": 10.549107142857142,
+          "method": "MOMENT+kNN",
+          "avgAccuracy": 64.17304464285715,
+          "avgRank": 10.59375,
           "coverage": "112 / 112"
         },
         {
           "rank": 14,
-          "method": "TabICLv2",
-          "avgAccuracy": 62.642432875000004,
-          "avgRank": 10.160714285714286,
+          "method": "Mantis+NC",
+          "avgAccuracy": 62.8861969375,
+          "avgRank": 11.21875,
           "coverage": "112 / 112"
         },
         {
           "rank": 15,
-          "method": "MOMENT+NC",
-          "avgAccuracy": 61.74698660714286,
-          "avgRank": 11.089285714285714,
+          "method": "TabICLv2",
+          "avgAccuracy": 62.642432875000004,
+          "avgRank": 10.821428571428571,
           "coverage": "112 / 112"
         },
         {
           "rank": 16,
-          "method": "TabICL",
-          "avgAccuracy": 60.8163194375,
-          "avgRank": 11.383928571428571,
+          "method": "MOMENT+NC",
+          "avgAccuracy": 61.74698660714286,
+          "avgRank": 11.767857142857142,
           "coverage": "112 / 112"
         },
         {
           "rank": 17,
-          "method": "MOMENT+LR",
-          "avgAccuracy": 59.626322321428574,
-          "avgRank": 12.040178571428571,
+          "method": "TabICL",
+          "avgAccuracy": 60.8163194375,
+          "avgRank": 12.102678571428571,
           "coverage": "112 / 112"
         },
         {
           "rank": 18,
+          "method": "MOMENT+LR",
+          "avgAccuracy": 59.626322321428574,
+          "avgRank": 12.754464285714286,
+          "coverage": "112 / 112"
+        },
+        {
+          "rank": 19,
           "method": "MOMENT+MLP",
           "avgAccuracy": 47.70323392857143,
-          "avgRank": 14.6875,
+          "avgRank": 15.53125,
           "coverage": "112 / 112"
         }
       ],
@@ -923,128 +930,135 @@
       "Univariate": [
         {
           "rank": 1,
-          "method": "Mantis+ScaledLR",
-          "avgAccuracy": 73.36839689690721,
-          "avgRank": 6.608247422680412,
+          "method": "TIC-FM",
+          "avgAccuracy": 74.32941655670103,
+          "avgRank": 6.695876288659794,
           "coverage": "97 / 97"
         },
         {
           "rank": 2,
-          "method": "MantisV2+ScaledLR",
-          "avgAccuracy": 73.29755030927835,
-          "avgRank": 6.639175257731959,
+          "method": "Mantis+ScaledLR",
+          "avgAccuracy": 73.36839689690721,
+          "avgRank": 7.134020618556701,
           "coverage": "97 / 97"
         },
         {
           "rank": 3,
-          "method": "Mantis+SVM",
-          "avgAccuracy": 73.21987439175258,
-          "avgRank": 6.701030927835052,
+          "method": "MantisV2+ScaledLR",
+          "avgAccuracy": 73.29755030927835,
+          "avgRank": 7.170103092783505,
           "coverage": "97 / 97"
         },
         {
           "rank": 4,
-          "method": "Mantis+LR",
-          "avgAccuracy": 72.71618706185568,
-          "avgRank": 7.278350515463917,
+          "method": "Mantis+SVM",
+          "avgAccuracy": 73.21987439175258,
+          "avgRank": 7.252577319587629,
           "coverage": "97 / 97"
         },
         {
           "rank": 5,
-          "method": "ChorusTIC",
-          "avgAccuracy": 72.65170009278351,
-          "avgRank": 7.123711340206185,
+          "method": "Mantis+LR",
+          "avgAccuracy": 72.71618706185568,
+          "avgRank": 7.829896907216495,
           "coverage": "97 / 97"
         },
         {
           "rank": 6,
-          "method": "MantisV2+RF",
-          "avgAccuracy": 71.64772041237113,
-          "avgRank": 8.335051546391753,
+          "method": "ChorusTIC",
+          "avgAccuracy": 72.65170009278351,
+          "avgRank": 7.731958762886598,
           "coverage": "97 / 97"
         },
         {
           "rank": 7,
-          "method": "MOMENT+SVM",
-          "avgAccuracy": 71.47540927835051,
-          "avgRank": 7.793814432989691,
+          "method": "MantisV2+RF",
+          "avgAccuracy": 71.64772041237113,
+          "avgRank": 9,
           "coverage": "97 / 97"
         },
         {
           "rank": 8,
-          "method": "Mantis+RF",
-          "avgAccuracy": 71.05183555670102,
-          "avgRank": 8.989690721649485,
+          "method": "MOMENT+SVM",
+          "avgAccuracy": 71.47540927835051,
+          "avgRank": 8.422680412371134,
           "coverage": "97 / 97"
         },
         {
           "rank": 9,
-          "method": "MOMENT+RF",
-          "avgAccuracy": 70.61855463917526,
-          "avgRank": 9.056701030927835,
+          "method": "Mantis+RF",
+          "avgAccuracy": 71.05183555670102,
+          "avgRank": 9.68041237113402,
           "coverage": "97 / 97"
         },
         {
           "rank": 10,
-          "method": "NuTime+RF",
-          "avgAccuracy": 70.43990354639175,
-          "avgRank": 9.11340206185567,
-          "coverage": "97 / 97"
-        },
-        {
-          "rank": 11,
-          "method": "Mantis+kNN",
-          "avgAccuracy": 69.85040502061857,
-          "avgRank": 10.103092783505154,
-          "coverage": "97 / 97"
-        },
-        {
-          "rank": 12,
-          "method": "MOMENT+kNN",
-          "avgAccuracy": 68.69158350515464,
-          "avgRank": 10.597938144329897,
-          "coverage": "97 / 97"
-        },
-        {
-          "rank": 13,
-          "method": "TabICLv2",
-          "avgAccuracy": 67.96870680412371,
+          "method": "MOMENT+RF",
+          "avgAccuracy": 70.61855463917526,
           "avgRank": 9.731958762886597,
           "coverage": "97 / 97"
         },
         {
+          "rank": 11,
+          "method": "NuTime+RF",
+          "avgAccuracy": 70.43990354639175,
+          "avgRank": 9.84020618556701,
+          "coverage": "97 / 97"
+        },
+        {
+          "rank": 12,
+          "method": "Mantis+kNN",
+          "avgAccuracy": 69.85040502061857,
+          "avgRank": 10.793814432989691,
+          "coverage": "97 / 97"
+        },
+        {
+          "rank": 13,
+          "method": "MOMENT+kNN",
+          "avgAccuracy": 68.69158350515464,
+          "avgRank": 11.324742268041238,
+          "coverage": "97 / 97"
+        },
+        {
           "rank": 14,
-          "method": "TabICL",
-          "avgAccuracy": 67.18952941237113,
-          "avgRank": 10.556701030927835,
+          "method": "TabICLv2",
+          "avgAccuracy": 67.96870680412371,
+          "avgRank": 10.407216494845361,
           "coverage": "97 / 97"
         },
         {
           "rank": 15,
-          "method": "Mantis+NC",
-          "avgAccuracy": 66.79953397938144,
-          "avgRank": 11.154639175257731,
+          "method": "TabICL",
+          "avgAccuracy": 67.18952941237113,
+          "avgRank": 11.27319587628866,
           "coverage": "97 / 97"
         },
         {
           "rank": 16,
-          "method": "MOMENT+NC",
-          "avgAccuracy": 63.957618556701036,
-          "avgRank": 12.70103092783505,
+          "method": "Mantis+NC",
+          "avgAccuracy": 66.79953397938144,
+          "avgRank": 11.917525773195877,
           "coverage": "97 / 97"
         },
         {
           "rank": 17,
-          "method": "MOMENT+LR",
-          "avgAccuracy": 63.611471134020626,
-          "avgRank": 12.896907216494846,
+          "method": "MOMENT+NC",
+          "avgAccuracy": 63.957618556701036,
+          "avgRank": 13.525773195876289,
           "coverage": "97 / 97"
         },
         {
           "rank": 18,
+          "method": "MOMENT+LR",
+          "avgAccuracy": 63.611471134020626,
+          "avgRank": 13.731958762886597,
+          "coverage": "97 / 97"
+        },
+        {
+          "rank": 19,
           "method": "MOMENT+MLP",
           "avgAccuracy": 49.876145360824744,
-          "avgRank": 15.618556701030927,
+          "avgRank": 16.536082474226806,
           "coverage": "97 / 97"
         }
       ],

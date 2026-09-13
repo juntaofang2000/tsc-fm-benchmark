@@ -26,6 +26,12 @@ budget and archive so a partial new method cannot silently change the denominato
 - NuTime frozen features with an RF head.
 - MantisV2 last-layer CLS features with scaled-LR and RF heads.
 - TabICL and TabICLv2 in-context classification results.
+- TIC-FM native in-context classification for UCR 5-shot (112 datasets) and
+  10-shot (97 datasets), with sampling seed 0 and full official test evaluation.
+  The final `TIC-FM/ucr_lowlabel_TSEncoder_orion_icl_5shot10shot_results.csv`
+  includes the September 13 Crop rerun; backup and patch files are not appended.
+  UCR average ranks are recomputed with TIC-FM included. It is not eligible for
+  Overall or UEA because no UEA results were supplied.
 
 The checked `InsectWingbeatSubset` supplements complete TabICL and TabICLv2
 coverage for UEA 1-, 5-, and 10-shot. Their test-ratio rows are retained in the

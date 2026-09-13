@@ -428,6 +428,57 @@ def main() -> None:
                 }
             )
 
+    # The final detail file already includes Crop; do not append patch/backup rows.
+    tic_path = source_root / "TIC-FM" / "ucr_lowlabel_TSEncoder_orion_icl_5shot10shot_results.csv"
+    tic_rows = read_rows(tic_path)
+    register(tic_path, tic_rows)
+    tic_keys: set[tuple[str, str]] = set()
+    for row in tic_rows:
+        setting = normalize_setting(row["setting"])
+        if (
+            row["suite"] != "ucr"
+            or row["protocol"] != "fewshot"
+            or setting not in ("5-shot", "10-shot")
+            or row["sample_pool"] != "TRAIN"
+            or row["sample_seed"] != "0"
+            or row["mode"] != "classifier_v2"
+            or row["status"] != "ok"
+            or row["error"].strip()
+        ):
+            raise ValueError(f"Unexpected TIC-FM protocol/result: {row}")
+        classes = int(row["n_classes"])
+        shot = int(setting.split("-")[0])
+        if (
+            classes < 2
+            or int(row["n_classes_support"]) != classes
+            or int(row["n_context"]) != shot * classes
+            or int(row["n_eval"]) != int(row["n_test"])
+            or int(row["n_test"]) <= 0
+        ):
+            raise ValueError(f"Invalid TIC-FM context/test coverage: {row}")
+        dataset = normalize_dataset(row["dataset"])
+        key = (setting, dataset)
+        if key in tic_keys:
+            raise ValueError(f"Duplicate TIC-FM result: {key}")
+        tic_keys.add(key)
+        dataset_sets[("TIC-FM", "UCR", setting)].add(dataset)
+        facts.append({
+            "archive": "UCR", "dataset": dataset, "method": "TIC-FM",
+            "protocol_id": PROTOCOL_ID, "setting": setting,
+            "run_id": "tic-fm-classifier-v2-lowshot-crop-complete-20260913",
+            "seed": f"sample={row['sample_seed']}", "status": "ok",
+            "accuracy": accuracy(row["acc"], tic_path),
+            "source": relative_source(source_root, tic_path),
+        })
+    for setting in ("5-shot", "10-shot"):
+        reference = dataset_sets[("Mantis", "UCR", setting)]
+        candidate = dataset_sets[("TIC-FM", "UCR", setting)]
+        if candidate != reference:
+            raise ValueError(
+                f"TIC-FM {setting} dataset mismatch: "
+                f"missing={sorted(reference - candidate)} extra={sorted(candidate - reference)}"
+            )
+
     for archive in ("UCR", "UEA", "MVCore66"):
         families = (
             ("Mantis", "MOMENT", "NuTime", "ChorusTIC")

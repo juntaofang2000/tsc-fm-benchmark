@@ -81,6 +81,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 5-shot,Overall,MantisV2+RF,140,140,140 / 140,true
 5-shot,Overall,MantisV2+ScaledLR,140,140,140 / 140,true
 5-shot,Overall,NuTime+RF,140,140,140 / 140,true
+5-shot,Overall,TIC-FM,112,140,112 / 140,false
 5-shot,Overall,TabICL,140,140,140 / 140,true
 5-shot,Overall,TabICLv2,140,140,140 / 140,true
 5-shot,UCR,ChorusTIC,112,112,112 / 112,true
@@ -99,6 +100,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 5-shot,UCR,MantisV2+RF,112,112,112 / 112,true
 5-shot,UCR,MantisV2+ScaledLR,112,112,112 / 112,true
 5-shot,UCR,NuTime+RF,112,112,112 / 112,true
+5-shot,UCR,TIC-FM,112,112,112 / 112,true
 5-shot,UCR,TabICL,112,112,112 / 112,true
 5-shot,UCR,TabICLv2,112,112,112 / 112,true
 5-shot,UEA,ChorusTIC,28,28,28 / 28,true
@@ -147,6 +149,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 10-shot,Overall,MantisV2+RF,121,121,121 / 121,true
 10-shot,Overall,MantisV2+ScaledLR,121,121,121 / 121,true
 10-shot,Overall,NuTime+RF,121,121,121 / 121,true
+10-shot,Overall,TIC-FM,97,121,97 / 121,false
 10-shot,Overall,TabICL,121,121,121 / 121,true
 10-shot,Overall,TabICLv2,121,121,121 / 121,true
 10-shot,UCR,ChorusTIC,97,97,97 / 97,true
@@ -165,6 +168,7 @@ setting,benchmark,method,available_datasets,required_datasets,coverage,eligible
 10-shot,UCR,MantisV2+RF,97,97,97 / 97,true
 10-shot,UCR,MantisV2+ScaledLR,97,97,97 / 97,true
 10-shot,UCR,NuTime+RF,97,97,97 / 97,true
+10-shot,UCR,TIC-FM,97,97,97 / 97,true
 10-shot,UCR,TabICL,97,97,97 / 97,true
 10-shot,UCR,TabICLv2,97,97,97 / 97,true
 10-shot,UEA,ChorusTIC,24,24,24 / 24,true

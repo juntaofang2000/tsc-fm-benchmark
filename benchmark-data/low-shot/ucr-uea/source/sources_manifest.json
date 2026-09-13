@@ -1,6 +1,6 @@
 {
   "sourceRootHint": "时序基模发布/results/few-shot",
-  "canonicalRows": 9798,
+  "canonicalRows": 10007,
   "files": [
     {
       "path": "results/few-shot/ChorusTIC/mvcore66_sampled_results.csv",
@@ -71,6 +71,11 @@
       "path": "results/few-shot/NuTime/uea_lowlabel_nutime_rf_results.csv",
       "sha256": "43d0ec03496bd0d1743035b21ab1d8bb7d8801585907aa52d72c831314f0cb69",
       "rows": 232
+    },
+    {
+      "path": "results/few-shot/TIC-FM/ucr_lowlabel_TSEncoder_orion_icl_5shot10shot_results.csv",
+      "sha256": "ee26267f76303620750119152f711f15705db1ad631a28d42f677707e8729010",
+      "rows": 209
     },
     {
       "path": "results/few-shot/tabicl/mvcore66/sampled_results.csv",
