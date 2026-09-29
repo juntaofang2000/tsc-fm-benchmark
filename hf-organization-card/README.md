@@ -17,9 +17,10 @@ TSC-FM provides an official leaderboard, dataset profile, capability analysis, e
 
 ## Start here
 
-- **[Visit the official benchmark](https://tsc-fm.dmirlab.com/)**
+- **[Visit the official time series classification benchmark](https://tsc-fm.dmirlab.com/)**
 - **[Open the live Hugging Face overview](https://huggingface.co/spaces/TSC-FM/benchmark)**
-- [Explore the full leaderboard](https://tsc-fm.dmirlab.com/leaderboard)
+- [Explore the time series classification leaderboard](https://tsc-fm.dmirlab.com/leaderboard)
+- [Compare foundation models for time series classification](https://tsc-fm.dmirlab.com/methods)
 - [Read the evaluation protocol](https://tsc-fm.dmirlab.com/evaluation)
 - [Submit a model for evaluation](https://tsc-fm.dmirlab.com/submit)
 

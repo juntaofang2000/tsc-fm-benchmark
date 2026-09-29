@@ -1,5 +1,7 @@
 # TSC-FM Benchmark
 
+Official site: [TSC-FM Benchmark: Benchmarking Foundation Models for Time Series Classification](https://tsc-fm.dmirlab.com/)
+
 ## Overview
 
 TSC-FM Benchmark is a research benchmark and leaderboard for Time Series Classification Foundation Models (TSC-FMs). The canonical site publishes verified Standard and Low-shot results, aggregate dataset and capability analysis, method pages, an evaluation protocol, and a live model-submission intake. ChorusTIC is one of the evaluated models; it is not the name of the benchmark.
