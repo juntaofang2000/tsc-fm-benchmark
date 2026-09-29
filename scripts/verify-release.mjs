@@ -40,10 +40,21 @@ function inspect(html, path) {
   const image = meta("og:image");
   assert.ok(image?.startsWith(`${expected.primaryUrl}/social/`), `${path}: social image must be on canonical origin`);
   assert.ok(!meta("robots")?.includes("noindex"), `${path}: unexpectedly noindex`);
+  assert.match(meta("robots") || "", /\bindex\b/, `${path}: missing index directive`);
+  assert.match(meta("googlebot") || "", /max-image-preview:large/, `${path}: missing large image preview permission`);
+  assert.ok(!meta("googlebot")?.includes("noindex"), `${path}: Googlebot unexpectedly noindex`);
   const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map((m) => JSON.parse(m[1]));
   assert.ok(schemas.some((s) => s["@type"] === "WebSite"), `${path}: missing WebSite schema`);
   const main = html.match(/<main\b[^>]*>(.*?)<\/main>/s)?.[1];
   assert.ok(main, `${path}: no prerendered main content`);
+  if (path === "/leaderboard") {
+    assert.ok(main.includes("Time Series Classification Leaderboard") && main.includes("<table"), "Leaderboard heading and results must render in main without a JavaScript reveal");
+    assert.ok(!main.includes('aria-label="Loading table"'), "Leaderboard main must not be a loading placeholder");
+  }
+  if (path === "/") {
+    assert.ok(schemas.some((s) => s["@type"] === "CollectionPage" && s.isPartOf?.["@id"] === `${expected.primaryUrl}/#website`), "Homepage resource collection must reference the canonical website");
+    assert.ok(main.includes("time series classification benchmark"), "Homepage must explain the benchmark topic in visible text");
+  }
   const text = decode(main.replace(/<script\b[^>]*>.*?<\/script>|<style\b[^>]*>.*?<\/style>/gs, "").replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
   return { title, description: meta("description"), image, text };
 }

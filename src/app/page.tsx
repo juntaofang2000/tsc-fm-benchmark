@@ -8,6 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { benchmarkProfile, evaluationTracks } from "@/data/official/benchmark-profile";
 import { getLeaderboard } from "@/lib/data/leaderboard";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/config/site";
+import { StructuredData } from "@/components/shared/structured-data";
 
 export const metadata = pageMetadata("/");
 
@@ -24,6 +26,22 @@ export default async function Home() {
 
   return (
     <>
+      <StructuredData data={{
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "@id": `${siteConfig.primaryUrl}/#webpage`, url: `${siteConfig.primaryUrl}/`,
+        name: siteConfig.title, description: siteConfig.description, inLanguage: "en",
+        isPartOf: { "@id": `${siteConfig.primaryUrl}/#website` },
+        about: [{ "@type": "Thing", name: "Time series classification" }, { "@type": "Thing", name: "Foundation model evaluation" }],
+        mainEntity: {
+          "@type": "ItemList", name: "TSC-FM Benchmark resources",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Time Series Classification Leaderboard", url: `${siteConfig.primaryUrl}/leaderboard` },
+            { "@type": "ListItem", position: 2, name: "Dataset Profile", url: `${siteConfig.primaryUrl}/benchmarks` },
+            { "@type": "ListItem", position: 3, name: "Evaluated Foundation Models", url: `${siteConfig.primaryUrl}/methods` },
+            { "@type": "ListItem", position: 4, name: "Evaluation Protocol", url: `${siteConfig.primaryUrl}/evaluation` },
+          ],
+        },
+      }} />
       <section className="border-b border-border bg-[linear-gradient(to_bottom,var(--background),color-mix(in_srgb,var(--muted)_45%,var(--background)))]">
         <div className="container-wide grid min-h-[470px] items-center gap-8 py-10 md:py-12 lg:grid-cols-[1.2fr_.8fr]">
           <div>
@@ -32,7 +50,7 @@ export default async function Home() {
               Benchmarking Foundation Models for <span className="text-primary">Time Series Classification</span>
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
-              A unified benchmark spanning {benchmarkProfile.totalDatasetCount} unique time series classification datasets, with Standard and Low-shot settings, in-context and frozen-probe approaches, and comparable dataset-level reporting.
+              TSC-FM Benchmark is a time series classification benchmark for foundation models, spanning {benchmarkProfile.totalDatasetCount} unique datasets. Compare Standard and Low-shot results across in-context and frozen-probe approaches, with equal weighting for every dataset.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild><Link href="/leaderboard">Explore Leaderboard <ArrowRight className="size-4" /></Link></Button>
@@ -97,6 +115,17 @@ export default async function Home() {
       </section>
 
       <section className="container-wide py-10 md:py-12">
+        <h2 className="text-2xl font-semibold tracking-tight">A time series classification benchmark for foundation models</h2>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
+          Time series classification assigns a class label to a sequence of observations. TSC-FM evaluates how pretrained foundation models perform on this task, covering {benchmarkProfile.univariateCount} univariate and {benchmarkProfile.multivariateCount} multivariate datasets in the Standard benchmark.
+        </p>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
+          Use the <Link className="text-primary underline underline-offset-4" href="/leaderboard">classification leaderboard</Link> to compare average accuracy, average rank and dataset coverage.
+          {" "}The <Link className="text-primary underline underline-offset-4" href="/methods">model catalog</Link> links each evaluated model to its paper, code and checkpoint, while the <Link className="text-primary underline underline-offset-4" href="/evaluation">evaluation protocol</Link> explains full-training and 5-shot / 10-shot comparisons. Low-shot coverage is reported separately for each label budget.
+        </p>
+      </section>
+
+      <section className="container-wide border-t border-border py-10 md:py-12">
         <div className="grid gap-7 lg:grid-cols-[.65fr_1.35fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Protocol</p>

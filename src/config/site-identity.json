@@ -4,5 +4,5 @@
   "primaryUrl": "https://tsc-fm.dmirlab.com",
   "subtitle": "Benchmarking Foundation Models for Time Series Classification",
   "title": "TSC-FM Benchmark: Benchmarking Foundation Models for Time Series Classification",
-  "description": "Compare time series classification foundation models across 198 datasets, with univariate, multivariate and low-shot results, capability analysis and model submissions."
+  "description": "TSC-FM Benchmark is a time series classification benchmark for foundation models. Compare rankings across 198 datasets, with Standard and low-shot evaluation."
 }

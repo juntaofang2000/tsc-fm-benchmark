@@ -20,8 +20,8 @@ export default async function LeaderboardPage() {
       <PageHeader
         compact
         eyebrow="Unified ranking"
-        title="Leaderboard"
-        description="Unified evaluation of time series classification foundation models."
+        title="Time Series Classification Leaderboard"
+        description="Compare foundation models in the TSC-FM Benchmark by accuracy, average rank and coverage, with Standard and Low-shot evaluation."
       />
       <div className="container-wide py-5 md:py-6">
         <div className="mb-5 flex items-start gap-3 rounded-lg border border-primary/20 bg-primary/[0.04] px-4 py-3 text-sm">
