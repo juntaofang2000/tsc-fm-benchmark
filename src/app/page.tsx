@@ -121,7 +121,11 @@ export default async function Home() {
         </p>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
           Use the <Link className="text-primary underline underline-offset-4" href="/leaderboard">classification leaderboard</Link> to compare average accuracy, average rank and dataset coverage.
-          {" "}The <Link className="text-primary underline underline-offset-4" href="/methods">model catalog</Link> links each evaluated model to its paper, code and checkpoint, while the <Link className="text-primary underline underline-offset-4" href="/evaluation">evaluation protocol</Link> explains full-training and 5-shot / 10-shot comparisons. Low-shot coverage is reported separately for each label budget.
+          {" "}The catalog of <Link className="text-primary underline underline-offset-4" href="/methods">foundation models for time series classification</Link> provides evaluated configurations and available paper, code and checkpoint references, while the <Link className="text-primary underline underline-offset-4" href="/evaluation">evaluation protocol</Link> explains full-training and 5-shot / 10-shot comparisons. Low-shot coverage is reported separately for each label budget.
+        </p>
+        <h3 className="mt-6 text-lg font-semibold">From pretrained models to classification results</h3>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
+          Time series foundation models (TSFMs) can support classification through reusable representations or in-context prediction. TSC-FM compares these approaches under explicit label budgets and dataset scopes. Explore <Link className="text-primary underline underline-offset-4" href="/methods#classification-models">in-context models and frozen encoders</Link>, learn how <Link className="text-primary underline underline-offset-4" href="/evaluation#low-shot">few-shot time series classification</Link> is evaluated, or inspect the <Link className="text-primary underline underline-offset-4" href="/benchmarks">univariate and multivariate dataset profile</Link>. The task here is to predict class labels, rather than future values as in time series forecasting.
         </p>
       </section>
 
