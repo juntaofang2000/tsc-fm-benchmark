@@ -34,6 +34,12 @@ export default async function LeaderboardPage() {
           </div>
         </div>
         <LeaderboardView standardEntries={standardEntries} lowShotEntries={lowShotEntries} />
+        <section className="prose-panel mt-10">
+          <h2>How to compare time series classification foundation models</h2>
+          <p>Start with Standard Overall to compare configurations covering all {benchmarkProfile.totalDatasetCount} datasets. Select Univariate or Multivariate when that matches your task. A model name can appear with several classifier heads: the head is part of the evaluated configuration, so the rankings compare complete prediction procedures.</p>
+          <p>For few-shot time series classification, select Low-shot and then 5-shot or 10-shot. Compare models within the same budget and scope; dataset eligibility changes with the label budget. Average accuracy weights each eligible dataset equally, while average rank describes performance relative to the comparison set.</p>
+          <p>The leaderboard reports classification, where a sequence is assigned a class label. It does not rank time series forecasting models on future-value prediction. Inspect the model pages for checkpoints and configuration results before selecting a model.</p>
+        </section>
       </div>
     </>
   );

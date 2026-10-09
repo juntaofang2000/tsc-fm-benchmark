@@ -10,6 +10,7 @@ import { getLeaderboard } from "@/lib/data/leaderboard";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { StructuredData } from "@/components/shared/structured-data";
+import { benchmarkPublication } from "@/config/benchmark-publication";
 
 export const metadata = pageMetadata("/");
 
@@ -32,6 +33,7 @@ export default async function Home() {
         name: siteConfig.title, description: siteConfig.description, inLanguage: "en",
         isPartOf: { "@id": `${siteConfig.primaryUrl}/#website` },
         about: [{ "@type": "Thing", name: "Time series classification" }, { "@type": "Thing", name: "Foundation model evaluation" }],
+        citation: { "@type": "ScholarlyArticle", name: benchmarkPublication.title, url: benchmarkPublication.url, datePublished: benchmarkPublication.datePublished },
         mainEntity: {
           "@type": "ItemList", name: "TSC-FM Benchmark resources",
           itemListElement: [
@@ -55,6 +57,7 @@ export default async function Home() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild><Link href="/leaderboard">Explore Leaderboard <ArrowRight className="size-4" /></Link></Button>
               <Button variant="outline" asChild><Link href="/benchmarks">Dataset Profile</Link></Button>
+              <Button variant="outline" asChild><a href={benchmarkPublication.url} target="_blank" rel="noreferrer">Read the Paper</a></Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">{scope.map((item) => <Badge key={item} variant="secondary">{item}</Badge>)}</div>
           </div>
@@ -127,6 +130,19 @@ export default async function Home() {
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
           Time series foundation models (TSFMs) can support classification through reusable representations or in-context prediction. TSC-FM compares these approaches under explicit label budgets and dataset scopes. Explore <Link className="text-primary underline underline-offset-4" href="/methods#classification-models">in-context models and frozen encoders</Link>, learn how <Link className="text-primary underline underline-offset-4" href="/evaluation#low-shot">few-shot time series classification</Link> is evaluated, or inspect the <Link className="text-primary underline underline-offset-4" href="/benchmarks">univariate and multivariate dataset profile</Link>. The task here is to predict class labels, rather than future values as in time series forecasting.
         </p>
+      </section>
+
+      <section id="research-paper" className="container-wide border-t border-border py-10 md:py-12 scroll-mt-24">
+        <div className="max-w-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Research behind the benchmark</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight">{benchmarkPublication.title}</h2>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            The accompanying survey introduces the TSC-FM Benchmark and examines how the target classification procedure affects comparisons between foundation models.
+            Use the <Link href="/leaderboard" className="text-primary underline underline-offset-4">live classification results</Link> alongside the paper and the <Link href="/evaluation" className="text-primary underline underline-offset-4">evaluation protocol</Link> to check the setting, configuration and dataset scope of a comparison.
+          </p>
+          <p className="mt-3 text-xs text-muted-foreground">{benchmarkPublication.status} · Published September 24, 2026</p>
+          <a href={benchmarkPublication.url} target="_blank" rel="noreferrer" className="mt-4 inline-flex text-sm font-medium text-primary underline underline-offset-4">Read the survey and benchmark paper</a>
+        </div>
       </section>
 
       <section className="container-wide border-t border-border py-10 md:py-12">

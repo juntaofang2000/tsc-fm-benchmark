@@ -30,7 +30,7 @@ function inspect(html, path) {
   assert.ok(title && meta("description"), `${path}: missing title/description`);
   assert.equal(meta("og:title"), title, `${path}: OG title mismatch`);
   assert.equal(meta("twitter:title"), title, `${path}: Twitter title mismatch`);
-  if (path === "/") assert.equal(title, identity.title, "Homepage title must be the full title without a repeated brand suffix");
+  if (path === "/") assert.equal(title, identity.seoTitle, "Homepage search title must use the shared SEO title");
   const footer = html.match(/<footer\b[^>]*>(.*?)<\/footer>/s)?.[1] || "";
   assert.ok(footer.includes(identity.subtitle), `${path}: footer subtitle mismatch`);
   const links = [...html.matchAll(/<link\s[^>]*>/g)].map((m) => attributes(m[0]));
@@ -54,6 +54,11 @@ function inspect(html, path) {
   if (path === "/") {
     assert.ok(schemas.some((s) => s["@type"] === "CollectionPage" && s.isPartOf?.["@id"] === `${expected.primaryUrl}/#website`), "Homepage resource collection must reference the canonical website");
     assert.ok(main.includes("time series classification benchmark"), "Homepage must explain the benchmark topic in visible text");
+    assert.ok(main.includes("https://www.preprints.org/manuscript/202609.2097"), "Homepage must link to the verified benchmark paper");
+  }
+  if (path.startsWith("/methods/")) {
+    assert.ok(main.includes("data-result-setting=") && main.includes("<table"), `${path}: model results must render without opening a tab`);
+    assert.ok(main.includes('id="resources"'), `${path}: source resources must be directly accessible`);
   }
   const text = decode(main.replace(/<script\b[^>]*>.*?<\/script>|<style\b[^>]*>.*?<\/style>/gs, "").replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
   return { title, description: meta("description"), image, text };

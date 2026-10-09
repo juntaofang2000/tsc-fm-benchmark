@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { MethodDetailTabs } from "@/components/method/method-detail-tabs";
+import { MethodDetails } from "@/components/method/method-details";
 import { MethodHeader } from "@/components/method/method-header";
 import { getMethodResults } from "@/lib/data/leaderboard";
 import { getMethod, getMethodStaticSlugs } from "@/lib/data/methods";
@@ -12,7 +12,7 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const method = await getMethod((await params).slug);
   if (!method) notFound();
-  return createPageMetadata({ path: `/methods/${method.slug}`, title: `${method.name}: Time Series Classification Evaluation`, description: `${method.description} Explore evaluated configurations, model provenance, paper, code and checkpoint references.`, key: `method-${method.slug}` });
+  return createPageMetadata({ path: `/methods/${method.slug}`, title: `${method.name}: Time Series Classification Benchmark Results`, description: `Explore ${method.name} time series classification benchmark results: accuracy, ranks and coverage by evaluation setting, with configurations, paper, code and checkpoints.`, key: `method-${method.slug}` });
 }
 
 export async function generateStaticParams() { return (await getMethodStaticSlugs()).map((slug) => ({ slug })); }
@@ -25,7 +25,7 @@ export default async function MethodPage({ params }: { params: Promise<{ slug: s
     <Breadcrumbs items={[{ name: "Methods", path: "/methods" }, { name: method.name, path: `/methods/${method.slug}` }]} />
     <MethodHeader method={method} results={results} />
     <div className="container-wide py-10">
-      <MethodDetailTabs method={method} results={results} />
+      <MethodDetails method={method} results={results} />
       <section className="mt-8 rounded-xl border border-border p-5">
         <h2 className="font-semibold">Reading this model&apos;s evaluation</h2>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">The method catalog describes the pretrained model; leaderboard eligibility depends on the actual coverage of each experimental configuration. Catalog inclusion does not imply complete coverage of all 198 datasets.</p>

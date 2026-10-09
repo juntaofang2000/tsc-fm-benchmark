@@ -9,7 +9,7 @@ export function canonicalUrl(path = "/") {
 export function createPageMetadata({ path, title, description, key }: {
   path: string; title: string; description: string; key: string;
 }): Metadata {
-  const fullTitle = path === "/" ? siteConfig.title : `${title} | ${siteConfig.name}`;
+  const fullTitle = path === "/" ? siteConfig.seoTitle : `${title} | ${siteConfig.name}`;
   const image = { url: canonicalUrl(`/social/${key}.png`), width: 1200, height: 630, alt: fullTitle };
   return {
     title: { absolute: fullTitle }, description,

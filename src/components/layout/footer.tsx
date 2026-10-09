@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { benchmarkPublication } from "@/config/benchmark-publication";
 
 export function Footer() {
   return (
@@ -19,6 +20,7 @@ export function Footer() {
           <Link href="/methods" className="hover:text-foreground">Methods</Link>
           <Link href="/submit" className="hover:text-foreground">Submit a Model</Link>
           <a href={siteConfig.links.huggingFace} target="_blank" rel="noreferrer" className="hover:text-foreground">Hugging Face</a>
+          <a href={benchmarkPublication.url} target="_blank" rel="noreferrer" className="hover:text-foreground">Benchmark Paper</a>
         </div>
       </div>
     </footer>

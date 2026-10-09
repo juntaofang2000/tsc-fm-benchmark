@@ -12,6 +12,8 @@
     "build:pages": "node scripts/build-github-pages.mjs",
     "verify:hf": "node scripts/verify-huggingface-distribution.mjs",
     "verify:release": "node scripts/verify-release.mjs",
+    "verify:methods": "node scripts/verify-visible-method-results.mjs",
+    "seo:notify": "node scripts/notify-indexnow.mjs",
     "sync:mirror": "node scripts/sync-public-mirror.mjs",
     "start": "next start",
     "lint": "eslint"
