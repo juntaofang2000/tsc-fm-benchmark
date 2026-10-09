@@ -49,7 +49,7 @@ export default async function Home() {
           <div>
             <Badge variant="outline" className="mb-4">TSC-FM Benchmark</Badge>
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-[-0.04em] sm:text-5xl">
-              Benchmarking Foundation Models for <span className="text-primary">Time Series Classification</span>
+              Time Series Classification Benchmark for <span className="text-primary">Foundation Models</span>
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground">
               TSC-FM Benchmark is a time series classification benchmark for foundation models, spanning {benchmarkProfile.totalDatasetCount} unique datasets. Compare Standard and Low-shot results across in-context and frozen-probe approaches, with equal weighting for every dataset.
@@ -121,6 +121,9 @@ export default async function Home() {
         <h2 className="text-2xl font-semibold tracking-tight">A time series classification benchmark for foundation models</h2>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
           Time series classification assigns a class label to a sequence of observations. TSC-FM evaluates how pretrained foundation models perform on this task, covering {benchmarkProfile.univariateCount} univariate and {benchmarkProfile.multivariateCount} multivariate datasets in the Standard benchmark.
+        </p>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
+          The unit of comparison is a complete classification configuration: a pretrained model, its target prediction approach and a defined label budget. The same backbone can appear with different classifier heads, so compare configurations within the same dataset scope and evaluation setting rather than treating a model name as a single score.
         </p>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
           Use the <Link className="text-primary underline underline-offset-4" href="/leaderboard">classification leaderboard</Link> to compare average accuracy, average rank and dataset coverage.

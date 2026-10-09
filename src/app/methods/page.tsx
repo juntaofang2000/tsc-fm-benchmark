@@ -50,6 +50,13 @@ export default async function MethodsPage() {
         <p>Use the <Link href="/leaderboard" className="text-primary underline underline-offset-4">time series classification leaderboard</Link> to compare average accuracy, average rank and dataset coverage under the same label budget and modality scope. The catalog groups classifier heads under one backbone; the leaderboard treats each evaluated configuration separately.</p>
         <p>Standard evaluation uses the official training split. For limited-label comparisons, select Low-shot and then 5-shot or 10-shot. These settings use different feasible dataset subsets, so a higher score across settings does not by itself establish a better model. Read the <Link href="/evaluation#low-shot" className="text-primary underline underline-offset-4">few-shot classification protocol</Link> before interpreting the results.</p>
         <p>Overall scores summarize performance across datasets. To investigate where models differ, use the <Link href="/capability-map" className="text-primary underline underline-offset-4">capability analysis by dataset attributes</Link>, which evaluates its own fixed comparison core. Model detail pages provide configuration results and source references for further inspection.</p>
+        <h3>Choose the evaluation setting that matches your task</h3>
+        <ul>
+          <li>If you need predictions from labeled examples without fitting a target-specific classifier, inspect the in-context learning configurations.</li>
+          <li>If you can fit a classifier while keeping the pretrained encoder fixed, inspect frozen-probe configurations. Compare classifier heads as separate configurations, even when they share a backbone.</li>
+          <li>If only a few labels are available per class, use the matching 5-shot or 10-shot view and check dataset coverage before drawing conclusions from aggregate accuracy.</li>
+        </ul>
+        <p>The <Link href="/evaluation#how-to-evaluate" className="text-primary underline underline-offset-4">step-by-step evaluation guide</Link> explains how to select a dataset scope, label budget and prediction approach before reading the leaderboard.</p>
       </section>
     </div>
   </>;
