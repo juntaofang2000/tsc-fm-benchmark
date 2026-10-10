@@ -12,7 +12,7 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const method = await getMethod((await params).slug);
   if (!method) notFound();
-  return createPageMetadata({ path: `/methods/${method.slug}`, title: `${method.name}: Time Series Classification Benchmark Results`, description: `Explore ${method.name} time series classification benchmark results: accuracy, ranks and coverage by evaluation setting, with configurations, paper, code and checkpoints.`, key: `method-${method.slug}` });
+  return createPageMetadata({ path: `/methods/${method.slug}`, title: `${method.name}: Time Series Classification Benchmark Results`, description: `Explore ${method.name} time series classification benchmark results: accuracy, ranks and coverage by evaluation setting, with configurations, paper, code and checkpoints.`, keywords: [method.name, `${method.name} time series classification`, `${method.name} benchmark results`, "time series foundation model comparison", "TSC-FM Benchmark"], key: `method-${method.slug}` });
 }
 
 export async function generateStaticParams() { return (await getMethodStaticSlugs()).map((slug) => ({ slug })); }
