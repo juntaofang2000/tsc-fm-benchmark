@@ -50,9 +50,11 @@ function inspect(html, path) {
   if (path === "/leaderboard") {
     assert.ok(main.includes("Time Series Classification Leaderboard") && main.includes("<table"), "Leaderboard heading and results must render in main without a JavaScript reveal");
     assert.ok(!main.includes('aria-label="Loading table"'), "Leaderboard main must not be a loading placeholder");
+    assert.ok(schemas.some((s) => s["@type"] === "Dataset" && s.url === canonical(path) && s.citation?.url === "https://www.preprints.org/manuscript/202609.2097"), "Leaderboard results dataset must cite the benchmark paper");
   }
   if (path === "/") {
     assert.ok(schemas.some((s) => s["@type"] === "CollectionPage" && s.isPartOf?.["@id"] === `${expected.primaryUrl}/#website`), "Homepage resource collection must reference the canonical website");
+    assert.ok(schemas.some((s) => s["@type"] === "CollectionPage" && s.citation?.url === "https://www.preprints.org/manuscript/202609.2097"), "Homepage must associate the benchmark with the verified paper");
     assert.ok(main.includes("time series classification benchmark"), "Homepage must explain the benchmark topic in visible text");
     assert.ok(main.includes("https://www.preprints.org/manuscript/202609.2097"), "Homepage must link to the verified benchmark paper");
   }

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   // explicit primary URLs; this also prevents Pages' trailingSlash setting
   // from changing the canonical URL format used by Vercel.
   metadataBase: new URL(siteConfig.isStaticMirror ? process.env.NEXT_PUBLIC_SITE_URL || siteConfig.primaryUrl : siteConfig.primaryUrl),
-  title: { default: siteConfig.title, template: `%s | ${siteConfig.name}` },
+  title: { default: siteConfig.seoTitle, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.maintainer.name, url: siteConfig.maintainer.url }],
@@ -26,5 +26,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { colorScheme: "light dark", themeColor: [{ media: "(prefers-color-scheme: light)", color: "#ffffff" }, { media: "(prefers-color-scheme: dark)", color: "#09090b" }] };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" suppressHydrationWarning><body><StructuredData data={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${siteConfig.primaryUrl}/#website`, url: `${siteConfig.primaryUrl}/`, name: siteConfig.name, alternateName: [siteConfig.shortName, siteConfig.title], sameAs: [siteConfig.links.huggingFace], image: `${siteConfig.primaryUrl}/social/home.png`, description: siteConfig.description, inLanguage: "en", publisher: siteConfig.publishers.map((publisher) => ({ "@type": "Organization", name: publisher.name, ...("url" in publisher ? { url: publisher.url } : {}) })), maintainer: { "@type": "Person", name: siteConfig.maintainer.name, url: siteConfig.maintainer.url } }} /><ThemeProvider><TooltipProvider delayDuration={250}><div className="flex min-h-screen flex-col"><Navbar /><main className="flex-1">{children}</main><Footer /></div><Toaster richColors position="bottom-right" /></TooltipProvider></ThemeProvider>{!siteConfig.isStaticMirror && <Analytics />}</body></html>;
+  return <html lang="en" suppressHydrationWarning><body><StructuredData data={{ "@context": "https://schema.org", "@type": "WebSite", "@id": `${siteConfig.primaryUrl}/#website`, url: `${siteConfig.primaryUrl}/`, name: siteConfig.name, alternateName: [siteConfig.shortName], sameAs: [siteConfig.links.huggingFace], image: `${siteConfig.primaryUrl}/social/home.png`, description: siteConfig.description, inLanguage: "en", publisher: siteConfig.publishers.map((publisher) => ({ "@type": "Organization", name: publisher.name, ...("url" in publisher ? { url: publisher.url } : {}) })), maintainer: { "@type": "Person", name: siteConfig.maintainer.name, url: siteConfig.maintainer.url } }} /><ThemeProvider><TooltipProvider delayDuration={250}><div className="flex min-h-screen flex-col"><Navbar /><main className="flex-1">{children}</main><Footer /></div><Toaster richColors position="bottom-right" /></TooltipProvider></ThemeProvider>{!siteConfig.isStaticMirror && <Analytics />}</body></html>;
 }

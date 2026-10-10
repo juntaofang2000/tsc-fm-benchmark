@@ -6,6 +6,9 @@ import { getLowShotLeaderboards, getStandardLeaderboards } from "@/lib/data/lead
 import { pageMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { benchmarkProfile } from "@/data/official/benchmark-profile";
+import { benchmarkPublication } from "@/config/benchmark-publication";
+import { siteConfig } from "@/config/site";
+import { StructuredData } from "@/components/shared/structured-data";
 
 export const metadata = pageMetadata("/leaderboard");
 
@@ -16,6 +19,18 @@ export default async function LeaderboardPage() {
   ]);
   return (
     <>
+      <StructuredData data={{
+        "@context": "https://schema.org", "@type": "Dataset",
+        "@id": `${siteConfig.primaryUrl}/leaderboard#dataset`,
+        name: "TSC-FM Benchmark Classification Results",
+        description: "Public aggregate accuracy, average rank, and dataset coverage for foundation model classification configurations evaluated across 198 time series datasets under Standard and Low-shot settings.",
+        url: `${siteConfig.primaryUrl}/leaderboard`,
+        mainEntityOfPage: `${siteConfig.primaryUrl}/leaderboard`,
+        creator: siteConfig.publishers.map((publisher) => ({ "@type": "Organization", name: publisher.name, ...("url" in publisher ? { url: publisher.url } : {}) })),
+        citation: { "@type": "ScholarlyArticle", "@id": benchmarkPublication.url, name: benchmarkPublication.title, url: benchmarkPublication.url, datePublished: benchmarkPublication.datePublished },
+        keywords: ["time series classification", "foundation models", "benchmark results", "TSC-FM"],
+        isAccessibleForFree: true,
+      }} />
       <Breadcrumbs items={[{ name: "Leaderboard", path: "/leaderboard" }]} />
       <PageHeader
         compact

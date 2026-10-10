@@ -30,10 +30,10 @@ export default async function Home() {
       <StructuredData data={{
         "@context": "https://schema.org", "@type": "CollectionPage",
         "@id": `${siteConfig.primaryUrl}/#webpage`, url: `${siteConfig.primaryUrl}/`,
-        name: siteConfig.title, description: siteConfig.description, inLanguage: "en",
+        name: siteConfig.seoTitle, description: siteConfig.description, inLanguage: "en",
         isPartOf: { "@id": `${siteConfig.primaryUrl}/#website` },
-        about: [{ "@type": "Thing", name: "Time series classification" }, { "@type": "Thing", name: "Foundation model evaluation" }],
-        citation: { "@type": "ScholarlyArticle", name: benchmarkPublication.title, url: benchmarkPublication.url, datePublished: benchmarkPublication.datePublished },
+        about: [{ "@type": "Thing", name: "Time series classification" }, { "@type": "Thing", name: "Foundation model evaluation" }, { "@id": `${siteConfig.primaryUrl}/leaderboard#dataset` }],
+        citation: { "@type": "ScholarlyArticle", "@id": benchmarkPublication.url, name: benchmarkPublication.title, url: benchmarkPublication.url, datePublished: benchmarkPublication.datePublished },
         mainEntity: {
           "@type": "ItemList", name: "TSC-FM Benchmark resources",
           itemListElement: [
