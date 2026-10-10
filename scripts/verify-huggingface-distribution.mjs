@@ -25,10 +25,12 @@ for (const [label, content] of [["Space", html], ["Organization Card", cardReadm
 assert.match(spaceReadme, /^---[\s\S]*?sdk: static[\s\S]*?---/, "Space README must configure the static SDK");
 assert.match(cardReadme, /^---[\s\S]*?title: README[\s\S]*?sdk: static[\s\S]*?---/, "Organization Card must be a README Static Space");
 assert.ok(html.includes(`<title>${identity.title}</title>`), "Space title must match the official full title");
-for (const [label, content] of [["Space", html], ["Space README", spaceReadme], ["Organization Card", cardReadme]]) {
+for (const [label, content] of [["Space", html], ["Space README", spaceReadme]]) {
   assert.ok(content.includes(identity.subtitle), `${label}: shared subtitle is missing`);
   assert.ok(!/Submit (?:benchmark )?results/.test(content), `${label}: submission link should describe submitting a model`);
 }
+assert.ok(cardReadme.includes("<p>Time Series Classification Benchmark for Foundation Models</p>"), "Organization Card subtitle must match the official site heading");
+assert.ok(!/Submit (?:benchmark )?results/.test(cardReadme), "Organization Card: submission link should describe submitting a model");
 assert.match(html, /rel="canonical" href="https:\/\/tsc-fm\.dmirlab\.com\/"/, "Space canonical URL must point to the official site");
 assert.match(app, /https:\/\/tsc-fm\.dmirlab\.com\/api\/public\/space-summary/, "Space must read the official summary endpoint");
 assert.match(app, /cache: "no-store"/, "Space must bypass browser cache for benchmark data");
