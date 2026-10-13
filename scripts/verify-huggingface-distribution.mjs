@@ -23,6 +23,8 @@ for (const [label, content] of [["Space", html], ["Organization Card", cardReadm
 }
 
 assert.match(spaceReadme, /^---[\s\S]*?sdk: static[\s\S]*?---/, "Space README must configure the static SDK");
+const shortDescription = spaceReadme.match(/^short_description:\s*(.+)$/m)?.[1];
+assert.ok(shortDescription && shortDescription.length <= 60, "Space short_description must fit Hugging Face's 60-character limit");
 assert.match(cardReadme, /^---[\s\S]*?title: README[\s\S]*?sdk: static[\s\S]*?---/, "Organization Card must be a README Static Space");
 assert.ok(html.includes("<title>Time Series Classification Benchmark for Foundation Models | TSC-FM</title>"), "Space title must describe the leaderboard's search topic");
 for (const [label, content] of [["Space", html], ["Space README", spaceReadme]]) {

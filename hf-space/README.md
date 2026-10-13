@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: green
 sdk: static
 pinned: true
-short_description: Live TSC-FM leaderboard overview across 198 time series classification datasets
+short_description: Time series classification benchmark for foundation models
 ---
 
 # Time Series Classification Benchmark for Foundation Models
