@@ -18,7 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: huggingface/hub-sync@v0.1.0
+      - name: Verify Hugging Face publishing secret
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::HF_TOKEN repository secret is missing or empty. Add a Hugging Face write token in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+      - uses: huggingface/hub-sync@v0.3.0
         with:
           github_repo_id: ${{ github.repository }}
           huggingface_repo_id: TSC-FM/benchmark
@@ -32,7 +40,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: huggingface/hub-sync@v0.1.0
+      - name: Verify Hugging Face publishing secret
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "::error::HF_TOKEN repository secret is missing or empty. Add a Hugging Face write token in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+      - uses: huggingface/hub-sync@v0.3.0
         with:
           github_repo_id: ${{ github.repository }}
           huggingface_repo_id: TSC-FM/README
@@ -40,3 +56,4 @@ jobs:
           space_sdk: static
           subdirectory: hf-organization-card
           hf_token: ${{ secrets.HF_TOKEN }}
+
