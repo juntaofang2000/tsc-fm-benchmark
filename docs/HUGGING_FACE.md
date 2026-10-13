@@ -1,6 +1,6 @@
 # Hugging Face distribution
 
-The Hugging Face presence is a discovery layer for the official TSC-FM Benchmark. It does not become a second result store.
+The Hugging Face presence is a discovery layer for the official TSC-FM Benchmark. Its overview has distinct descriptive content and a self-canonical URL so it may appear independently in search results. It does not become a second result store.
 
 ## Public repositories
 

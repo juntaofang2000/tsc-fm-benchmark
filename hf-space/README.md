@@ -1,18 +1,18 @@
 ---
-title: TSC-FM Benchmark
+title: Time Series Classification Benchmark for Foundation Models
 emoji: 📈
 colorFrom: blue
 colorTo: green
 sdk: static
 pinned: true
-short_description: Time series classification foundation model benchmark
+short_description: Live TSC-FM leaderboard overview across 198 time series classification datasets
 ---
 
-# TSC-FM Benchmark
+# Time Series Classification Benchmark for Foundation Models
 
 Benchmarking Foundation Models for Time Series Classification
 
-This Static Space is a compact, read-only entry point for the TSC-FM Benchmark. Its benchmark summary and Top 5 table are loaded live from the official site, so published results stay aligned with the canonical leaderboard.
+This Static Space is a compact, read-only Hugging Face overview of the TSC-FM Benchmark. It introduces the time series classification leaderboard, which compares foundation model configurations across 198 univariate and multivariate datasets. The benchmark summary and Top 5 table are loaded live from the official site, so published results stay aligned with the full leaderboard.
 
 - [Official time series classification benchmark](https://tsc-fm.dmirlab.com/)
 - [Time series classification leaderboard](https://tsc-fm.dmirlab.com/leaderboard)

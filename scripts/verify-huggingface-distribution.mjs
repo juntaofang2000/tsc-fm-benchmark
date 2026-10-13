@@ -24,14 +24,15 @@ for (const [label, content] of [["Space", html], ["Organization Card", cardReadm
 
 assert.match(spaceReadme, /^---[\s\S]*?sdk: static[\s\S]*?---/, "Space README must configure the static SDK");
 assert.match(cardReadme, /^---[\s\S]*?title: README[\s\S]*?sdk: static[\s\S]*?---/, "Organization Card must be a README Static Space");
-assert.ok(html.includes(`<title>${identity.title}</title>`), "Space title must match the official full title");
+assert.ok(html.includes("<title>Time Series Classification Benchmark for Foundation Models | TSC-FM</title>"), "Space title must describe the leaderboard's search topic");
 for (const [label, content] of [["Space", html], ["Space README", spaceReadme]]) {
-  assert.ok(content.includes(identity.subtitle), `${label}: shared subtitle is missing`);
   assert.ok(!/Submit (?:benchmark )?results/.test(content), `${label}: submission link should describe submitting a model`);
 }
+assert.ok(spaceReadme.includes(identity.subtitle), "Space README must retain the shared benchmark subtitle");
 assert.ok(cardReadme.includes("<p>Time Series Classification Benchmark for Foundation Models</p>"), "Organization Card subtitle must match the official site heading");
 assert.ok(!/Submit (?:benchmark )?results/.test(cardReadme), "Organization Card: submission link should describe submitting a model");
-assert.match(html, /rel="canonical" href="https:\/\/tsc-fm\.dmirlab\.com\/"/, "Space canonical URL must point to the official site");
+assert.match(html, /rel="canonical" href="https:\/\/tsc-fm-benchmark\.static\.hf\.space\/"/, "Space must declare its distinct Hugging Face overview URL");
+assert.ok(html.includes("128 univariate and 70 multivariate datasets") && html.includes("https://tsc-fm.dmirlab.com/leaderboard"), "Space must explain the leaderboard in crawlable HTML and link to complete results");
 assert.match(app, /https:\/\/tsc-fm\.dmirlab\.com\/api\/public\/space-summary/, "Space must read the official summary endpoint");
 assert.match(app, /cache: "no-store"/, "Space must bypass browser cache for benchmark data");
 assert.match(app, /content\.classList\.add\("is-hidden"\)/, "Space must hide results after a live-data failure");

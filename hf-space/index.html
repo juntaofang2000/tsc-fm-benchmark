@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TSC-FM Benchmark: Benchmarking Foundation Models for Time Series Classification</title>
-    <meta name="description" content="A live overview of TSC-FM, a benchmark for time series classification foundation models." />
+    <title>Time Series Classification Benchmark for Foundation Models | TSC-FM</title>
+    <meta name="description" content="Explore the TSC-FM Hugging Face leaderboard overview for foundation models in time series classification, covering 198 datasets and Standard and Low-shot evaluation." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://tsc-fm.dmirlab.com/" />
+    <link rel="canonical" href="https://tsc-fm-benchmark.static.hf.space/" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app.js" defer></script>
@@ -23,12 +23,17 @@
     <main>
       <section class="hero">
         <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live benchmark snapshot</div>
-        <h1>Benchmarking Foundation Models for Time Series Classification</h1>
-        <p class="lede">A compact view of the official TSC-FM benchmark, with results fetched directly from the canonical site on every visit.</p>
+        <h1>Time Series Classification Benchmark for Foundation Models</h1>
+        <p class="lede">A Hugging Face overview of the TSC-FM leaderboard. Compare foundation model configurations for time series classification across 198 datasets; current results are fetched from the official benchmark on every visit.</p>
         <div class="actions">
           <a class="button primary" href="https://tsc-fm.dmirlab.com/leaderboard" target="_blank" rel="noreferrer">Explore full leaderboard</a>
           <a class="button secondary" href="https://tsc-fm.dmirlab.com/submit" target="_blank" rel="noreferrer">Submit a model</a>
         </div>
+      </section>
+
+      <section class="panel" aria-labelledby="benchmark-overview-title">
+        <h2 id="benchmark-overview-title">What this leaderboard compares</h2>
+        <p>TSC-FM evaluates foundation models for time series classification on 128 univariate and 70 multivariate datasets. Standard and Low-shot results use separate label budgets; in-context prediction and frozen-probe evaluation describe how each configuration makes predictions. The live Top 5 below offers a quick view, while the <a href="https://tsc-fm.dmirlab.com/leaderboard">full leaderboard</a> provides accuracy, average rank, coverage, and evaluation settings.</p>
       </section>
 
       <div id="load-status" class="status" role="status" aria-live="polite">Connecting to the official benchmark…</div>
