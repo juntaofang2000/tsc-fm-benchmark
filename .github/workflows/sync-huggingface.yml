@@ -23,7 +23,7 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           if [ -z "$HF_TOKEN" ]; then
-            echo "::error::HF_TOKEN repository secret is missing or empty. Add a Hugging Face write token in Settings > Secrets and variables > Actions."
+            echo "::error::HF_TOKEN is empty. Store the token value (not its Hugging Face display name) as a repository Actions secret named HF_TOKEN; an Actions variable is not sufficient."
             exit 1
           fi
       - uses: huggingface/hub-sync@v0.3.0
@@ -45,7 +45,7 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           if [ -z "$HF_TOKEN" ]; then
-            echo "::error::HF_TOKEN repository secret is missing or empty. Add a Hugging Face write token in Settings > Secrets and variables > Actions."
+            echo "::error::HF_TOKEN is empty. Store the token value (not its Hugging Face display name) as a repository Actions secret named HF_TOKEN; an Actions variable is not sufficient."
             exit 1
           fi
       - uses: huggingface/hub-sync@v0.3.0
