@@ -50,7 +50,12 @@ function inspect(html, path) {
   if (path === "/leaderboard") {
     assert.ok(main.includes("Time Series Classification Leaderboard") && main.includes("<table"), "Leaderboard heading and results must render in main without a JavaScript reveal");
     assert.ok(!main.includes('aria-label="Loading table"'), "Leaderboard main must not be a loading placeholder");
-    assert.ok(schemas.some((s) => s["@type"] === "Dataset" && s.url === canonical(path) && s.citation?.url === "https://www.preprints.org/manuscript/202609.2097"), "Leaderboard results dataset must cite the benchmark paper");
+    for (const marker of ["server-summary-standard", "server-summary-5-shot", "server-summary-10-shot", "server-summary-modality"]) {
+      assert.ok(main.includes(`data-testid="${marker}"`), `Leaderboard must prerender ${marker}`);
+    }
+    assert.ok((main.match(/<table\b/g) || []).length >= 4, "Leaderboard must prerender the interactive table and three setting summaries");
+    assert.ok(main.includes("Protocol v0.1") && main.includes("How ranking works"), "Leaderboard must publish its version and ranking definition");
+    assert.ok(schemas.some((s) => s["@type"] === "Dataset" && s.url === canonical(path) && String(s.citation).includes("https://www.preprints.org/manuscript/202609.2097")), "Leaderboard results dataset must cite the benchmark paper");
   }
   if (path === "/") {
     assert.ok(schemas.some((s) => s["@type"] === "CollectionPage" && s.isPartOf?.["@id"] === `${expected.primaryUrl}/#website`), "Homepage resource collection must reference the canonical website");
@@ -127,3 +132,4 @@ if (!staticOnly) for (const base of [primary, mirror]) for (const path of ["/ben
 mkdirSync("artifacts/seo", { recursive: true });
 writeFileSync(`artifacts/seo/${staticOnly ? "export" : "live"}-verification.json`, JSON.stringify({ checkedAt: new Date().toISOString(), ...expected, primary, mirror, canonicalPages: paths.length, aliases: Object.keys(aliases).length, result: "passed" }, null, 2));
 console.log(`PASS: ${paths.length} canonical pages, ${Object.keys(aliases).length} aliases, matching release ${expected.contentRevision}`);
+
