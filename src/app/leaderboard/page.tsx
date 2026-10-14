@@ -1,5 +1,6 @@
 import { AlertCircle } from "lucide-react";
 import { LeaderboardView } from "@/components/leaderboard/leaderboard-view";
+import { LeaderboardStaticSummary } from "@/components/leaderboard/leaderboard-static-summary";
 import { PageHeader } from "@/components/shared/page-header";
 import { getLowShotLeaderboards, getStandardLeaderboards } from "@/lib/data/leaderboard";
 
@@ -9,6 +10,7 @@ import { benchmarkProfile } from "@/data/official/benchmark-profile";
 import { benchmarkPublication } from "@/config/benchmark-publication";
 import { siteConfig } from "@/config/site";
 import { StructuredData } from "@/components/shared/structured-data";
+import release from "../../../public/release.json";
 
 export const metadata = pageMetadata("/leaderboard");
 
@@ -27,8 +29,10 @@ export default async function LeaderboardPage() {
         url: `${siteConfig.primaryUrl}/leaderboard`,
         mainEntityOfPage: `${siteConfig.primaryUrl}/leaderboard`,
         creator: siteConfig.publishers.map((publisher) => ({ "@type": "Organization", name: publisher.name, ...("url" in publisher ? { url: publisher.url } : {}) })),
-        citation: { "@type": "ScholarlyArticle", "@id": benchmarkPublication.url, name: benchmarkPublication.title, url: benchmarkPublication.url, datePublished: benchmarkPublication.datePublished },
+        citation: `${benchmarkPublication.title}. ${benchmarkPublication.url}`,
         keywords: ["time series classification", "foundation models", "benchmark results", "TSC-FM"],
+        version: release.contentRevision.slice(0, 12),
+        measurementTechnique: "Average accuracy and per-dataset average rank under TSC-FM Benchmark Protocol v0.1",
         isAccessibleForFree: true,
       }} />
       <Breadcrumbs items={[{ name: "Leaderboard", path: "/leaderboard" }]} />
@@ -49,6 +53,11 @@ export default async function LeaderboardPage() {
           </div>
         </div>
         <LeaderboardView standardEntries={standardEntries} lowShotEntries={lowShotEntries} />
+        <LeaderboardStaticSummary
+          standardEntries={standardEntries}
+          lowShotEntries={lowShotEntries}
+          releaseId={release.contentRevision.slice(0, 12)}
+        />
         <section className="prose-panel mt-10">
           <h2>How to compare time series classification foundation models</h2>
           <p>Start with Standard Overall to compare configurations covering all {benchmarkProfile.totalDatasetCount} datasets. Select Univariate or Multivariate when that matches your task. A model name can appear with several classifier heads: the head is part of the evaluated configuration, so the rankings compare complete prediction procedures.</p>
@@ -59,3 +68,4 @@ export default async function LeaderboardPage() {
     </>
   );
 }
+
