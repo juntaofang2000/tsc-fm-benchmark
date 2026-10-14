@@ -11,6 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 import { StructuredData } from "@/components/shared/structured-data";
 import { benchmarkPublication } from "@/config/benchmark-publication";
+import { HomeResearchSummary } from "@/components/home/home-research-summary";
 
 export const metadata = pageMetadata("/");
 
@@ -61,7 +62,7 @@ export default async function Home() {
             </div>
             <div className="mt-6 flex flex-wrap gap-2">{scope.map((item) => <Badge key={item} variant="secondary">{item}</Badge>)}</div>
           </div>
-          <div className="hidden lg:block">
+          <div>
             <Card className="overflow-hidden">
               <div className="border-b border-border bg-muted/50 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">Benchmark composition</div>
               <CardContent className="pt-4">
@@ -104,23 +105,12 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-muted/25">
-        <div className="container-wide py-10 md:py-12">
-          <div className="mb-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Dataset profile</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">Benchmark Composition</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">A high-level view of the benchmark without publishing individual dataset or suite identities.</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map(([label, value]) => <Card key={label}><CardContent className="pt-5"><p className="text-sm text-muted-foreground">{label}</p><p className="mt-2 text-3xl font-semibold tabular-nums">{value}</p></CardContent></Card>)}
-          </div>
-        </div>
-      </section>
+      <HomeResearchSummary />
 
       <section className="container-wide py-10 md:py-12">
-        <h2 className="text-2xl font-semibold tracking-tight">A time series classification benchmark for foundation models</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Choose a configuration for your classification task</h2>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
-          Time series classification assigns a class label to a sequence of observations. TSC-FM evaluates how pretrained foundation models perform on this task, covering {benchmarkProfile.univariateCount} univariate and {benchmarkProfile.multivariateCount} multivariate datasets in the Standard benchmark.
+          Start with the input type and the number of labels available for your task. Standard uses the full official training split; 5-shot and 10-shot use five or ten labels per class on their own eligible dataset pools. Then choose whether you need in-context prediction or a frozen encoder with a fitted classifier.
         </p>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
           The unit of comparison is a complete classification configuration: a pretrained model, its target prediction approach and a defined label budget. The same backbone can appear with different classifier heads, so compare configurations within the same dataset scope and evaluation setting rather than treating a model name as a single score.
@@ -129,9 +119,9 @@ export default async function Home() {
           Use the <Link className="text-primary underline underline-offset-4" href="/leaderboard">classification leaderboard</Link> to compare average accuracy, average rank and dataset coverage.
           {" "}The catalog of <Link className="text-primary underline underline-offset-4" href="/methods">foundation models for time series classification</Link> provides evaluated configurations and available paper, code and checkpoint references, while the <Link className="text-primary underline underline-offset-4" href="/evaluation">evaluation protocol</Link> explains full-training and 5-shot / 10-shot comparisons. Low-shot coverage is reported separately for each label budget.
         </p>
-        <h3 className="mt-6 text-lg font-semibold">From pretrained models to classification results</h3>
+        <h3 className="mt-6 text-lg font-semibold">Scope and limits of the published results</h3>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted-foreground">
-          Time series foundation models (TSFMs) can support classification through reusable representations or in-context prediction. TSC-FM compares these approaches under explicit label budgets and dataset scopes. Explore <Link className="text-primary underline underline-offset-4" href="/methods#classification-models">in-context models and frozen encoders</Link>, learn how <Link className="text-primary underline underline-offset-4" href="/evaluation#low-shot">few-shot time series classification</Link> is evaluated, or inspect the <Link className="text-primary underline underline-offset-4" href="/benchmarks">univariate and multivariate dataset profile</Link>. The task here is to predict class labels, rather than future values as in time series forecasting.
+          These rankings summarize classification accuracy on the published task pools. They do not establish the best model for every individual dataset, measure forecasting quality, or rank deployment latency and memory. The public site reports aggregate results and dataset profiles; it does not publish individual dataset or suite identities. Read the <Link className="text-primary underline underline-offset-4" href="/evaluation#ranking">ranking definitions</Link> and <Link className="text-primary underline underline-offset-4" href="/benchmarks">dataset coverage</Link> before transferring a result to a new application.
         </p>
       </section>
 
@@ -144,6 +134,9 @@ export default async function Home() {
             Use the <Link href="/leaderboard" className="text-primary underline underline-offset-4">live classification results</Link> alongside the paper and the <Link href="/evaluation" className="text-primary underline underline-offset-4">evaluation protocol</Link> to check the setting, configuration and dataset scope of a comparison.
           </p>
           <p className="mt-3 text-xs text-muted-foreground">{benchmarkPublication.status} · Published September 24, 2026</p>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
+            Jointly released by {siteConfig.publishers.map((publisher) => publisher.name).join(" and ")}. Maintained by <a href={siteConfig.maintainer.url} className="text-primary underline underline-offset-4">{siteConfig.maintainer.name}</a>. New model submissions are reviewed before their results enter the official leaderboard.
+          </p>
           <a href={benchmarkPublication.url} target="_blank" rel="noreferrer" className="mt-4 inline-flex text-sm font-medium text-primary underline underline-offset-4">Read the survey and benchmark paper</a>
         </div>
       </section>

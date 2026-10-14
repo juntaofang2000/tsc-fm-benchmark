@@ -62,6 +62,14 @@ function inspect(html, path) {
     assert.ok(schemas.some((s) => s["@type"] === "CollectionPage" && s.citation?.url === "https://www.preprints.org/manuscript/202609.2097"), "Homepage must associate the benchmark with the verified paper");
     assert.ok(main.includes("time series classification benchmark"), "Homepage must explain the benchmark topic in visible text");
     assert.ok(main.includes("https://www.preprints.org/manuscript/202609.2097"), "Homepage must link to the verified benchmark paper");
+    const findings = main.match(/<div data-testid="home-research-findings"[^>]*>(.*?)<\/section>/s)?.[1];
+    assert.ok(findings, "Homepage research observations must be present in initial HTML");
+    const published = JSON.parse(readFileSync("src/data/official/public-leaderboards.json", "utf8"));
+    const observations = [published.standard.Overall[0], published.standard.Overall[1], ...Object.values(published.lowShot).flatMap((scopes) => [scopes.Overall[0], scopes.Univariate[0], scopes.Multivariate[0]])];
+    for (const row of observations) {
+      assert.ok(decode(findings).includes(row.method) && findings.includes(row.avgAccuracy.toFixed(2)), "Homepage observations must match the published leaderboard");
+    }
+    assert.ok(findings.includes("does not establish statistical significance") && findings.includes("would not isolate the effect of adding labels"), "Homepage must qualify aggregate and cross-budget comparisons");
   }
   if (path.startsWith("/methods/")) {
     assert.ok(main.includes("data-result-setting=") && main.includes("<table"), `${path}: model results must render without opening a tab`);
