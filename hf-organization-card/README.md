@@ -13,7 +13,7 @@ pinned: false
   <p>Time Series Classification Benchmark for Foundation Models</p>
 </div>
 
-TSC-FM provides an official leaderboard, dataset profile, capability analysis, evaluation protocol, and a maintained submission workflow. The Hugging Face organization is the public model-community entry point; the canonical benchmark and its submissions remain on the official site.
+TSC-FM is a public benchmark and leaderboard for evaluating time series foundation models on 198 classification datasets, including 128 univariate and 70 multivariate datasets. It reports Standard, low-shot, in-context learning, and frozen-probe results, together with dataset profiles, capability analysis, evaluation protocols, and a maintained model-submission workflow. The Hugging Face organization is the public model-community entry point; the canonical benchmark and its submissions remain on the official site.
 
 ## Start here
 
